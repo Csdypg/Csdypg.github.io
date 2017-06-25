@@ -214,7 +214,7 @@ sidebar:
 #links_layout: block
 #links_layout: inline
 links:
-  Title: http://example.com/
+    Phaser: http://phaser.io
 
 
 # ---------------------------------------------------------------
@@ -626,8 +626,8 @@ css: css
 js: js
 images: images
 
-reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作！
-wechatpay: /path/to/wechat-reward-image
-alipay: /path/to/alipay-reward-image
+reward_comment: Enjoy it ? Donate me !  欣赏此文？支持一下 !
+wechatpay: /images/wechat_pay.png
+alipay: /images/ali_pay.jpg
 # Theme version
 version: 5.1.1
