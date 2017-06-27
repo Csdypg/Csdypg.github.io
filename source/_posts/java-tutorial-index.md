@@ -26,6 +26,8 @@ Java 学习指南跟随Java 平台的升级持续更新，并吸收整理了来�
 当前版本的学习指南对应JDC8u101版本。
 两个新的处理限定属性entityReplacementLimit，maxXMLNameLimit已经加入到JAXP。详情参见 [Processing limit]()。
 
+<!--more-->
+
 
 ## 基础学习路径
 这些学习路径在 *The Java Tutorial， Sixth Edition* 一书中也可以找到。如果想购买此书，可以参考右边方框的内容。
