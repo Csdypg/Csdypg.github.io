@@ -21,7 +21,7 @@ keywords:
 * ["Hello world!"应用]() 手把手的教你如何下载安装Java开发环境，以及如创建一个简单的"Hello world!"应用。分别提供了NetBeans IDE，Windows，Solaris OS，Linux，以及Mac用户版本的教程。
 * [深入了解"Hello World!"]()  详细描述了"Hello World!"应用的每一部分代码，包括代码注释，HelloWorldApp类定义代码块，以及main方法。
 * [常见问题以及解决方法]() 如果你在编译几运行项目中遇到麻烦可以在这里找到问题。
-
+<!--more-->
 # 课程：Java技术现象
 
 好像到处都在谈论Java ，那么到底什么是Java？接下来的几个章节将介绍为什么Java即使编程语言又是开发平台，并简单介绍Java可以为你带来什么。
