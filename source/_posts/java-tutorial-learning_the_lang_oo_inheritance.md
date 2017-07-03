@@ -1,5 +1,5 @@
 ---
-title: Java 学习指南_Java语言基础：O_O什么是Inheritance继承？
+title: Java 学习指南_学习Java：O_O什么是Inheritance继承？
 date: 2017-07-02 15:38:59
 tags: 
 - java

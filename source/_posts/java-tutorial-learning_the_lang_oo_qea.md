@@ -1,5 +1,5 @@
 ---
-title: Java学习指南_Java语言基础：O_O问题及练习？
+title: Java学习指南_学习Java：O_O问题及练习？
 date: 2017-07-03 11:20:59
 tags: 
 - java
