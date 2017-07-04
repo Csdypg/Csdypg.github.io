@@ -1,5 +1,5 @@
 ---
-title: Java 学习指南_学习Java：语言基础
+title: Java 学习指南_学习Java：基础
 date: 2017-07-03 14:36:59
 tags: 
 - java
@@ -13,7 +13,7 @@ keywords:
 - tutorial
 ---
 
-# 课程: 语言基础
+# 课程: 基础
 
 #### 变量Variables
 

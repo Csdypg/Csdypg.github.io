@@ -1,6 +1,6 @@
 ---
-title: Java 学习指南_学习Java：基本数据类型Primitive Data Types
-date: 2017-07-03 16:56:59
+title: Java 学习指南_学习Java：基础—基本数据类型Primitive Data Types
+date: 2017-07-05 01:56:59
 tags: 
 - java
 - tutorial
@@ -23,26 +23,57 @@ int gear = 1;
 
 这么做的目的是告诉程序一个命名为“gear",保存着数字类型的数据，初始值为1的实例变量。一个变量的数据类型决定了他可以存储什么样的值，以及可以对他进行什么样的操作。除了`int`,Java还支持其他七种基本数据类型。基本数据类型是编程语言预定义并用保留关键字命名的。基本数据类型不能用其他基本数据类型共享状态。八种基本数据类型分别如下：
 
-* **byte：**`byte`数据类型是一种带符号的8位二进制整数。它的最小值是-128，最大值为127.
+* **byte：**`byte`数据类型是一种带符号的8位二进制整数。它的最小值是-128，最大值为127.`byte`数据类型在大型的数组中使用可以用来节省内存，有时候节省内存很重要。`byte`同样可以用来代替`int`，因为`byte`数据的有限范围可你使你的代码更清晰。事实上有限的变量序列可以作为文档的一种组织形式。
 
-Doing so tells your program that a field named "gear" exists, holds numerical data, and has an initial value of "1". A variable's data type determines the values it may contain, plus the operations that may be performed on it. In addition to `int`, the Java programming language supports seven other *primitive data types*. A primitive type is predefined by the language and is named by a reserved keyword. Primitive values do not share state with other primitive values. The eight primitive data types supported by the Java programming language are:
+- **short**:`short`数据类型是一种16位的带符号二进制整数。最小值为-32,768最大值为32767.就像`byte`一样，之前的说明同样适用。当节省内存很有必要的时候，你也可以在大型数组中适用`short`来节省内存。
 
-- **byte**: The `byte` data type is an 8-bit signed two's complement integer. It has a minimum value of -128 and a maximum value of 127 (inclusive). The `byte` data type can be useful for saving memory in large [arrays](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html), where the memory savings actually matters. They can also be used in place of `int` where their limits help to clarify your code; the fact that a variable's range is limited can serve as a form of documentation.
-- **short**: The `short` data type is a 16-bit signed two's complement integer. It has a minimum value of -32,768 and a maximum value of 32,767 (inclusive). As with `byte`, the same guidelines apply: you can use a `short` to save memory in large arrays, in situations where the memory savings actually matters.
-- **int**: By default, the `int` data type is a 32-bit signed two's complement integer, which has a minimum value of -231 and a maximum value of 231-1. In Java SE 8 and later, you can use the `int` data type to represent an unsigned 32-bit integer, which has a minimum value of 0 and a maximum value of 232-1. Use the Integer class to use `int` data type as an unsigned integer. See the section The Number Classes for more information. Static methods like `compareUnsigned`, `divideUnsigned` etc have been added to the[`Integer`](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html) class to support the arithmetic operations for unsigned integers.
-- **long**: The `long` data type is a 64-bit two's complement integer. The signed long has a minimum value of -263 and a maximum value of 263-1. In Java SE 8 and later, you can use the `long` data type to represent an unsigned 64-bit long, which has a minimum value of 0 and a maximum value of 264-1. Use this data type when you need a range of values wider than those provided by `int`. The [`Long`](https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html)class also contains methods like `compareUnsigned`, `divideUnsigned` etc to support arithmetic operations for unsigned long.
-- **float**: The `float` data type is a single-precision 32-bit IEEE 754 floating point. Its range of values is beyond the scope of this discussion, but is specified in the [Floating-Point Types, Formats, and Values](https://docs.oracle.com/javase/specs/jls/se7/html/jls-4.html#jls-4.2.3) section of the Java Language Specification. As with the recommendations for `byte` and `short`, use a `float` (instead of `double`) if you need to save memory in large arrays of floating point numbers. This data type should never be used for precise values, such as currency. For that, you will need to use the[java.math.BigDecimal](https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html) class instead. [Numbers and Strings](http://docs.oracle.com/javase/tutorial/java/data/index.html) covers `BigDecimal` and other useful classes provided by the Java platform.
-- **double**: The `double` data type is a double-precision 64-bit IEEE 754 floating point. Its range of values is beyond the scope of this discussion, but is specified in the [Floating-Point Types, Formats, and Values](https://docs.oracle.com/javase/specs/jls/se7/html/jls-4.html#jls-4.2.3) section of the Java Language Specification. For decimal values, this data type is generally the default choice. As mentioned above, this data type should never be used for precise values, such as currency.
-- **boolean**: The `boolean` data type has only two possible values: `true` and `false`. Use this data type for simple flags that track true/false conditions. This data type represents one bit of information, but its "size" isn't something that's precisely defined.
-- **char**: The `char` data type is a single 16-bit Unicode character. It has a minimum value of `'\u0000'` (or 0) and a maximum value of `'\uffff'` (or 65,535 inclusive).
+- **int**: 默认情况下`int`是一种32位的带符号二进制整数。最小值为
+  $$
+  -2^{31}
+  $$
+  最大值为
+  $$
+  2^{31}-1
+  $$
+  在Java SE8和更新的版本中，你可以适用`int`作为无符号的32位整数，最小值为0，最大值为
+  $$
+  2^{32}-1
+  $$
+  通过`Integer`类来将`int`作为一个无符号的整数使用。`compareUnsigned，``divideUnsigned`等静态方法已经添加到`Integer`类来支持无符号整数的算术操作。
 
-In addition to the eight primitive data types listed above, the Java programming language also provides special support for character strings via the [java.lang.String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html) class. Enclosing your character string within double quotes will automatically create a new `String` object; for example, `String s = "this is a string";`. `String` objects are *immutable*, which means that once created, their values cannot be changed. The `String` class is not technically a primitive data type, but considering the special support given to it by the language, you'll probably tend to think of it as such. You'll learn more about the `String` class in [Simple Data Objects](http://docs.oracle.com/javase/tutorial/java/data/index.html)
+  ​
 
-## Default Values
+- **long**: `long` 是一种64位的带符号二进制整数。最小值为
+  $$
+  -2^{63}
+  $$
+  最大值为
+  $$
+  2^{63}-1
+  $$
+  在Java SE8和更新的版本中，你可以适用`long `作为无符号的32位整数，最小值为0，最大值为
+  $$
+  2^{64}-1
+  $$
+  通过`Long`类来将`long`作为一个无符号的整数使用。当`int`提供的数据范围不足的时候你可以使用这种数据类型。`compareUnsigned，``divideUnsigned`等静态方法已经添加到`Long`类来支持无符号整数的算术操作。
 
-It's not always necessary to assign a value when a field is declared. Fields that are declared but not initialized will be set to a reasonable default by the compiler. Generally speaking, this default will be zero or `null`, depending on the data type. Relying on such default values, however, is generally considered bad programming style.
+- **float**: `float`数据类型是一种IEEE 754标准的32位单精度浮点数。它的范围不在此讨论，但是你可以在[浮点数类型，格式化，以及值](https://docs.oracle.com/javase/specs/jls/se7/html/jls-4.html#jls-4.2.3)章节去详细了解。正如`byte`和`short`一样，在大型的数组中书用`float`来节省内存。但是一定不要使用该数据类型来保存精确的值，譬如货币。如果要保存货币，建议使用[java.math.BigDecimal](https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html) 来代替。 [Numbers and Strings数字与字符串](http://docs.oracle.com/javase/tutorial/java/data/index.html) 章节包含了 `BigDecimal`类以及其他非常有用的类。 
 
-The following chart summarizes the default values for the above data types.
+- **double**:`float`数据类型是一种IEEE 754标准的64位双精度浮点数。它的范围不在此讨论，但是你可以在[浮点数类型，格式化，以及值](https://docs.oracle.com/javase/specs/jls/se7/html/jls-4.html#jls-4.2.3)章节去详细了解。对于小数类型的数据`double`通常是默认类型。正如之前说的，不要使用该数据类型来保存货币等精确的值。
+
+- **boolean**: `boolean`类型数据只有两个可能的值`true`和`false`。使用这种数据类型来简单的标记真/假两种情况。这种数据类型标识了一位信息，但是他的“size”并不是明确定义的。
+
+- **char**:  `char` 类型是一个16为Unicode字符。有一个最小值 `'\u0000'` ( 0) 和最大值 `'\uffff'` (65,535 包含)。
+
+除了上述的八种基本数据类型之外，Java还通过 [java.lang.String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html)类对字符串类型提供了特别支持。通过双引号包括你的字符将自动创建一个`String`对象。例如`String s = "this is a string";`. `String`对象是 *immutable*不可变对象，意味着已经创建就不能更改。从技术上说`String`类并不是基本数据类型，不过考虑到Java对它的特殊支持，你可能会倾向于这样想。关于`String` 类的更多知识可以在 [简单数据对象Simple Data Objects](http://docs.oracle.com/javase/tutorial/java/data/index.html)中学到。
+
+
+
+## 默认值Default Values
+
+有时候没有必要在生命field属性时就赋值。生命但是为初始化的field将会被编译器设置一个合理的默认值。一般来说这个默认值就是0或者`null`，根据数据类型不同而不同。但是依赖默认值被认为是一种不好的变成习惯。
+
+下面的表格列出了以上数据类型的默认初始化值：
 
 | **Data Type**          | **Default Value (for fields)** |
 | ---------------------- | ------------------------------ |
@@ -56,22 +87,21 @@ The following chart summarizes the default values for the above data types.
 | String (or any object) | null                           |
 | boolean                | false                          |
 
-Local variables are slightly different; the compiler never assigns a default value to an uninitialized local variable. If you cannot initialize your local variable where it is declared, make sure to assign it a value before you attempt to use it. Accessing an uninitialized local variable will result in a compile-time error.
+局部变量稍微有些区别，编译器不会为局部变量赋默认值。所以如果你不能在生命的时候初始化局部变量，确保在调用它之前为其赋值。访问未初始化的局部变量将会导致编译时错误。
 
-### Literals
+## 字面值
 
-You may have noticed that the `new` keyword isn't used when initializing a variable of a primitive type. Primitive types are special data types built into the language; they are not objects created from a class. A *literal* is the source code representation of a fixed value; literals are represented directly in your code without requiring computation. As shown below, it's possible to assign a literal to a variable of a primitive type:
+你可能注意到`new`关键字在定义基本数据类型的时候并没有使用。基本数据类型是语言内建的特殊数据类型；并不是由类创建的对象。在代码中一个`literal`字面值代表一个固定的值，字面值可以直接体现在你的源代码中而不需要计算。如下所示：可以直接使用字面值未基本数据类型赋值:
 
-```
+```java
 boolean result = true;
 char capitalC = 'C';
 byte b = 100;
 short s = 10000;
 int i = 100000;
-
 ```
 
-#### Integer Literals
+## 整数类型的字面值
 
 An integer literal is of type `long` if it ends with the letter `L` or `l`; otherwise it is of type `int`. It is recommended that you use the upper case letter `L` because the lower case letter `l` is hard to distinguish from the digit `1`.
 
@@ -93,7 +123,7 @@ int binVal = 0b11010;
 
 ```
 
-#### Floating-Point Literals
+## 浮点类型的字面值
 
 A floating-point literal is of type `float` if it ends with the letter `F` or `f`; otherwise its type is `double` and it can optionally end with the letter `D`or `d`.
 
@@ -104,10 +134,9 @@ double d1 = 123.4;
 // same value as d1, but in scientific notation
 double d2 = 1.234e2;
 float f1  = 123.4f;
-
 ```
 
-#### Character and String Literals
+## 字符与字符串类型的字面值
 
 Literals of types `char` and `String` may contain any Unicode (UTF-16) characters. If your editor and file system allow it, you can use such characters directly in your code. If not, you can use a "Unicode escape" such as `'\u0108'` (capital C with circumflex), or `"S\u00ED Se\u00F1or"` (Sí Señor in Spanish). Always use 'single quotes' for `char` literals and "double quotes" for `String` literals. Unicode escape sequences may be used elsewhere in a program (such as in field names, for example), not just in `char` or `String` literals.
 
@@ -117,7 +146,7 @@ There's also a special `null` literal that can be used as a value for any refere
 
 Finally, there's also a special kind of literal called a *class literal*, formed by taking a type name and appending "`.class"`; for example, `String.class`. This refers to the object (of type `Class`) that represents the type itself.
 
-## Using Underscore Characters in Numeric Literals
+## 在数字类字面值中使用下划线 *_*
 
 In Java SE 7 and later, any number of underscore characters (`_`) can appear anywhere between digits in a numerical literal. This feature enables you, for example. to separate groups of digits in numeric literals, which can improve the readability of your code.
 
@@ -125,7 +154,7 @@ For instance, if your code contains numbers with many digits, you can use an und
 
 The following example shows other ways you can use the underscore in numeric literals:
 
-```
+```java
 long creditCardNumber = 1234_5678_9012_3456L;
 long socialSecurityNumber = 999_99_9999L;
 float pi =  3.14_15F;
@@ -134,7 +163,6 @@ long hexWords = 0xCAFE_BABE;
 long maxLong = 0x7fff_ffff_ffff_ffffL;
 byte nybbles = 0b0010_0101;
 long bytes = 0b11010010_01101001_10010100_10010010;
-
 ```
 
 You can place underscores only between digits; you cannot place underscores in the following places:
@@ -146,7 +174,7 @@ You can place underscores only between digits; you cannot place underscores in t
 
 The following examples demonstrate valid and invalid underscore placements (which are highlighted) in numeric literals:
 
-```
+```java
 // Invalid: cannot put underscores
 // adjacent to a decimal point
 float pi1 = 3_.1415F;

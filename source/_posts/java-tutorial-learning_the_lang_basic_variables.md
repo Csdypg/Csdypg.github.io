@@ -1,5 +1,5 @@
 ---
-title: Java 学习指南_学习Java：变量Variables
+title: Java 学习指南_学习Java：基础-变量Variables
 date: 2017-07-03 16:56:59
 tags: 
 - java
