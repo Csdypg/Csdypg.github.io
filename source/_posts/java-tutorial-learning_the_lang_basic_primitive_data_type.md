@@ -103,33 +103,32 @@ int i = 100000;
 
 ## 整数类型的字面值
 
-An integer literal is of type `long` if it ends with the letter `L` or `l`; otherwise it is of type `int`. It is recommended that you use the upper case letter `L` because the lower case letter `l` is hard to distinguish from the digit `1`.
+如果整数的字面值以`L`或者 `l`结尾则是`long`类型；否则即使`int`类型的。建议使用大写的`L`字母，因为小写的`l`很难与阿拉伯数字`1`区分。
 
-Values of the integral types `byte`, `short`, `int`, and `long` can be created from `int` literals. Values of type `long` that exceed the range of `int` can be created from `long` literals. Integer literals can be expressed by these number systems:
+`byte`,`short`,`int`和`long`整数类型的值可以用`int`字面值创建。超过`int`范围的`long`类型值可以作用的`long`的字面值创建。整数的字面值可以用以下数字系统表达：
 
-- Decimal: Base 10, whose digits consists of the numbers 0 through 9; this is the number system you use every day
-- Hexadecimal: Base 16, whose digits consist of the numbers 0 through 9 and the letters A through F
-- Binary: Base 2, whose digits consists of the numbers 0 and 1 (you can create binary literals in Java SE 7 and later)
+* 十进制：基于10，包含了0到9十个数字，也是你每天都用的到的数字系统。
+* 十六进制：基于16，包含了0到9十个数字以及A到F六个字母
+* 二进制：基于2，包含了0，1（Java SE7及更新版本可以使用二进制字面值创建整数）
 
-For general-purpose programming, the decimal system is likely to be the only number system you'll ever use. However, if you need to use another number system, the following example shows the correct syntax. The prefix `0x` indicates hexadecimal and `0b` indicates binary:
+在一般的编程过程中，十进制系统可能是你唯一使用过的，但是如果你要使用其他的数字系统，下面的例子展示了正确的使用语法。前缀`0x`代表了十六进制， `0b`代表了二进制:
 
-```
+```java
 // The number 26, in decimal
 int decVal = 26;
 //  The number 26, in hexadecimal
 int hexVal = 0x1a;
 // The number 26, in binary
 int binVal = 0b11010;
-
 ```
 
 ## 浮点类型的字面值
 
-A floating-point literal is of type `float` if it ends with the letter `F` or `f`; otherwise its type is `double` and it can optionally end with the letter `D`or `d`.
+如果浮点类型的字面值以`F`或者`f`结尾则表示`float`的数据，否则及表示`double`类型的，是否以字母`D`或则 `d`结尾是可选的。
 
-The floating point types (`float` and `double`) can also be expressed using E or e (for scientific notation), F or f (32-bit float literal) and D or d (64-bit double literal; this is the default and by convention is omitted).
+浮点数（`float`和`double`）也可以用`E`或者`e`(科学记数法)，`F`或者`f`(32位字面值)，`D`或者`d`（64位字面值，默认情况下是`double`类型，一般不用写出来）.
 
-```
+```java
 double d1 = 123.4;
 // same value as d1, but in scientific notation
 double d2 = 1.234e2;
@@ -138,21 +137,21 @@ float f1  = 123.4f;
 
 ## 字符与字符串类型的字面值
 
-Literals of types `char` and `String` may contain any Unicode (UTF-16) characters. If your editor and file system allow it, you can use such characters directly in your code. If not, you can use a "Unicode escape" such as `'\u0108'` (capital C with circumflex), or `"S\u00ED Se\u00F1or"` (Sí Señor in Spanish). Always use 'single quotes' for `char` literals and "double quotes" for `String` literals. Unicode escape sequences may be used elsewhere in a program (such as in field names, for example), not just in `char` or `String` literals.
+`char`与`String`类型数据的字面值可以包含任意的Unicode（UTF-16）字符。如果你的编辑器和文件系统支持Unicode，你可以直接在代码中使用。如果不支持，你可以用“Unicode转义"字符如`\u0108`(标有音符的大写C)，或者 `"S\u00ED Se\u00F1or"` (西班牙语中的Sí Señor ).一般用单引号表示`char`字符类型数据字面值，用双引号表示`String`字符串类型数据。Unicode转义字符不仅可以用于`char`或者`String`数据的字面值，同样可以用于程序的其他地方，譬如用于*field*属性的命名等。
 
-The Java programming language also supports a few special escape sequences for `char` and `String` literals: `\b` (backspace), `\t` (tab), `\n`(line feed), `\f` (form feed), `\r` (carriage return), `\"` (double quote), `\'` (single quote), and `\\` (backslash).
+Java同样位`char`和`String`字面值提供了以下其他特殊字符的转义: `\b` (backspace退格), `\t` (tab制表符), `\n`(line feed换行符), `\f` (form feed换页符), `\r` (carriage return回车), `\"` (double quote双引号), `\'` (single quote单引号), and `\\` (backslash反斜杠).
 
-There's also a special `null` literal that can be used as a value for any reference type. `null` may be assigned to any variable, except variables of primitive types. There's little you can do with a `null` value beyond testing for its presence. Therefore, `null` is often used in programs as a marker to indicate that some object is unavailable.
+还有一个特殊的字面值`null`可以用作任意引用类型数据的值。`null`可以赋值给任意类型的变量除了基本数据类型。除了测试`null`的存在你几乎不能对它做其他事情。不过`null`在程序中经常用来表明某个对象是不可用的。
 
-Finally, there's also a special kind of literal called a *class literal*, formed by taking a type name and appending "`.class"`; for example, `String.class`. This refers to the object (of type `Class`) that represents the type itself.
+最后，还有一个特殊类型的字面值叫做*class*字面值，由一个类名加上`.class`构成。例如: `String.class`.它指向了代表这个类本身的对象（Class类型的对象）。
 
 ## 在数字类字面值中使用下划线 *_*
 
-In Java SE 7 and later, any number of underscore characters (`_`) can appear anywhere between digits in a numerical literal. This feature enables you, for example. to separate groups of digits in numeric literals, which can improve the readability of your code.
+在 Java SE 7 及以后的版本中，在数字类型的字面值数字中间可以加入任意数量的下划线`_`.例如用来将数字字面值中的数字分组，以提高你代码的可读性。
 
-For instance, if your code contains numbers with many digits, you can use an underscore character to separate digits in groups of three, similar to how you would use a punctuation mark like a comma, or a space, as a separator.
+例如，如果你的代码包含了许多的数字，你可以用下划将它分割为三个一组，就像你使用逗号和空格等标点符号一样。
 
-The following example shows other ways you can use the underscore in numeric literals:
+以下例子展示了你可以在树子字面值中使用下划线的其他方式：
 
 ```java
 long creditCardNumber = 1234_5678_9012_3456L;
@@ -165,14 +164,14 @@ byte nybbles = 0b0010_0101;
 long bytes = 0b11010010_01101001_10010100_10010010;
 ```
 
-You can place underscores only between digits; you cannot place underscores in the following places:
+你仅可以将下划线置于数字之间，不能放在以下几种地方：
 
-- At the beginning or end of a number
-- Adjacent to a decimal point in a floating point literal
-- Prior to an `F` or `L` suffix
-- In positions where a string of digits is expected
+* 数字的开头或者结尾
+* 在浮点数中挨着小数点
+* 在`F`或者`L`后缀之前
+* 只能出现数字或者字母的地方
 
-The following examples demonstrate valid and invalid underscore placements (which are highlighted) in numeric literals:
+以下例子展示了数字字面值中正确和不正确的下划线位置：
 
 ```java
 // Invalid: cannot put underscores
