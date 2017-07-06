@@ -15,6 +15,8 @@ keywords:
 
 # 基本数据类型Primitive Data Types
 
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 Java编程语言是静态数据类型，意味着你在使用某一个变量之前必须先声明它，就像你之前看到的，包含了变量的名字和类型：
 
 ```java
@@ -51,7 +53,7 @@ int gear = 1;
   $$
   2^{63}-1
   $$
-  在Java SE8和更新的版本中，你可以适用`long `作为无符号的32位整数，最小值为0，最大值为
+  在Java SE8和更新的版本中，你可以适用`long `作为无符号的64位整数，最小值为0，最大值为
   $$
   2^{64}-1
   $$
