@@ -11,11 +11,10 @@ keywords:
 - java
 - 教程
 - tutorial
+mathjax: true
 ---
 
 # 基本数据类型Primitive Data Types
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
 Java编程语言是静态数据类型，意味着你在使用某一个变量之前必须先声明它，就像你之前看到的，包含了变量的名字和类型：
 
