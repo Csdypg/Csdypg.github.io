@@ -1,6 +1,6 @@
 ---
 title: Java 学习指南_学习Java：基础—数组Arrays
-date: 2017-07-11 01:56:59
+date: 2017-07-20 17:56:59
 tags: 
 - java
 - tutorial
@@ -122,26 +122,24 @@ String[] anArrayOfStrings;
 float anArrayOfFloats[];
 ```
 
+不过一般情况下不推荐这么做,方括号标明了变量类型为数组，应该与指定类型一起出现。
 
+## 创建，初始化，访问数组
 
-However, convention discourages this form; the brackets identify the array type and should appear with the type designation.
-
-## Creating, Initializing, and Accessing an Array
-
-One way to create an array is with the `new` operator. The next statement in the `ArrayDemo` program allocates an array with enough memory for 10 integer elements and assigns the array to the `anArray` variable.
+创建数组的一种方法是适用`new`操作符。接下来的代码展示了为数组分配了可以容纳10个integer元素的存储空间，并将这个数组指向`anArray`变量。
 
 ```java
 // create an array of integers
 anArray = new int[10];
 ```
 
-If this statement is missing, then the compiler prints an error like the following, and compilation fails:
+如果确实本行的话，编译器会打印出如下的错误，并且编译失败：
 
 ```
 ArrayDemo.java:4: Variable anArray may not have been initialized.
 ```
 
-The next few lines assign values to each element of the array:
+下面几行代码为数组中的各个元素赋值：
 
 ```java
 anArray[0] = 100; // initialize first element
@@ -149,7 +147,7 @@ anArray[1] = 200; // initialize second element
 anArray[2] = 300; // and so forth
 ```
 
-Each array element is accessed by its numerical index:
+每一个数组元素可以通过的数字索引来访问：
 
 ```java
 System.out.println("Element 1 at index 0: " + anArray[0]);
@@ -157,7 +155,7 @@ System.out.println("Element 2 at index 1: " + anArray[1]);
 System.out.println("Element 3 at index 2: " + anArray[2]);
 ```
 
-Alternatively, you can use the shortcut syntax to create and initialize an array:
+同样，你也可以适用以下语法直接创建和初始化一个数组：
 
 ```java
 int[] anArray = { 
@@ -167,11 +165,9 @@ int[] anArray = {
 };
 ```
 
-Here the length of the array is determined by the number of values provided between braces and separated by commas.
+这里，数组的长度由数组花括号中由逗号分隔的值的数量决定。你同样可以通过使用两组或者更多的方括号定义数组的数组（或者叫多维数组），例如`String[][] names`.这样的话，每一个元素必须通过级联的数字索引值来访问。 
 
-You can also declare an array of arrays (also known as a *multidimensional* array) by using two or more sets of brackets, such as `String[][] names`. Each element, therefore, must be accessed by a corresponding number of index values.
-
-In the Java programming language, a multidimensional array is an array whose components are themselves arrays. This is unlike arrays in C or Fortran. A consequence of this is that the rows are allowed to vary in length, as shown in the following [`MultiDimArrayDemo`](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/examples/MultiDimArrayDemo.java) program:
+在Java编程语言中，一个多维数组的组成部分仍然是数组，有别于C或者Fortran，这样做的其中一个结果就是允许每一行数据可以有不同 的长度，下面代码中将展示：
 
 ```java
 class MultiDimArrayDemo {
@@ -188,31 +184,31 @@ class MultiDimArrayDemo {
 }
 ```
 
-The output from this program is:
+程序的输出如下：
 
 ```
 Mr. Smith
 Ms. Jones
 ```
 
-Finally, you can use the built-in `length` property to determine the size of any array. The following code prints the array's size to standard output:
+最后，你可以使用数组内置的属性`length`来判定任何数组的尺寸/长度。下面代码将输出数组的长度。
 
 ```java
  System.out.println(anArray.length);
 ```
 
-## Copying Arrays
+## 数组的复制
 
-The `System` class has an `arraycopy` method that you can use to efficiently copy data from one array into another:
+`System`类有一个高性能的`arraycopy`方法，你可以使用该方法高效得将数据由一个数组复制到另一个。
 
 ```java
 public static void arraycopy(Object src, int srcPos,
                              Object dest, int destPos, int length)
 ```
 
-The two `Object` arguments specify the array to copy *from* and the array to copy *to*. The three `int` arguments specify the starting position in the source array, the starting position in the destination array, and the number of array elements to copy.
+两个`Object`参数分别是要考培的源数组和目标数组。三个`int`参数分别是源数组的其实位置，目标数组的起始位置和将要复制的元素个数。
 
-The following program, [`ArrayCopyDemo`](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/examples/ArrayCopyDemo.java), declares an array of `char` elements, spelling the word "decaffeinated." It uses the `System.arraycopy` method to copy a subsequence of array components into a second array:
+接下来的程序，声明了一个`char`字符数组,单词"decaffeinated"的拼写。然后使用`System.arraycopy`方法将数组内容的部分序列复制到第二个数组:
 
 ```java
 class ArrayCopyDemo {
@@ -227,17 +223,19 @@ class ArrayCopyDemo {
 }
 ```
 
-The output from this program is:
+程序的输出如下：
 
 ```java
 caffein
 ```
 
-## Array Manipulations
+## 数组的操作
 
-Arrays are a powerful and useful concept used in programming. Java SE provides methods to perform some of the most common manipulations related to arrays. For instance, the[`ArrayCopyDemo`](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/examples/ArrayCopyDemo.java) example uses the `arraycopy` method of the `System` class instead of manually iterating through the elements of the source array and placing each one into the destination array. This is performed behind the scenes, enabling the developer to use just one line of code to call the method.
+数组是编程中非常强大和使用的概念。Java SE 提供了诸多方法来满足与数组相关的最常用操作。以上例子中，使用`System`类的`arraycopy`方法替代了手动迭代原数组的元素然后将每一个元素置于目标数组。开发者只用一行代码调用该方法就可以在后台完成复制的操作。
 
-For your convenience, Java SE provides several methods for performing array manipulations (common tasks, such as copying, sorting and searching arrays) in the[`java.util.Arrays`](https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html) class. For instance, the previous example can be modified to use the `copyOfRange` method of the `java.util.Arrays` class, as you can see in the[`ArrayCopyOfDemo`](http://docs.oracle.com/javase/tutorial/java/nutsandbolts/examples/ArrayCopyOfDemo.java) example. The difference is that using the `copyOfRange` method does not require you to create the destination array before calling the method, because the destination array is returned by the method:
+为了你的便利，Java SE 在[`java.util.Arrays`](https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html) 类中提供了许多方法来满足数组的操作（常见工作，诸如复制，排序，搜索数组）。
+
+之前的例子也可以修改为使用`java.util.Arrays`类中的`copyOfRange`方法，下面例子由展示,使用该方法的不同之处在于，你可以不必在调用方法之前就创建目标数组，因为目标数组将由该方法创建和返回:
 
 ```java
 class ArrayCopyOfDemo {
@@ -253,11 +251,11 @@ class ArrayCopyOfDemo {
 }
 ```
 
-As you can see, the output from this program is the same (`caffein`), although it requires fewer lines of code. Note that the second parameter of the `copyOfRange` method is the initial index of the range to be copied, inclusively, while the third parameter is the final index of the range to be copied, *exclusively*. In this example, the range to be copied does not include the array element at index 9 (which contains the character `a`).
+程序的输出同样是`caffein`,尽管这样做需要更少的代码。注意，`caopyOfRange`方法的第二个参数是要复制的范围的起始索引，包含该索引，同时第三个参数是要复制范围的结束索引，不包含该索引。在本例中，复制的范围不包含在索引9位置的元素（即字符`a`).
 
-Some other useful operations provided by methods in the `java.util.Arrays` class, are:
+`java.util.Arrays`类还提供了其他有用的方法，如下：
 
-- Searching an array for a specific value to get the index at which it is placed (the `binarySearch` method).
-- Comparing two arrays to determine if they are equal or not (the `equals` method).
-- Filling an array to place a specific value at each index (the `fill` method).
-- Sorting an array into ascending order. This can be done either sequentially, using the `sort` method, or concurrently, using the `parallelSort` method introduced in Java SE 8. Parallel sorting of large arrays on multiprocessor systems is faster than sequential array sorting.
+- 搜索一个特定的值在数组中的位置下标.(方法`binarySearch`)
+- 比较两个数组以判定两个数组是否相等(方法`equal`)
+- 填充数组，为数组的每一个位置放置一个特定的值(方法`fill`)
+- 按照升序排序数组。可以使用`sort`方法进行循序排序，或者使用Java SE8引进的`parallelSort`进行并发的排序。在多处理器系统中使用平行排序较大的数组比循序的排序要快得多。
