@@ -19,27 +19,25 @@ keywords:
 
 # 运算符Operators
 
-现在你已经学习了如何声明和初始化变量，或许你想知道如何对他们*做些什么*。学习Java编程语言的运算符是一个很好的开始。运算符
+现在你已经学习了如何声明和初始化变量，或许你想知道如何对他们*做些什么*。学习Java编程语言的运算符是一个开始的好地方。运算符是特殊的符号，用来对一个，两个，或者三个运算对象进行特殊的操作人后返回一个结果。
 
-Now that you've learned how to declare and initialize variables, you probably want to know how to *do something* with them. Learning the operators of the Java programming language is a good place to start. Operators are special symbols that perform specific operations on one, two, or three *operands*, and then return a result.
+当我们探索Java编程语言的运算符时，提前制动哪一个运算符具有更高的优先级或许会有帮助。下面列表中的运算符时根据优先级的顺序列出的。靠近上面出现的运算符具有更高的优先级。优先级较高的运算符会在相对级别较低的运算符之前计算。出现在同一行的运算符优先级相等。当相同优先级的运算符出现在同一个表达式中，规则必须规定哪一个先进行计算。所有的二元运算符除了赋值运算符都是从左向右计算；赋值运算符从右向左计算。
 
-As we explore the operators of the Java programming language, it may be helpful for you to know ahead of time which operators have the highest precedence. The operators in the following table are listed according to precedence order. The closer to the top of the table an operator appears, the higher its precedence. Operators with higher precedence are evaluated before operators with relatively lower precedence. Operators on the same line have equal precedence. When operators of equal precedence appear in the same expression, a rule must govern which is evaluated first. All binary operators except for the assignment operators are evaluated from left to right; assignment operators are evaluated right to left.
+| Operators/运算符              | Precedence/优先级                           |
+| -------------------------- | ---------------------------------------- |
+| postfix 后缀运算符              | `*expr*++ *expr*--`                      |
+| unary  一元运算符               | `++*expr* --*expr* +*expr* -*expr* ~ !`  |
+| multiplicative 乘法运算        | `* / %`                                  |
+| additive 加减运算              | `+ -`                                    |
+| shift 位移运算                 | `<< >> >>>`                              |
+| relational 关系运算            | `< > <= >= instanceof`                   |
+| equality 等式运算              | `== !=`                                  |
+| bitwise AND 位运算与           | `&`                                      |
+| bitwise exclusive OR 位运算异或 | `^`                                      |
+| bitwise inclusive OR 位运算或  | &#124;                                   |
+|                            | `&&`                                     |
+| logical OR 逻辑或             | &#124;&#124;                             |
+| ternary 三元运算符              | `? :`                                    |
+| assignment 赋值运算符           | = += -= *= /= %= &= ^= &#124;= <<= >>= >>>= |
 
-| Operators            | Precedence                               |
-| -------------------- | ---------------------------------------- |
-| postfix              | `*expr*++ *expr*--`                      |
-| unary                | `++*expr* --*expr* +*expr* -*expr* ~ !`  |
-| multiplicative       | `* / %`                                  |
-| additive             | `+ -`                                    |
-| shift                | `<< >> >>>`                              |
-| relational           | `< > <= >= instanceof`                   |
-| equality             | `== !=`                                  |
-| bitwise AND          | `&`                                      |
-| bitwise exclusive OR | `^`                                      |
-| bitwise inclusive OR | `|`                                      |
-| logical AND          | `&&`                                     |
-| logical OR           | `||`                                     |
-| ternary              | `? :`                                    |
-| assignment           | `= += -= *= /= %= &= ^= |= <<= >>= >>>=` |
-
-In general-purpose programming, certain operators tend to appear more frequently than others; for example, the assignment operator "`=`" is far more common than the unsigned right shift operator "`>>>`". With that in mind, the following discussion focuses first on the operators that you're most likely to use on a regular basis, and ends focusing on those that are less common. Each discussion is accompanied by sample code that you can compile and run. Studying its output will help reinforce what you've just learned.
+一般在编程中，某些运算符比其他一些出现的更加频繁；例如，赋值运算符`=`比无符号右位移运算符`>>>`要常见的多.因此在接下来的讨论中，将先关注更可能在基本常规中使用的的运算符，结尾的时候再介绍不太常用的。每一部分附有可以编译运行的代码，学习这些程序的输出可以加深理解。
