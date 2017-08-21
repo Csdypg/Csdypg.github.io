@@ -27,6 +27,8 @@ keywords:
 
 数组中的每一个项目叫做一个*element元素*，每一个愿元素都可以通过的数字index索引类访问。就像上面的插图展示的一样，数字索引从0开始。第9个元素将通过索引8来访问。下面的程序中，ArrayDemo，创建了一个整数数组，在数组里放入了一些值，然后在标准输出中打印了每一个值。
 
+<!--more-->
+
 ```java
 class ArrayDemo {
     public static void main(String[] args) {
