@@ -50,7 +50,7 @@ keywords:
 
 1. 将一下代码改变位符合运算符为变量赋值:
 
-   ```
+   ```java
    class ArithmeticDemo {
 
         public static void main (String[] args){
@@ -75,7 +75,7 @@ keywords:
    ```
 
 2. 以下代码中，解释 "6"为什么被打印了两次:
-   ```
+   ```java
    class PrePostDemo {
        public static void main(String[] args){
            int i = 3;
@@ -97,12 +97,11 @@ keywords:
 ## 问题答案
 
 1. 观察以下代码片段:
-   ```
+   ```java
    arrayOfInts[j] > arrayOfInts[j+1]
-
    ```
 
-   问题:代码中包含了拿下代码片段?
+   问题:代码中包含了那些运算符?
 
    答案:
 
@@ -143,7 +142,7 @@ keywords:
 ## 练习答案
 
 1. 将一下代码改变位符合运算符为变量赋值:
-   ```
+   ```java
    class ArithmeticDemo {
 
        public static void main (String[] args){
@@ -166,12 +165,11 @@ keywords:
     
        }
    }
-
    ```
 
    一种解法:
 
-   ```
+   ```java
    class ArithmeticDemo {
 
        public static void main (String[] args){
@@ -193,7 +191,6 @@ keywords:
     
        }
    }
-
    ```
 
 2. 以下代码中，解释 "6"为什么被打印了两次:
@@ -211,7 +208,6 @@ keywords:
            System.out.println(i);    // "7"
        }
    }
-
    ```
 
    代码
@@ -233,7 +229,7 @@ keywords:
 
 ​    
 
-   计算已经增加的结果，下一行,
+   本行计算出已经增加的结果，下一行,
 
 ​    
 
@@ -243,7 +239,8 @@ keywords:
 
 ​    
 
- 计算当前的结果, 然后在增加1.因此7在下一行才会打印.
+ 本行计算出当前的结果, 然后再增加1.因此7在下一行才会打印.
+   ```
+System.out.println(i);
    ```
 
-   ```
