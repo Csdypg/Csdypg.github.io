@@ -35,6 +35,8 @@ Rectangle rectTwo = new Rectangle(50, 100);
 2. **实例化Instantiation**:  `new`  关键字时Java的创建（实例化）对象操作符.
 3. **初始化Initialization**:  `new` 操作符接下来调用一个构造方法，构造方法初始化这个新的对象.
 
+<!--more -->
+
 ## 定义一个引用对象的变量
 
 首先你，学到了如何声明一个变量，这样写:
