@@ -1,0 +1,1265 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,教程,tutorial" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="基本数据类型Primitive Data TypesJava编程语言是静态数据类型，意味着你在使用某一个变量之前必须先声明它，就像你之前看到的，包含了变量的名字和类型： 1int gear = 1; 这么做的目的是告诉程序一个命名为“gear”,保存着数字类型的数据，初始值为1的实例变量。一个变量的数据类型决定了他可以存储什么样的值，以及可以对他进行什么样的操作。除了int,Java还支持其他七种">
+<meta name="keywords" content="java,教程,tutorial">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 学习指南_学习Java：基础—基本数据类型Primitive Data Types">
+<meta property="og:url" content="http://yoursite.com/2017/07/05/java-tutorial-learning_the_lang_basic_primitive_data_type/index.html">
+<meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="基本数据类型Primitive Data TypesJava编程语言是静态数据类型，意味着你在使用某一个变量之前必须先声明它，就像你之前看到的，包含了变量的名字和类型： 1int gear = 1; 这么做的目的是告诉程序一个命名为“gear”,保存着数字类型的数据，初始值为1的实例变量。一个变量的数据类型决定了他可以存储什么样的值，以及可以对他进行什么样的操作。除了int,Java还支持其他七种">
+<meta property="og:updated_time" content="2017-09-22T01:35:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 学习指南_学习Java：基础—基本数据类型Primitive Data Types">
+<meta name="twitter:description" content="基本数据类型Primitive Data TypesJava编程语言是静态数据类型，意味着你在使用某一个变量之前必须先声明它，就像你之前看到的，包含了变量的名字和类型： 1int gear = 1; 这么做的目的是告诉程序一个命名为“gear”,保存着数字类型的数据，初始值为1的实例变量。一个变量的数据类型决定了他可以存储什么样的值，以及可以对他进行什么样的操作。除了int,Java还支持其他七种">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/05/java-tutorial-learning_the_lang_basic_primitive_data_type/"/>
+
+
+
+
+
+  <title>Java 学习指南_学习Java：基础—基本数据类型Primitive Data Types | Hello World</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello World</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hello Young</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/05/java-tutorial-learning_the_lang_basic_primitive_data_type/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java 学习指南_学习Java：基础—基本数据类型Primitive Data Types</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-05T01:56:59+08:00">
+                2017-07-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="基本数据类型Primitive-Data-Types"><a href="#基本数据类型Primitive-Data-Types" class="headerlink" title="基本数据类型Primitive Data Types"></a>基本数据类型Primitive Data Types</h1><p>Java编程语言是静态数据类型，意味着你在使用某一个变量之前必须先声明它，就像你之前看到的，包含了变量的名字和类型：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> gear = <span class="number">1</span>;</div></pre></td></tr></table></figure>
+<p>这么做的目的是告诉程序一个命名为“gear”,保存着数字类型的数据，初始值为1的实例变量。一个变量的数据类型决定了他可以存储什么样的值，以及可以对他进行什么样的操作。除了<code>int</code>,Java还支持其他七种基本数据类型。基本数据类型是编程语言预定义并用保留关键字命名的。基本数据类型不能用其他基本数据类型共享状态。八种基本数据类型分别如下：</p>
+<a id="more"></a>
+<ul>
+<li><strong>byte：</strong><code>byte</code>数据类型是一种带符号的8位二进制整数。它的最小值是-128，最大值为127.<code>byte</code>数据类型在大型的数组中使用可以用来节省内存，有时候节省内存很重要。<code>byte</code>同样可以用来代替<code>int</code>，因为<code>byte</code>数据的有限范围可你使你的代码更清晰。事实上有限的变量序列可以作为文档的一种组织形式。</li>
+</ul>
+<ul>
+<li><p><strong>short</strong>:<code>short</code>数据类型是一种16位的带符号二进制整数。最小值为-32,768最大值为32767.就像<code>byte</code>一样，之前的说明同样适用。当节省内存很有必要的时候，你也可以在大型数组中适用<code>short</code>来节省内存。</p>
+</li>
+<li><p><strong>int</strong>: 默认情况下<code>int</code>是一种32位的带符号二进制整数。最小值为<br>$$<br>-2^{31}<br>$$<br>最大值为<br>$$<br>2^{31}-1<br>$$<br>在Java SE8和更新的版本中，你可以适用<code>int</code>作为无符号的32位整数，最小值为0，最大值为<br>$$<br>2^{32}-1<br>$$<br>通过<code>Integer</code>类来将<code>int</code>作为一个无符号的整数使用。<code>compareUnsigned，``divideUnsigned</code>等静态方法已经添加到<code>Integer</code>类来支持无符号整数的算术操作。</p>
+<p>​</p>
+</li>
+<li><p><strong>long</strong>: <code>long</code> 是一种64位的带符号二进制整数。最小值为<br>$$<br>-2^{63}<br>$$<br>最大值为<br>$$<br>2^{63}-1<br>$$<br>在Java SE8和更新的版本中，你可以适用<code>long</code>作为无符号的64位整数，最小值为0，最大值为<br>$$<br>2^{64}-1<br>$$<br>通过<code>Long</code>类来将<code>long</code>作为一个无符号的整数使用。当<code>int</code>提供的数据范围不足的时候你可以使用这种数据类型。<code>compareUnsigned，``divideUnsigned</code>等静态方法已经添加到<code>Long</code>类来支持无符号整数的算术操作。</p>
+</li>
+<li><p><strong>float</strong>: <code>float</code>数据类型是一种IEEE 754标准的32位单精度浮点数。它的范围不在此讨论，但是你可以在<a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-4.html#jls-4.2.3" target="_blank" rel="external">浮点数类型，格式化，以及值</a>章节去详细了解。正如<code>byte</code>和<code>short</code>一样，在大型的数组中书用<code>float</code>来节省内存。但是一定不要使用该数据类型来保存精确的值，譬如货币。如果要保存货币，建议使用<a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html" target="_blank" rel="external">java.math.BigDecimal</a> 来代替。 <a href="http://docs.oracle.com/javase/tutorial/java/data/index.html" target="_blank" rel="external">Numbers and Strings数字与字符串</a> 章节包含了 <code>BigDecimal</code>类以及其他非常有用的类。 </p>
+</li>
+<li><p><strong>double</strong>:<code>float</code>数据类型是一种IEEE 754标准的64位双精度浮点数。它的范围不在此讨论，但是你可以在<a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-4.html#jls-4.2.3" target="_blank" rel="external">浮点数类型，格式化，以及值</a>章节去详细了解。对于小数类型的数据<code>double</code>通常是默认类型。正如之前说的，不要使用该数据类型来保存货币等精确的值。</p>
+</li>
+<li><p><strong>boolean</strong>: <code>boolean</code>类型数据只有两个可能的值<code>true</code>和<code>false</code>。使用这种数据类型来简单的标记真/假两种情况。这种数据类型标识了一位信息，但是他的“size”并不是明确定义的。</p>
+</li>
+<li><p><strong>char</strong>:  <code>char</code> 类型是一个16为Unicode字符。有一个最小值 <code>&#39;\u0000&#39;</code> ( 0) 和最大值 <code>&#39;\uffff&#39;</code> (65,535 包含)。</p>
+</li>
+</ul>
+<p>除了上述的八种基本数据类型之外，Java还通过 <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" target="_blank" rel="external">java.lang.String</a>类对字符串类型提供了特别支持。通过双引号包括你的字符将自动创建一个<code>String</code>对象。例如<code>String s = &quot;this is a string&quot;;</code>. <code>String</code>对象是 <em>immutable</em>不可变对象，意味着已经创建就不能更改。从技术上说<code>String</code>类并不是基本数据类型，不过考虑到Java对它的特殊支持，你可能会倾向于这样想。关于<code>String</code> 类的更多知识可以在 <a href="http://docs.oracle.com/javase/tutorial/java/data/index.html" target="_blank" rel="external">简单数据对象Simple Data Objects</a>中学到。</p>
+<h2 id="默认值Default-Values"><a href="#默认值Default-Values" class="headerlink" title="默认值Default Values"></a>默认值Default Values</h2><p>有时候没有必要在生命field属性时就赋值。生命但是为初始化的field将会被编译器设置一个合理的默认值。一般来说这个默认值就是0或者<code>null</code>，根据数据类型不同而不同。但是依赖默认值被认为是一种不好的变成习惯。</p>
+<p>下面的表格列出了以上数据类型的默认初始化值：</p>
+<table>
+<thead>
+<tr>
+<th><strong>Data Type</strong></th>
+<th><strong>Default Value (for fields)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>0</td>
+</tr>
+<tr>
+<td>short</td>
+<td>0</td>
+</tr>
+<tr>
+<td>int</td>
+<td>0</td>
+</tr>
+<tr>
+<td>long</td>
+<td>0L</td>
+</tr>
+<tr>
+<td>float</td>
+<td>0.0f</td>
+</tr>
+<tr>
+<td>double</td>
+<td>0.0d</td>
+</tr>
+<tr>
+<td>char</td>
+<td>‘\u0000’</td>
+</tr>
+<tr>
+<td>String (or any object)</td>
+<td>null</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<p>局部变量稍微有些区别，编译器不会为局部变量赋默认值。所以如果你不能在生命的时候初始化局部变量，确保在调用它之前为其赋值。访问未初始化的局部变量将会导致编译时错误。</p>
+<h2 id="字面值"><a href="#字面值" class="headerlink" title="字面值"></a>字面值</h2><p>你可能注意到<code>new</code>关键字在定义基本数据类型的时候并没有使用。基本数据类型是语言内建的特殊数据类型；并不是由类创建的对象。在代码中一个<code>literal</code>字面值代表一个固定的值，字面值可以直接体现在你的源代码中而不需要计算。如下所示：可以直接使用字面值未基本数据类型赋值:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">boolean</span> result = <span class="keyword">true</span>;</div><div class="line"><span class="keyword">char</span> capitalC = <span class="string">'C'</span>;</div><div class="line"><span class="keyword">byte</span> b = <span class="number">100</span>;</div><div class="line"><span class="keyword">short</span> s = <span class="number">10000</span>;</div><div class="line"><span class="keyword">int</span> i = <span class="number">100000</span>;</div></pre></td></tr></table></figure>
+<h2 id="整数类型的字面值"><a href="#整数类型的字面值" class="headerlink" title="整数类型的字面值"></a>整数类型的字面值</h2><p>如果整数的字面值以<code>L</code>或者 <code>l</code>结尾则是<code>long</code>类型；否则即使<code>int</code>类型的。建议使用大写的<code>L</code>字母，因为小写的<code>l</code>很难与阿拉伯数字<code>1</code>区分。</p>
+<p><code>byte</code>,<code>short</code>,<code>int</code>和<code>long</code>整数类型的值可以用<code>int</code>字面值创建。超过<code>int</code>范围的<code>long</code>类型值可以作用的<code>long</code>的字面值创建。整数的字面值可以用以下数字系统表达：</p>
+<ul>
+<li>十进制：基于10，包含了0到9十个数字，也是你每天都用的到的数字系统。</li>
+<li>十六进制：基于16，包含了0到9十个数字以及A到F六个字母</li>
+<li>二进制：基于2，包含了0，1（Java SE7及更新版本可以使用二进制字面值创建整数）</li>
+</ul>
+<p>在一般的编程过程中，十进制系统可能是你唯一使用过的，但是如果你要使用其他的数字系统，下面的例子展示了正确的使用语法。前缀<code>0x</code>代表了十六进制， <code>0b</code>代表了二进制:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// The number 26, in decimal</span></div><div class="line"><span class="keyword">int</span> decVal = <span class="number">26</span>;</div><div class="line"><span class="comment">//  The number 26, in hexadecimal</span></div><div class="line"><span class="keyword">int</span> hexVal = <span class="number">0x1a</span>;</div><div class="line"><span class="comment">// The number 26, in binary</span></div><div class="line"><span class="keyword">int</span> binVal = <span class="number">0b11010</span>;</div></pre></td></tr></table></figure>
+<h2 id="浮点类型的字面值"><a href="#浮点类型的字面值" class="headerlink" title="浮点类型的字面值"></a>浮点类型的字面值</h2><p>如果浮点类型的字面值以<code>F</code>或者<code>f</code>结尾则表示<code>float</code>的数据，否则及表示<code>double</code>类型的，是否以字母<code>D</code>或则 <code>d</code>结尾是可选的。</p>
+<p>浮点数（<code>float</code>和<code>double</code>）也可以用<code>E</code>或者<code>e</code>(科学记数法)，<code>F</code>或者<code>f</code>(32位字面值)，<code>D</code>或者<code>d</code>（64位字面值，默认情况下是<code>double</code>类型，一般不用写出来）.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">double</span> d1 = <span class="number">123.4</span>;</div><div class="line"><span class="comment">// same value as d1, but in scientific notation</span></div><div class="line"><span class="keyword">double</span> d2 = <span class="number">1.234e2</span>;</div><div class="line"><span class="keyword">float</span> f1  = <span class="number">123.4f</span>;</div></pre></td></tr></table></figure>
+<h2 id="字符与字符串类型的字面值"><a href="#字符与字符串类型的字面值" class="headerlink" title="字符与字符串类型的字面值"></a>字符与字符串类型的字面值</h2><p><code>char</code>与<code>String</code>类型数据的字面值可以包含任意的Unicode（UTF-16）字符。如果你的编辑器和文件系统支持Unicode，你可以直接在代码中使用。如果不支持，你可以用“Unicode转义”字符如<code>\u0108</code>(标有音符的大写C)，或者 <code>&quot;S\u00ED Se\u00F1or&quot;</code> (西班牙语中的Sí Señor ).一般用单引号表示<code>char</code>字符类型数据字面值，用双引号表示<code>String</code>字符串类型数据。Unicode转义字符不仅可以用于<code>char</code>或者<code>String</code>数据的字面值，同样可以用于程序的其他地方，譬如用于<em>field</em>属性的命名等。</p>
+<p>Java同样位<code>char</code>和<code>String</code>字面值提供了以下其他特殊字符的转义: <code>\b</code> (backspace退格), <code>\t</code> (tab制表符), <code>\n</code>(line feed换行符), <code>\f</code> (form feed换页符), <code>\r</code> (carriage return回车), <code>\&quot;</code> (double quote双引号), <code>\&#39;</code> (single quote单引号), and <code>\\</code> (backslash反斜杠).</p>
+<p>还有一个特殊的字面值<code>null</code>可以用作任意引用类型数据的值。<code>null</code>可以赋值给任意类型的变量除了基本数据类型。除了测试<code>null</code>的存在你几乎不能对它做其他事情。不过<code>null</code>在程序中经常用来表明某个对象是不可用的。</p>
+<p>最后，还有一个特殊类型的字面值叫做<em>class</em>字面值，由一个类名加上<code>.class</code>构成。例如: <code>String.class</code>.它指向了代表这个类本身的对象（Class类型的对象）。</p>
+<h2 id="在数字类字面值中使用下划线"><a href="#在数字类字面值中使用下划线" class="headerlink" title="在数字类字面值中使用下划线 _"></a>在数字类字面值中使用下划线 <em>_</em></h2><p>在 Java SE 7 及以后的版本中，在数字类型的字面值数字中间可以加入任意数量的下划线<code>_</code>.例如用来将数字字面值中的数字分组，以提高你代码的可读性。</p>
+<p>例如，如果你的代码包含了许多的数字，你可以用下划将它分割为三个一组，就像你使用逗号和空格等标点符号一样。</p>
+<p>以下例子展示了你可以在树子字面值中使用下划线的其他方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">long</span> creditCardNumber = <span class="number">1234_5678_9012_3456L</span>;</div><div class="line"><span class="keyword">long</span> socialSecurityNumber = <span class="number">999_99_9999L</span>;</div><div class="line"><span class="keyword">float</span> pi =  <span class="number">3.14_15F</span>;</div><div class="line"><span class="keyword">long</span> hexBytes = <span class="number">0xFF_EC_DE_5E</span>;</div><div class="line"><span class="keyword">long</span> hexWords = <span class="number">0xCAFE_BABE</span>;</div><div class="line"><span class="keyword">long</span> maxLong = <span class="number">0x7fff_ffff_ffff_ffffL</span>;</div><div class="line"><span class="keyword">byte</span> nybbles = <span class="number">0b0010_0101</span>;</div><div class="line"><span class="keyword">long</span> bytes = <span class="number">0b11010010_01101001_10010100_10010010</span>;</div></pre></td></tr></table></figure>
+<p>你仅可以将下划线置于数字之间，不能放在以下几种地方：</p>
+<ul>
+<li>数字的开头或者结尾</li>
+<li>在浮点数中挨着小数点</li>
+<li>在<code>F</code>或者<code>L</code>后缀之前</li>
+<li>只能出现数字或者字母的地方</li>
+</ul>
+<p>以下例子展示了数字字面值中正确和不正确的下划线位置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Invalid: cannot put underscores</span></div><div class="line"><span class="comment">// adjacent to a decimal point</span></div><div class="line"><span class="keyword">float</span> pi1 = <span class="number">3</span>_.1415F;</div><div class="line"><span class="comment">// Invalid: cannot put underscores </span></div><div class="line"><span class="comment">// adjacent to a decimal point</span></div><div class="line"><span class="keyword">float</span> pi2 = <span class="number">3</span>._1415F;</div><div class="line"><span class="comment">// Invalid: cannot put underscores </span></div><div class="line"><span class="comment">// prior to an L suffix</span></div><div class="line"><span class="keyword">long</span> socialSecurityNumber1 = <span class="number">999_99_9999</span>_L;</div><div class="line"></div><div class="line"><span class="comment">// OK (decimal literal)</span></div><div class="line"><span class="keyword">int</span> x1 = <span class="number">5_2</span>;</div><div class="line"><span class="comment">// Invalid: cannot put underscores</span></div><div class="line"><span class="comment">// At the end of a literal</span></div><div class="line"><span class="keyword">int</span> x2 = <span class="number">52</span>_;</div><div class="line"><span class="comment">// OK (decimal literal)</span></div><div class="line"><span class="keyword">int</span> x3 = <span class="number">5_______2</span>;</div><div class="line"></div><div class="line"><span class="comment">// Invalid: cannot put underscores</span></div><div class="line"><span class="comment">// in the 0x radix prefix</span></div><div class="line"><span class="keyword">int</span> x4 = <span class="number">0</span>_x52;</div><div class="line"><span class="comment">// Invalid: cannot put underscores</span></div><div class="line"><span class="comment">// at the beginning of a number</span></div><div class="line"><span class="keyword">int</span> x5 = <span class="number">0</span>x_52;</div><div class="line"><span class="comment">// OK (hexadecimal literal)</span></div><div class="line"><span class="keyword">int</span> x6 = <span class="number">0x5_2</span>; </div><div class="line"><span class="comment">// Invalid: cannot put underscores</span></div><div class="line"><span class="comment">// at the end of a number</span></div><div class="line"><span class="keyword">int</span> x7 = <span class="number">0x52</span>_;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>Enjoy it ? Donate me !  欣赏此文？支持一下 !</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat_pay.png" alt="Hello Young WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/ali_pay.jpg" alt="Hello Young Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/tutorial/" rel="tag"># tutorial</a>
+          
+            <a href="/tags/教程/" rel="tag"># 教程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/03/java-tutorial-learning_the_lang_basic_variables/" rel="next" title="Java 学习指南_学习Java：基础-变量Variables">
+                <i class="fa fa-chevron-left"></i> Java 学习指南_学习Java：基础-变量Variables
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/20/java-tutorial-learning_the_lang_basic_arrays/" rel="prev" title="Java 学习指南_学习Java：基础—数组Arrays">
+                Java 学习指南_学习Java：基础—数组Arrays <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Hello Young" />
+          <p class="site-author-name" itemprop="name">Hello Young</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Csdypg" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://phaser.io" title="Phaser" target="_blank">Phaser</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本数据类型Primitive-Data-Types"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型Primitive Data Types</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#默认值Default-Values"><span class="nav-number">1.1.</span> <span class="nav-text">默认值Default Values</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字面值"><span class="nav-number">1.2.</span> <span class="nav-text">字面值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整数类型的字面值"><span class="nav-number">1.3.</span> <span class="nav-text">整数类型的字面值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮点类型的字面值"><span class="nav-number">1.4.</span> <span class="nav-text">浮点类型的字面值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符与字符串类型的字面值"><span class="nav-number">1.5.</span> <span class="nav-text">字符与字符串类型的字面值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在数字类字面值中使用下划线"><span class="nav-number">1.6.</span> <span class="nav-text">在数字类字面值中使用下划线 _</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hello Young</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('-1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

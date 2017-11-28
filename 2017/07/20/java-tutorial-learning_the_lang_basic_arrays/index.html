@@ -1,0 +1,1200 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,教程,数组,Array,tutorial" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="数组Arrays一个array数组是可以持有固定数量单一数据类型的容器对象。数组的长度在数组创建的时候确定的，创建以后数组的长度就是固定不变的。在之前的“HelloWorld”项目中的main方法中，你已经见过简单的数组示例，本章节将更加详细的讨论数组。  包含10个元素的数组。An array of 10 elements. 数组中的每一个项目叫做一个element元素，每一个愿元素都可以通过的">
+<meta name="keywords" content="java,教程,数组,Array,tutorial">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 学习指南_学习Java：基础—数组Arrays">
+<meta property="og:url" content="http://yoursite.com/2017/07/20/java-tutorial-learning_the_lang_basic_arrays/index.html">
+<meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="数组Arrays一个array数组是可以持有固定数量单一数据类型的容器对象。数组的长度在数组创建的时候确定的，创建以后数组的长度就是固定不变的。在之前的“HelloWorld”项目中的main方法中，你已经见过简单的数组示例，本章节将更加详细的讨论数组。  包含10个元素的数组。An array of 10 elements. 数组中的每一个项目叫做一个element元素，每一个愿元素都可以通过的">
+<meta property="og:image" content="http://docs.oracle.com/javase/tutorial/figures/java/objects-tenElementArray.gif">
+<meta property="og:updated_time" content="2017-09-22T01:35:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 学习指南_学习Java：基础—数组Arrays">
+<meta name="twitter:description" content="数组Arrays一个array数组是可以持有固定数量单一数据类型的容器对象。数组的长度在数组创建的时候确定的，创建以后数组的长度就是固定不变的。在之前的“HelloWorld”项目中的main方法中，你已经见过简单的数组示例，本章节将更加详细的讨论数组。  包含10个元素的数组。An array of 10 elements. 数组中的每一个项目叫做一个element元素，每一个愿元素都可以通过的">
+<meta name="twitter:image" content="http://docs.oracle.com/javase/tutorial/figures/java/objects-tenElementArray.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/20/java-tutorial-learning_the_lang_basic_arrays/"/>
+
+
+
+
+
+  <title>Java 学习指南_学习Java：基础—数组Arrays | Hello World</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello World</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hello Young</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/20/java-tutorial-learning_the_lang_basic_arrays/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java 学习指南_学习Java：基础—数组Arrays</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-20T17:56:59+08:00">
+                2017-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="数组Arrays"><a href="#数组Arrays" class="headerlink" title="数组Arrays"></a>数组Arrays</h1><p>一个<em>array数组</em>是可以持有固定数量单一数据类型的容器对象。数组的长度在数组创建的时候确定的，创建以后数组的长度就是固定不变的。在之前的“HelloWorld”项目中的<code>main</code>方法中，你已经见过简单的数组示例，本章节将更加详细的讨论数组。</p>
+<p><img src="http://docs.oracle.com/javase/tutorial/figures/java/objects-tenElementArray.gif" alt="Illustration of an array as 10 boxes numbered 0 through 9; an index of 0 indicates the first element in the array"></p>
+<p>包含10个元素的数组。An array of 10 elements.</p>
+<p>数组中的每一个项目叫做一个<em>element元素</em>，每一个愿元素都可以通过的数字index索引类访问。就像上面的插图展示的一样，数字索引从0开始。第9个元素将通过索引8来访问。下面的程序中，ArrayDemo，创建了一个整数数组，在数组里放入了一些值，然后在标准输出中打印了每一个值。</p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrayDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">// declares an array of integers 声明一个整数数组</span></div><div class="line">        <span class="keyword">int</span>[] anArray;</div><div class="line"></div><div class="line">        <span class="comment">// allocates memory for 10 integers 分配10个整数的存贮空间</span></div><div class="line">        anArray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</div><div class="line">           </div><div class="line">        <span class="comment">// initialize first element 初始化第一个元素</span></div><div class="line">        anArray[<span class="number">0</span>] = <span class="number">100</span>;</div><div class="line">        <span class="comment">// initialize second element 初始化第二个元素</span></div><div class="line">        anArray[<span class="number">1</span>] = <span class="number">200</span>;</div><div class="line">        <span class="comment">// and so forth 以及之后的元素</span></div><div class="line">        anArray[<span class="number">2</span>] = <span class="number">300</span>;</div><div class="line">        anArray[<span class="number">3</span>] = <span class="number">400</span>;</div><div class="line">        anArray[<span class="number">4</span>] = <span class="number">500</span>;</div><div class="line">        anArray[<span class="number">5</span>] = <span class="number">600</span>;</div><div class="line">        anArray[<span class="number">6</span>] = <span class="number">700</span>;</div><div class="line">        anArray[<span class="number">7</span>] = <span class="number">800</span>;</div><div class="line">        anArray[<span class="number">8</span>] = <span class="number">900</span>;</div><div class="line">        anArray[<span class="number">9</span>] = <span class="number">1000</span>;</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"Element at index 0: "</span></div><div class="line">                           + anArray[<span class="number">0</span>]);</div><div class="line">        System.out.println(<span class="string">"Element at index 1: "</span></div><div class="line">                           + anArray[<span class="number">1</span>]);</div><div class="line">        System.out.println(<span class="string">"Element at index 2: "</span></div><div class="line">                           + anArray[<span class="number">2</span>]);</div><div class="line">        System.out.println(<span class="string">"Element at index 3: "</span></div><div class="line">                           + anArray[<span class="number">3</span>]);</div><div class="line">        System.out.println(<span class="string">"Element at index 4: "</span></div><div class="line">                           + anArray[<span class="number">4</span>]);</div><div class="line">        System.out.println(<span class="string">"Element at index 5: "</span></div><div class="line">                           + anArray[<span class="number">5</span>]);</div><div class="line">        System.out.println(<span class="string">"Element at index 6: "</span></div><div class="line">                           + anArray[<span class="number">6</span>]);</div><div class="line">        System.out.println(<span class="string">"Element at index 7: "</span></div><div class="line">                           + anArray[<span class="number">7</span>]);</div><div class="line">        System.out.println(<span class="string">"Element at index 8: "</span></div><div class="line">                           + anArray[<span class="number">8</span>]);</div><div class="line">        System.out.println(<span class="string">"Element at index 9: "</span></div><div class="line">                           + anArray[<span class="number">9</span>]);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>程序的输出如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Element at index 0: 100</div><div class="line">Element at index 1: 200</div><div class="line">Element at index 2: 300</div><div class="line">Element at index 3: 400</div><div class="line">Element at index 4: 500</div><div class="line">Element at index 5: 600</div><div class="line">Element at index 6: 700</div><div class="line">Element at index 7: 800</div><div class="line">Element at index 8: 900</div><div class="line">Element at index 9: 1000</div></pre></td></tr></table></figure>
+<p>实际情况下，在上面的例子中，你可以使用一种数组支持的<em>loop constructs</em>循环结构来迭代数组的每一个元素，而不是一行一行的写。不过，这个例子清晰的说明了数组的语法。你将会在<a href="">控制流程</a>章节学到不同种类的循环结构（<code>for</code>,<code>while</code>以及<code>do-while</code>).</p>
+<h2 id="声明一个引用数组的变量"><a href="#声明一个引用数组的变量" class="headerlink" title="声明一个引用数组的变量"></a>声明一个引用数组的变量</h2><p>之前的程序通过下面这一行代码声明了一个名为<code>anArray</code>的数组：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// declares an array of integers</span></div><div class="line"><span class="keyword">int</span>[] anArray;</div></pre></td></tr></table></figure>
+<p>就像声明其它类型的变量一样，声明数组包括两部分，数组类型和数组名称。数组类型写作<code>*type*[]</code>其中<code>*type*</code>是数组内元素的数据类型，方括号是一个特殊符号表明该变量持有一个数组。数组的长度并不是类型的一部分（因此方括号是空的）.数组可以任意命名，只要你遵循<a href="">命名</a>章节中介绍的规则和约定。就像其他类型变量一样，声明的时候并没有创建一个数组，只是告诉编译器该变量将持有包含 特定类型数据的数组。</p>
+<p>同样，你也可以声明其他数据类型的数组：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">byte</span>[] anArrayOfBytes;</div><div class="line"><span class="keyword">short</span>[] anArrayOfShorts;</div><div class="line"><span class="keyword">long</span>[] anArrayOfLongs;</div><div class="line"><span class="keyword">float</span>[] anArrayOfFloats;</div><div class="line"><span class="keyword">double</span>[] anArrayOfDoubles;</div><div class="line"><span class="keyword">boolean</span>[] anArrayOfBooleans;</div><div class="line"><span class="keyword">char</span>[] anArrayOfChars;</div><div class="line">String[] anArrayOfStrings;</div></pre></td></tr></table></figure>
+<p>也可以把方括号置于数组名称之后：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// this form is discouraged 但是不鼓励这么做</span></div><div class="line"><span class="keyword">float</span> anArrayOfFloats[];</div></pre></td></tr></table></figure>
+<p>不过一般情况下不推荐这么做,方括号标明了变量类型为数组，应该与指定类型一起出现。</p>
+<h2 id="创建，初始化，访问数组"><a href="#创建，初始化，访问数组" class="headerlink" title="创建，初始化，访问数组"></a>创建，初始化，访问数组</h2><p>创建数组的一种方法是适用<code>new</code>操作符。接下来的代码展示了为数组分配了可以容纳10个integer元素的存储空间，并将这个数组指向<code>anArray</code>变量。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// create an array of integers</span></div><div class="line">anArray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</div></pre></td></tr></table></figure>
+<p>如果确实本行的话，编译器会打印出如下的错误，并且编译失败：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ArrayDemo.java:4: Variable anArray may not have been initialized.</div></pre></td></tr></table></figure>
+<p>下面几行代码为数组中的各个元素赋值：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">anArray[<span class="number">0</span>] = <span class="number">100</span>; <span class="comment">// initialize first element</span></div><div class="line">anArray[<span class="number">1</span>] = <span class="number">200</span>; <span class="comment">// initialize second element</span></div><div class="line">anArray[<span class="number">2</span>] = <span class="number">300</span>; <span class="comment">// and so forth</span></div></pre></td></tr></table></figure>
+<p>每一个数组元素可以通过的数字索引来访问：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">System.out.println(<span class="string">"Element 1 at index 0: "</span> + anArray[<span class="number">0</span>]);</div><div class="line">System.out.println(<span class="string">"Element 2 at index 1: "</span> + anArray[<span class="number">1</span>]);</div><div class="line">System.out.println(<span class="string">"Element 3 at index 2: "</span> + anArray[<span class="number">2</span>]);</div></pre></td></tr></table></figure>
+<p>同样，你也可以适用以下语法直接创建和初始化一个数组：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span>[] anArray = &#123; </div><div class="line">    <span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>,</div><div class="line">    <span class="number">400</span>, <span class="number">500</span>, <span class="number">600</span>, </div><div class="line">    <span class="number">700</span>, <span class="number">800</span>, <span class="number">900</span>, <span class="number">1000</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>这里，数组的长度由数组花括号中由逗号分隔的值的数量决定。你同样可以通过使用两组或者更多的方括号定义数组的数组（或者叫多维数组），例如<code>String[][] names</code>.这样的话，每一个元素必须通过级联的数字索引值来访问。 </p>
+<p>在Java编程语言中，一个多维数组的组成部分仍然是数组，有别于C或者Fortran，这样做的其中一个结果就是允许每一行数据可以有不同 的长度，下面代码中将展示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiDimArrayDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        String[][] names = &#123;</div><div class="line">            &#123;<span class="string">"Mr. "</span>, <span class="string">"Mrs. "</span>, <span class="string">"Ms. "</span>&#125;,</div><div class="line">            &#123;<span class="string">"Smith"</span>, <span class="string">"Jones"</span>&#125;</div><div class="line">        &#125;;</div><div class="line">        <span class="comment">// Mr. Smith</span></div><div class="line">        System.out.println(names[<span class="number">0</span>][<span class="number">0</span>] + names[<span class="number">1</span>][<span class="number">0</span>]);</div><div class="line">        <span class="comment">// Ms. Jones</span></div><div class="line">        System.out.println(names[<span class="number">0</span>][<span class="number">2</span>] + names[<span class="number">1</span>][<span class="number">1</span>]);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>程序的输出如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Mr. Smith</div><div class="line">Ms. Jones</div></pre></td></tr></table></figure>
+<p>最后，你可以使用数组内置的属性<code>length</code>来判定任何数组的尺寸/长度。下面代码将输出数组的长度。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">System.out.println(anArray.length);</div></pre></td></tr></table></figure>
+<h2 id="数组的复制"><a href="#数组的复制" class="headerlink" title="数组的复制"></a>数组的复制</h2><p><code>System</code>类有一个高性能的<code>arraycopy</code>方法，你可以使用该方法高效得将数据由一个数组复制到另一个。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">arraycopy</span><span class="params">(Object src, <span class="keyword">int</span> srcPos,</span></span></div><div class="line">                             Object dest, <span class="keyword">int</span> destPos, <span class="keyword">int</span> length)</div></pre></td></tr></table></figure>
+<p>两个<code>Object</code>参数分别是要考培的源数组和目标数组。三个<code>int</code>参数分别是源数组的其实位置，目标数组的起始位置和将要复制的元素个数。</p>
+<p>接下来的程序，声明了一个<code>char</code>字符数组,单词”decaffeinated”的拼写。然后使用<code>System.arraycopy</code>方法将数组内容的部分序列复制到第二个数组:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrayCopyDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">char</span>[] copyFrom = &#123; <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'c'</span>, <span class="string">'a'</span>, <span class="string">'f'</span>, <span class="string">'f'</span>, <span class="string">'e'</span>,</div><div class="line">			    <span class="string">'i'</span>, <span class="string">'n'</span>, <span class="string">'a'</span>, <span class="string">'t'</span>, <span class="string">'e'</span>, <span class="string">'d'</span> &#125;;</div><div class="line">        <span class="keyword">char</span>[] copyTo = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">7</span>];</div><div class="line"></div><div class="line">        System.arraycopy(copyFrom, <span class="number">2</span>, copyTo, <span class="number">0</span>, <span class="number">7</span>);</div><div class="line">        System.out.println(<span class="keyword">new</span> String(copyTo));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>程序的输出如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">caffein</div></pre></td></tr></table></figure>
+<h2 id="数组的操作"><a href="#数组的操作" class="headerlink" title="数组的操作"></a>数组的操作</h2><p>数组是编程中非常强大和使用的概念。Java SE 提供了诸多方法来满足与数组相关的最常用操作。以上例子中，使用<code>System</code>类的<code>arraycopy</code>方法替代了手动迭代原数组的元素然后将每一个元素置于目标数组。开发者只用一行代码调用该方法就可以在后台完成复制的操作。</p>
+<p>为了你的便利，Java SE 在<a href="https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html" target="_blank" rel="external"><code>java.util.Arrays</code></a> 类中提供了许多方法来满足数组的操作（常见工作，诸如复制，排序，搜索数组）。</p>
+<p>之前的例子也可以修改为使用<code>java.util.Arrays</code>类中的<code>copyOfRange</code>方法，下面例子由展示,使用该方法的不同之处在于，你可以不必在调用方法之前就创建目标数组，因为目标数组将由该方法创建和返回:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrayCopyOfDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        </div><div class="line">        <span class="keyword">char</span>[] copyFrom = &#123;<span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'c'</span>, <span class="string">'a'</span>, <span class="string">'f'</span>, <span class="string">'f'</span>, <span class="string">'e'</span>,</div><div class="line">            <span class="string">'i'</span>, <span class="string">'n'</span>, <span class="string">'a'</span>, <span class="string">'t'</span>, <span class="string">'e'</span>, <span class="string">'d'</span>&#125;;</div><div class="line">            </div><div class="line">        <span class="keyword">char</span>[] copyTo = java.util.Arrays.copyOfRange(copyFrom, <span class="number">2</span>, <span class="number">9</span>);</div><div class="line">        </div><div class="line">        System.out.println(<span class="keyword">new</span> String(copyTo));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>程序的输出同样是<code>caffein</code>,尽管这样做需要更少的代码。注意，<code>caopyOfRange</code>方法的第二个参数是要复制的范围的起始索引，包含该索引，同时第三个参数是要复制范围的结束索引，不包含该索引。在本例中，复制的范围不包含在索引9位置的元素（即字符<code>a</code>).</p>
+<p><code>java.util.Arrays</code>类还提供了其他有用的方法，如下：</p>
+<ul>
+<li>搜索一个特定的值在数组中的位置下标.(方法<code>binarySearch</code>)</li>
+<li>比较两个数组以判定两个数组是否相等(方法<code>equal</code>)</li>
+<li>填充数组，为数组的每一个位置放置一个特定的值(方法<code>fill</code>)</li>
+<li>按照升序排序数组。可以使用<code>sort</code>方法进行循序排序，或者使用Java SE8引进的<code>parallelSort</code>进行并发的排序。在多处理器系统中使用平行排序较大的数组比循序的排序要快得多。</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>Enjoy it ? Donate me !  欣赏此文？支持一下 !</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat_pay.png" alt="Hello Young WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/ali_pay.jpg" alt="Hello Young Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/tutorial/" rel="tag"># tutorial</a>
+          
+            <a href="/tags/教程/" rel="tag"># 教程</a>
+          
+            <a href="/tags/数组/" rel="tag"># 数组</a>
+          
+            <a href="/tags/Array/" rel="tag"># Array</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/05/java-tutorial-learning_the_lang_basic_primitive_data_type/" rel="next" title="Java 学习指南_学习Java：基础—基本数据类型Primitive Data Types">
+                <i class="fa fa-chevron-left"></i> Java 学习指南_学习Java：基础—基本数据类型Primitive Data Types
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/26/java-tutorial-learning_the_lang_basic_variables_sum/" rel="prev" title="Java 学习指南_学习Java：基础—变量总结">
+                Java 学习指南_学习Java：基础—变量总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Hello Young" />
+          <p class="site-author-name" itemprop="name">Hello Young</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">61</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Csdypg" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://phaser.io" title="Phaser" target="_blank">Phaser</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数组Arrays"><span class="nav-number">1.</span> <span class="nav-text">数组Arrays</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#声明一个引用数组的变量"><span class="nav-number">1.1.</span> <span class="nav-text">声明一个引用数组的变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建，初始化，访问数组"><span class="nav-number">1.2.</span> <span class="nav-text">创建，初始化，访问数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的复制"><span class="nav-number">1.3.</span> <span class="nav-text">数组的复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的操作"><span class="nav-number">1.4.</span> <span class="nav-text">数组的操作</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hello Young</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('-1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
