@@ -81,6 +81,86 @@
   </entry>
   
   <entry>
+    <title>Java 学习指南_学习Java：基础-匿名类</title>
+    <link href="http://yoursite.com/2017/10/24/java-tutorial-learning_the_lang_basic_anonymous_class/"/>
+    <id>http://yoursite.com/2017/10/24/java-tutorial-learning_the_lang_basic_anonymous_class/</id>
+    <published>2017-10-24T06:51:59.000Z</published>
+    <updated>2017-12-04T02:59:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="匿名类Anonymous-Classes"><a href="#匿名类Anonymous-Classes" class="headerlink" title="匿名类Anonymous Classes"></a>匿名类Anonymous Classes</h1><h1 id="Anonymous-Classes"><a href="#Anonymous-Classes" class="headerlink" title="Anonymous Classes"></a>Anonymous Classes</h1><p>匿名类可以是你的代码更加简。你可以同时声明和实例化一个匿名类。匿名类与局不累很想，只不过没有名字。如果你只想使用一个局部类一次，就可以是用匿名类。</p>
+<p>本节包含了一下主题:</p>
+<ul>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html#declaring-anonymous-classes" target="_blank" rel="external">声明匿名类</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html#syntax-of-anonymous-classes" target="_blank" rel="external">匿名类的语法</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html#accessing" target="_blank" rel="external">访问闭合范围内的局部变量，以及声明和访问匿名类的成员</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html#examples-of-anonymous-classes" target="_blank" rel="external">匿名类的实例</a></li>
+</ul>
+<h2 id="声明匿名类"><a href="#声明匿名类" class="headerlink" title="声明匿名类"></a><a href="">声明匿名类</a></h2><p>局不类是声明，而匿名类是表达式，意思是你在另外一个表达式中定义这个类。下面的例子,<a href="https://docs.oracle.com/javase/tutorial/java/javaOO/examples/HelloWorldAnonymousClasses.java" target="_blank" rel="external"><code>HelloWorldAnonymousClasses</code></a>, 在局部变量 <code>frenchGreeting</code> 以及<code>spanishGreeting</code>的初始化过程中使用了匿名类,而 而局部变量 <code>englishGreeting</code>的声明则使用的局部类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorldAnonymousClasses</span> </span>&#123;</div><div class="line">  </div><div class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">HelloWorld</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greet</span><span class="params">()</span></span>;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greetSomeone</span><span class="params">(String someone)</span></span>;</div><div class="line">    &#125;</div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</div><div class="line">        </div><div class="line">        <span class="class"><span class="keyword">class</span> <span class="title">EnglishGreeting</span> <span class="keyword">implements</span> <span class="title">HelloWorld</span> </span>&#123;</div><div class="line">            String name = <span class="string">"world"</span>;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greet</span><span class="params">()</span> </span>&#123;</div><div class="line">                greetSomeone(<span class="string">"world"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greetSomeone</span><span class="params">(String someone)</span> </span>&#123;</div><div class="line">                name = someone;</div><div class="line">                System.out.println(<span class="string">"Hello "</span> + name);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">      </div><div class="line">        HelloWorld englishGreeting = <span class="keyword">new</span> EnglishGreeting();</div><div class="line">        </div><div class="line">        HelloWorld frenchGreeting = <span class="keyword">new</span> HelloWorld() &#123;</div><div class="line">            String name = <span class="string">"tout le monde"</span>;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greet</span><span class="params">()</span> </span>&#123;</div><div class="line">                greetSomeone(<span class="string">"tout le monde"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greetSomeone</span><span class="params">(String someone)</span> </span>&#123;</div><div class="line">                name = someone;</div><div class="line">                System.out.println(<span class="string">"Salut "</span> + name);</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        </div><div class="line">        HelloWorld spanishGreeting = <span class="keyword">new</span> HelloWorld() &#123;</div><div class="line">            String name = <span class="string">"mundo"</span>;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greet</span><span class="params">()</span> </span>&#123;</div><div class="line">                greetSomeone(<span class="string">"mundo"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greetSomeone</span><span class="params">(String someone)</span> </span>&#123;</div><div class="line">                name = someone;</div><div class="line">                System.out.println(<span class="string">"Hola, "</span> + name);</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        englishGreeting.greet();</div><div class="line">        frenchGreeting.greetSomeone(<span class="string">"Fred"</span>);</div><div class="line">        spanishGreeting.greet();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String... args)</span> </span>&#123;</div><div class="line">        HelloWorldAnonymousClasses myApp =</div><div class="line">            <span class="keyword">new</span> HelloWorldAnonymousClasses();</div><div class="line">        myApp.sayHello();</div><div class="line">    &#125;            </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="匿名类的语法Syntax-of-Anonymous-Classes"><a href="#匿名类的语法Syntax-of-Anonymous-Classes" class="headerlink" title="匿名类的语法Syntax of Anonymous Classes"></a><a href="">匿名类的语法Syntax of Anonymous Classes</a></h2><p>就像之前提到的一样，一个匿名类是一个表达式。匿名类表达式的语法类似调用一个构造器，不过在后边多了定义类的代码块。</p>
+<p>参考一下 <code>frenchGreeting</code> 对象的实例:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">HelloWorld frenchGreeting = <span class="keyword">new</span> HelloWorld() &#123;</div><div class="line">    String name = <span class="string">"tout le monde"</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greet</span><span class="params">()</span> </span>&#123;</div><div class="line">        greetSomeone(<span class="string">"tout le monde"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greetSomeone</span><span class="params">(String someone)</span> </span>&#123;</div><div class="line">        name = someone;</div><div class="line">        System.out.println(<span class="string">"Salut "</span> + name);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>匿名类表达式由一下几部分组成:</p>
+<ul>
+<li><code>new</code> 操作符</li>
+<li>一个用来实现的接口或者用来继承的类的名称。本例中，匿名类为接口<code>HelloWorld</code> 的实现。</li>
+<li>包含构造器参数的圆括号，类似普通的类创建实例表达式。<strong>注意：</strong> 当你实现一个接口时，没有构造器，所以你使用一个空的圆括号。</li>
+<li>一个类体，包括了类的定义。需要注意的事，在类体中可以允许方法声明，但是不允许有语句。</li>
+</ul>
+<p>因为匿名类的定义是一个表达式，他必须是语句的一部分。在本例中，匿名类表达式是实例化<code>frenchGreeting</code>对象语句的一部分。（这也解释了为什么需要在闭合的大括号后面需要一个分号）</p>
+<h2 id="访问闭合氛围内的局部变量，以及声明和访问匿名类的成员"><a href="#访问闭合氛围内的局部变量，以及声明和访问匿名类的成员" class="headerlink" title="访问闭合氛围内的局部变量，以及声明和访问匿名类的成员"></a><a href="">访问闭合氛围内的局部变量，以及声明和访问匿名类的成员</a></h2><p>就像局不类一样，匿名类可以 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html#accessing-members-of-an-enclosing-class" target="_blank" rel="external">捕获变量capture variables</a>;他们对于闭合范围内的局部变量具有相同的访问权限:</p>
+<ul>
+<li>匿名类可以访问他的闭合类的成员。</li>
+<li>匿名类不能访问他所属闭合范围内定义不是<code>final</code>或者等效于与<code>final</code>的局部变量。</li>
+<li>与嵌套类一样，在匿名类中声明某一类型的变量会遮蔽它所属闭合范围内的其它名字相同的变量。参考 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html#shadowing" target="_blank" rel="external">遮蔽Shadowing</a>以获取更多信息。</li>
+</ul>
+<p>匿名类与局不累一样对它自己的成员访问有一些限制:</p>
+<ul>
+<li>你不能在匿名类中定义静态的初始化器或者是成员接口.</li>
+<li>匿名类中可以是用静态成员来定义常量。</li>
+</ul>
+<p>注意你可以在匿名类中定义以下内容:</p>
+<ul>
+<li>字段/属性Fields</li>
+<li>扩展方法（尽管他们没有实现任何父类的方法）</li>
+<li>实例初始化器</li>
+<li>局不类</li>
+</ul>
+<p>不过你不能再匿名类中定义构造器.</p>
+<h2 id="匿名类的实例Examples-of-Anonymous-Classes"><a href="#匿名类的实例Examples-of-Anonymous-Classes" class="headerlink" title="匿名类的实例Examples of Anonymous Classes"></a><a href="">匿名类的实例Examples of Anonymous Classes</a></h2><p>匿名类经常在图形界面的应用中使用。</p>
+<p>参考下列JavaFX 列子 <a href="https://docs.oracle.com/javase/8/javafx/get-started-tutorial/hello_world.htm" target="_blank" rel="external"><code>HelloWorld.java</code></a> (摘自 <a href="https://docs.oracle.com/javase/8/javafx/get-started-tutorial/hello_world.htm" target="_blank" rel="external">Hello World, JavaFX Style</a> 中 <a href="https://docs.oracle.com/javase/8/javafx/get-started-tutorial/javafx_get_started.htm" target="_blank" rel="external">Getting Started with JavaFX</a>). 这个例子创建了一个报刊了 <strong>Say ‘Hello World’</strong>按钮的框架 :</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> javafx.event.ActionEvent;</div><div class="line"><span class="keyword">import</span> javafx.event.EventHandler;</div><div class="line"><span class="keyword">import</span> javafx.scene.Scene;</div><div class="line"><span class="keyword">import</span> javafx.scene.control.Button;</div><div class="line"><span class="keyword">import</span> javafx.scene.layout.StackPane;</div><div class="line"><span class="keyword">import</span> javafx.stage.Stage;</div><div class="line"> </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        launch(args);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage primaryStage)</span> </span>&#123;</div><div class="line">        primaryStage.setTitle(<span class="string">"Hello World!"</span>);</div><div class="line">        Button btn = <span class="keyword">new</span> Button();</div><div class="line">        btn.setText(<span class="string">"Say 'Hello World'"</span>);</div><div class="line">        btn.setOnAction(<span class="keyword">new</span> EventHandler&lt;ActionEvent&gt;() &#123;</div><div class="line"> </div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(ActionEvent event)</span> </span>&#123;</div><div class="line">                System.out.println(<span class="string">"Hello World!"</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        </div><div class="line">        StackPane root = <span class="keyword">new</span> StackPane();</div><div class="line">        root.getChildren().add(btn);</div><div class="line">        primaryStage.setScene(<span class="keyword">new</span> Scene(root, <span class="number">300</span>, <span class="number">250</span>));</div><div class="line">        primaryStage.show();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>本例中I，方法调用<code>btn.setOnAction</code> 定义了当你选择<strong>Say ‘Hello World’</strong>按钮的时候回发生什么.这个方法要求一个 <code>EventHandler&lt;ActionEvent&gt;</code>类型的对象.  <code>EventHandler&lt;ActionEvent&gt;</code>接口仅包含一个方法，handle。这里没有重新定义一个类来实现这个方法，而是直接使用了匿名类表达式。注意这个表达式是传递给<code>btn.setOnAction</code> 方法的参数.</p>
+<p>因为 <code>EventHandler&lt;ActionEvent&gt;</code> 接口仅仅包含一个方法,你同样可以使用lambda表达式来代替匿名类表达式. 参考<a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html" target="_blank" rel="external">Lambda Expressions</a> 章节来获取更多信息.</p>
+<p>匿名类是用来实现包含有两个或多个方法接口的理想方法。下面的例子JavaFX example 来自Customization of UI Controls](<a href="https://docs.oracle.com/javase/8/javafx/user-interface-tutorial/custom.htm" target="_blank" rel="external">https://docs.oracle.com/javase/8/javafx/user-interface-tutorial/custom.htm</a>). 代码中创建了一个只接受数字值文本域. 它使用匿名类重新定义了<code>TextField</code>类，复写了继承自 <code>TextInputControl</code> 类的 <code>replaceText</code> 和 <code>replaceSelection</code> 方法.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> javafx.application.Application;</div><div class="line"><span class="keyword">import</span> javafx.event.ActionEvent;</div><div class="line"><span class="keyword">import</span> javafx.event.EventHandler;</div><div class="line"><span class="keyword">import</span> javafx.geometry.Insets;</div><div class="line"><span class="keyword">import</span> javafx.scene.Group;</div><div class="line"><span class="keyword">import</span> javafx.scene.Scene;</div><div class="line"><span class="keyword">import</span> javafx.scene.control.*;</div><div class="line"><span class="keyword">import</span> javafx.scene.layout.GridPane;</div><div class="line"><span class="keyword">import</span> javafx.scene.layout.HBox;</div><div class="line"><span class="keyword">import</span> javafx.stage.Stage;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomTextFieldSample</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">final</span> <span class="keyword">static</span> Label label = <span class="keyword">new</span> Label();</div><div class="line"> </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage stage)</span> </span>&#123;</div><div class="line">        Group root = <span class="keyword">new</span> Group();</div><div class="line">        Scene scene = <span class="keyword">new</span> Scene(root, <span class="number">300</span>, <span class="number">150</span>);</div><div class="line">        stage.setScene(scene);</div><div class="line">        stage.setTitle(<span class="string">"Text Field Sample"</span>);</div><div class="line"> </div><div class="line">        GridPane grid = <span class="keyword">new</span> GridPane();</div><div class="line">        grid.setPadding(<span class="keyword">new</span> Insets(<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>));</div><div class="line">        grid.setVgap(<span class="number">5</span>);</div><div class="line">        grid.setHgap(<span class="number">5</span>);</div><div class="line"> </div><div class="line">        scene.setRoot(grid);</div><div class="line">        <span class="keyword">final</span> Label dollar = <span class="keyword">new</span> Label(<span class="string">"$"</span>);</div><div class="line">        GridPane.setConstraints(dollar, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">        grid.getChildren().add(dollar);</div><div class="line">        </div><div class="line">        <span class="keyword">final</span> TextField sum = <span class="keyword">new</span> TextField() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">replaceText</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end, String text)</span> </span>&#123;</div><div class="line">                <span class="keyword">if</span> (!text.matches(<span class="string">"[a-z, A-Z]"</span>)) &#123;</div><div class="line">                    <span class="keyword">super</span>.replaceText(start, end, text);                     </div><div class="line">                &#125;</div><div class="line">                label.setText(<span class="string">"Enter a numeric value"</span>);</div><div class="line">            &#125;</div><div class="line"> </div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">replaceSelection</span><span class="params">(String text)</span> </span>&#123;</div><div class="line">                <span class="keyword">if</span> (!text.matches(<span class="string">"[a-z, A-Z]"</span>)) &#123;</div><div class="line">                    <span class="keyword">super</span>.replaceSelection(text);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line"> </div><div class="line">        sum.setPromptText(<span class="string">"Enter the total"</span>);</div><div class="line">        sum.setPrefColumnCount(<span class="number">10</span>);</div><div class="line">        GridPane.setConstraints(sum, <span class="number">1</span>, <span class="number">0</span>);</div><div class="line">        grid.getChildren().add(sum);</div><div class="line">        </div><div class="line">        Button submit = <span class="keyword">new</span> Button(<span class="string">"Submit"</span>);</div><div class="line">        GridPane.setConstraints(submit, <span class="number">2</span>, <span class="number">0</span>);</div><div class="line">        grid.getChildren().add(submit);</div><div class="line">        </div><div class="line">        submit.setOnAction(<span class="keyword">new</span> EventHandler&lt;ActionEvent&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(ActionEvent e)</span> </span>&#123;</div><div class="line">                label.setText(<span class="keyword">null</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        </div><div class="line">        GridPane.setConstraints(label, <span class="number">0</span>, <span class="number">1</span>);</div><div class="line">        GridPane.setColumnSpan(label, <span class="number">3</span>);</div><div class="line">        grid.getChildren().add(label);</div><div class="line">        </div><div class="line">        scene.setRoot(grid);</div><div class="line">        stage.show();</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        launch(args);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;匿名类Anonymous-Classes&quot;&gt;&lt;a href=&quot;#匿名类Anonymous-Classes&quot; class=&quot;headerlink&quot; title=&quot;匿名类Anonymous Classes&quot;&gt;&lt;/a&gt;匿名类Anonymous Classes&lt;/h1&gt;&lt;
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
+    
+      <category term="class" scheme="http://yoursite.com/tags/class/"/>
+    
+      <category term="Anonymous Classe" scheme="http://yoursite.com/tags/Anonymous-Classe/"/>
+    
+      <category term="匿名类" scheme="http://yoursite.com/tags/%E5%8C%BF%E5%90%8D%E7%B1%BB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java 学习指南_学习Java：基础-内部类</title>
     <link href="http://yoursite.com/2017/10/24/java-tutorial-learning_the_lang_basic_inner_class/"/>
     <id>http://yoursite.com/2017/10/24/java-tutorial-learning_the_lang_basic_inner_class/</id>
@@ -567,6 +647,48 @@
   </entry>
   
   <entry>
+    <title>Java 学习指南_学习Java：基础-类-this关键字</title>
+    <link href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_11/"/>
+    <id>http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_11/</id>
+    <published>2017-10-18T05:54:59.000Z</published>
+    <updated>2017-10-26T01:02:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用this关键字"><a href="#使用this关键字" class="headerlink" title="使用this关键字"></a>使用this关键字</h1><p>在一个实例方法或者是构造器中，<code>this</code>关键字指向<em>当前对象**current object</em>—被调用了方法或者构造器的对象。你可以通过<code>this</code>关键字在实例方法或者构造器中引用当前对象的任何成员。</p>
+<h2 id="this-与-Field"><a href="#this-与-Field" class="headerlink" title="this 与 Field"></a><code>this</code> 与 Field</h2><p>通常使用<code>this</code>关键字的原因是field被方法或构造器的参数遮蔽.例如,  <code>Point</code>可以这样写</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        x = a;</div><div class="line">        y = b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>同样也可以这样写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>构造器的每一个参数遮蔽对象的一个filed字段/属性–方法内<strong>x</strong> 是构造器第一参数的一本局部副本.为了引用 <code>Point</code> 的 <strong>x</strong>字段, 构造器必须使用 <code>this.x</code>.</p>
+<h2 id="this-与构造器-Constructor"><a href="#this-与构造器-Constructor" class="headerlink" title="this 与构造器 Constructor"></a><code>this</code> 与构造器 Constructor</h2><p>在一个构造器内，你同样可以使用<code>this</code>关键字来调用用一个类中的其他构造器。这样做叫作<em>explicit constructor invocation**显示的构造函数调用</em>.下面是一个 <code>Rectangle</code> 类,与对象一节中实现方法不同.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x, y;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> width, height;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, width, height);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">        <span class="keyword">this</span>.width = width;</div><div class="line">        <span class="keyword">this</span>.height = height;</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个类包含一系列的构造器.每一个构造器初始化初始化矩形的一些成员变量.构造器为没有提供初始化参数的成员变量设置一个默认值。例如。无参构造器在坐标(0,0)处创建一个1X1的矩形。这个两个参数的构造其调用了四个参数的构造器，传递里宽高参数并且使用了(0,0)坐标。就像之前一样，编译器决定去调用哪一个构造器，基于参数的数量以及类型。</p>
+<p>如果存在这种调用，对其他构造器的调用必须出现在构造器中的第一行。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;使用this关键字&quot;&gt;&lt;a href=&quot;#使用this关键字&quot; class=&quot;headerlink&quot; title=&quot;使用this关键字&quot;&gt;&lt;/a&gt;使用this关键字&lt;/h1&gt;&lt;p&gt;在一个实例方法或者是构造器中，&lt;code&gt;this&lt;/code&gt;关键字指向&lt;em&gt;当
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
+    
+      <category term="class" scheme="http://yoursite.com/tags/class/"/>
+    
+      <category term="this" scheme="http://yoursite.com/tags/this/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java 学习指南_学习Java：基础-类-访问控制</title>
     <link href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_12/"/>
     <id>http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_12/</id>
@@ -701,48 +823,6 @@
       <category term="Controlling Access" scheme="http://yoursite.com/tags/Controlling-Access/"/>
     
       <category term="访问控制" scheme="http://yoursite.com/tags/%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-类-this关键字</title>
-    <link href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_11/"/>
-    <id>http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_11/</id>
-    <published>2017-10-18T05:54:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="使用this关键字"><a href="#使用this关键字" class="headerlink" title="使用this关键字"></a>使用this关键字</h1><p>在一个实例方法或者是构造器中，<code>this</code>关键字指向<em>当前对象**current object</em>—被调用了方法或者构造器的对象。你可以通过<code>this</code>关键字在实例方法或者构造器中引用当前对象的任何成员。</p>
-<h2 id="this-与-Field"><a href="#this-与-Field" class="headerlink" title="this 与 Field"></a><code>this</code> 与 Field</h2><p>通常使用<code>this</code>关键字的原因是field被方法或构造器的参数遮蔽.例如,  <code>Point</code>可以这样写</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        x = a;</div><div class="line">        y = b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>同样也可以这样写：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>构造器的每一个参数遮蔽对象的一个filed字段/属性–方法内<strong>x</strong> 是构造器第一参数的一本局部副本.为了引用 <code>Point</code> 的 <strong>x</strong>字段, 构造器必须使用 <code>this.x</code>.</p>
-<h2 id="this-与构造器-Constructor"><a href="#this-与构造器-Constructor" class="headerlink" title="this 与构造器 Constructor"></a><code>this</code> 与构造器 Constructor</h2><p>在一个构造器内，你同样可以使用<code>this</code>关键字来调用用一个类中的其他构造器。这样做叫作<em>explicit constructor invocation**显示的构造函数调用</em>.下面是一个 <code>Rectangle</code> 类,与对象一节中实现方法不同.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x, y;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> width, height;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, width, height);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">        <span class="keyword">this</span>.width = width;</div><div class="line">        <span class="keyword">this</span>.height = height;</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个类包含一系列的构造器.每一个构造器初始化初始化矩形的一些成员变量.构造器为没有提供初始化参数的成员变量设置一个默认值。例如。无参构造器在坐标(0,0)处创建一个1X1的矩形。这个两个参数的构造其调用了四个参数的构造器，传递里宽高参数并且使用了(0,0)坐标。就像之前一样，编译器决定去调用哪一个构造器，基于参数的数量以及类型。</p>
-<p>如果存在这种调用，对其他构造器的调用必须出现在构造器中的第一行。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;使用this关键字&quot;&gt;&lt;a href=&quot;#使用this关键字&quot; class=&quot;headerlink&quot; title=&quot;使用this关键字&quot;&gt;&lt;/a&gt;使用this关键字&lt;/h1&gt;&lt;p&gt;在一个实例方法或者是构造器中，&lt;code&gt;this&lt;/code&gt;关键字指向&lt;em&gt;当
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
-    
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
-    
-      <category term="this" scheme="http://yoursite.com/tags/this/"/>
     
   </entry>
   
@@ -1109,11 +1189,11 @@
     
       <category term="class" scheme="http://yoursite.com/tags/class/"/>
     
+      <category term="方法" scheme="http://yoursite.com/tags/%E6%96%B9%E6%B3%95/"/>
+    
       <category term="构造方法" scheme="http://yoursite.com/tags/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/"/>
     
       <category term="constructor" scheme="http://yoursite.com/tags/constructor/"/>
-    
-      <category term="方法" scheme="http://yoursite.com/tags/%E6%96%B9%E6%B3%95/"/>
     
       <category term="参数信息" scheme="http://yoursite.com/tags/%E5%8F%82%E6%95%B0%E4%BF%A1%E6%81%AF/"/>
     
@@ -1296,52 +1376,6 @@
       <category term="method" scheme="http://yoursite.com/tags/method/"/>
     
       <category term="方法" scheme="http://yoursite.com/tags/%E6%96%B9%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-类-声明类</title>
-    <link href="http://yoursite.com/2017/09/28/java-tutorial-learning_the_lang_basic_class&amp;object_class_1/"/>
-    <id>http://yoursite.com/2017/09/28/java-tutorial-learning_the_lang_basic_class&amp;object_class_1/</id>
-    <published>2017-09-28T02:00:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="声明类"><a href="#声明类" class="headerlink" title="声明类"></a>声明类</h1><p>你已经看到的类按照下面的方式定义：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</div><div class="line">    <span class="comment">// field, constructor, and </span></div><div class="line">    <span class="comment">// method declarations</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这就是<em>类的声明</em>。类体class body(两个花括号之内的区域)包含了用于对象生命周期中由类创建时所需的所有代码：用于初始化一个对象的构造函数，用来提供类以及其实例对象的状态的字段/域，以及实现了类和其实例对象行为的方法。</p>
-<p>之前是课程声明了一个最基本的类 。只包含了声明类所必须的组件。你可以为类提供更多信息，例如在开始定义类的时候声明类的父类，以及是否实现了那些接口等等。例如,</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> <span class="keyword">extends</span> <span class="title">MySuperClass</span> <span class="keyword">implements</span> <span class="title">YourInterface</span> </span>&#123;</div><div class="line">    <span class="comment">// field, constructor, and</span></div><div class="line">    <span class="comment">// method declarations</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>意味着类<code>MyClass</code>是<code>MySuperClass</code> 的子类并且它实现了<code>YourInterface</code>接口。</p>
-<p>你同样可以在最开始的比方增加限定修饰符<em>public</em>或者<code>private</code>-因此你会发现定义类的起始行可以变得相当复杂。限定修饰符<em>public</em>和<em>private</em>定义了其他类可以访问<code>Myclass</code>的什么内容，将会在本科后续内容讨论。关于接口和继承的课程会解释如何以及为什么使用<em>extends</em>以及<em>implements</em>关键字类定义类。现在你不需要担心这些复杂的问题。</p>
-<p>通常情况的，类的声明包含了以下部分，按照顺序排列为：</p>
-<ol>
-<li>限定修饰符public,private以及后续你会碰到的其他内容。</li>
-<li>类名，按照约定需要大写首字母</li>
-<li>类的父类，前置一个<em>extends</em>关键字。一个类只可以扩展自一个父类。</li>
-<li>由逗号分割的实现接口的列表，前置一个<em>implements</em>关键字。一个类可以<em>implement</em>实现多个接口。</li>
-<li>类体body，由{},花括号包围。</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;声明类&quot;&gt;&lt;a href=&quot;#声明类&quot; class=&quot;headerlink&quot; title=&quot;声明类&quot;&gt;&lt;/a&gt;声明类&lt;/h1&gt;&lt;p&gt;你已经看到的类按照下面的方式定义：&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
-    
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
     
   </entry>
   

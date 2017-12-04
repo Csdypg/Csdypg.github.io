@@ -1,0 +1,1195 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,教程,tutorial,类,class,Anonymous Classe,匿名类" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="匿名类Anonymous ClassesAnonymous Classes匿名类可以是你的代码更加简。你可以同时声明和实例化一个匿名类。匿名类与局不累很想，只不过没有名字。如果你只想使用一个局部类一次，就可以是用匿名类。 本节包含了一下主题:  声明匿名类 匿名类的语法 访问闭合范围内的局部变量，以及声明和访问匿名类的成员 匿名类的实例  声明匿名类局不类是声明，而匿名类是表达式，意思是你在另外一">
+<meta name="keywords" content="java,教程,tutorial,类,class,Anonymous Classe,匿名类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 学习指南_学习Java：基础-匿名类">
+<meta property="og:url" content="http://yoursite.com/2017/10/24/java-tutorial-learning_the_lang_basic_anonymous_class/index.html">
+<meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="匿名类Anonymous ClassesAnonymous Classes匿名类可以是你的代码更加简。你可以同时声明和实例化一个匿名类。匿名类与局不累很想，只不过没有名字。如果你只想使用一个局部类一次，就可以是用匿名类。 本节包含了一下主题:  声明匿名类 匿名类的语法 访问闭合范围内的局部变量，以及声明和访问匿名类的成员 匿名类的实例  声明匿名类局不类是声明，而匿名类是表达式，意思是你在另外一">
+<meta property="og:updated_time" content="2017-12-04T02:59:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 学习指南_学习Java：基础-匿名类">
+<meta name="twitter:description" content="匿名类Anonymous ClassesAnonymous Classes匿名类可以是你的代码更加简。你可以同时声明和实例化一个匿名类。匿名类与局不累很想，只不过没有名字。如果你只想使用一个局部类一次，就可以是用匿名类。 本节包含了一下主题:  声明匿名类 匿名类的语法 访问闭合范围内的局部变量，以及声明和访问匿名类的成员 匿名类的实例  声明匿名类局不类是声明，而匿名类是表达式，意思是你在另外一">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/24/java-tutorial-learning_the_lang_basic_anonymous_class/"/>
+
+
+
+
+
+  <title>Java 学习指南_学习Java：基础-匿名类 | Hello World</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello World</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Hello Young</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/24/java-tutorial-learning_the_lang_basic_anonymous_class/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java 学习指南_学习Java：基础-匿名类</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-24T14:51:59+08:00">
+                2017-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="匿名类Anonymous-Classes"><a href="#匿名类Anonymous-Classes" class="headerlink" title="匿名类Anonymous Classes"></a>匿名类Anonymous Classes</h1><h1 id="Anonymous-Classes"><a href="#Anonymous-Classes" class="headerlink" title="Anonymous Classes"></a>Anonymous Classes</h1><p>匿名类可以是你的代码更加简。你可以同时声明和实例化一个匿名类。匿名类与局不累很想，只不过没有名字。如果你只想使用一个局部类一次，就可以是用匿名类。</p>
+<p>本节包含了一下主题:</p>
+<ul>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html#declaring-anonymous-classes" target="_blank" rel="external">声明匿名类</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html#syntax-of-anonymous-classes" target="_blank" rel="external">匿名类的语法</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html#accessing" target="_blank" rel="external">访问闭合范围内的局部变量，以及声明和访问匿名类的成员</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html#examples-of-anonymous-classes" target="_blank" rel="external">匿名类的实例</a></li>
+</ul>
+<h2 id="声明匿名类"><a href="#声明匿名类" class="headerlink" title="声明匿名类"></a><a href="">声明匿名类</a></h2><p>局不类是声明，而匿名类是表达式，意思是你在另外一个表达式中定义这个类。下面的例子,<a href="https://docs.oracle.com/javase/tutorial/java/javaOO/examples/HelloWorldAnonymousClasses.java" target="_blank" rel="external"><code>HelloWorldAnonymousClasses</code></a>, 在局部变量 <code>frenchGreeting</code> 以及<code>spanishGreeting</code>的初始化过程中使用了匿名类,而 而局部变量 <code>englishGreeting</code>的声明则使用的局部类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorldAnonymousClasses</span> </span>&#123;</div><div class="line">  </div><div class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">HelloWorld</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greet</span><span class="params">()</span></span>;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greetSomeone</span><span class="params">(String someone)</span></span>;</div><div class="line">    &#125;</div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</div><div class="line">        </div><div class="line">        <span class="class"><span class="keyword">class</span> <span class="title">EnglishGreeting</span> <span class="keyword">implements</span> <span class="title">HelloWorld</span> </span>&#123;</div><div class="line">            String name = <span class="string">"world"</span>;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greet</span><span class="params">()</span> </span>&#123;</div><div class="line">                greetSomeone(<span class="string">"world"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greetSomeone</span><span class="params">(String someone)</span> </span>&#123;</div><div class="line">                name = someone;</div><div class="line">                System.out.println(<span class="string">"Hello "</span> + name);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">      </div><div class="line">        HelloWorld englishGreeting = <span class="keyword">new</span> EnglishGreeting();</div><div class="line">        </div><div class="line">        HelloWorld frenchGreeting = <span class="keyword">new</span> HelloWorld() &#123;</div><div class="line">            String name = <span class="string">"tout le monde"</span>;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greet</span><span class="params">()</span> </span>&#123;</div><div class="line">                greetSomeone(<span class="string">"tout le monde"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greetSomeone</span><span class="params">(String someone)</span> </span>&#123;</div><div class="line">                name = someone;</div><div class="line">                System.out.println(<span class="string">"Salut "</span> + name);</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        </div><div class="line">        HelloWorld spanishGreeting = <span class="keyword">new</span> HelloWorld() &#123;</div><div class="line">            String name = <span class="string">"mundo"</span>;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greet</span><span class="params">()</span> </span>&#123;</div><div class="line">                greetSomeone(<span class="string">"mundo"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greetSomeone</span><span class="params">(String someone)</span> </span>&#123;</div><div class="line">                name = someone;</div><div class="line">                System.out.println(<span class="string">"Hola, "</span> + name);</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        englishGreeting.greet();</div><div class="line">        frenchGreeting.greetSomeone(<span class="string">"Fred"</span>);</div><div class="line">        spanishGreeting.greet();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String... args)</span> </span>&#123;</div><div class="line">        HelloWorldAnonymousClasses myApp =</div><div class="line">            <span class="keyword">new</span> HelloWorldAnonymousClasses();</div><div class="line">        myApp.sayHello();</div><div class="line">    &#125;            </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="匿名类的语法Syntax-of-Anonymous-Classes"><a href="#匿名类的语法Syntax-of-Anonymous-Classes" class="headerlink" title="匿名类的语法Syntax of Anonymous Classes"></a><a href="">匿名类的语法Syntax of Anonymous Classes</a></h2><p>就像之前提到的一样，一个匿名类是一个表达式。匿名类表达式的语法类似调用一个构造器，不过在后边多了定义类的代码块。</p>
+<p>参考一下 <code>frenchGreeting</code> 对象的实例:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">HelloWorld frenchGreeting = <span class="keyword">new</span> HelloWorld() &#123;</div><div class="line">    String name = <span class="string">"tout le monde"</span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greet</span><span class="params">()</span> </span>&#123;</div><div class="line">        greetSomeone(<span class="string">"tout le monde"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greetSomeone</span><span class="params">(String someone)</span> </span>&#123;</div><div class="line">        name = someone;</div><div class="line">        System.out.println(<span class="string">"Salut "</span> + name);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>匿名类表达式由一下几部分组成:</p>
+<ul>
+<li><code>new</code> 操作符</li>
+<li>一个用来实现的接口或者用来继承的类的名称。本例中，匿名类为接口<code>HelloWorld</code> 的实现。</li>
+<li>包含构造器参数的圆括号，类似普通的类创建实例表达式。<strong>注意：</strong> 当你实现一个接口时，没有构造器，所以你使用一个空的圆括号。</li>
+<li>一个类体，包括了类的定义。需要注意的事，在类体中可以允许方法声明，但是不允许有语句。</li>
+</ul>
+<p>因为匿名类的定义是一个表达式，他必须是语句的一部分。在本例中，匿名类表达式是实例化<code>frenchGreeting</code>对象语句的一部分。（这也解释了为什么需要在闭合的大括号后面需要一个分号）</p>
+<h2 id="访问闭合氛围内的局部变量，以及声明和访问匿名类的成员"><a href="#访问闭合氛围内的局部变量，以及声明和访问匿名类的成员" class="headerlink" title="访问闭合氛围内的局部变量，以及声明和访问匿名类的成员"></a><a href="">访问闭合氛围内的局部变量，以及声明和访问匿名类的成员</a></h2><p>就像局不类一样，匿名类可以 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html#accessing-members-of-an-enclosing-class" target="_blank" rel="external">捕获变量capture variables</a>;他们对于闭合范围内的局部变量具有相同的访问权限:</p>
+<ul>
+<li>匿名类可以访问他的闭合类的成员。</li>
+<li>匿名类不能访问他所属闭合范围内定义不是<code>final</code>或者等效于与<code>final</code>的局部变量。</li>
+<li>与嵌套类一样，在匿名类中声明某一类型的变量会遮蔽它所属闭合范围内的其它名字相同的变量。参考 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html#shadowing" target="_blank" rel="external">遮蔽Shadowing</a>以获取更多信息。</li>
+</ul>
+<p>匿名类与局不累一样对它自己的成员访问有一些限制:</p>
+<ul>
+<li>你不能在匿名类中定义静态的初始化器或者是成员接口.</li>
+<li>匿名类中可以是用静态成员来定义常量。</li>
+</ul>
+<p>注意你可以在匿名类中定义以下内容:</p>
+<ul>
+<li>字段/属性Fields</li>
+<li>扩展方法（尽管他们没有实现任何父类的方法）</li>
+<li>实例初始化器</li>
+<li>局不类</li>
+</ul>
+<p>不过你不能再匿名类中定义构造器.</p>
+<h2 id="匿名类的实例Examples-of-Anonymous-Classes"><a href="#匿名类的实例Examples-of-Anonymous-Classes" class="headerlink" title="匿名类的实例Examples of Anonymous Classes"></a><a href="">匿名类的实例Examples of Anonymous Classes</a></h2><p>匿名类经常在图形界面的应用中使用。</p>
+<p>参考下列JavaFX 列子 <a href="https://docs.oracle.com/javase/8/javafx/get-started-tutorial/hello_world.htm" target="_blank" rel="external"><code>HelloWorld.java</code></a> (摘自 <a href="https://docs.oracle.com/javase/8/javafx/get-started-tutorial/hello_world.htm" target="_blank" rel="external">Hello World, JavaFX Style</a> 中 <a href="https://docs.oracle.com/javase/8/javafx/get-started-tutorial/javafx_get_started.htm" target="_blank" rel="external">Getting Started with JavaFX</a>). 这个例子创建了一个报刊了 <strong>Say ‘Hello World’</strong>按钮的框架 :</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> javafx.event.ActionEvent;</div><div class="line"><span class="keyword">import</span> javafx.event.EventHandler;</div><div class="line"><span class="keyword">import</span> javafx.scene.Scene;</div><div class="line"><span class="keyword">import</span> javafx.scene.control.Button;</div><div class="line"><span class="keyword">import</span> javafx.scene.layout.StackPane;</div><div class="line"><span class="keyword">import</span> javafx.stage.Stage;</div><div class="line"> </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        launch(args);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage primaryStage)</span> </span>&#123;</div><div class="line">        primaryStage.setTitle(<span class="string">"Hello World!"</span>);</div><div class="line">        Button btn = <span class="keyword">new</span> Button();</div><div class="line">        btn.setText(<span class="string">"Say 'Hello World'"</span>);</div><div class="line">        btn.setOnAction(<span class="keyword">new</span> EventHandler&lt;ActionEvent&gt;() &#123;</div><div class="line"> </div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(ActionEvent event)</span> </span>&#123;</div><div class="line">                System.out.println(<span class="string">"Hello World!"</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        </div><div class="line">        StackPane root = <span class="keyword">new</span> StackPane();</div><div class="line">        root.getChildren().add(btn);</div><div class="line">        primaryStage.setScene(<span class="keyword">new</span> Scene(root, <span class="number">300</span>, <span class="number">250</span>));</div><div class="line">        primaryStage.show();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>本例中I，方法调用<code>btn.setOnAction</code> 定义了当你选择<strong>Say ‘Hello World’</strong>按钮的时候回发生什么.这个方法要求一个 <code>EventHandler&lt;ActionEvent&gt;</code>类型的对象.  <code>EventHandler&lt;ActionEvent&gt;</code>接口仅包含一个方法，handle。这里没有重新定义一个类来实现这个方法，而是直接使用了匿名类表达式。注意这个表达式是传递给<code>btn.setOnAction</code> 方法的参数.</p>
+<p>因为 <code>EventHandler&lt;ActionEvent&gt;</code> 接口仅仅包含一个方法,你同样可以使用lambda表达式来代替匿名类表达式. 参考<a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html" target="_blank" rel="external">Lambda Expressions</a> 章节来获取更多信息.</p>
+<p>匿名类是用来实现包含有两个或多个方法接口的理想方法。下面的例子JavaFX example 来自Customization of UI Controls](<a href="https://docs.oracle.com/javase/8/javafx/user-interface-tutorial/custom.htm" target="_blank" rel="external">https://docs.oracle.com/javase/8/javafx/user-interface-tutorial/custom.htm</a>). 代码中创建了一个只接受数字值文本域. 它使用匿名类重新定义了<code>TextField</code>类，复写了继承自 <code>TextInputControl</code> 类的 <code>replaceText</code> 和 <code>replaceSelection</code> 方法.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> javafx.application.Application;</div><div class="line"><span class="keyword">import</span> javafx.event.ActionEvent;</div><div class="line"><span class="keyword">import</span> javafx.event.EventHandler;</div><div class="line"><span class="keyword">import</span> javafx.geometry.Insets;</div><div class="line"><span class="keyword">import</span> javafx.scene.Group;</div><div class="line"><span class="keyword">import</span> javafx.scene.Scene;</div><div class="line"><span class="keyword">import</span> javafx.scene.control.*;</div><div class="line"><span class="keyword">import</span> javafx.scene.layout.GridPane;</div><div class="line"><span class="keyword">import</span> javafx.scene.layout.HBox;</div><div class="line"><span class="keyword">import</span> javafx.stage.Stage;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomTextFieldSample</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">final</span> <span class="keyword">static</span> Label label = <span class="keyword">new</span> Label();</div><div class="line"> </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage stage)</span> </span>&#123;</div><div class="line">        Group root = <span class="keyword">new</span> Group();</div><div class="line">        Scene scene = <span class="keyword">new</span> Scene(root, <span class="number">300</span>, <span class="number">150</span>);</div><div class="line">        stage.setScene(scene);</div><div class="line">        stage.setTitle(<span class="string">"Text Field Sample"</span>);</div><div class="line"> </div><div class="line">        GridPane grid = <span class="keyword">new</span> GridPane();</div><div class="line">        grid.setPadding(<span class="keyword">new</span> Insets(<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>));</div><div class="line">        grid.setVgap(<span class="number">5</span>);</div><div class="line">        grid.setHgap(<span class="number">5</span>);</div><div class="line"> </div><div class="line">        scene.setRoot(grid);</div><div class="line">        <span class="keyword">final</span> Label dollar = <span class="keyword">new</span> Label(<span class="string">"$"</span>);</div><div class="line">        GridPane.setConstraints(dollar, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">        grid.getChildren().add(dollar);</div><div class="line">        </div><div class="line">        <span class="keyword">final</span> TextField sum = <span class="keyword">new</span> TextField() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">replaceText</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end, String text)</span> </span>&#123;</div><div class="line">                <span class="keyword">if</span> (!text.matches(<span class="string">"[a-z, A-Z]"</span>)) &#123;</div><div class="line">                    <span class="keyword">super</span>.replaceText(start, end, text);                     </div><div class="line">                &#125;</div><div class="line">                label.setText(<span class="string">"Enter a numeric value"</span>);</div><div class="line">            &#125;</div><div class="line"> </div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">replaceSelection</span><span class="params">(String text)</span> </span>&#123;</div><div class="line">                <span class="keyword">if</span> (!text.matches(<span class="string">"[a-z, A-Z]"</span>)) &#123;</div><div class="line">                    <span class="keyword">super</span>.replaceSelection(text);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line"> </div><div class="line">        sum.setPromptText(<span class="string">"Enter the total"</span>);</div><div class="line">        sum.setPrefColumnCount(<span class="number">10</span>);</div><div class="line">        GridPane.setConstraints(sum, <span class="number">1</span>, <span class="number">0</span>);</div><div class="line">        grid.getChildren().add(sum);</div><div class="line">        </div><div class="line">        Button submit = <span class="keyword">new</span> Button(<span class="string">"Submit"</span>);</div><div class="line">        GridPane.setConstraints(submit, <span class="number">2</span>, <span class="number">0</span>);</div><div class="line">        grid.getChildren().add(submit);</div><div class="line">        </div><div class="line">        submit.setOnAction(<span class="keyword">new</span> EventHandler&lt;ActionEvent&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(ActionEvent e)</span> </span>&#123;</div><div class="line">                label.setText(<span class="keyword">null</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        </div><div class="line">        GridPane.setConstraints(label, <span class="number">0</span>, <span class="number">1</span>);</div><div class="line">        GridPane.setColumnSpan(label, <span class="number">3</span>);</div><div class="line">        grid.getChildren().add(label);</div><div class="line">        </div><div class="line">        scene.setRoot(grid);</div><div class="line">        stage.show();</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        launch(args);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>Enjoy it ? Donate me !  欣赏此文？支持一下 !</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat_pay.png" alt="Hello Young WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/ali_pay.jpg" alt="Hello Young Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/tutorial/" rel="tag"># tutorial</a>
+          
+            <a href="/tags/教程/" rel="tag"># 教程</a>
+          
+            <a href="/tags/类/" rel="tag"># 类</a>
+          
+            <a href="/tags/class/" rel="tag"># class</a>
+          
+            <a href="/tags/Anonymous-Classe/" rel="tag"># Anonymous Classe</a>
+          
+            <a href="/tags/匿名类/" rel="tag"># 匿名类</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/24/java-tutorial-learning_the_lang_basic_inner_class/" rel="next" title="Java 学习指南_学习Java：基础-内部类">
+                <i class="fa fa-chevron-left"></i> Java 学习指南_学习Java：基础-内部类
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/24/java-tutorial-learning_the_lang_basic_local_class/" rel="prev" title="Java 学习指南_学习Java：基础-局部类">
+                Java 学习指南_学习Java：基础-局部类 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Hello Young" />
+          <p class="site-author-name" itemprop="name">Hello Young</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Csdypg" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://phaser.io" title="Phaser" target="_blank">Phaser</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#匿名类Anonymous-Classes"><span class="nav-number">1.</span> <span class="nav-text">匿名类Anonymous Classes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Anonymous-Classes"><span class="nav-number">2.</span> <span class="nav-text">Anonymous Classes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#声明匿名类"><span class="nav-number">2.1.</span> <span class="nav-text">声明匿名类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名类的语法Syntax-of-Anonymous-Classes"><span class="nav-number">2.2.</span> <span class="nav-text">匿名类的语法Syntax of Anonymous Classes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问闭合氛围内的局部变量，以及声明和访问匿名类的成员"><span class="nav-number">2.3.</span> <span class="nav-text">访问闭合氛围内的局部变量，以及声明和访问匿名类的成员</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名类的实例Examples-of-Anonymous-Classes"><span class="nav-number">2.4.</span> <span class="nav-text">匿名类的实例Examples of Anonymous Classes</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hello Young</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('-1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
