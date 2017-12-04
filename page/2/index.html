@@ -307,7 +307,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&object_class_12/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&object_class_11/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hello Young">
@@ -326,7 +326,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/18/java-tutorial-learning_the_lang_basic_class&object_class_12/" itemprop="url">Java 学习指南_学习Java：基础-类-访问控制</a></h1>
+                <a class="post-title-link" href="/2017/10/18/java-tutorial-learning_the_lang_basic_class&object_class_11/" itemprop="url">Java 学习指南_学习Java：基础-类-this关键字</a></h1>
         
 
         <div class="post-meta">
@@ -397,110 +397,16 @@
       
         
           
-            <h1 id="类成员的访问控制"><a href="#类成员的访问控制" class="headerlink" title="类成员的访问控制"></a>类成员的访问控制</h1><p>访问等级限定词确定了其他类是否可以使用一个特定的field字段或者方法.有两种访问等级的控制:</p>
-<ul>
-<li>类的访问等级—公有<code>public</code>, 或者包级权限 <em>package-private</em> (没有显式声明).</li>
-<li>成员访问等级—公有<code>public</code>,私有 <code>private</code>, 保护<code>protected</code>, or包级权限 <em>package-private</em> (没有显示声明).</li>
-</ul>
-<p>一个类的声明可以不包含限定符<code>public</code>，<code>public</code>共有类对于所有类都是可见的。如果一个类没有限定修饰符(默认等级为，包级权限),只对它所在的包内可见。（包命名了一组相关联的类,后面的课程将会学习）.</p>
-<p>对类的成员的访问等级，你同样可以使用<code>public</code>限定修饰符或者无修饰符(包级权限package-private),无限定修饰符时与类的情况一样并且意义也一样。对于成员来说，仍然有两种额外的访问限定修饰符：<code>private</code>与<code>protected</code>.<code>private</code>限定符表的名该成员私有，只能在本类之内访问。<code>protected</code>修饰符表明该成员可以被同一个包里的类访问(与默认情况，包级权限一样)，并且也可以被其他包中该类的子类所访问。</p>
-<p>以下表格展示了不同限定修饰符所确定的成员访问权限。</p>
-<table>
-<thead>
-<tr>
-<th>Modifier</th>
-<th>Class</th>
-<th>Package</th>
-<th>Subclass</th>
-<th>World</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>public</code></td>
-<td>Y</td>
-<td>Y</td>
-<td>Y</td>
-<td>Y</td>
-</tr>
-<tr>
-<td><code>protected</code></td>
-<td>Y</td>
-<td>Y</td>
-<td>Y</td>
-<td>N</td>
-</tr>
-<tr>
-<td>no modifier</td>
-<td>Y</td>
-<td>Y</td>
-<td>N</td>
-<td>N</td>
-</tr>
-<tr>
-<td><code>private</code></td>
-<td>Y</td>
-<td>N</td>
-<td>N</td>
-<td>N</td>
-</tr>
-</tbody>
-</table>
-<p>第一列数据列展示了类对他资深成员的访问权限。如你所见，一个类总是可以访问它的成员。第二个数据列展示类同一个包内的其他类（不考虑类为其子类的情况）对本类成员的访问权限。第三个数据列展示本类所在包之外的子类对本类成员的访问权限。第四列展示了是否所有的类都对成员具有访问权限。</p>
-<p>访问权限通过两种方式起作做。首先，当你使用来自其他资源的类时，例如Java平台的类，访问权限确定了那些类的成员你的类可以调用。第二，当你写一个类时，你需却决定你的每一个类的成员变量或者方法的访问权限。</p>
-<p>当我们来看一系列类以及访问权限如何影响可见性。下面的图标展示了本例中的四个类以及它们之间的关系。</p>
-<p><img src="http://docs.oracle.com/javase/tutorial/figures/java/classes-access.gif" alt="Classes and Packages of the Example Used to Illustrate Access Levels"></p>
-<p>展示访问权限的类与包的图例Classes and Packages of the Example Used to Illustrate Access Levels</p>
-<p>以下表格展示了不同限定修饰符下<code>Alpha</code>类的成员对于其他类的可见性。</p>
-<table>
-<thead>
-<tr>
-<th>Modifier</th>
-<th>Alpha</th>
-<th>Beta</th>
-<th>Alphasub</th>
-<th>Gamma</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>public</code></td>
-<td>Y</td>
-<td>Y</td>
-<td>Y</td>
-<td>Y</td>
-</tr>
-<tr>
-<td><code>protected</code></td>
-<td>Y</td>
-<td>Y</td>
-<td>Y</td>
-<td>N</td>
-</tr>
-<tr>
-<td>no modifier</td>
-<td>Y</td>
-<td>Y</td>
-<td>N</td>
-<td>N</td>
-</tr>
-<tr>
-<td><code>private</code></td>
-<td>Y</td>
-<td>N</td>
-<td>N</td>
-<td>N</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p>选择访问权限的提示:</p>
-<p>如果其他的程序员使用你的类，你想要确保不因滥用而出现错误。访问权限可以帮助你做这些.</p>
-<ul>
-<li>对特定的成员使用最严格的访问权限。使用 <code>private</code> 除非你有更好的理由不这么做。</li>
-<li>避免使用<code>public</code> 除非为常量。(本教程的很多例子中都使用了public fields。这么做可以简单的解释一些知识点，但是不推荐在产品的代码中这么做)。公有字段倾向于将你链接想特定的实现并且限定了你改变代码灵活性。</li>
-</ul>
-<hr>
+            <h1 id="使用this关键字"><a href="#使用this关键字" class="headerlink" title="使用this关键字"></a>使用this关键字</h1><p>在一个实例方法或者是构造器中，<code>this</code>关键字指向<em>当前对象**current object</em>—被调用了方法或者构造器的对象。你可以通过<code>this</code>关键字在实例方法或者构造器中引用当前对象的任何成员。</p>
+<h2 id="this-与-Field"><a href="#this-与-Field" class="headerlink" title="this 与 Field"></a><code>this</code> 与 Field</h2><p>通常使用<code>this</code>关键字的原因是field被方法或构造器的参数遮蔽.例如,  <code>Point</code>可以这样写</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        x = a;</div><div class="line">        y = b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>同样也可以这样写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>构造器的每一个参数遮蔽对象的一个filed字段/属性–方法内<strong>x</strong> 是构造器第一参数的一本局部副本.为了引用 <code>Point</code> 的 <strong>x</strong>字段, 构造器必须使用 <code>this.x</code>.</p>
+<h2 id="this-与构造器-Constructor"><a href="#this-与构造器-Constructor" class="headerlink" title="this 与构造器 Constructor"></a><code>this</code> 与构造器 Constructor</h2><p>在一个构造器内，你同样可以使用<code>this</code>关键字来调用用一个类中的其他构造器。这样做叫作<em>explicit constructor invocation**显示的构造函数调用</em>.下面是一个 <code>Rectangle</code> 类,与对象一节中实现方法不同.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x, y;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> width, height;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, width, height);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">        <span class="keyword">this</span>.width = width;</div><div class="line">        <span class="keyword">this</span>.height = height;</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个类包含一系列的构造器.每一个构造器初始化初始化矩形的一些成员变量.构造器为没有提供初始化参数的成员变量设置一个默认值。例如。无参构造器在坐标(0,0)处创建一个1X1的矩形。这个两个参数的构造其调用了四个参数的构造器，传递里宽高参数并且使用了(0,0)坐标。就像之前一样，编译器决定去调用哪一个构造器，基于参数的数量以及类型。</p>
+<p>如果存在这种调用，对其他构造器的调用必须出现在构造器中的第一行。</p>
 
           
         
