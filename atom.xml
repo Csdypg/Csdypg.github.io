@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-19T09:41:58.533Z</updated>
+  <updated>2018-03-19T10:27:32.406Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 学习指南_学习Java：基础-枚举类</title>
+    <link href="http://yoursite.com/2018/03/19/java-tutorial-learning_the_lang_basic_class_enum/"/>
+    <id>http://yoursite.com/2018/03/19/java-tutorial-learning_the_lang_basic_class_enum/</id>
+    <published>2018-03-19T10:51:59.000Z</published>
+    <updated>2018-03-19T10:27:32.406Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h1><p>枚举类型 <em>enum type</em> 是一种特殊的数据类型，可以使一个变量值为一组预定义的常量来。变量值必须等于预定义的常量值中的一个。常见的例子包括指南者中的方向(值 NORTH, SOUTH, EAST, and WEST) 以及一周中的每一天.</p>
+<p>因为他们是常量，所以枚举类的成员都是用大写字母表示。</p>
+<p>Java编程语言中，你可以使用<code>enum</code>关键字定义枚举类。例如，一周中的每一天可以定义如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Day &#123;</div><div class="line">    SUNDAY, MONDAY, TUESDAY, WEDNESDAY,</div><div class="line">    THURSDAY, FRIDAY, SATURDAY </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>你可以在任何你想表达一组固定的常量集合时使用枚举类。包含了自然界中的列举类型例如太阳系中的行星以及任何你可能在编译时就知道的任何可能值—例如，菜单中的选项，命令行中的标记等等.</p>
+<p>以下代码是如何使用上面定义的<code>Day</code>枚举类型:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EnumTest</span> </span>&#123;</div><div class="line">    Day day;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EnumTest</span><span class="params">(Day day)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.day = day;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">tellItLikeItIs</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">switch</span> (day) &#123;</div><div class="line">            <span class="keyword">case</span> MONDAY:</div><div class="line">                System.out.println(<span class="string">"Mondays are bad."</span>);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">                    </div><div class="line">            <span class="keyword">case</span> FRIDAY:</div><div class="line">                System.out.println(<span class="string">"Fridays are better."</span>);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">                         </div><div class="line">            <span class="keyword">case</span> SATURDAY: <span class="keyword">case</span> SUNDAY:</div><div class="line">                System.out.println(<span class="string">"Weekends are best."</span>);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">                        </div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                System.out.println(<span class="string">"Midweek days are so-so."</span>);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        EnumTest firstDay = <span class="keyword">new</span> EnumTest(Day.MONDAY);</div><div class="line">        firstDay.tellItLikeItIs();</div><div class="line">        EnumTest thirdDay = <span class="keyword">new</span> EnumTest(Day.WEDNESDAY);</div><div class="line">        thirdDay.tellItLikeItIs();</div><div class="line">        EnumTest fifthDay = <span class="keyword">new</span> EnumTest(Day.FRIDAY);</div><div class="line">        fifthDay.tellItLikeItIs();</div><div class="line">        EnumTest sixthDay = <span class="keyword">new</span> EnumTest(Day.SATURDAY);</div><div class="line">        sixthDay.tellItLikeItIs();</div><div class="line">        EnumTest seventhDay = <span class="keyword">new</span> EnumTest(Day.SUNDAY);</div><div class="line">        seventhDay.tellItLikeItIs();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Mondays are bad.</div><div class="line">Midweek days are so-so.</div><div class="line">Fridays are better.</div><div class="line">Weekends are best.</div><div class="line">Weekends are best.</div></pre></td></tr></table></figure>
+<p>Java编程语言中的枚举类型比其他语言中的要更加欠打。 <code>enum</code> 声明定义了一个类(交过枚举类型 <em>enum type</em>).枚举类型，类体也可以包含方法以及其他成员。编译器在创建枚举类型时会自动的增加一些特殊的代码。例如，他们有已个静态的<code>values</code>方法可以返回包含所有定义的枚举值的数据。这个方法通常与<code>for-each</code>结构结合使用，来迭代枚举类中的所有类型。例如，下面的代码 <code>Planet</code> 类例子遍历了太阳系中的所有行星.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (Planet p : Planet.values()) &#123;</div><div class="line">    System.out.printf(<span class="string">"Your weight on %s is %f%n"</span>,</div><div class="line">                      p, p.surfaceWeight(mass));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<p><strong>注意</strong>:所有的枚举类型简单的继承了类 <code>java.lang.Enum</code>。因为Java只能继承自一个类（参考 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/classdecl.html" target="_blank" rel="external">Declaring Classes</a>).Java不支持多重继承 (参考 <a href="https://docs.oracle.com/javase/tutorial/java/IandI/multipleinheritance.html" target="_blank" rel="external">Multiple Inheritance of State, Implementation, and Type</a>)，因此所有的枚举类都不能再继承任何类。</p>
+<hr>
+<p>下面的例子中，<code>Planet</code>是一个枚举类，代表了太阳系中的所有行星.他们通过的常量属性质量和半径来定义。</p>
+<p>每一个枚举常量定义的同时包含了质量与半径参数。这些参数在常量创建的时候传递给构造器。Java要求常量必须首先声明，优先与任何的成员和方法。因此，当枚举类有额外的字段和方法时，枚举常量结束时必须以分号semicolon结束.</p>
+<hr>
+<p><strong>Note</strong>:枚举类的构造器必须是私有级别或者是包级的访问权限。它将在自动创建定义在枚举类体开始的常量。你不能自己调用枚举类的构造方法。</p>
+<hr>
+<p>另外，对于他的属性和构造器，<code>Planet</code>提供方法允许你获取每一个行星的表面重力以及重量。下面是一个简单的程序，获取你在地球的体重（任一单位）并计算出你在其他所有星球的体重（同样单位下）:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span> Planet &#123;</div><div class="line">    MERCURY (<span class="number">3.303e+23</span>, <span class="number">2.4397e6</span>),</div><div class="line">    VENUS   (<span class="number">4.869e+24</span>, <span class="number">6.0518e6</span>),</div><div class="line">    EARTH   (<span class="number">5.976e+24</span>, <span class="number">6.37814e6</span>),</div><div class="line">    MARS    (<span class="number">6.421e+23</span>, <span class="number">3.3972e6</span>),</div><div class="line">    JUPITER (<span class="number">1.9e+27</span>,   <span class="number">7.1492e7</span>),</div><div class="line">    SATURN  (<span class="number">5.688e+26</span>, <span class="number">6.0268e7</span>),</div><div class="line">    URANUS  (<span class="number">8.686e+25</span>, <span class="number">2.5559e7</span>),</div><div class="line">    NEPTUNE (<span class="number">1.024e+26</span>, <span class="number">2.4746e7</span>);</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">double</span> mass;   <span class="comment">// in kilograms</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">double</span> radius; <span class="comment">// in meters</span></div><div class="line">    Planet(<span class="keyword">double</span> mass, <span class="keyword">double</span> radius) &#123;</div><div class="line">        <span class="keyword">this</span>.mass = mass;</div><div class="line">        <span class="keyword">this</span>.radius = radius;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">double</span> <span class="title">mass</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> mass; &#125;</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">double</span> <span class="title">radius</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> radius; &#125;</div><div class="line"></div><div class="line">    <span class="comment">// universal gravitational constant  (m3 kg-1 s-2)</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">double</span> G = <span class="number">6.67300E-11</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">double</span> <span class="title">surfaceGravity</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> G * mass / (radius * radius);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">double</span> <span class="title">surfaceWeight</span><span class="params">(<span class="keyword">double</span> otherMass)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> otherMass * surfaceGravity();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (args.length != <span class="number">1</span>) &#123;</div><div class="line">            System.err.println(<span class="string">"Usage: java Planet &lt;earth_weight&gt;"</span>);</div><div class="line">            System.exit(-<span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">double</span> earthWeight = Double.parseDouble(args[<span class="number">0</span>]);</div><div class="line">        <span class="keyword">double</span> mass = earthWeight/EARTH.surfaceGravity();</div><div class="line">        <span class="keyword">for</span> (Planet p : Planet.values())</div><div class="line">           System.out.printf(<span class="string">"Your weight on %s is %f%n"</span>,</div><div class="line">                             p, p.surfaceWeight(mass));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果你运行这个类 <code>Planet.class</code> 并且输入参数175, 可以说的如下输出:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ java Planet 175</div><div class="line">Your weight on MERCURY is 66.107583</div><div class="line">Your weight on VENUS is 158.374842</div><div class="line">Your weight on EARTH is 175.000000</div><div class="line">Your weight on MARS is 66.279007</div><div class="line">Your weight on JUPITER is 442.847567</div><div class="line">Your weight on SATURN is 186.552719</div><div class="line">Your weight on URANUS is 158.397260</div><div class="line">Your weight on NEPTUNE is 199.207413</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;枚举类&quot;&gt;&lt;a href=&quot;#枚举类&quot; class=&quot;headerlink&quot; title=&quot;枚举类&quot;&gt;&lt;/a&gt;枚举类&lt;/h1&gt;&lt;p&gt;枚举类型 &lt;em&gt;enum type&lt;/em&gt; 是一种特殊的数据类型，可以使一个变量值为一组预定义的常量来。变量值必须等于预定义的常
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
+    
+      <category term="enum" scheme="http://yoursite.com/tags/enum/"/>
+    
+      <category term="枚举类" scheme="http://yoursite.com/tags/%E6%9E%9A%E4%B8%BE%E7%B1%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>Java 学习指南_学习Java：基础-嵌套类问题与联系</title>
@@ -1000,9 +1054,9 @@
     
       <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
     
-      <category term="对象" scheme="http://yoursite.com/tags/%E5%AF%B9%E8%B1%A1/"/>
-    
       <category term="class" scheme="http://yoursite.com/tags/class/"/>
+    
+      <category term="对象" scheme="http://yoursite.com/tags/%E5%AF%B9%E8%B1%A1/"/>
     
       <category term="Object" scheme="http://yoursite.com/tags/Object/"/>
     
@@ -1133,6 +1187,48 @@
       <category term="Class Members" scheme="http://yoursite.com/tags/Class-Members/"/>
     
       <category term="类的成员" scheme="http://yoursite.com/tags/%E7%B1%BB%E7%9A%84%E6%88%90%E5%91%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 学习指南_学习Java：基础-类-this关键字</title>
+    <link href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_11/"/>
+    <id>http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_11/</id>
+    <published>2017-10-18T05:54:59.000Z</published>
+    <updated>2017-10-26T01:02:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用this关键字"><a href="#使用this关键字" class="headerlink" title="使用this关键字"></a>使用this关键字</h1><p>在一个实例方法或者是构造器中，<code>this</code>关键字指向<em>当前对象**current object</em>—被调用了方法或者构造器的对象。你可以通过<code>this</code>关键字在实例方法或者构造器中引用当前对象的任何成员。</p>
+<h2 id="this-与-Field"><a href="#this-与-Field" class="headerlink" title="this 与 Field"></a><code>this</code> 与 Field</h2><p>通常使用<code>this</code>关键字的原因是field被方法或构造器的参数遮蔽.例如,  <code>Point</code>可以这样写</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        x = a;</div><div class="line">        y = b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>同样也可以这样写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>构造器的每一个参数遮蔽对象的一个filed字段/属性–方法内<strong>x</strong> 是构造器第一参数的一本局部副本.为了引用 <code>Point</code> 的 <strong>x</strong>字段, 构造器必须使用 <code>this.x</code>.</p>
+<h2 id="this-与构造器-Constructor"><a href="#this-与构造器-Constructor" class="headerlink" title="this 与构造器 Constructor"></a><code>this</code> 与构造器 Constructor</h2><p>在一个构造器内，你同样可以使用<code>this</code>关键字来调用用一个类中的其他构造器。这样做叫作<em>explicit constructor invocation**显示的构造函数调用</em>.下面是一个 <code>Rectangle</code> 类,与对象一节中实现方法不同.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x, y;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> width, height;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, width, height);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">        <span class="keyword">this</span>.width = width;</div><div class="line">        <span class="keyword">this</span>.height = height;</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个类包含一系列的构造器.每一个构造器初始化初始化矩形的一些成员变量.构造器为没有提供初始化参数的成员变量设置一个默认值。例如。无参构造器在坐标(0,0)处创建一个1X1的矩形。这个两个参数的构造其调用了四个参数的构造器，传递里宽高参数并且使用了(0,0)坐标。就像之前一样，编译器决定去调用哪一个构造器，基于参数的数量以及类型。</p>
+<p>如果存在这种调用，对其他构造器的调用必须出现在构造器中的第一行。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;使用this关键字&quot;&gt;&lt;a href=&quot;#使用this关键字&quot; class=&quot;headerlink&quot; title=&quot;使用this关键字&quot;&gt;&lt;/a&gt;使用this关键字&lt;/h1&gt;&lt;p&gt;在一个实例方法或者是构造器中，&lt;code&gt;this&lt;/code&gt;关键字指向&lt;em&gt;当
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
+    
+      <category term="class" scheme="http://yoursite.com/tags/class/"/>
+    
+      <category term="this" scheme="http://yoursite.com/tags/this/"/>
     
   </entry>
   
@@ -1271,48 +1367,6 @@
       <category term="Controlling Access" scheme="http://yoursite.com/tags/Controlling-Access/"/>
     
       <category term="访问控制" scheme="http://yoursite.com/tags/%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-类-this关键字</title>
-    <link href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_11/"/>
-    <id>http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_11/</id>
-    <published>2017-10-18T05:54:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="使用this关键字"><a href="#使用this关键字" class="headerlink" title="使用this关键字"></a>使用this关键字</h1><p>在一个实例方法或者是构造器中，<code>this</code>关键字指向<em>当前对象**current object</em>—被调用了方法或者构造器的对象。你可以通过<code>this</code>关键字在实例方法或者构造器中引用当前对象的任何成员。</p>
-<h2 id="this-与-Field"><a href="#this-与-Field" class="headerlink" title="this 与 Field"></a><code>this</code> 与 Field</h2><p>通常使用<code>this</code>关键字的原因是field被方法或构造器的参数遮蔽.例如,  <code>Point</code>可以这样写</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        x = a;</div><div class="line">        y = b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>同样也可以这样写：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>构造器的每一个参数遮蔽对象的一个filed字段/属性–方法内<strong>x</strong> 是构造器第一参数的一本局部副本.为了引用 <code>Point</code> 的 <strong>x</strong>字段, 构造器必须使用 <code>this.x</code>.</p>
-<h2 id="this-与构造器-Constructor"><a href="#this-与构造器-Constructor" class="headerlink" title="this 与构造器 Constructor"></a><code>this</code> 与构造器 Constructor</h2><p>在一个构造器内，你同样可以使用<code>this</code>关键字来调用用一个类中的其他构造器。这样做叫作<em>explicit constructor invocation**显示的构造函数调用</em>.下面是一个 <code>Rectangle</code> 类,与对象一节中实现方法不同.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x, y;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> width, height;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, width, height);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">        <span class="keyword">this</span>.width = width;</div><div class="line">        <span class="keyword">this</span>.height = height;</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个类包含一系列的构造器.每一个构造器初始化初始化矩形的一些成员变量.构造器为没有提供初始化参数的成员变量设置一个默认值。例如。无参构造器在坐标(0,0)处创建一个1X1的矩形。这个两个参数的构造其调用了四个参数的构造器，传递里宽高参数并且使用了(0,0)坐标。就像之前一样，编译器决定去调用哪一个构造器，基于参数的数量以及类型。</p>
-<p>如果存在这种调用，对其他构造器的调用必须出现在构造器中的第一行。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;使用this关键字&quot;&gt;&lt;a href=&quot;#使用this关键字&quot; class=&quot;headerlink&quot; title=&quot;使用this关键字&quot;&gt;&lt;/a&gt;使用this关键字&lt;/h1&gt;&lt;p&gt;在一个实例方法或者是构造器中，&lt;code&gt;this&lt;/code&gt;关键字指向&lt;em&gt;当
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
-    
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
-    
-      <category term="this" scheme="http://yoursite.com/tags/this/"/>
     
   </entry>
   
@@ -1605,87 +1659,6 @@
       <category term="Object" scheme="http://yoursite.com/tags/Object/"/>
     
       <category term="constructor" scheme="http://yoursite.com/tags/constructor/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-类-向方法和构造函数传递信息</title>
-    <link href="http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&amp;object_class_5/"/>
-    <id>http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&amp;object_class_5/</id>
-    <published>2017-10-13T01:00:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="向方法和构造函数传递信息"><a href="#向方法和构造函数传递信息" class="headerlink" title="向方法和构造函数传递信息"></a>向方法和构造函数传递信息</h1><p>方法或者构造函数的声明，定义了它所需的参数的数量和类型。例如，下面的方法用来基于单款额度，利率，贷款期数，以及未来值来计算家庭贷款每月还款额:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">computePayment</span><span class="params">(</span></span></div><div class="line">                  <span class="keyword">double</span> loanAmt,</div><div class="line">                  <span class="keyword">double</span> rate,</div><div class="line">                  <span class="keyword">double</span> futureValue,</div><div class="line">                  <span class="keyword">int</span> numPeriods) &#123;</div><div class="line">    <span class="keyword">double</span> interest = rate / <span class="number">100.0</span>;</div><div class="line">    <span class="keyword">double</span> partial1 = Math.pow((<span class="number">1</span> + interest), </div><div class="line">                    - numPeriods);</div><div class="line">    <span class="keyword">double</span> denominator = (<span class="number">1</span> - partial1) / interest;</div><div class="line">    <span class="keyword">double</span> answer = (-loanAmt / denominator)</div><div class="line">                    - ((futureValue * partial1) / denominator);</div><div class="line">    <span class="keyword">return</span> answer;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个方法有四个参数：贷款金额，利率，未来值，以及带款期数。前三个参数双精度浮点数，第四个参数是一个整数，这些<em>参数变量</em>在方法体里使用，运行时将接纳传递进来的<em>参数</em>的值。</p>
-<hr>
-<p><strong>注意</strong>:<em>参数变量</em>Parameters 指的是方法定义使的变量列表. <em>参数Arguments</em>是指方法被调用时传递进来的确切的值。当以调用一个方法，传递参数必须与定义的参数列表类型和顺序一致。 </p>
-<hr>
-<a id="more"></a>
-<h2 id="参数类型"><a href="#参数类型" class="headerlink" title="参数类型"></a>参数类型</h2><p>你可以在方法或者构造函数中使用任何类型的数据。包括基本数据类型，例如doubles,floats,integers,就像你在<code>computePayment()</code>方法里看到的一样，也报过引用类型的数据，例如对象，数组。下面的列子接受一个数组作为参数，在这个例子中，方法创建了一个多边形<code>Polygon</code>对象并且根据一<code>Point</code>点对象数组在初始化（假设这些<code>Point</code>点对象代表了一个x,y坐标）:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Polygon <span class="title">polygonFrom</span><span class="params">(Point[] corners)</span> </span>&#123;</div><div class="line">    <span class="comment">// method body goes here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<hr>
-<p><strong>注意</strong>:  如果你想要将一个方法传递给另一个，那么请使用lambda表达式 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html" target="_blank" rel="external">lambda expression</a> 或者是方法引用 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html" target="_blank" rel="external">method reference</a>.</p>
-<hr>
-<h2 id="任意数量的参数"><a href="#任意数量的参数" class="headerlink" title="任意数量的参数"></a>任意数量的参数</h2><p>你可以使用你个叫做<strong>可变参数</strong>的的结构来向方法传递任意数量的参数。当你不指导到底有几个特定类型的参数需要被传递进方法时，可以时用<strong>可变参数</strong>.它是手动创建数组参数的一种快捷方法（上一个方法就可以用可变参数而不用数组）.</p>
-<p>使用可变参数，在数据类型后面加上一个省略号（三个点<code>...</code>）,然后空格，然后参数名。方法传进任何数量的该类型参数都可以调用，甚至不传也可以。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Polygon <span class="title">polygonFrom</span><span class="params">(Point... corners)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> numberOfSides = corners.length;</div><div class="line">    <span class="keyword">double</span> squareOfSide1, lengthOfSide1;</div><div class="line">    squareOfSide1 = (corners[<span class="number">1</span>].x - corners[<span class="number">0</span>].x)</div><div class="line">                     * (corners[<span class="number">1</span>].x - corners[<span class="number">0</span>].x) </div><div class="line">                     + (corners[<span class="number">1</span>].y - corners[<span class="number">0</span>].y)</div><div class="line">                     * (corners[<span class="number">1</span>].y - corners[<span class="number">0</span>].y);</div><div class="line">    lengthOfSide1 = Math.sqrt(squareOfSide1);</div><div class="line"></div><div class="line">    <span class="comment">// more method body code follows that creates and returns a </span></div><div class="line">    <span class="comment">// polygon connecting the Points</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>你会发现，在方法内，<code>corners</code>被视作一个数组。方法被调用时既可以传入一个数组，亦可传入一系列单数，不管怎样代码体里都会将其视作一个数组来处理。</p>
-<p>你通常会在在打印方法中见到可变参数；例如，<code>printf</code>方法:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> PrintStream <span class="title">printf</span><span class="params">(String format, Object... args)</span></span></div></pre></td></tr></table></figure>
-<p>允许你打印任意数量的变量，可以按照如下方法调用:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">System.out.printf(<span class="string">"%s: %d, %s%n"</span>, name, idnum, address);</div></pre></td></tr></table></figure>
-<p>也可以这样调用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">System.out.printf(&quot;%s: %d, %s, %s, %s%n&quot;, name, idnum, address, phone, email);</div></pre></td></tr></table></figure>
-<p>或者使用其他不同数量参数.</p>
-<h2 id="参数名称"><a href="#参数名称" class="headerlink" title="参数名称"></a>参数名称</h2><p>当你为一个方法或者构造函数定义参数是，将提供一个名称。这个名称在参数体里使用来代表传递进来的参数。参数名称在在其作用范围内必须是唯一的。不能与方法或构造函数的其他参数同名，也不能与方法内的局部函数同名。</p>
-<p>参数名可以与类的字段/成员变量名称相同。在这种情况下，这个参数被成为这个字段的<em>shadow影子变量</em>。影子变量将会是代码不易读并且通常知识在构造方法或者是为某个字段设置值的方法中使用，参考下面的<code>Circle</code>类以及它的<code>setOrigin</code>方法:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Circle</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x, y, radius;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOrigin</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p> <code>Circle</code> 类有三个字段/成员变量：<code>x,y,radius</code>,<code>setOrigin</code>设置圆心方法有两个参数，每一个都与字段名一样。因此在方法体内部使用<code>x</code>, <code>y</code>指的是参数，而不是字段本身。为了访问字段本身，一必须使用一个可以辨别的名字。这将会在标题为”使用<code>this</code>关键字的”课程部分讨论。</p>
-<h2 id="传递基本数据类型的参数Passing-Primitive-Data-Type-Arguments"><a href="#传递基本数据类型的参数Passing-Primitive-Data-Type-Arguments" class="headerlink" title="传递基本数据类型的参数Passing Primitive Data Type Arguments"></a>传递基本数据类型的参数Passing Primitive Data Type Arguments</h2><p>基本数据类型参数，如<code>int</code>,<code>double</code>,直接将值传递进方法。意味着参数的值的变化值在方法内存在。当方法结束后，参数就不存在了，它的任何变化也将丢失，一下为示例:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PassPrimitiveByValue</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">           </div><div class="line">        <span class="keyword">int</span> x = <span class="number">3</span>;</div><div class="line">           </div><div class="line">        <span class="comment">// invoke passMethod() with </span></div><div class="line">        <span class="comment">// x as argument</span></div><div class="line">        passMethod(x);</div><div class="line">           </div><div class="line">        <span class="comment">// print x to see if its </span></div><div class="line">        <span class="comment">// value has changed</span></div><div class="line">        System.out.println(<span class="string">"After invoking passMethod, x = "</span> + x);</div><div class="line">           </div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="comment">// change parameter in passMethod()</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">passMethod</span><span class="params">(<span class="keyword">int</span> p)</span> </span>&#123;</div><div class="line">        p = <span class="number">10</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>运行代码，输出如下:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">After invoking passMethod, x = <span class="number">3</span></div></pre></td></tr></table></figure>
-<h2 id="传递引用类型的参数Passing-Reference-Data-Type-Arguments"><a href="#传递引用类型的参数Passing-Reference-Data-Type-Arguments" class="headerlink" title="传递引用类型的参数Passing Reference Data Type Arguments"></a>传递引用类型的参数Passing Reference Data Type Arguments</h2><p>引用类型的参数，例如对象，同样是将其值传入方法，意味这方法一旦结束，被传递进来的引用仍然指向之前的对象。<strong>然而</strong>，如果用对应的访问权限，对象的字段值可能被改变。</p>
-<p>例如，考虑在任意一个类中建立一个移动<code>Circle</code>对象的方法:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveCircle</span><span class="params">(Circle circle, <span class="keyword">int</span> deltaX, <span class="keyword">int</span> deltaY)</span> </span>&#123;</div><div class="line">    <span class="comment">// code to move origin of circle to x+deltaX, y+deltaY</span></div><div class="line">    circle.setX(circle.getX() + deltaX);</div><div class="line">    circle.setY(circle.getY() + deltaY);</div><div class="line">        </div><div class="line">    <span class="comment">// code to assign a new reference to circle</span></div><div class="line">    circle = <span class="keyword">new</span> Circle(<span class="number">0</span>, <span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>用以下参数调用这个方法:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">moveCircle(myCircle, 23, 56)</div></pre></td></tr></table></figure>
-<p>在方法内, <code>circle</code> 初始化时指向 <code>myCircle</code>. 方法改变了circle应用的对象（这里指，<code>myCircle</code>）的坐标值，分别增加23，和56,当方法返回后这些改变将持久化。</p>
-<p>然后将circle的引用指向一个新的<code>Circle</code>对象，该对象<code>x=y=0</code>，这次重新赋值并没有保存，因为传递进来的参数<code>myCircle</code>的引用不会改变。在方法内，<code>circle</code>指向的对象发生了改变，但是当发发结束后，<code>myCircle</code>仍人指向方法调用前的对象。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;向方法和构造函数传递信息&quot;&gt;&lt;a href=&quot;#向方法和构造函数传递信息&quot; class=&quot;headerlink&quot; title=&quot;向方法和构造函数传递信息&quot;&gt;&lt;/a&gt;向方法和构造函数传递信息&lt;/h1&gt;&lt;p&gt;方法或者构造函数的声明，定义了它所需的参数的数量和类型。例如，下面的方法用来基于单款额度，利率，贷款期数，以及未来值来计算家庭贷款每月还款额:&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;computePayment&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                  &lt;span class=&quot;keyword&quot;&gt;double&lt;/span&gt; loanAmt,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                  &lt;span class=&quot;keyword&quot;&gt;double&lt;/span&gt; rate,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                  &lt;span class=&quot;keyword&quot;&gt;double&lt;/span&gt; futureValue,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                  &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; numPeriods) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;double&lt;/span&gt; interest = rate / &lt;span class=&quot;number&quot;&gt;100.0&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;double&lt;/span&gt; partial1 = Math.pow((&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; + interest), &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                    - numPeriods);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;double&lt;/span&gt; denominator = (&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; - partial1) / interest;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;double&lt;/span&gt; answer = (-loanAmt / denominator)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                    - ((futureValue * partial1) / denominator);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; answer;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这个方法有四个参数：贷款金额，利率，未来值，以及带款期数。前三个参数双精度浮点数，第四个参数是一个整数，这些&lt;em&gt;参数变量&lt;/em&gt;在方法体里使用，运行时将接纳传递进来的&lt;em&gt;参数&lt;/em&gt;的值。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;:&lt;em&gt;参数变量&lt;/em&gt;Parameters 指的是方法定义使的变量列表. &lt;em&gt;参数Arguments&lt;/em&gt;是指方法被调用时传递进来的确切的值。当以调用一个方法，传递参数必须与定义的参数列表类型和顺序一致。 &lt;/p&gt;
-&lt;hr&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
-    
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
-    
-      <category term="方法" scheme="http://yoursite.com/tags/%E6%96%B9%E6%B3%95/"/>
-    
-      <category term="构造方法" scheme="http://yoursite.com/tags/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/"/>
-    
-      <category term="constructor" scheme="http://yoursite.com/tags/constructor/"/>
-    
-      <category term="参数信息" scheme="http://yoursite.com/tags/%E5%8F%82%E6%95%B0%E4%BF%A1%E6%81%AF/"/>
     
   </entry>
   

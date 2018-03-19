@@ -307,6 +307,149 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&object_class_5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/13/java-tutorial-learning_the_lang_basic_class&object_class_5/" itemprop="url">Java 学习指南_学习Java：基础-类-向方法和构造函数传递信息</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-13T09:00:59+08:00">
+                2017-10-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="向方法和构造函数传递信息"><a href="#向方法和构造函数传递信息" class="headerlink" title="向方法和构造函数传递信息"></a>向方法和构造函数传递信息</h1><p>方法或者构造函数的声明，定义了它所需的参数的数量和类型。例如，下面的方法用来基于单款额度，利率，贷款期数，以及未来值来计算家庭贷款每月还款额:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">computePayment</span><span class="params">(</span></span></div><div class="line">                  <span class="keyword">double</span> loanAmt,</div><div class="line">                  <span class="keyword">double</span> rate,</div><div class="line">                  <span class="keyword">double</span> futureValue,</div><div class="line">                  <span class="keyword">int</span> numPeriods) &#123;</div><div class="line">    <span class="keyword">double</span> interest = rate / <span class="number">100.0</span>;</div><div class="line">    <span class="keyword">double</span> partial1 = Math.pow((<span class="number">1</span> + interest), </div><div class="line">                    - numPeriods);</div><div class="line">    <span class="keyword">double</span> denominator = (<span class="number">1</span> - partial1) / interest;</div><div class="line">    <span class="keyword">double</span> answer = (-loanAmt / denominator)</div><div class="line">                    - ((futureValue * partial1) / denominator);</div><div class="line">    <span class="keyword">return</span> answer;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个方法有四个参数：贷款金额，利率，未来值，以及带款期数。前三个参数双精度浮点数，第四个参数是一个整数，这些<em>参数变量</em>在方法体里使用，运行时将接纳传递进来的<em>参数</em>的值。</p>
+<hr>
+<p><strong>注意</strong>:<em>参数变量</em>Parameters 指的是方法定义使的变量列表. <em>参数Arguments</em>是指方法被调用时传递进来的确切的值。当以调用一个方法，传递参数必须与定义的参数列表类型和顺序一致。 </p>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/13/java-tutorial-learning_the_lang_basic_class&object_class_5/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/java-tutorial-learning_the_lang_basic_class&object_class_4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1649,161 +1792,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/26/java-tutorial-learning_the_lang_basic_control_flow_4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hello Young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/26/java-tutorial-learning_the_lang_basic_control_flow_4/" itemprop="url">Java 学习指南_学习Java：基础-控制流程-for</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-26T10:00:59+08:00">
-                2017-09-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="for-语句"><a href="#for-语句" class="headerlink" title="for 语句"></a>for 语句</h1><p><code>for</code>语句为迭代一个范围内的值提供了一种简介的方法。开发者经常称之为’for 循环’,因为它重复循环直到满足一个特定条件的方式。<code>for</code>循环的一般形式展示如下:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (initialization; termination;<span class="comment">//初始化，终止条件</span></div><div class="line">     increment) &#123;<span class="comment">//增加</span></div><div class="line">    statement(s)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>当你使用这种版本的<code>for</code>语句时，注意以下几点:</p>
-<ul>
-<li>初始化表达式初始化整个循环；它只随着循环开始执行一次.</li>
-<li>当终止条件的表达式球的<code>false</code>时，循环终止。</li>
-<li>增加表达式在循环的每一次迭代之后被调用，表达式的只增加或减少都时支持的。</li>
-</ul>
-<p>下面的程序, <a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/examples/ForDemo.java" target="_blank" rel="external"><code>ForDemo</code></a>, 使用常规的<code>for</code>语句输出了1到10：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ForDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">         <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;<span class="number">11</span>; i++)&#123;</div><div class="line">              System.out.println(<span class="string">"Count is: "</span> + i);</div><div class="line">         &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>程序 输出如下:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Count is: <span class="number">1</span></div><div class="line">Count is: <span class="number">2</span></div><div class="line">Count is: <span class="number">3</span></div><div class="line">Count is: <span class="number">4</span></div><div class="line">Count is: <span class="number">5</span></div><div class="line">Count is: <span class="number">6</span></div><div class="line">Count is: <span class="number">7</span></div><div class="line">Count is: <span class="number">8</span></div><div class="line">Count is: <span class="number">9</span></div><div class="line">Count is: <span class="number">10</span></div></pre></td></tr></table></figure>
-<p>注意代码时如何在初始化表达式中声明一个变量的。变量的使用范围包含从它声明的地方起到<code>for</code>语句掌控的代码块结尾，因此它也可以在终止条件以及增减表达式中使用。如果控制<code>for</code>语句的变量没有必要出现在循环之外，最好在初始化表达式中声明它。变量名 <code>i</code> <code>j</code> <code>k</code>都是经常用来控制<code>for</code>循环的；在初始化条件中声明控制变量可以限制它的使用范围并减少错误。</p>
-<p><code>for</code>循环的三个表达式时可选的；如下代码可以创建一个死循环:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// infinite loop</span></div><div class="line"><span class="keyword">for</span> ( ; ; ) &#123;</div><div class="line">    </div><div class="line">    <span class="comment">// your code goes here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>for</code>循环还有另外一种设计，用来迭代集合 <a href="http://docs.oracle.com/javase/tutorial/collections/index.html" target="_blank" rel="external">Collections</a> 与数组 <a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/arrays.html" target="_blank" rel="external">arrays</a> 。这种形式有时候也被成为增强for循环，可以用来使循环更加简洁和易读。为了展示，关注如下的数组，持有1到10十个数字：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span>[] numbers = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</div></pre></td></tr></table></figure>
-<p>下面的程序 <a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/examples/EnhancedForDemo.java" target="_blank" rel="external"><code>EnhancedForDemo</code></a>, 使用增强<code>for</code>循环迭代并输出以上数组:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class EnhancedForDemo &#123;</div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">         int[] numbers = </div><div class="line">             &#123;1,2,3,4,5,6,7,8,9,10&#125;;</div><div class="line">         for (int item : numbers) &#123;</div><div class="line">             System.out.println(&quot;Count is: &quot; + item);</div><div class="line">         &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在这个例子中，变量<code>item</code>持有数字数组中的当前值，代码的输出与之前的程序使一致的:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Count is: 1</div><div class="line">Count is: 2</div><div class="line">Count is: 3</div><div class="line">Count is: 4</div><div class="line">Count is: 5</div><div class="line">Count is: 6</div><div class="line">Count is: 7</div><div class="line">Count is: 8</div><div class="line">Count is: 9</div><div class="line">Count is: 10</div></pre></td></tr></table></figure>
-<p>我们推荐在可能的情况下使用这种形式的<code>for</code>循环代替普通<code>for</code>循环。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1853,7 +1841,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1875,7 +1863,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">65</span>
+                <span class="site-state-item-count">67</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
