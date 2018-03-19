@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-19T08:11:25.046Z</updated>
+  <updated>2018-03-19T09:02:44.203Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 学习指南_学习Java：基础-何时使用嵌套类，局部类，匿名类，Lambda</title>
+    <link href="http://yoursite.com/2018/03/19/java-tutorial-learning_the_lang_basic_class_when_to_use/"/>
+    <id>http://yoursite.com/2018/03/19/java-tutorial-learning_the_lang_basic_class_when_to_use/</id>
+    <published>2018-03-19T06:51:59.000Z</published>
+    <updated>2018-03-19T09:02:44.203Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="何时使用嵌套类，局部类，匿名类，Lambda表达式"><a href="#何时使用嵌套类，局部类，匿名类，Lambda表达式" class="headerlink" title="何时使用嵌套类，局部类，匿名类，Lambda表达式"></a>何时使用嵌套类，局部类，匿名类，Lambda表达式</h1><p>正如在嵌套类 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html" target="_blank" rel="external">Nested Classes</a>一章节中提到的,嵌套类可以使你将只是用一次的代码符合逻辑的整理到一块，增加代码的封装性，创建更可读和易于管理的代码。局部类，匿名类以及Lambda表达式同样适用于这些优势；并且他们可以用于更加具体的场景:</p>
+<ul>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html" target="_blank" rel="external">局部类Local class</a>: 如果你需要创建类的不止一个实例，访问其构造函数，或者引入新的命名类型（因为，譬如你需要在后续条用额外的方法).</li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html" target="_blank" rel="external">匿名类Anonymous class</a>: 如果你需要定义额外的字段或者方法就使用匿名类.</li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html" target="_blank" rel="external">Lambda表达式Lambda expression</a>:<ul>
+<li>如果你想要封装一个单独的行为床底给其他的代码就是用Lambda表达式。例如，你你需要创建一个具体的作用于集合中每个元素的操作，当一个程序完成时的处理，或者程序遇到错误的处理。</li>
+<li>当你需要你功能接口的你个简单实例并且不需要预先的条件限制。（例如，你不需要使用构造器，不需要明明类型，字段，或者额外的方法）</li>
+</ul>
+</li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html" target="_blank" rel="external">嵌套类Nested class</a>: 当你的需求与局部类相似，但是又想让类有更广的可用范围，并且你不需要访问局部变量和更多的方法参数就使用嵌套类。<ul>
+<li>使用非静态的嵌套类（或者内部类）如果你需要访问闭合空间内的非公有字段或者方法。是用静态的嵌套类如果你不需要这些访问接入。</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;何时使用嵌套类，局部类，匿名类，Lambda表达式&quot;&gt;&lt;a href=&quot;#何时使用嵌套类，局部类，匿名类，Lambda表达式&quot; class=&quot;headerlink&quot; title=&quot;何时使用嵌套类，局部类，匿名类，Lambda表达式&quot;&gt;&lt;/a&gt;何时使用嵌套类，局部类
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
+    
+      <category term="class" scheme="http://yoursite.com/tags/class/"/>
+    
+      <category term="匿名类" scheme="http://yoursite.com/tags/%E5%8C%BF%E5%90%8D%E7%B1%BB/"/>
+    
+      <category term="嵌套类" scheme="http://yoursite.com/tags/%E5%B5%8C%E5%A5%97%E7%B1%BB/"/>
+    
+      <category term="局部类" scheme="http://yoursite.com/tags/%E5%B1%80%E9%83%A8%E7%B1%BB/"/>
+    
+      <category term="Lambda" scheme="http://yoursite.com/tags/Lambda/"/>
+    
+  </entry>
   
   <entry>
     <title>Java 学习指南_学习Java：基础-Lambda表达式</title>
@@ -426,9 +478,9 @@
     
       <category term="class" scheme="http://yoursite.com/tags/class/"/>
     
-      <category term="Local Class" scheme="http://yoursite.com/tags/Local-Class/"/>
-    
       <category term="局部类" scheme="http://yoursite.com/tags/%E5%B1%80%E9%83%A8%E7%B1%BB/"/>
+    
+      <category term="Local Class" scheme="http://yoursite.com/tags/Local-Class/"/>
     
   </entry>
   
@@ -548,9 +600,9 @@
     
       <category term="class" scheme="http://yoursite.com/tags/class/"/>
     
-      <category term="nested class" scheme="http://yoursite.com/tags/nested-class/"/>
-    
       <category term="嵌套类" scheme="http://yoursite.com/tags/%E5%B5%8C%E5%A5%97%E7%B1%BB/"/>
+    
+      <category term="nested class" scheme="http://yoursite.com/tags/nested-class/"/>
     
   </entry>
   
@@ -782,9 +834,9 @@
     
       <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
     
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
-    
       <category term="对象" scheme="http://yoursite.com/tags/%E5%AF%B9%E8%B1%A1/"/>
+    
+      <category term="class" scheme="http://yoursite.com/tags/class/"/>
     
       <category term="Object" scheme="http://yoursite.com/tags/Object/"/>
     
@@ -915,48 +967,6 @@
       <category term="Class Members" scheme="http://yoursite.com/tags/Class-Members/"/>
     
       <category term="类的成员" scheme="http://yoursite.com/tags/%E7%B1%BB%E7%9A%84%E6%88%90%E5%91%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-类-this关键字</title>
-    <link href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_11/"/>
-    <id>http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_11/</id>
-    <published>2017-10-18T05:54:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="使用this关键字"><a href="#使用this关键字" class="headerlink" title="使用this关键字"></a>使用this关键字</h1><p>在一个实例方法或者是构造器中，<code>this</code>关键字指向<em>当前对象**current object</em>—被调用了方法或者构造器的对象。你可以通过<code>this</code>关键字在实例方法或者构造器中引用当前对象的任何成员。</p>
-<h2 id="this-与-Field"><a href="#this-与-Field" class="headerlink" title="this 与 Field"></a><code>this</code> 与 Field</h2><p>通常使用<code>this</code>关键字的原因是field被方法或构造器的参数遮蔽.例如,  <code>Point</code>可以这样写</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        x = a;</div><div class="line">        y = b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>同样也可以这样写：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>构造器的每一个参数遮蔽对象的一个filed字段/属性–方法内<strong>x</strong> 是构造器第一参数的一本局部副本.为了引用 <code>Point</code> 的 <strong>x</strong>字段, 构造器必须使用 <code>this.x</code>.</p>
-<h2 id="this-与构造器-Constructor"><a href="#this-与构造器-Constructor" class="headerlink" title="this 与构造器 Constructor"></a><code>this</code> 与构造器 Constructor</h2><p>在一个构造器内，你同样可以使用<code>this</code>关键字来调用用一个类中的其他构造器。这样做叫作<em>explicit constructor invocation**显示的构造函数调用</em>.下面是一个 <code>Rectangle</code> 类,与对象一节中实现方法不同.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x, y;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> width, height;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, width, height);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">        <span class="keyword">this</span>.width = width;</div><div class="line">        <span class="keyword">this</span>.height = height;</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个类包含一系列的构造器.每一个构造器初始化初始化矩形的一些成员变量.构造器为没有提供初始化参数的成员变量设置一个默认值。例如。无参构造器在坐标(0,0)处创建一个1X1的矩形。这个两个参数的构造其调用了四个参数的构造器，传递里宽高参数并且使用了(0,0)坐标。就像之前一样，编译器决定去调用哪一个构造器，基于参数的数量以及类型。</p>
-<p>如果存在这种调用，对其他构造器的调用必须出现在构造器中的第一行。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;使用this关键字&quot;&gt;&lt;a href=&quot;#使用this关键字&quot; class=&quot;headerlink&quot; title=&quot;使用this关键字&quot;&gt;&lt;/a&gt;使用this关键字&lt;/h1&gt;&lt;p&gt;在一个实例方法或者是构造器中，&lt;code&gt;this&lt;/code&gt;关键字指向&lt;em&gt;当
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
-    
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
-    
-      <category term="this" scheme="http://yoursite.com/tags/this/"/>
     
   </entry>
   
@@ -1095,6 +1105,48 @@
       <category term="Controlling Access" scheme="http://yoursite.com/tags/Controlling-Access/"/>
     
       <category term="访问控制" scheme="http://yoursite.com/tags/%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 学习指南_学习Java：基础-类-this关键字</title>
+    <link href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_11/"/>
+    <id>http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_11/</id>
+    <published>2017-10-18T05:54:59.000Z</published>
+    <updated>2017-10-26T01:02:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用this关键字"><a href="#使用this关键字" class="headerlink" title="使用this关键字"></a>使用this关键字</h1><p>在一个实例方法或者是构造器中，<code>this</code>关键字指向<em>当前对象**current object</em>—被调用了方法或者构造器的对象。你可以通过<code>this</code>关键字在实例方法或者构造器中引用当前对象的任何成员。</p>
+<h2 id="this-与-Field"><a href="#this-与-Field" class="headerlink" title="this 与 Field"></a><code>this</code> 与 Field</h2><p>通常使用<code>this</code>关键字的原因是field被方法或构造器的参数遮蔽.例如,  <code>Point</code>可以这样写</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        x = a;</div><div class="line">        y = b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>同样也可以这样写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>构造器的每一个参数遮蔽对象的一个filed字段/属性–方法内<strong>x</strong> 是构造器第一参数的一本局部副本.为了引用 <code>Point</code> 的 <strong>x</strong>字段, 构造器必须使用 <code>this.x</code>.</p>
+<h2 id="this-与构造器-Constructor"><a href="#this-与构造器-Constructor" class="headerlink" title="this 与构造器 Constructor"></a><code>this</code> 与构造器 Constructor</h2><p>在一个构造器内，你同样可以使用<code>this</code>关键字来调用用一个类中的其他构造器。这样做叫作<em>explicit constructor invocation**显示的构造函数调用</em>.下面是一个 <code>Rectangle</code> 类,与对象一节中实现方法不同.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x, y;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> width, height;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, width, height);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">        <span class="keyword">this</span>.width = width;</div><div class="line">        <span class="keyword">this</span>.height = height;</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个类包含一系列的构造器.每一个构造器初始化初始化矩形的一些成员变量.构造器为没有提供初始化参数的成员变量设置一个默认值。例如。无参构造器在坐标(0,0)处创建一个1X1的矩形。这个两个参数的构造其调用了四个参数的构造器，传递里宽高参数并且使用了(0,0)坐标。就像之前一样，编译器决定去调用哪一个构造器，基于参数的数量以及类型。</p>
+<p>如果存在这种调用，对其他构造器的调用必须出现在构造器中的第一行。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;使用this关键字&quot;&gt;&lt;a href=&quot;#使用this关键字&quot; class=&quot;headerlink&quot; title=&quot;使用this关键字&quot;&gt;&lt;/a&gt;使用this关键字&lt;/h1&gt;&lt;p&gt;在一个实例方法或者是构造器中，&lt;code&gt;this&lt;/code&gt;关键字指向&lt;em&gt;当
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
+    
+      <category term="class" scheme="http://yoursite.com/tags/class/"/>
+    
+      <category term="this" scheme="http://yoursite.com/tags/this/"/>
     
   </entry>
   
@@ -1461,11 +1513,11 @@
     
       <category term="class" scheme="http://yoursite.com/tags/class/"/>
     
+      <category term="方法" scheme="http://yoursite.com/tags/%E6%96%B9%E6%B3%95/"/>
+    
       <category term="构造方法" scheme="http://yoursite.com/tags/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/"/>
     
       <category term="constructor" scheme="http://yoursite.com/tags/constructor/"/>
-    
-      <category term="方法" scheme="http://yoursite.com/tags/%E6%96%B9%E6%B3%95/"/>
     
       <category term="参数信息" scheme="http://yoursite.com/tags/%E5%8F%82%E6%95%B0%E4%BF%A1%E6%81%AF/"/>
     
@@ -1517,73 +1569,6 @@
       <category term="构造方法" scheme="http://yoursite.com/tags/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/"/>
     
       <category term="constructor" scheme="http://yoursite.com/tags/constructor/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-类-定义成员变量</title>
-    <link href="http://yoursite.com/2017/09/28/java-tutorial-learning_the_lang_basic_class&amp;object_class_2/"/>
-    <id>http://yoursite.com/2017/09/28/java-tutorial-learning_the_lang_basic_class&amp;object_class_2/</id>
-    <published>2017-09-28T04:00:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="定义成员变量"><a href="#定义成员变量" class="headerlink" title="定义成员变量"></a>定义成员变量</h1><p>变量由以下几种:</p>
-<ul>
-<li>类的成员变量-叫做域/字段.</li>
-<li>方法代码块中的变量-叫做局部变量。</li>
-<li>方法定义中的变量-叫做参数。</li>
-</ul>
-<p><code>Bicycle</code>类使用以下几行定义了它的成员变量:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span> cadence;</div><div class="line"><span class="keyword">public</span> <span class="keyword">int</span> gear;</div><div class="line"><span class="keyword">public</span> <span class="keyword">int</span> speed;</div></pre></td></tr></table></figure>
-<p>成员变量的定义由三部分组成，按照顺序入下:</p>
-<ol>
-<li>零个或更多限定修饰符，例如<code>public</code>或者<code>private</code>.</li>
-<li>字段的类型.</li>
-<li><p>字段个名称.</p>
-<p><code>Bicycle</code>类的成员变量名字为 <code>cadence</code>, <code>gear</code>, 以及<code>speed</code> 并且都是<code>int</code> 类型的。<code>public</code>关键字表明了这些时公有，然和可以访问该类的对象都可以访问这些成员变量。</p>
-</li>
-</ol>
-<h2 id="限定修饰符"><a href="#限定修饰符" class="headerlink" title="限定修饰符"></a>限定修饰符</h2><p>第一个（最左边的）限定修饰符使你控制其他类可以访问成员变量的权限。现在，仅仅关注<code>public</code>和<code>private</code>。其他的限定修饰符后面会讨论.</p>
-<ul>
-<li><code>public</code> 修饰符—本字段可以被所有类访问.</li>
-<li><code>private</code> 修饰符—本字段只可以在本类中访问.</li>
-</ul>
-<p>为了体现封装特性，通常设置成员变量为私有<code>private</code>。意味着它们只能在<code>Bicycle</code>类中被直接访问。然而，我们仍然需要访问这些值。这可以通过添加获取字段值的公有方法间接实现:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bicycle</span> </span>&#123;</div><div class="line">        </div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> cadence;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> gear;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> speed;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Bicycle</span><span class="params">(<span class="keyword">int</span> startCadence, <span class="keyword">int</span> startSpeed, <span class="keyword">int</span> startGear)</span> </span>&#123;</div><div class="line">        gear = startGear;</div><div class="line">        cadence = startCadence;</div><div class="line">        speed = startSpeed;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCadence</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> cadence;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCadence</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;</div><div class="line">        cadence = newValue;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getGear</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> gear;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setGear</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;</div><div class="line">        gear = newValue;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSpeed</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> speed;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">applyBrake</span><span class="params">(<span class="keyword">int</span> decrement)</span> </span>&#123;</div><div class="line">        speed -= decrement;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">speedUp</span><span class="params">(<span class="keyword">int</span> increment)</span> </span>&#123;</div><div class="line">        speed += increment;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><p>所有的变量都必须由一个类型。你可以使用基本数据类型例如<code>int</code>,<code>float</code>,<code>boolean</code>,等等。或者你可以使用引用类型，例如字符串，数组，对象。</p>
-<h2 id="变量名"><a href="#变量名" class="headerlink" title="变量名"></a>变量名</h2><p>所有的变量，无论时成员变量，局部变量或者参数，都遵循同样的命名规则与约定，这在之前的语言基础课程变量命名中讲过。<a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html#naming" target="_blank" rel="external">Variables—Naming</a>.</p>
-<p>在本课中，注意这些命名规则同样适用与方法名和类名，除了以下两点：</p>
-<ul>
-<li>类名的首字母需要大写the first letter of a class name should be capitalized, and</li>
-<li>方法名的首个单词应该为动词the first (or only) word in a method name should be a verb.</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;定义成员变量&quot;&gt;&lt;a href=&quot;#定义成员变量&quot; class=&quot;headerlink&quot; title=&quot;定义成员变量&quot;&gt;&lt;/a&gt;定义成员变量&lt;/h1&gt;&lt;p&gt;变量由以下几种:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;类的成员变量-叫做域/字段.&lt;/li&gt;
-&lt;li&gt;方法代码块中的变
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
-    
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
-    
-      <category term="成员变量" scheme="http://yoursite.com/tags/%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F/"/>
-    
-      <category term="Member Variables" scheme="http://yoursite.com/tags/Member-Variables/"/>
     
   </entry>
   
