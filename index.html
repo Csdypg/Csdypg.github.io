@@ -307,6 +307,359 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/15/java-tutorial-learning_the_lang_basic_lambda/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/15/java-tutorial-learning_the_lang_basic_lambda/" itemprop="url">Java 学习指南_学习Java：基础-Lambda表达式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-15T15:51:59+08:00">
+                2018-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Lambda-表达式-Lambda-Expressions"><a href="#Lambda-表达式-Lambda-Expressions" class="headerlink" title="Lambda 表达式 Lambda Expressions"></a>Lambda 表达式 Lambda Expressions</h1><p>使用匿名类的一个问题在于，如果你要实现的匿名类非常的简单，例如只包含一个方法的借口，那么匿名列的语法看起来就不够简洁和轻便。这种情况下，你通常会尝试将某个功能作为参数传递给一其他方法，例如当点击按钮的时候会采取什么措施。Lambda表达式可以提供这样的功能，将功能作为方法的参数，或者代码作为数据。</p>
+<p>上一节中， <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html" target="_blank" rel="external">Anonymous Classes</a>, 向你展示了实现一个基本的类而不需要命名，譬如只有一个方法的类，不过匿名类看起来有点复杂和笨重。Lambda表达式可以使你更加紧凑的表达一个单方法类的实例。</p>
+<p>本节将包含以下的内容:</p>
+<ul>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#use-case" target="_blank" rel="external">Lambda表达式的经典应用Ideal Use Case for Lambda Expressions</a><ul>
+<li><a href="#approach1">方法1：创建搜索某一特点的成员的方法Approach 1: Create Methods That Search for Members That Match One Characteristic</a></li>
+<li><a href="#approach2">方法2：创建更加通用的搜索方法Approach 2: Create More Generalized Search Methods</a></li>
+<li><a href="#approach3">方法3：用局部类实现特定搜索规则相关的的代码Approach 3: Specify Search Criteria Code in a Local Class</a></li>
+<li><a href="#approach4">方法4：用匿名类实现特定搜索规则相关的代码Approach 4: Specify Search Criteria Code in an Anonymous Class</a></li>
+<li><a href="#approach5">方法5：用Lambda表达式实现特定搜索规则的代码Approach 5: Specify Search Criteria Code with a Lambda Expression</a></li>
+<li><a href="#approach6">方法6：通过标准的功能接口使用lambda表达式Approach 6: Use Standard Functional Interfaces with Lambda Expressions</a></li>
+<li><a href="#approach7">方法7：在你的应用中使用Lambda表达式Approach 7: Use Lambda Expressions Throughout Your Application</a></li>
+<li><a href="#approach8">方法8：使用反应提高可扩展性Approach 8: Use Generics More Extensively</a></li>
+<li><a href="#approach9">方法9：使用已Lambda表达式作为参数的聚合操作Approach 9: Use Aggregate Operations That Accept Lambda Expressions as Parameters</a></li>
+</ul>
+</li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#lambda-expressions-in-gui-applications" target="_blank" rel="external">在GUI应用中使用Lambda表达式Lambda Expressions in GUI Applications</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#syntax" target="_blank" rel="external">Lambda表达式语法Syntax of Lambda Expressions</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#accessing-local-variables" target="_blank" rel="external">访问闭合区间的局部变量Accessing Local Variables of the Enclosing Scope</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#target-typing" target="_blank" rel="external">目标类型Target Typing</a><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#target-types-and-method-arguments" target="_blank" rel="external">目标类型以及方法参数Target Types and Method Arguments</a></li>
+<li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#serialization" target="_blank" rel="external">序列化Serialization</a></li>
+</ul>
+<h2 id="Lambda表达式最佳实践Ideal-Use-Case-for-Lambda-Expressions"><a href="#Lambda表达式最佳实践Ideal-Use-Case-for-Lambda-Expressions" class="headerlink" title="Lambda表达式最佳实践Ideal Use Case for Lambda Expressions"></a><a href="">Lambda表达式最佳实践Ideal Use Case for Lambda Expressions</a></h2><p>假设你正在创建一个社交网络应用。你想要创建一个功能来满足管理员的各种操作，例如，向社交网络应用中中满足特定规则的成员发送消息。下面的表格描述了这个案例的详细信息。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>名称</td>
+<td>对选择的成员进行操作</td>
+</tr>
+<tr>
+<td>主要角色</td>
+<td>管理员Administrator</td>
+</tr>
+<tr>
+<td>前置条件</td>
+<td>管理员已登录到系统</td>
+</tr>
+<tr>
+<td>完成条件</td>
+<td>操作只对符合特定规则的成员生效</td>
+</tr>
+<tr>
+<td>内容梗概</td>
+<td>管理员确定要执行操作的成员。管理员明确要执行的操作。管理员选择Submit按钮。系统找到所有满足条件的成员。系统对所有符合条件成员执行操作</td>
+</tr>
+<tr>
+<td>扩展</td>
+<td>1a. 管理员可以在提交操作之前预览那些符合条件的成员。</td>
+</tr>
+<tr>
+<td>发生频率Frequency</td>
+<td>每天数次</td>
+</tr>
+</tbody>
+</table>
+<p>假设社交网络应用中的成员可以用如下的 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/examples/Person.java" target="_blank" rel="external"><code>Person</code></a> 类表示:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">enum</span> Sex &#123;</div><div class="line">        MALE, FEMALE</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    String name;</div><div class="line">    LocalDate birthday;</div><div class="line">    Sex gender;</div><div class="line">    String emailAddress;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// ...</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printPerson</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// ...</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>假设你社交网络应用中的成员是存储在一个 <code>List&lt;Person&gt;</code> 实例中.</p>
+<p>本章开始用一种稚拙的方法实现这个用例。然后使用局部类类和匿名类来改进，最后使用lambda表达式通过一种高效和简洁的方式完成。本章节中 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/examples/RosterTest.java" target="_blank" rel="external"><code>RosterTest</code></a>例子中可以找到相关的代码片段。.</p>
+<h3 id="方法1：创建搜索符合某些特征的成员的方法"><a href="#方法1：创建搜索符合某些特征的成员的方法" class="headerlink" title="方法1：创建搜索符合某些特征的成员的方法"></a><a href="">方法1：创建搜索符合某些特征的成员的方法</a></h3><p>一个简单的途径就是创建数个方法methods;每一个方法搜索符合一个特征的成员，譬如性别或者年龄。下面的代码打印出了年龄大于某特定年龄的成员:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printPersonsOlderThan</span><span class="params">(List&lt;Person&gt; roster, <span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (Person p : roster) &#123;</div><div class="line">        <span class="keyword">if</span> (p.getAge() &gt;= age) &#123;</div><div class="line">            p.printPerson();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>注意</strong>:  <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html" target="_blank" rel="external"><code>List</code></a> 是一个有序的集合 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html" target="_blank" rel="external"><code>Collection</code></a>. 集合是在一个单独单眼里包含多个元素的对象。集合是用来存储，获取，操作以及表达集合数据。参考 <a href="https://docs.oracle.com/javase/tutorial/collections/index.html" target="_blank" rel="external">Collections</a> 获取更多集合相关的信息.</p>
+<p>这种方法可能使你的应用非常的脆弱，譬如可能英文介绍里提到的扩展(例如新的数据类型)而导致程序无法工作。假设你应用的升级改变了<code>Person</code>类的数据结构，该数据结构包含了不同的成员变量；或许类使用了不同的数据类型来存储年龄，或者用不同的算法来计量年龄。你就不得不重写你的API来满足这些改变。另外，这个方法还有不必要的限制，如果你想要打印出小于特定年龄的成员时改怎么办呢?</p>
+<h3 id="方案2：创建更加通用的方法Approach-2-Create-More-Generalized-Search-Methods"><a href="#方案2：创建更加通用的方法Approach-2-Create-More-Generalized-Search-Methods" class="headerlink" title="方案2：创建更加通用的方法Approach 2: Create More Generalized Search Methods"></a><a href="">方案2：创建更加通用的方法Approach 2: Create More Generalized Search Methods</a></h3><p>下面的方法比上一个方法<code>printPersonOlderThan</code>更通用一些；可以打印出特定年龄范围的成员：:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printPersonsWithinAgeRange</span><span class="params">(</span></span></div><div class="line">    List&lt;Person&gt; roster, <span class="keyword">int</span> low, <span class="keyword">int</span> high) &#123;</div><div class="line">    <span class="keyword">for</span> (Person p : roster) &#123;</div><div class="line">        <span class="keyword">if</span> (low &lt;= p.getAge() &amp;&amp; p.getAge() &lt; high) &#123;</div><div class="line">            p.printPerson();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>那么如果你想要打印出某一性别，或者是某一性别和特定年龄范围组合的相关成员？如果你决定改变<code>Person</code>类型的属性增加诸如情感状态或者地理位置？尽管这个方法比之前的方法更通用，但是尝试为每一种可能的搜索都创建单独的方法同样导致脆弱的代码。你可以将说明具体搜索范围的代码分割出来，创建另外一个类。</p>
+<h3 id="方案3：在局部类中说明搜索标准Approach-3-Specify-Search-Criteria-Code-in-a-Local-Class"><a href="#方案3：在局部类中说明搜索标准Approach-3-Specify-Search-Criteria-Code-in-a-Local-Class" class="headerlink" title="方案3：在局部类中说明搜索标准Approach 3: Specify Search Criteria Code in a Local Class"></a><a href="">方案3：在局部类中说明搜索标准Approach 3: Specify Search Criteria Code in a Local Class</a></h3><p>下面的方法打印出符合你搜索标准的成员:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printPersons</span><span class="params">(</span></span></div><div class="line">    List&lt;Person&gt; roster, CheckPerson tester) &#123;</div><div class="line">    <span class="keyword">for</span> (Person p : roster) &#123;</div><div class="line">        <span class="keyword">if</span> (tester.test(p)) &#123;</div><div class="line">            p.printPerson();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个方法检查<code>List</code>参数<code>roster</code>中的每一个<code>Person</code>实例是否满搜索标准，通过调用<code>CheckPerson</code>参数<code>tester</code>的<code>test</code>方法来实现。如果<code>tester.test</code>返回一个<code>True</code>，呢么<code>Person</code>实例中的<code>printPerson</code>方法就回被调用.</p>
+<p>针对不同的搜索标准，你需要实现<code>CheckPerson</code>接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">CheckPerson</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">test</span><span class="params">(Person p)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>下面的类实现了<code>CheckPerson</code>接口，明确了<code>test</code>方法的一个具体实现。这个方法过滤了符合美国服兵役条件的成员:如果<code>Person</code>参数是男性并且年龄在18到25之间则返回<code>True</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CheckPersonEligibleForSelectiveService</span> <span class="keyword">implements</span> <span class="title">CheckPerson</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">test</span><span class="params">(Person p)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> p.gender == Person.Sex.MALE &amp;&amp;</div><div class="line">            p.getAge() &gt;= <span class="number">18</span> &amp;&amp;</div><div class="line">            p.getAge() &lt;= <span class="number">25</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过这个类，你创建一个新的<code>Person</code>实例并且调用<code>printPersons</code>方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">printPersons(</div><div class="line">    roster, <span class="keyword">new</span> CheckPersonEligibleForSelectiveService());</div></pre></td></tr></table></figure>
+<p>尽管这个方案没有那么脆弱了——当你改变Person的数据结构时，无需再重写你的方法——当你仍然需要额外的代码：一个新的结构以及一个本地类来查询你计划进行操作的成员。因为<code>CheckPersonEligibleForSelectiveService</code>实现了一个接口，所以你可以通过匿名类来代替局部类，并且可以避免对每一中搜索都创建一个新的类。</p>
+<h3 id="方案4：Approach-4-Specify-Search-Criteria-Code-in-an-Anonymous-Class"><a href="#方案4：Approach-4-Specify-Search-Criteria-Code-in-an-Anonymous-Class" class="headerlink" title="方案4：Approach 4: Specify Search Criteria Code in an Anonymous Class"></a><a href="">方案4：Approach 4: Specify Search Criteria Code in an Anonymous Class</a></h3><p>下列代码中<code>printPersons</code>方法调用中的一个参数是一个匿名类，这个匿名类筛选出美国需要服兵役的成员:年龄介于18到25岁的男性成员。:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">printPersons(</div><div class="line">    roster,</div><div class="line">    <span class="keyword">new</span> CheckPerson() &#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">test</span><span class="params">(Person p)</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> p.getGender() == Person.Sex.MALE</div><div class="line">                &amp;&amp; p.getAge() &gt;= <span class="number">18</span></div><div class="line">                &amp;&amp; p.getAge() &lt;= <span class="number">25</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>这个方案减少了必须的代码，因为你不需要为每一个查询都创建一个新的类。然而，匿名类的语法非常的笨重，考虑到<code>CheckPerson</code>接口中实际只包含了一个方法。在这种情况下，你可以使用你个lambda表达式来代替匿名类，也就是下一节所讲的内容.</p>
+<h3 id="方案5：使用lambda表达式表明搜索标准Approach-5-Specify-Search-Criteria-Code-with-a-Lambda-Expression"><a href="#方案5：使用lambda表达式表明搜索标准Approach-5-Specify-Search-Criteria-Code-with-a-Lambda-Expression" class="headerlink" title="方案5：使用lambda表达式表明搜索标准Approach 5: Specify Search Criteria Code with a Lambda Expression"></a><a href="">方案5：使用lambda表达式表明搜索标准Approach 5: Specify Search Criteria Code with a Lambda Expression</a></h3><p><code>CheckPerson</code>接口是一个<em>functional interface</em>功能接口.功能接口是指只包含一个抽象方法 <a href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html" target="_blank" rel="external">abstract method</a>的接口. (当然功能接口可能包含一个或者多个默认方法 <a href="https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html" target="_blank" rel="external">default methods</a>或者静态方法 <a href="https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html#static" target="_blank" rel="external">static methods</a>.) 因为一个功能接口只包含了一个抽象方法，当你实现它的时候你可以移除方法名。这么做就替代了匿名类的表达式，使用了lambda表达式 <em>lambda expression</em>,正如如下代码方法调用中说所用的样子:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">printPersons(</div><div class="line">    roster,</div><div class="line">    (Person p) -&gt; p.getGender() == Person.Sex.MALE</div><div class="line">        &amp;&amp; p.getAge() &gt;= <span class="number">18</span></div><div class="line">        &amp;&amp; p.getAge() &lt;= <span class="number">25</span></div><div class="line">);</div></pre></td></tr></table></figure>
+<p>参考 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#syntax" target="_blank" rel="external">Lambda 表达式语法Syntax of Lambda Expressions</a>获取如何定义Lambda表达式的更多信息.</p>
+<p>你可以使用标准的功能接口来代替<code>CheckPerson</code>接口，可以进一步减少所需的代码量.</p>
+<h3 id="方法6：使用标准的功能接口实现Lambda表达式Approach-6-Use-Standard-Functional-Interfaces-with-Lambda-Expressions"><a href="#方法6：使用标准的功能接口实现Lambda表达式Approach-6-Use-Standard-Functional-Interfaces-with-Lambda-Expressions" class="headerlink" title="方法6：使用标准的功能接口实现Lambda表达式Approach 6: Use Standard Functional Interfaces with Lambda Expressions"></a><a href="">方法6：使用标准的功能接口实现Lambda表达式Approach 6: Use Standard Functional Interfaces with Lambda Expressions</a></h3><p>重现审视CheckPerson 接口:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">CheckPerson</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">test</span><span class="params">(Person p)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这是一个非常简单的是接口。因为他只包含一个抽象方法所以他是一个功能接口。这个方法接口一个参数并返回布尔值。这个方法如此简单所以你没有必要再应用中定义它。因此，JDK定义了数个标准的功能接口，你可以在<code>java.util.function</code>包中找到这些接口。</p>
+<p>例如，你个使用 <code>Predicate&lt;T&gt;</code>接口来代替 <code>CheckPerson</code>.这个接口包含了方法 <code>boolean test(T t)</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Predicate</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">test</span><span class="params">(T t)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接口 <code>Predicate&lt;T&gt;</code> 是泛型接口的一个例子. (参考泛型（更新） <a href="https://docs.oracle.com/javase/tutorial/java/generics/index.html" target="_blank" rel="external">Generics (Updated)</a> 一颗来获取更多关于泛型的信息.) 泛型类（例如泛型接口）在尖括号中表明一个或多个类型参数(<code>&lt;&gt;</code>). 这个接口只包含了一个参数，<code>T</code>,当你定义实际的类型参数时，你有一个参数类型，例如 <code>Predicate&lt;Person&gt;</code> :</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Predicate</span>&lt;<span class="title">Person</span>&gt; </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">test</span><span class="params">(Person t)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>参数类型，包含了一个拥有同样参数类型的方法 <code>CheckPerson.boolean test(Person p)</code>. 因此，你可以使用 <code>Predicate&lt;T&gt;</code> 替换 <code>CheckPerson</code>类，如下所示:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printPersonsWithPredicate</span><span class="params">(</span></span></div><div class="line">    List&lt;Person&gt; roster, Predicate&lt;Person&gt; tester) &#123;</div><div class="line">    <span class="keyword">for</span> (Person p : roster) &#123;</div><div class="line">        <span class="keyword">if</span> (tester.test(p)) &#123;</div><div class="line">            p.printPerson();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果，下面的方法调用就如同你在方法3中 <code>printPersons</code> <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach3" target="_blank" rel="external">Approach 3: Specify Search Criteria Code in a Local Class</a> 一样，可以获取符合服兵役条件的成员:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">printPersonsWithPredicate(</div><div class="line">    roster,</div><div class="line">    p -&gt; p.getGender() == Person.Sex.MALE</div><div class="line">        &amp;&amp; p.getAge() &gt;= <span class="number">18</span></div><div class="line">        &amp;&amp; p.getAge() &lt;= <span class="number">25</span></div><div class="line">);</div></pre></td></tr></table></figure>
+<p>这里并不是唯一可以使用lambda表达式的地方。下面的方案推荐了其他使用lambda表达式的方法.</p>
+<h3 id="方案7-在你的整个应用中使用lambda表达式Approach-7-Use-Lambda-Expressions-Throughout-Your-Application"><a href="#方案7-在你的整个应用中使用lambda表达式Approach-7-Use-Lambda-Expressions-Throughout-Your-Application" class="headerlink" title="方案7:在你的整个应用中使用lambda表达式Approach 7: Use Lambda Expressions Throughout Your Application"></a><a href="">方案7:在你的整个应用中使用lambda表达式Approach 7: Use Lambda Expressions Throughout Your Application</a></h3><p>重新考虑方法 <code>printPersonsWithPredicate</code> ，看看你可以在哪里使用lambda表达式:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printPersonsWithPredicate</span><span class="params">(</span></span></div><div class="line">    List&lt;Person&gt; roster, Predicate&lt;Person&gt; tester) &#123;</div><div class="line">    <span class="keyword">for</span> (Person p : roster) &#123;</div><div class="line">        <span class="keyword">if</span> (tester.test(p)) &#123;</div><div class="line">            p.printPerson();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个犯法检查了<code>List</code>参数<code>roster</code>中每一个<code>Person</code>实例是否符合具体的标准<code>Predicate</code>参数<code>tester</code>。如果Person实例确实满足<code>tester</code>的条件，<code>Person</code>实例就调用<code>printPerson</code>方法.</p>
+<p>取代了调用<code>printPerson</code>方法，你可以对满足搜索条件的成员制定不同的操作。你同样可以通过lambda表达式来实现操作。假如你希望有一个类似printPerson方法的lambda表达式，获取一个Person参数并返回void。记住，使用lambda表达式，你需要实现一个功能接口。本例中，你需要实现一个接受Person参数并且返回为void的接口。<code>Consumer&lt;T&gt;</code>接口，包含了<code>void accept(T t)</code>方法，刚好符合这一特征.下面的代码使用你个<code>Consumer&lt;Person&gt;</code>的实例的<code>accept</code>方法调用，替换了<code>p.printPerson()</code>方法的调用:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">processPersons</span><span class="params">(</span></span></div><div class="line">    List&lt;Person&gt; roster,</div><div class="line">    Predicate&lt;Person&gt; tester,</div><div class="line">    Consumer&lt;Person&gt; block) &#123;</div><div class="line">        <span class="keyword">for</span> (Person p : roster) &#123;</div><div class="line">            <span class="keyword">if</span> (tester.test(p)) &#123;</div><div class="line">                block.accept(p);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样，如下的方法调用同样实现了方案3中的功能，lambda表达式使用的代码如下所示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">processPersons(</div><div class="line">     roster,</div><div class="line">     p -&gt; p.getGender() == Person.Sex.MALE</div><div class="line">         &amp;&amp; p.getAge() &gt;= 18</div><div class="line">         &amp;&amp; p.getAge() &lt;= 25,</div><div class="line">     p -&gt; p.printPerson()</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>如果你想要对成员的信息做更多的操作而不只是打印出来。假设你需要验证成员的简介并且获取他们的联系信息。在本例中，你需要一个方能接口把汗了一个返回值的抽象方法。 <code>Function&lt;T,R&gt;</code>接口包含一个方法 <code>R apply(T t)</code>.下面的代码通过参数<code>mapper</code>，获取了数据并通过<code>block</code>参数进行的具体的操作：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">processPersonsWithFunction</span><span class="params">(</span></span></div><div class="line">    List&lt;Person&gt; roster,</div><div class="line">    Predicate&lt;Person&gt; tester,</div><div class="line">    Function&lt;Person, String&gt; mapper,</div><div class="line">    Consumer&lt;String&gt; block) &#123;</div><div class="line">    <span class="keyword">for</span> (Person p : roster) &#123;</div><div class="line">        <span class="keyword">if</span> (tester.test(p)) &#123;</div><div class="line">            String data = mapper.apply(p);</div><div class="line">            block.accept(data);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>下面的方法取得了过滤后的成员的邮箱地址并且打印出了他们:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">processPersonsWithFunction(</div><div class="line">    roster,</div><div class="line">    p -&gt; p.getGender() == Person.Sex.MALE</div><div class="line">        &amp;&amp; p.getAge() &gt;= <span class="number">18</span></div><div class="line">        &amp;&amp; p.getAge() &lt;= <span class="number">25</span>,</div><div class="line">    p -&gt; p.getEmailAddress(),</div><div class="line">    email -&gt; System.out.println(email)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h3 id="方案8：使用泛型提高扩展性Approach-8-Use-Generics-More-Extensively"><a href="#方案8：使用泛型提高扩展性Approach-8-Use-Generics-More-Extensively" class="headerlink" title="方案8：使用泛型提高扩展性Approach 8: Use Generics More Extensively"></a><a href="">方案8：使用泛型提高扩展性Approach 8: Use Generics More Extensively</a></h3><p>重新考虑方法 <code>processPersonsWithFunction</code>. 如下代码是一个泛型的版本，可以接受任何类型元素集合作为参数:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;X, Y&gt; <span class="function"><span class="keyword">void</span> <span class="title">processElements</span><span class="params">(</span></span></div><div class="line">    Iterable&lt;X&gt; source,</div><div class="line">    Predicate&lt;X&gt; tester,</div><div class="line">    Function &lt;X, Y&gt; mapper,</div><div class="line">    Consumer&lt;Y&gt; block) &#123;</div><div class="line">    <span class="keyword">for</span> (X p : source) &#123;</div><div class="line">        <span class="keyword">if</span> (tester.test(p)) &#123;</div><div class="line">            Y data = mapper.apply(p);</div><div class="line">            block.accept(data);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果需要打印符合条件的成员的e-mail地址，调用<code>processElements</code>方法的代码如下所示:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">processElements(</div><div class="line">    roster,</div><div class="line">    p -&gt; p.getGender() == Person.Sex.MALE</div><div class="line">        &amp;&amp; p.getAge() &gt;= <span class="number">18</span></div><div class="line">        &amp;&amp; p.getAge() &lt;= <span class="number">25</span>,</div><div class="line">    p -&gt; p.getEmailAddress(),</div><div class="line">    email -&gt; System.out.println(email)</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>方法调用执行了一下的操作:</p>
+<ol>
+<li>获取对象集合 <code>source</code>. 本例中，获取了<code>Person</code>对象的集合<code>roster</code> .<code>roster</code>集合是一个<code>List</code>同样是个 <code>Iterable</code>可迭代的对象.</li>
+<li>过滤对象中匹配 <code>Predicate</code> 对象 <code>tester</code>条件的 成员.  <code>Predicate</code>对象在本例中满足了服兵役条件的成员。</li>
+<li>通过 <code>Function</code> 对象 <code>mapper</code>映射每一个成员.本例中获取了每个成员的e-mail地址.</li>
+<li>通过 <code>Consumer</code> 对象 <code>block</code>方法对映射后的结果做具体的操做，本例中将应设计过也就是e-mail地址打印了出来.</li>
+</ol>
+<p>你同样可以使用聚合操作（连贯操作）来替代以上的操作步骤。.</p>
+<h3 id="方案9：使用接受Labmda表达式为参数的集合操作Approach-9-Use-Aggregate-Operations-That-Accept-Lambda-Expressions-as-Parameters"><a href="#方案9：使用接受Labmda表达式为参数的集合操作Approach-9-Use-Aggregate-Operations-That-Accept-Lambda-Expressions-as-Parameters" class="headerlink" title="方案9：使用接受Labmda表达式为参数的集合操作Approach 9: Use Aggregate Operations That Accept Lambda Expressions as Parameters"></a><a href="">方案9：使用接受Labmda表达式为参数的集合操作Approach 9: Use Aggregate Operations That Accept Lambda Expressions as Parameters</a></h3><p>下面的例子使用连贯操作打印出了符合条件的承欢的e-mail地址:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">roster</div><div class="line">    .stream()</div><div class="line">    .filter(</div><div class="line">        p -&gt; p.getGender() == Person.Sex.MALE</div><div class="line">            &amp;&amp; p.getAge() &gt;= <span class="number">18</span></div><div class="line">            &amp;&amp; p.getAge() &lt;= <span class="number">25</span>)</div><div class="line">    .map(p -&gt; p.getEmailAddress())</div><div class="line">    .forEach(email -&gt; System.out.println(email));</div></pre></td></tr></table></figure>
+<p>如下表格列出了processElements功能中各个步骤以及对应的连贯操作方法:</p>
+<table>
+<thead>
+<tr>
+<th><code>processElements</code> Action（方法步骤）</th>
+<th>Aggregate Operation(集合操作)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Obtain a source of objects获取资源，集合对象</td>
+<td><code>Stream&lt;E&gt; **stream**()</code></td>
+</tr>
+<tr>
+<td>Filter objects that match a <code>Predicate</code> object过滤对象</td>
+<td><code>Stream&lt;T&gt; **filter**(Predicate&lt;? super T&gt; predicate)</code></td>
+</tr>
+<tr>
+<td>Map objects to another value as specified by a <code>Function</code> object将集合中对象映射为其他的值</td>
+<td><code>&lt;R&gt; Stream&lt;R&gt; **map**(Function&lt;? super T,? extends R&gt; mapper)</code></td>
+</tr>
+<tr>
+<td>Perform an action as specified by a <code>Consumer</code> object通过<code>Consumer</code>对象执行具体的操作</td>
+<td><code>void **forEach**(Consumer&lt;? super T&gt; action)</code></td>
+</tr>
+</tbody>
+</table>
+<p>操作 <code>filter</code>, <code>map</code>, 以及 <code>forEach</code> 是 <em>aggregate operations</em>聚合操作. 局和操作将元素作为一个流来处理，而不是直接从集合中（也就是为什么要首先调用<code>stream</code>方法的原因）.<em>stream</em>流是一个元素集合的序列。区别与集合的是，它并不是存储元素的数据结构，流负责从集合中取出资源，通过一个管道。管道pipeline是一系列的流式操作，在本例中的<code>filter-map-forEach</code>。另外，局和操作通常接受lambda表达式作为参数，是你可以自定义操作的行为。</p>
+<p>获取更多关于聚合操作的信息，你可以参考 <a href="https://docs.oracle.com/javase/tutorial/collections/streams/index.html" target="_blank" rel="external">Aggregate Operations</a> 一课.</p>
+<h2 id="Lambda表达式在GUI应用的使用Lambda-Expressions-in-GUI-Applications"><a href="#Lambda表达式在GUI应用的使用Lambda-Expressions-in-GUI-Applications" class="headerlink" title="Lambda表达式在GUI应用的使用Lambda Expressions in GUI Applications"></a><a href="">Lambda表达式在GUI应用的使用Lambda Expressions in GUI Applications</a></h2><p>处理GUI应用的事件，例如按键事件，鼠标事件，以及滚动事件。通常你都会创建事件处理器，一般都是通过实现特定的接口。一般来说，事件处理器接口是功能接口；他们通常只有一个方法。</p>
+<p>在JAVAFX例子中 <a href="https://docs.oracle.com/javase/8/javafx/get-started-tutorial/hello_world.htm" target="_blank" rel="external"><code>HelloWorld.java</code></a> (前一章节中 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html" target="_blank" rel="external">Anonymous Classes</a>), 中提到的你可以将如下所示的匿名类代码替换为Lambda表达式:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">btn.setOnAction(<span class="keyword">new</span> EventHandler&lt;ActionEvent&gt;() &#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(ActionEvent event)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Hello World!"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><code>btn.setOnAction</code>方法调用定义当你鼠标选择了<code>btn</code>对象代表的按钮式要放生的事情。这个方法要求一个<code>EventHandler&lt;ActionEvent&gt;</code>类型的对象作为参数。<code>EventHandler&lt;ActionEvent&gt;</code> 接口只包含了一个方法<code>void handle&lt;T event&gt;</code> 。这个接口是一个功能接口，因此你可以使用如下的<code>Lambda</code>来替换他:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">btn.setOnAction(</div><div class="line">  event -&gt; System.out.println(<span class="string">"Hello World!"</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
+<h2 id="Lambda表达式的语法Syntax-of-Lambda-Expressions"><a href="#Lambda表达式的语法Syntax-of-Lambda-Expressions" class="headerlink" title="Lambda表达式的语法Syntax of Lambda Expressions"></a><a href="">Lambda表达式的语法Syntax of Lambda Expressions</a></h2><p>一个Lambda表示由如下几部分构成:</p>
+<ul>
+<li><p>一个圆括号包围、逗号分隔的参数形式的列表.<code>CheckPerson.test</code>方法包含了一个参数<code>p</code>,代表了<code>Person</code>类的实例。</p>
+<p><strong>注意</strong>:你可以省略参数类型。同样当只有一个参数时，你也可以省略圆括号。例如下面的Lambda表达式依然是有效的:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p -&gt; p.getGender() == Person.Sex.MALE </div><div class="line">    &amp;&amp; p.getAge() &gt;= <span class="number">18</span></div><div class="line">    &amp;&amp; p.getAge() &lt;= <span class="number">25</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>箭头符号, <code>-&gt;</code></p>
+</li>
+<li><p>一个方法体, 包含一个单独的表达式或者语句块:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p.getGender() == Person.Sex.MALE </div><div class="line">    &amp;&amp; p.getAge() &gt;= 18</div><div class="line">    &amp;&amp; p.getAge() &lt;= 25</div></pre></td></tr></table></figure>
+<p>如果只有一个表达式，Java运行时会返回表达式的值，同样你可以使用返回语句，如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">p -&gt; &#123;</div><div class="line">    return p.getGender() == Person.Sex.MALE</div><div class="line">        &amp;&amp; p.getAge() &gt;= 18</div><div class="line">        &amp;&amp; p.getAge() &lt;= 25;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>返回语句不是一个表达式；在lambda表达式中如果你使用的语句块则必须用<code>{}</code>来闭合，但是你只调用了没有返回值的方法时时可以省略<code>{}</code>,如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">email -&gt; System.out.println(email)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意lambda表达式的定义看起来像是方法的定义;你可以认为lambda表达式是一个匿名方法——没有命名的方法.</p>
+<p>接下来的例子, <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/examples/Calculator.java" target="_blank" rel="external"><code>Calculator</code></a>, 使用了不止一个参数:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Calculator</span> </span>&#123;</div><div class="line">  </div><div class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">IntegerMath</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">int</span> <span class="title">operation</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;   </div><div class="line">    &#125;</div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">operateBinary</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, IntegerMath op)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> op.operation(a, b);</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String... args)</span> </span>&#123;</div><div class="line">    </div><div class="line">        Calculator myApp = <span class="keyword">new</span> Calculator();</div><div class="line">        IntegerMath addition = (a, b) -&gt; a + b;</div><div class="line">        IntegerMath subtraction = (a, b) -&gt; a - b;</div><div class="line">        System.out.println(<span class="string">"40 + 2 = "</span> +</div><div class="line">            myApp.operateBinary(<span class="number">40</span>, <span class="number">2</span>, addition));</div><div class="line">        System.out.println(<span class="string">"20 - 10 = "</span> +</div><div class="line">            myApp.operateBinary(<span class="number">20</span>, <span class="number">10</span>, subtraction));    </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>方法<code>operationBinary</code>实现类两个整形的数学运算。运算有每个实例自身区分实现。本例中定义了加法和减法两种运算，代码输出结果如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">40 + 2 = 42</div><div class="line">20 - 10 = 10</div></pre></td></tr></table></figure>
+<h2 id="访问局部变量Accessing-Local-Variables-of-the-Enclosing-Scope"><a href="#访问局部变量Accessing-Local-Variables-of-the-Enclosing-Scope" class="headerlink" title="访问局部变量Accessing Local Variables of the Enclosing Scope"></a><a href="">访问局部变量Accessing Local Variables of the Enclosing Scope</a></h2><p>就像局部类和匿名类一样，lambda表达式可以获取变量 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html#accessing-members-of-an-enclosing-class" target="_blank" rel="external">capture variables</a>; 他们同局部类和匿名类具有相同的访问权限，lambda表达式么有任何的遮蔽问题（参考 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html#shadowing" target="_blank" rel="external">Shadowing</a> 获取更多信息).Lambda表达式是此法范围的。意思是他不从父类继承命名也不引入新的命名空间。定义Lambda表达式只解释为它是在闭合的环境内，下面的例子 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/examples/LambdaScopeTest.java" target="_blank" rel="external"><code>LambdaScopeTest</code></a>, 进行了演示:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.function.Consumer;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LambdaScopeTest</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">FirstLevel</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">methodInFirstLevel</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">            </div><div class="line">            <span class="comment">// The following statement causes the compiler to generate</span></div><div class="line">            <span class="comment">// the error "local variables referenced from a lambda expression</span></div><div class="line">            <span class="comment">// must be final or effectively final" in statement A:</span></div><div class="line">            <span class="comment">//</span></div><div class="line">            <span class="comment">// x = 99;</span></div><div class="line">            </div><div class="line">            Consumer&lt;Integer&gt; myConsumer = (y) -&gt; </div><div class="line">            &#123;</div><div class="line">                System.out.println(<span class="string">"x = "</span> + x); <span class="comment">// Statement A</span></div><div class="line">                System.out.println(<span class="string">"y = "</span> + y);</div><div class="line">                System.out.println(<span class="string">"this.x = "</span> + <span class="keyword">this</span>.x);</div><div class="line">                System.out.println(<span class="string">"LambdaScopeTest.this.x = "</span> +</div><div class="line">                    LambdaScopeTest.<span class="keyword">this</span>.x);</div><div class="line">            &#125;;</div><div class="line"></div><div class="line">            myConsumer.accept(x);</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String... args)</span> </span>&#123;</div><div class="line">        LambdaScopeTest st = <span class="keyword">new</span> LambdaScopeTest();</div><div class="line">        LambdaScopeTest.FirstLevel fl = st.new FirstLevel();</div><div class="line">        fl.methodInFirstLevel(<span class="number">23</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上述例子输出如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">x = <span class="number">23</span></div><div class="line">y = <span class="number">23</span></div><div class="line"><span class="keyword">this</span>.x = <span class="number">1</span></div><div class="line">LambdaScopeTest.<span class="keyword">this</span>.x = <span class="number">0</span></div></pre></td></tr></table></figure>
+<p>如果你在定义lambda表达式时将y替换为x，编译器将会产生错误:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Consumer&lt;Integer&gt; myConsumer = (x) -&gt; &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>编译器产生错误”变量x已经在方法<code>methodInFirstLevel(int)</code>中声明”因为lambda表达式并不引入新的命名空间，因此，你可以直接访问闭合范围内的成员变量，方法，以及局部变量。例如，lambda比到时直接访问方法<code>methodInFirstLevel</code>的参数<code>x</code>.要方位闭合类中的变量，则需要使用关键字<code>this</code>。本例中，<code>this.x</code>指向成员变量<code>FirstLevel.x</code>.</p>
+<p>然而，就像局部类和匿名类一样，你个lambda表达式只能访问闭合块中定义为final或者final作用的变量或者参数，假设你在代码中增加一行:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">methodInFirstLevel</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">    x = <span class="number">99</span>;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>应为代码片段中，变量FirstLevel.x 不再是有效的最终变量.将导致编译器差生类似”lambda表达式必须引用final或者等同final的变量”:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">System.out.println(<span class="string">"x = "</span> + x);</div></pre></td></tr></table></figure>
+<h2 id="目标类型Target-Typing"><a href="#目标类型Target-Typing" class="headerlink" title="目标类型Target Typing"></a><a href="">目标类型Target Typing</a></h2><p>怎么确定lambda表达式的类型呢？回想一下筛选成员是所用的lambda表达式:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">p -&gt; p.getGender() == Person.Sex.MALE</div><div class="line">    &amp;&amp; p.getAge() &gt;= <span class="number">18</span></div><div class="line">    &amp;&amp; p.getAge() &lt;= <span class="number">25</span></div></pre></td></tr></table></figure>
+<p>这个lambda表达式在以下两个方法中用到:</p>
+<ul>
+<li><code>public static void printPersons(List&lt;Person&gt; roster, CheckPerson tester)</code> in <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach3" target="_blank" rel="external">Approach 3: Specify Search Criteria Code in a Local Class</a></li>
+<li><code>public void printPersonsWithPredicate(List&lt;Person&gt; roster, Predicate&lt;Person&gt; tester)</code> in <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach6" target="_blank" rel="external">Approach 6: Use Standard Functional Interfaces with Lambda Expressions</a></li>
+</ul>
+<p>当Java运行时调用方法<code>printPersons</code>是，他期望的数据类型是<code>CheckPerson</code>,因此lambda是就是这种类型，但是当java运行时调用方法<code>printPersonWithPredicate</code>时，他期望的类型是<code>Predicate&lt;Person&gt;</code>,因此lambda表达式就是这种类型。这种方法期望的数据类型叫做目标类型 <em>target type</em>.为了确认lambda表达式的类型，java编译器根据其出现的上下文或者情景中的目标类型来决定。下面列出了java编译器可以确定目标类型的情形:</p>
+<ul>
+<li>变量声明Variable declarations</li>
+<li>赋值Assignments</li>
+<li>返回语句Return statements</li>
+<li>数组初始化Array initializers</li>
+<li>方法或者狗高企参数Method or constructor arguments</li>
+<li>Lambda表达式体Lambda expression bodies</li>
+<li>表达式<code>?:</code>情形Conditional expressions, <code>?:</code></li>
+<li>类型转换表达式Cast expressions</li>
+</ul>
+<h3 id="目标类型和方法参数Target-Types-and-Method-Arguments"><a href="#目标类型和方法参数Target-Types-and-Method-Arguments" class="headerlink" title="目标类型和方法参数Target Types and Method Arguments"></a><a href="">目标类型和方法参数Target Types and Method Arguments</a></h3><p>作为方法参数，java编译器根据另外两个语言特性确认目标累心：重载以及类型参数引用。</p>
+<p>考虑下面的两个功能接口 ( <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html" target="_blank" rel="external"><code>java.lang.Runnable</code></a> 以及 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html" target="_blank" rel="external"><code>java.util.concurrent.Callable</code></a>):</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Callable</span>&lt;<span class="title">V</span>&gt; </span>&#123;</div><div class="line">    <span class="function">V <span class="title">call</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>方法 <code>Runnable.run</code> 不返回值 ，而 <code>Callable&lt;V&gt;.call</code> 返回.</p>
+<p>假设你重载了方法<code>invoke</code>如下所示 (参考 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html" target="_blank" rel="external">Defining Methods</a> 获取更多重载的信息):</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">invoke</span><span class="params">(Runnable r)</span> </span>&#123;</div><div class="line">    r.run();</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;T&gt; <span class="function">T <span class="title">invoke</span><span class="params">(Callable&lt;T&gt; c)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> c.call();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>而方法的调用如下?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String s = invoke(() -&gt; <span class="string">"done"</span>);</div></pre></td></tr></table></figure>
+<p>方法调用 <code>invoke(Callable&lt;T&gt;)</code> 会被调用因为他有一个返回值;而方法<code>invoke(Runnable)</code>不会因为他没有返回值，所以lambda表达式的<code>() -&gt; &quot;done&quot;</code> 的类型是 <code>Callable&lt;T&gt;</code>.</p>
+<h2 id="序列化Serialization"><a href="#序列化Serialization" class="headerlink" title="序列化Serialization"></a><a href="">序列化Serialization</a></h2><p>如果你个lambda表达式的目标类型以及获取的参数是可以序列化的，那么你可以序列化 <a href="https://docs.oracle.com/javase/tutorial/jndi/objects/serial.html" target="_blank" rel="external">serialize</a> 一个lambda表达式。不过，就像内部类 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html#serialization" target="_blank" rel="external">inner classes</a>一样，强烈不建议序列化.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/04/java-tutorial-learning_the_lang_basic_anonymous_class/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1743,248 +2096,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&object_class_12/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hello Young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/18/java-tutorial-learning_the_lang_basic_class&object_class_12/" itemprop="url">Java 学习指南_学习Java：基础-类-访问控制</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-18T13:54:59+08:00">
-                2017-10-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="类成员的访问控制"><a href="#类成员的访问控制" class="headerlink" title="类成员的访问控制"></a>类成员的访问控制</h1><p>访问等级限定词确定了其他类是否可以使用一个特定的field字段或者方法.有两种访问等级的控制:</p>
-<ul>
-<li>类的访问等级—公有<code>public</code>, 或者包级权限 <em>package-private</em> (没有显式声明).</li>
-<li>成员访问等级—公有<code>public</code>,私有 <code>private</code>, 保护<code>protected</code>, or包级权限 <em>package-private</em> (没有显示声明).</li>
-</ul>
-<p>一个类的声明可以不包含限定符<code>public</code>，<code>public</code>共有类对于所有类都是可见的。如果一个类没有限定修饰符(默认等级为，包级权限),只对它所在的包内可见。（包命名了一组相关联的类,后面的课程将会学习）.</p>
-<p>对类的成员的访问等级，你同样可以使用<code>public</code>限定修饰符或者无修饰符(包级权限package-private),无限定修饰符时与类的情况一样并且意义也一样。对于成员来说，仍然有两种额外的访问限定修饰符：<code>private</code>与<code>protected</code>.<code>private</code>限定符表的名该成员私有，只能在本类之内访问。<code>protected</code>修饰符表明该成员可以被同一个包里的类访问(与默认情况，包级权限一样)，并且也可以被其他包中该类的子类所访问。</p>
-<p>以下表格展示了不同限定修饰符所确定的成员访问权限。</p>
-<table>
-<thead>
-<tr>
-<th>Modifier</th>
-<th>Class</th>
-<th>Package</th>
-<th>Subclass</th>
-<th>World</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>public</code></td>
-<td>Y</td>
-<td>Y</td>
-<td>Y</td>
-<td>Y</td>
-</tr>
-<tr>
-<td><code>protected</code></td>
-<td>Y</td>
-<td>Y</td>
-<td>Y</td>
-<td>N</td>
-</tr>
-<tr>
-<td>no modifier</td>
-<td>Y</td>
-<td>Y</td>
-<td>N</td>
-<td>N</td>
-</tr>
-<tr>
-<td><code>private</code></td>
-<td>Y</td>
-<td>N</td>
-<td>N</td>
-<td>N</td>
-</tr>
-</tbody>
-</table>
-<p>第一列数据列展示了类对他资深成员的访问权限。如你所见，一个类总是可以访问它的成员。第二个数据列展示类同一个包内的其他类（不考虑类为其子类的情况）对本类成员的访问权限。第三个数据列展示本类所在包之外的子类对本类成员的访问权限。第四列展示了是否所有的类都对成员具有访问权限。</p>
-<p>访问权限通过两种方式起作做。首先，当你使用来自其他资源的类时，例如Java平台的类，访问权限确定了那些类的成员你的类可以调用。第二，当你写一个类时，你需却决定你的每一个类的成员变量或者方法的访问权限。</p>
-<p>当我们来看一系列类以及访问权限如何影响可见性。下面的图标展示了本例中的四个类以及它们之间的关系。</p>
-<p><img src="http://docs.oracle.com/javase/tutorial/figures/java/classes-access.gif" alt="Classes and Packages of the Example Used to Illustrate Access Levels"></p>
-<p>展示访问权限的类与包的图例Classes and Packages of the Example Used to Illustrate Access Levels</p>
-<p>以下表格展示了不同限定修饰符下<code>Alpha</code>类的成员对于其他类的可见性。</p>
-<table>
-<thead>
-<tr>
-<th>Modifier</th>
-<th>Alpha</th>
-<th>Beta</th>
-<th>Alphasub</th>
-<th>Gamma</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>public</code></td>
-<td>Y</td>
-<td>Y</td>
-<td>Y</td>
-<td>Y</td>
-</tr>
-<tr>
-<td><code>protected</code></td>
-<td>Y</td>
-<td>Y</td>
-<td>Y</td>
-<td>N</td>
-</tr>
-<tr>
-<td>no modifier</td>
-<td>Y</td>
-<td>Y</td>
-<td>N</td>
-<td>N</td>
-</tr>
-<tr>
-<td><code>private</code></td>
-<td>Y</td>
-<td>N</td>
-<td>N</td>
-<td>N</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p>选择访问权限的提示:</p>
-<p>如果其他的程序员使用你的类，你想要确保不因滥用而出现错误。访问权限可以帮助你做这些.</p>
-<ul>
-<li>对特定的成员使用最严格的访问权限。使用 <code>private</code> 除非你有更好的理由不这么做。</li>
-<li>避免使用<code>public</code> 除非为常量。(本教程的很多例子中都使用了public fields。这么做可以简单的解释一些知识点，但是不推荐在产品的代码中这么做)。公有字段倾向于将你链接想特定的实现并且限定了你改变代码灵活性。</li>
-</ul>
-<hr>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2029,7 +2145,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">60</span>
+                <span class="site-state-item-count">61</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2051,7 +2167,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2118,7 +2234,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
