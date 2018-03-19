@@ -395,17 +395,17 @@ roster
 
 
 
-操作 `filter`, `map`, and `forEach` are *aggregate operations*聚合操作. Aggregate operations process elements from a stream, not directly from a collection (which is the reason why the first method invoked in this example is `stream`). A *stream* is a sequence of elements. Unlike a collection, it is not a data structure that stores elements. Instead, a stream carries values from a source, such as collection, through a pipeline. A *pipeline* is a sequence of stream operations, which in this example is `filter`- `map`-`forEach`. In addition, aggregate operations typically accept lambda expressions as parameters, enabling you to customize how they behave.
+操作 `filter`, `map`, 以及 `forEach` 是 *aggregate operations*聚合操作. 局和操作将元素作为一个流来处理，而不是直接从集合中（也就是为什么要首先调用`stream`方法的原因）.*stream*流是一个元素集合的序列。区别与集合的是，它并不是存储元素的数据结构，流负责从集合中取出资源，通过一个管道。管道pipeline是一系列的流式操作，在本例中的`filter-map-forEach`。另外，局和操作通常接受lambda表达式作为参数，是你可以自定义操作的行为。
 
-For a more thorough discussion of aggregate operations, see the [Aggregate Operations](https://docs.oracle.com/javase/tutorial/collections/streams/index.html) lesson.
+获取更多关于聚合操作的信息，你可以参考 [Aggregate Operations](https://docs.oracle.com/javase/tutorial/collections/streams/index.html) 一课.
 
-## [Lambda Expressions in GUI Applications]()
+## [Lambda表达式在GUI应用的使用Lambda Expressions in GUI Applications]()
 
-To process events in a graphical user interface (GUI) application, such as keyboard actions, mouse actions, and scroll actions, you typically create event handlers, which usually involves implementing a particular interface. Often, event handler interfaces are functional interfaces; they tend to have only one method.
+处理GUI应用的事件，例如按键事件，鼠标事件，以及滚动事件。通常你都会创建事件处理器，一般都是通过实现特定的接口。一般来说，事件处理器接口是功能接口；他们通常只有一个方法。
 
-In the JavaFX example [`HelloWorld.java`](https://docs.oracle.com/javase/8/javafx/get-started-tutorial/hello_world.htm) (discussed in the previous section [Anonymous Classes](https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html)), you can replace the highlighted anonymous class with a lambda expression in this statement:
+在JAVAFX例子中 [`HelloWorld.java`](https://docs.oracle.com/javase/8/javafx/get-started-tutorial/hello_world.htm) (前一章节中 [Anonymous Classes](https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html)), 中提到的你可以将如下所示的匿名类代码替换为Lambda表达式:
 
-```
+```java
         btn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -415,31 +415,31 @@ In the JavaFX example [`HelloWorld.java`](https://docs.oracle.com/javase/8/javaf
         });
 ```
 
-The method invocation `btn.setOnAction` specifies what happens when you select the button represented by the `btn` object. This method requires an object of type `EventHandler<ActionEvent>`. The `EventHandler<ActionEvent>` interface contains only one method, `void handle(T event)`. This interface is a functional interface, so you could use the following highlighted lambda expression to replace it:
+`btn.setOnAction`方法调用定义当你鼠标选择了`btn`对象代表的按钮式要放生的事情。这个方法要求一个`EventHandler<ActionEvent>`类型的对象作为参数。`EventHandler<ActionEvent>` 接口只包含了一个方法`void handle<T event>` 。这个接口是一个功能接口，因此你可以使用如下的`Lambda`来替换他:
 
-```
+```java
         btn.setOnAction(
           event -> System.out.println("Hello World!")
         );
 ```
 
-## [Syntax of Lambda Expressions]()
+## [Lambda表达式的语法Syntax of Lambda Expressions]()
 
-A lambda expression consists of the following:
+一个Lambda表示由如下几部分构成:
 
-- A comma-separated list of formal parameters enclosed in parentheses. The `CheckPerson.test` method contains one parameter, `p`, which represents an instance of the`Person` class.
+- 一个圆括号包围、逗号分隔的参数形式的列表.`CheckPerson.test`方法包含了一个参数`p`,代表了`Person`类的实例。
 
-  **Note**: You can omit the data type of the parameters in a lambda expression. In addition, you can omit the parentheses if there is only one parameter. For example, the following lambda expression is also valid:
+  **注意**:你可以省略参数类型。同样当只有一个参数时，你也可以省略圆括号。例如下面的Lambda表达式依然是有效的:
 
-  ```
+  ```java
   p -> p.getGender() == Person.Sex.MALE 
       && p.getAge() >= 18
       && p.getAge() <= 25
   ```
 
-- The arrow token, `->`
+- 箭头符号, `->`
 
-- A body, which consists of a single expression or a statement block. This example uses the following expression:
+- 一个方法体, 包含一个单独的表达式或者语句块:
 
   ```
   p.getGender() == Person.Sex.MALE 
@@ -447,7 +447,7 @@ A lambda expression consists of the following:
       && p.getAge() <= 25
   ```
 
-  If you specify a single expression, then the Java runtime evaluates the expression and then returns its value. Alternatively, you can use a return statement:
+  如果只有一个表达式，Java运行时会返回表达式的值，同样你可以使用返回语句，如下:
 
   ```
   p -> {
@@ -457,17 +457,17 @@ A lambda expression consists of the following:
   }
   ```
 
-  A return statement is not an expression; in a lambda expression, you must enclose statements in braces (`{}`). However, you do not have to enclose a void method invocation in braces. For example, the following is a valid lambda expression:
+  返回语句不是一个表达式；在lambda表达式中如果你使用的语句块则必须用`{}`来闭合，但是你只调用了没有返回值的方法时时可以省略`{}`,如下：
 
-  ```
+  ```java
   email -> System.out.println(email)
   ```
 
-Note that a lambda expression looks a lot like a method declaration; you can consider lambda expressions as anonymous methods—methods without a name.
+注意lambda表达式的定义看起来像是方法的定义;你可以认为lambda表达式是一个匿名方法——没有命名的方法.
 
-The following example, [`Calculator`](https://docs.oracle.com/javase/tutorial/java/javaOO/examples/Calculator.java), is an example of lambda expressions that take more than one formal parameter:
+接下来的例子, [`Calculator`](https://docs.oracle.com/javase/tutorial/java/javaOO/examples/Calculator.java), 使用了不止一个参数:
 
-```
+```java
 public class Calculator {
   
     interface IntegerMath {
@@ -490,21 +490,20 @@ public class Calculator {
     }
 }
 
-
 ```
 
-The method `operateBinary` performs a mathematical operation on two integer operands. The operation itself is specified by an instance of `IntegerMath`. The example defines two operations with lambda expressions, `addition` and `subtraction`. The example prints the following:
+方法`operationBinary`实现类两个整形的数学运算。运算有每个实例自身区分实现。本例中定义了加法和减法两种运算，代码输出结果如下:
 
 ```
 40 + 2 = 42
 20 - 10 = 10
 ```
 
-## [Accessing Local Variables of the Enclosing Scope]()
+## [访问局部变量Accessing Local Variables of the Enclosing Scope]()
 
-Like local and anonymous classes, lambda expressions can [capture variables](https://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html#accessing-members-of-an-enclosing-class); they have the same access to local variables of the enclosing scope. However, unlike local and anonymous classes, lambda expressions do not have any shadowing issues (see [Shadowing](https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html#shadowing) for more information). Lambda expressions are lexically scoped. This means that they do not inherit any names from a supertype or introduce a new level of scoping. Declarations in a lambda expression are interpreted just as they are in the enclosing environment. The following example, [`LambdaScopeTest`](https://docs.oracle.com/javase/tutorial/java/javaOO/examples/LambdaScopeTest.java), demonstrates this:
+就像局部类和匿名类一样，lambda表达式可以获取变量 [capture variables](https://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html#accessing-members-of-an-enclosing-class); 他们同局部类和匿名类具有相同的访问权限，lambda表达式么有任何的遮蔽问题（参考 [Shadowing](https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html#shadowing) 获取更多信息).Lambda表达式是此法范围的。意思是他不从父类继承命名也不引入新的命名空间。定义Lambda表达式只解释为它是在闭合的环境内，下面的例子 [`LambdaScopeTest`](https://docs.oracle.com/javase/tutorial/java/javaOO/examples/LambdaScopeTest.java), 进行了演示:
 
-```
+```java
 import java.util.function.Consumer;
 
 public class LambdaScopeTest {
@@ -543,76 +542,75 @@ public class LambdaScopeTest {
         fl.methodInFirstLevel(23);
     }
 }
-
 ```
 
-This example generates the following output:
+上述例子输出如下:
 
-```
+```java
 x = 23
 y = 23
 this.x = 1
 LambdaScopeTest.this.x = 0
 ```
 
-If you substitute the parameter `x` in place of `y` in the declaration of the lambda expression `myConsumer`, then the compiler generates an error:
+如果你在定义lambda表达式时将y替换为x，编译器将会产生错误:
 
-```
+```java
 Consumer<Integer> myConsumer = (x) -> {
     // ...
 }
 ```
 
-The compiler generates the error "variable x is already defined in method methodInFirstLevel(int)" because the lambda expression does not introduce a new level of scoping. Consequently, you can directly access fields, methods, and local variables of the enclosing scope. For example, the lambda expression directly accesses the parameter `x` of the method `methodInFirstLevel`. To access variables in the enclosing class, use the keyword `this`. In this example, `this.x` refers to the member variable `FirstLevel.x`.
+编译器产生错误"变量x已经在方法`methodInFirstLevel(int)`中声明"因为lambda表达式并不引入新的命名空间，因此，你可以直接访问闭合范围内的成员变量，方法，以及局部变量。例如，lambda比到时直接访问方法`methodInFirstLevel`的参数`x`.要方位闭合类中的变量，则需要使用关键字`this`。本例中，`this.x`指向成员变量`FirstLevel.x`.
 
-However, like local and anonymous classes, a lambda expression can only access local variables and parameters of the enclosing block that are final or effectively final. For example, suppose that you add the following assignment statement immediately after the `methodInFirstLevel` definition statement:
+然而，就像局部类和匿名类一样，你个lambda表达式只能访问闭合块中定义为final或者final作用的变量或者参数，假设你在代码中增加一行:
 
-```
+```java
 void methodInFirstLevel(int x) {
     x = 99;
     // ...
 }
 ```
 
-Because of this assignment statement, the variable `FirstLevel.x` is not effectively final anymore. As a result, the Java compiler generates an error message similar to "local variables referenced from a lambda expression must be final or effectively final" where the lambda expression `myConsumer` tries to access the `FirstLevel.x` variable:
+应为代码片段中，变量FirstLevel.x 不再是有效的最终变量.将导致编译器差生类似"lambda表达式必须引用final或者等同final的变量":
 
-```
+```java
 System.out.println("x = " + x);
 ```
 
-## [Target Typing]()
+## [目标类型Target Typing]()
 
-How do you determine the type of a lambda expression? Recall the lambda expression that selected members who are male and between the ages 18 and 25 years:
+怎么确定lambda表达式的类型呢？回想一下筛选成员是所用的lambda表达式:
 
-```
+```java
 p -> p.getGender() == Person.Sex.MALE
     && p.getAge() >= 18
     && p.getAge() <= 25
 ```
 
-This lambda expression was used in the following two methods:
+这个lambda表达式在以下两个方法中用到:
 
 - `public static void printPersons(List<Person> roster, CheckPerson tester)` in [Approach 3: Specify Search Criteria Code in a Local Class](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach3)
 - `public void printPersonsWithPredicate(List<Person> roster, Predicate<Person> tester)` in [Approach 6: Use Standard Functional Interfaces with Lambda Expressions](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach6)
 
-When the Java runtime invokes the method `printPersons`, it's expecting a data type of `CheckPerson`, so the lambda expression is of this type. However, when the Java runtime invokes the method `printPersonsWithPredicate`, it's expecting a data type of `Predicate<Person>`, so the lambda expression is of this type. The data type that these methods expect is called the *target type*. To determine the type of a lambda expression, the Java compiler uses the target type of the context or situation in which the lambda expression was found. It follows that you can only use lambda expressions in situations in which the Java compiler can determine a target type:
+当Java运行时调用方法`printPersons`是，他期望的数据类型是`CheckPerson`,因此lambda是就是这种类型，但是当java运行时调用方法`printPersonWithPredicate`时，他期望的类型是`Predicate<Person>`,因此lambda表达式就是这种类型。这种方法期望的数据类型叫做目标类型 *target type*.为了确认lambda表达式的类型，java编译器根据其出现的上下文或者情景中的目标类型来决定。下面列出了java编译器可以确定目标类型的情形:
 
-- Variable declarations
-- Assignments
-- Return statements
-- Array initializers
-- Method or constructor arguments
-- Lambda expression bodies
-- Conditional expressions, `?:`
-- Cast expressions
+- 变量声明Variable declarations
+- 赋值Assignments
+- 返回语句Return statements
+- 数组初始化Array initializers
+- 方法或者狗高企参数Method or constructor arguments
+- Lambda表达式体Lambda expression bodies
+- 表达式`?:`情形Conditional expressions, `?:`
+- 类型转换表达式Cast expressions
 
-### [Target Types and Method Arguments]()
+### [目标类型和方法参数Target Types and Method Arguments]()
 
-For method arguments, the Java compiler determines the target type with two other language features: overload resolution and type argument inference.
+作为方法参数，java编译器根据另外两个语言特性确认目标累心：重载以及类型参数引用。
 
-Consider the following two functional interfaces ( [`java.lang.Runnable`](https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html) and [`java.util.concurrent.Callable`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html)):
+考虑下面的两个功能接口 ( [`java.lang.Runnable`](https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html) 以及 [`java.util.concurrent.Callable`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html)):
 
-```
+```java
 public interface Runnable {
     void run();
 }
@@ -622,11 +620,11 @@ public interface Callable<V> {
 }
 ```
 
-The method `Runnable.run` does not return a value, whereas `Callable<V>.call` does.
+方法 `Runnable.run` 不返回值 ，而 `Callable<V>.call` 返回.
 
-Suppose that you have overloaded the method `invoke` as follows (see [Defining Methods](https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html) for more information about overloading methods):
+假设你重载了方法`invoke`如下所示 (参考 [Defining Methods](https://docs.oracle.com/javase/tutorial/java/javaOO/methods.html) 获取更多重载的信息):
 
-```
+```java
 void invoke(Runnable r) {
     r.run();
 }
@@ -636,14 +634,16 @@ void invoke(Runnable r) {
 }
 ```
 
-Which method will be invoked in the following statement?
+而方法的调用如下?
 
-```
+```java
 String s = invoke(() -> "done");
 ```
 
-The method `invoke(Callable<T>)` will be invoked because that method returns a value; the method `invoke(Runnable)` does not. In this case, the type of the lambda expression `() -> "done"` is `Callable<T>`.
+方法调用 `invoke(Callable<T>)` 会被调用因为他有一个返回值;而方法`invoke(Runnable)`不会因为他没有返回值，所以lambda表达式的`() -> "done"` 的类型是 `Callable<T>`.
 
-## [Serialization]()
+## [序列化Serialization]()
 
-You can [serialize](https://docs.oracle.com/javase/tutorial/jndi/objects/serial.html) a lambda expression if its target type and its captured arguments are serializable. However, like [inner classes](https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html#serialization), the serialization of lambda expressions is strongly discouraged.
+
+
+如果你个lambda表达式的目标类型以及获取的参数是可以序列化的，那么你可以序列化 [serialize](https://docs.oracle.com/javase/tutorial/jndi/objects/serial.html) 一个lambda表达式。不过，就像内部类 [inner classes](https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html#serialization)一样，强烈不建议序列化.
