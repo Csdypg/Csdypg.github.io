@@ -307,6 +307,158 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&object_class_14/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/20/java-tutorial-learning_the_lang_basic_class&object_class_14/" itemprop="url">Java 学习指南_学习Java：基础-类-初始化字段</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T12:23:59+08:00">
+                2017-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="初始化域"><a href="#初始化域" class="headerlink" title="初始化域"></a>初始化域</h1><p>就像你看到的一样，你通常可以在一个字段/域定义的时候提供一个初始值:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BedAndBreakfast</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// initialize to 10</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> capacity = <span class="number">10</span>;</div><div class="line"></div><div class="line">    <span class="comment">// initialize to false</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> full = <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当初始化的值可用并且初始化可以在一行内完成时这么做都没有问题。不过，这样的初始化形式有一些使用限制因为它过于简单。如果初始化需要一些逻辑（例如，错误处理或者一个<code>for</code>循环来填充一个复合的数组）,简单的赋值就不适合了。实例变量可以在在构造器中实例化，这里也可以使用错误处理和逻辑。为了给类变量的初始化也提供这样的能力，Java编程语言包含了<em>静态代码块</em> <em>static initialization blocks</em>.</p>
+<hr>
+<p><strong>注意</strong>:  并不是一定要在类定义的开始就声明字段/域，尽管这是最通常的做法。只是要求它们在使用前必须声明和初始化。</p>
+<hr>
+<h2 id="静态代码块"><a href="#静态代码块" class="headerlink" title="静态代码块"></a>静态代码块</h2><p><code>静态代码块</code>时在一个普通的<code>{ }</code>包括的代码块前面加上<code>static</code>关键字。下面是一个例子:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> &#123;</div><div class="line">    <span class="comment">// whatever code is needed for initialization goes here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一个类可以有多个静态代码块，并且它们可以出现在类体body的任何地方。运行环境确保所有的静态代码块按照它们在源代码中出现的顺序被调用。</p>
+<p>静态代码块有个可替换的方法–你可以使用私有静态方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Whatever</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> varType myVar = initializeClassVariable();</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> varType <span class="title">initializeClassVariable</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">// initialization code goes here</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用私有静态方法的好处是如果你需要重新初始化变量就可以重用它。</p>
+<h2 id="初始化实例成员Initializing-Instance-Members"><a href="#初始化实例成员Initializing-Instance-Members" class="headerlink" title="初始化实例成员Initializing Instance Members"></a>初始化实例成员Initializing Instance Members</h2><p> 通常，你可以经初始化实例成员的代码放进一个构造器，同样还有两个方法可以达到这种目的，初始化代码块，以及final方法;</p>
+<p>实例变量初始化代码块域静态代码块类似，不过少了<code>static</code>关键字:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="comment">// whatever code is needed for initialization goes here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Java编译器将初始化代码块复制到每一个构造器，因此使用这种方法的好处是可以在多个构造其中分享同一代码块。</p>
+<p> <em>final method</em> final方法 不可以被子类重写。在接口域与继承一颗中我们还会详细讨论。下面是一个使用final方法初始化实例变量的例子:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Whatever</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> varType myVar = initializeInstanceVariable();</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">final</span> varType <span class="title">initializeInstanceVariable</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">// initialization code goes here</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>特别是当子类想要重用这个初始化方法的时候使用这种方法。使用final方法是因为在实例实例化的过程中调用非final的方法可能引起很多的问题。（思考）</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&object_class_13/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1746,154 +1898,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/java-tutorial-learning_the_lang_basic_class&object_class_4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hello Young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/28/java-tutorial-learning_the_lang_basic_class&object_class_4/" itemprop="url">Java 学习指南_学习Java：基础-类-构造方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T15:00:59+08:00">
-                2017-09-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="为你的类提供构造方法"><a href="#为你的类提供构造方法" class="headerlink" title="为你的类提供构造方法"></a>为你的类提供构造方法</h1><p>类包含构造方法，可以被调用而根据类的蓝本创建对象。构造方法声明同普通的方法一样—只不过命名与类名相同且没有返回类型。例如，<code>Bicycle</code>类的构造方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Bicycle</span><span class="params">(<span class="keyword">int</span> startCadence, <span class="keyword">int</span> startSpeed, <span class="keyword">int</span> startGear)</span> </span>&#123;</div><div class="line">    gear = startGear;</div><div class="line">    cadence = startCadence;</div><div class="line">    speed = startSpeed;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果要创建一个名为<code>myBike</code>的对象，适用<code>new</code>操作符调用构造方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Bicycle myBike = <span class="keyword">new</span> Bicycle(<span class="number">30</span>, <span class="number">0</span>, <span class="number">8</span>);</div></pre></td></tr></table></figure>
-<p><code>new Bicycle(30, 0, 8)</code>为对象在内存中分配空间并初始化成员变量。</p>
-<p> <code>Bicycle</code> 类只有一个构造方法，它也可以有其他更多构造方法，包括无参的构造方法:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Bicycle</span><span class="params">()</span> </span>&#123;</div><div class="line">    gear = <span class="number">1</span>;</div><div class="line">    cadence = <span class="number">10</span>;</div><div class="line">    speed = <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>Bicycle yourBike = new Bicycle();</code> 调用无惨构造方法创建一个名为<code>yourBike</code>的<code>Bicycle</code>类对象。</p>
-<p>两个构造方法都可以在<code>Bicycle</code>类中定义因为它们有不同的参数列表。同方法一样，Java平台根据参数列表的数量以及类型区分不同的构造方法。不能定义有同样数量和类型参数列表的构造方法，因为平台无法区分它们。这么左会引起编译错误。</p>
-<p>你可以不为类提供任何构造方法，当时这么左的时候必须小心。编译器为没有构造方法的类自动提供一个默认的无参构造函数。这个默认的构造方法会调用其父类的无参构造方法。这种情况下，如果父类没有无参构造方法编译器将会抱怨，因此你这么做之前必检查父类确实有无参构造器。如果你的类没有明确的父类，它有一个隐藏的父类<code>Object</code>,<code>Object</code>拥有无参构造方法。</p>
-<p>你可自己调用父类的构造函数。本课开始的<code>MountainBike</code>类就这么做了，在接口与继承课程中还会详细讨论。</p>
-<p>你可以使用限定修饰符来控制那些其他类可以访问构造方法。</p>
-<hr>
-<p><strong>注意:</strong>如果你不能调用<code>Myclass</code>的构造方法，就无法直接创建<code>Myclass</code>类的对象。</p>
-<hr>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1943,7 +1947,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

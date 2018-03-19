@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-19T09:02:44.203Z</updated>
+  <updated>2018-03-19T09:41:58.533Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,172 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 学习指南_学习Java：基础-嵌套类问题与联系</title>
+    <link href="http://yoursite.com/2018/03/19/java-tutorial-learning_the_lang_basic_class_nested_class_q&amp;e/"/>
+    <id>http://yoursite.com/2018/03/19/java-tutorial-learning_the_lang_basic_class_nested_class_q&amp;e/</id>
+    <published>2018-03-19T09:51:59.000Z</published>
+    <updated>2018-03-19T09:41:58.533Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="嵌套类：问题与练习"><a href="#嵌套类：问题与练习" class="headerlink" title="嵌套类：问题与练习"></a>嵌套类：问题与练习</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
+<li><p><strong>问题</strong>: 程序 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/QandE/Problem.java" target="_blank" rel="external"><code>Problem.java</code></a> 不能编译，你需要怎么做才能让它成功编译?为什么?</p>
+</li>
+<li><p>使用 <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/Box.html" target="_blank" rel="external"><code>Box</code></a> 类(在 <code>javax.swing</code> 包中)的Java API文档 帮助你问答如下问题 .</p>
+<ol>
+<li><p><strong>问题</strong>: <code>Box</code> 定义了什么静态嵌套类?</p>
+</li>
+<li><p><strong>问题</strong>:  <code>Box</code> 定义了什么内部类?</p>
+</li>
+<li><p><strong>问题</strong>:  <code>Box</code>的内部类的父类是什么?</p>
+</li>
+<li><p><strong>问题</strong>:  <code>Box</code>的哪一个嵌套类你可以在任何一个类中使用?</p>
+</li>
+<li><p><strong>问题</strong>: 如何创建一个 <code>Box</code>的`Filler嵌套类的实例?</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><ol>
+<li><p><strong>练习</strong>: 获取文件 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/QandE/Class1.java" target="_blank" rel="external"><code>Class1.java</code></a>. 编译并运行 <code>Class1</code>. 输出是什么?</p>
+</li>
+<li><p><strong>练习</strong>: 下面的联系涉及到修改 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/examples/DataStructure.java" target="_blank" rel="external"><code>DataStructure.java</code></a>类, 该类在 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/innerclasses.html" target="_blank" rel="external">Inner Class Example</a> 中有讨论.</p>
+<ol>
+<li>定义一个名为 <code>print(DataStructureIterator iterator)</code>的方法.用一个类<code>EvenIterator</code>类的实例调用这个方法实现<code>printEven</code>方法的功能。</li>
+</ol>
+</li>
+</ol>
+<ol>
+<li>调用方法 <code>print(DataStructureIterator iterator)</code> 来打印奇数索引的元素.使用一个匿名类作为方法的参数，代替接口 <code>DataStructureIterator</code>的实例.</li>
+</ol>
+<ol>
+<li>定义一个方法 <code>print(java.util.Function&lt;Integer, Boolean&gt; iterator)</code> 实现 <code>print(DataStructureIterator iterator)</code>相同的功能.通过一个lambda表达式参数调用该方法实现打印出偶数下标的元素，重新用lambda表达式参数调用并实现打印出奇数下标的元素。</li>
+</ol>
+<ol>
+<li><p>定义两个方法可以是如下语句分别打印偶数下标对应的值和技术下标对应的值:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">DataStructure ds = <span class="keyword">new</span> DataStructure()</div><div class="line"><span class="comment">// ...</span></div><div class="line">ds.print(DataStructure::isEvenIndex);</div><div class="line">ds.print(DataStructure::isOddIndex);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="嵌套类：问题与练习答案"><a href="#嵌套类：问题与练习答案" class="headerlink" title="嵌套类：问题与练习答案"></a>嵌套类：问题与练习答案</h1><a id="more"></a>
+<h2 id="问题答案"><a href="#问题答案" class="headerlink" title="问题答案"></a>问题答案</h2><ol>
+<li><p><strong>问题</strong>: 程序 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/QandE/Problem.java" target="_blank" rel="external"><code>Problem.java</code></a> 不能编译，你需要怎么做才能让它成功编译?为什么?</p>
+<p><strong>答案</strong>: 删除<code>Inner</code>类的<code>static</code>关键字修饰。静态嵌套类不能访问外部类的实例成员参考 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/QandE/ProblemSolved.java" target="_blank" rel="external"><code>ProblemSolved.java</code></a>.</p>
+</li>
+<li><p>使用 <a href="https://docs.oracle.com/javase/8/docs/api/javax/swing/Box.html" target="_blank" rel="external"><code>Box</code></a> 类(在 <code>javax.swing</code> 包中)的Java API文档 帮助你问答如下问题 .</p>
+<ol>
+<li><p><strong>问题</strong>: <code>Box</code> 定义了什么静态嵌套类?</p>
+<p><strong>答案</strong>: <code>Box.Filler</code></p>
+</li>
+<li><p><strong>问题</strong>:  <code>Box</code> 定义了什么内部类?</p>
+<p><strong>答案</strong>: <code>Box.AccessibleBox</code></p>
+</li>
+<li><p><strong>问题</strong>:  <code>Box</code>的内部类的父类是什么?</p>
+<p><strong>答案</strong>: <code>[java.awt.]Container.AccessibleAWTContainer</code></p>
+</li>
+<li><p><strong>问题</strong>:  <code>Box</code>的哪一个嵌套类你可以在任何一个类中使用?</p>
+<p><strong>答案</strong>: <code>Box.Filler</code></p>
+</li>
+<li><p><strong>问题</strong>: 如何创建一个 <code>Box</code>的`Filler嵌套类的实例?</p>
+<p><strong>答案</strong>: <code>new Box.Filler(minDimension, prefDimension, maxDimension)</code></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="练习答案"><a href="#练习答案" class="headerlink" title="练习答案"></a>练习答案</h2><ol>
+<li><p><strong>练习</strong>: 获取文件 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/QandE/Class1.java" target="_blank" rel="external"><code>Class1.java</code></a>. 编译并运行 <code>Class1</code>. 输出是什么?</p>
+<p><strong>答案</strong>: <code>InnerClass1: getString invoked.InnerClass1: getAnotherString invoked.</code></p>
+</li>
+<li><p><strong>练习</strong>: 下面的联系涉及到修改 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/examples/DataStructure.java" target="_blank" rel="external"><code>DataStructure.java</code></a>类, 该类在 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/innerclasses.html" target="_blank" rel="external">Inner Class Example</a> 中有讨论.</p>
+<ol>
+<li><p>定义一个名为 <code>print(DataStructureIterator iterator)</code>的方法.用一个类<code>EvenIterator</code>类的实例调用这个方法实现<code>printEven</code>方法的功能。</p>
+<p><strong>提示</strong>: 一下语句在<code>main</code>方法中奖不能通过编译:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">DataStructure ds = <span class="keyword">new</span> DataStructure();</div><div class="line">ds.print(<span class="keyword">new</span> EvenIterator());</div></pre></td></tr></table></figure>
+<p>编译器产生错误信息 “non-static variable this cannot be referenced from a static context—非京台的变量不能再静态上下文中引用”，表达式 <code>new EvenIterator()</code>会产生这个错误. 类 <code>EvenIterator</code> 是一个内部类，非静态.意味着你必须在外部类的一个实例中创建它的实例, <code>DataStructure</code>数据结构.</p>
+<p>你尅定义一个方法 <code>DataStructure</code> 来创建和返回<code>EvenIterator</code>的实例.</p>
+</li>
+<li><p>调用方法 <code>print(DataStructureIterator iterator)</code> 来打印奇数索引的元素.使用一个匿名类作为方法的参数，代替接口 <code>DataStructureIterator</code>的实例.</p>
+<p><strong>提示</strong>:你无法访问 <code>DataStructure</code>之外的私有成员 <code>SIZE</code> 和 <code>arrayOfInts</code> ，意味着你不能从匿名类访问定义在其之外的私用成员.</p>
+</li>
+<li><p>定义一个方法 <code>print(java.util.Function&lt;Integer, Boolean&gt; iterator)</code> 实现 <code>print(DataStructureIterator iterator)</code>相同的功能.通过一个lambda表达式参数调用该方法实现打印出偶数下标的元素，重新用lambda表达式参数调用并实现打印出奇数下标的元素。</p>
+<p><strong>提示</strong>: 在 <code>print</code> 方法中,你可以通过<code>for</code>语句遍历<code>arrayOfInts</code>.对于每一个下标志，调用<code>function.apply</code>方法。如果方法返回<code>True</code>，打印出下表对应的元素值。</p>
+<p>为了实现打印偶数下标的值,你可以定义特定的Lambda表达式实现 <code>Boolean Function.apply(Integer t)</code>方法.表达式接受一个 <code>Integer</code> 参数 (下标)并且返回一个布尔值 (<code>Boolean.TRUE</code> 如果下标是偶数, 否则返回<code>Boolean.FALSE</code> ).</p>
+</li>
+<li><p>定义两个方法可以是如下语句分别打印偶数下标对应的值和技术下标对应的值:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">DataStructure ds = <span class="keyword">new</span> DataStructure()</div><div class="line"><span class="comment">// ...</span></div><div class="line">ds.print(DataStructure::isEvenIndex);</div><div class="line">ds.print(DataStructure::isOddIndex);</div></pre></td></tr></table></figure>
+<p><strong>提示</strong>: 在类中 <code>DataStructure</code> 创建两个名为 <code>isEvenIndex</code> 和 <code>isOddIndex</code> 的方法，两个方法拥有同样的参数列和且返回类型，同抽象方法 <code>Boolean Function&lt;Integer, Boolean&gt;.apply(Integer t)</code>一致. 这两个方法同样接受 <code>Integer</code> 参数 (下标志) 并且返回 <code>Boolean</code> 值.</p>
+</li>
+</ol>
+<p><strong>答案</strong>: 参考文件<a href="https://docs.oracle.com/javase/tutorial/java/javaOO/QandE/DataStructure.java" target="_blank" rel="external"><code>DataStructure.java</code></a>.</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;嵌套类：问题与练习&quot;&gt;&lt;a href=&quot;#嵌套类：问题与练习&quot; class=&quot;headerlink&quot; title=&quot;嵌套类：问题与练习&quot;&gt;&lt;/a&gt;嵌套类：问题与练习&lt;/h1&gt;&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;: 程序 &lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/javaOO/QandE/Problem.java&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;Problem.java&lt;/code&gt;&lt;/a&gt; 不能编译，你需要怎么做才能让它成功编译?为什么?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;使用 &lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/javax/swing/Box.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;Box&lt;/code&gt;&lt;/a&gt; 类(在 &lt;code&gt;javax.swing&lt;/code&gt; 包中)的Java API文档 帮助你问答如下问题 .&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;: &lt;code&gt;Box&lt;/code&gt; 定义了什么静态嵌套类?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;:  &lt;code&gt;Box&lt;/code&gt; 定义了什么内部类?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;:  &lt;code&gt;Box&lt;/code&gt;的内部类的父类是什么?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;:  &lt;code&gt;Box&lt;/code&gt;的哪一个嵌套类你可以在任何一个类中使用?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;: 如何创建一个 &lt;code&gt;Box&lt;/code&gt;的`Filler嵌套类的实例?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;练习&quot;&gt;&lt;a href=&quot;#练习&quot; class=&quot;headerlink&quot; title=&quot;练习&quot;&gt;&lt;/a&gt;练习&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;练习&lt;/strong&gt;: 获取文件 &lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/javaOO/QandE/Class1.java&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;Class1.java&lt;/code&gt;&lt;/a&gt;. 编译并运行 &lt;code&gt;Class1&lt;/code&gt;. 输出是什么?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;练习&lt;/strong&gt;: 下面的联系涉及到修改 &lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/javaOO/examples/DataStructure.java&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;DataStructure.java&lt;/code&gt;&lt;/a&gt;类, 该类在 &lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/javaOO/innerclasses.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Inner Class Example&lt;/a&gt; 中有讨论.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;定义一个名为 &lt;code&gt;print(DataStructureIterator iterator)&lt;/code&gt;的方法.用一个类&lt;code&gt;EvenIterator&lt;/code&gt;类的实例调用这个方法实现&lt;code&gt;printEven&lt;/code&gt;方法的功能。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol&gt;
+&lt;li&gt;调用方法 &lt;code&gt;print(DataStructureIterator iterator)&lt;/code&gt; 来打印奇数索引的元素.使用一个匿名类作为方法的参数，代替接口 &lt;code&gt;DataStructureIterator&lt;/code&gt;的实例.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol&gt;
+&lt;li&gt;定义一个方法 &lt;code&gt;print(java.util.Function&amp;lt;Integer, Boolean&amp;gt; iterator)&lt;/code&gt; 实现 &lt;code&gt;print(DataStructureIterator iterator)&lt;/code&gt;相同的功能.通过一个lambda表达式参数调用该方法实现打印出偶数下标的元素，重新用lambda表达式参数调用并实现打印出奇数下标的元素。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;定义两个方法可以是如下语句分别打印偶数下标对应的值和技术下标对应的值:&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;DataStructure ds = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; DataStructure()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// ...&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;ds.print(DataStructure::isEvenIndex);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;ds.print(DataStructure::isOddIndex);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&quot;嵌套类：问题与练习答案&quot;&gt;&lt;a href=&quot;#嵌套类：问题与练习答案&quot; class=&quot;headerlink&quot; title=&quot;嵌套类：问题与练习答案&quot;&gt;&lt;/a&gt;嵌套类：问题与练习答案&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
+    
+      <category term="class" scheme="http://yoursite.com/tags/class/"/>
+    
+      <category term="匿名类" scheme="http://yoursite.com/tags/%E5%8C%BF%E5%90%8D%E7%B1%BB/"/>
+    
+      <category term="嵌套类" scheme="http://yoursite.com/tags/%E5%B5%8C%E5%A5%97%E7%B1%BB/"/>
+    
+      <category term="局部类" scheme="http://yoursite.com/tags/%E5%B1%80%E9%83%A8%E7%B1%BB/"/>
+    
+      <category term="Lambda" scheme="http://yoursite.com/tags/Lambda/"/>
+    
+  </entry>
   
   <entry>
     <title>Java 学习指南_学习Java：基础-何时使用嵌套类，局部类，匿名类，Lambda</title>
@@ -1520,55 +1686,6 @@
       <category term="constructor" scheme="http://yoursite.com/tags/constructor/"/>
     
       <category term="参数信息" scheme="http://yoursite.com/tags/%E5%8F%82%E6%95%B0%E4%BF%A1%E6%81%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-类-构造方法</title>
-    <link href="http://yoursite.com/2017/09/28/java-tutorial-learning_the_lang_basic_class&amp;object_class_4/"/>
-    <id>http://yoursite.com/2017/09/28/java-tutorial-learning_the_lang_basic_class&amp;object_class_4/</id>
-    <published>2017-09-28T07:00:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="为你的类提供构造方法"><a href="#为你的类提供构造方法" class="headerlink" title="为你的类提供构造方法"></a>为你的类提供构造方法</h1><p>类包含构造方法，可以被调用而根据类的蓝本创建对象。构造方法声明同普通的方法一样—只不过命名与类名相同且没有返回类型。例如，<code>Bicycle</code>类的构造方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Bicycle</span><span class="params">(<span class="keyword">int</span> startCadence, <span class="keyword">int</span> startSpeed, <span class="keyword">int</span> startGear)</span> </span>&#123;</div><div class="line">    gear = startGear;</div><div class="line">    cadence = startCadence;</div><div class="line">    speed = startSpeed;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果要创建一个名为<code>myBike</code>的对象，适用<code>new</code>操作符调用构造方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Bicycle myBike = <span class="keyword">new</span> Bicycle(<span class="number">30</span>, <span class="number">0</span>, <span class="number">8</span>);</div></pre></td></tr></table></figure>
-<p><code>new Bicycle(30, 0, 8)</code>为对象在内存中分配空间并初始化成员变量。</p>
-<p> <code>Bicycle</code> 类只有一个构造方法，它也可以有其他更多构造方法，包括无参的构造方法:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Bicycle</span><span class="params">()</span> </span>&#123;</div><div class="line">    gear = <span class="number">1</span>;</div><div class="line">    cadence = <span class="number">10</span>;</div><div class="line">    speed = <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>Bicycle yourBike = new Bicycle();</code> 调用无惨构造方法创建一个名为<code>yourBike</code>的<code>Bicycle</code>类对象。</p>
-<p>两个构造方法都可以在<code>Bicycle</code>类中定义因为它们有不同的参数列表。同方法一样，Java平台根据参数列表的数量以及类型区分不同的构造方法。不能定义有同样数量和类型参数列表的构造方法，因为平台无法区分它们。这么左会引起编译错误。</p>
-<p>你可以不为类提供任何构造方法，当时这么左的时候必须小心。编译器为没有构造方法的类自动提供一个默认的无参构造函数。这个默认的构造方法会调用其父类的无参构造方法。这种情况下，如果父类没有无参构造方法编译器将会抱怨，因此你这么做之前必检查父类确实有无参构造器。如果你的类没有明确的父类，它有一个隐藏的父类<code>Object</code>,<code>Object</code>拥有无参构造方法。</p>
-<p>你可自己调用父类的构造函数。本课开始的<code>MountainBike</code>类就这么做了，在接口与继承课程中还会详细讨论。</p>
-<p>你可以使用限定修饰符来控制那些其他类可以访问构造方法。</p>
-<hr>
-<p><strong>注意:</strong>如果你不能调用<code>Myclass</code>的构造方法，就无法直接创建<code>Myclass</code>类的对象。</p>
-<hr>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;为你的类提供构造方法&quot;&gt;&lt;a href=&quot;#为你的类提供构造方法&quot; class=&quot;headerlink&quot; title=&quot;为你的类提供构造方法&quot;&gt;&lt;/a&gt;为你的类提供构造方法&lt;/h1&gt;&lt;p&gt;类包含构造方法，可以被调用而根据类的蓝本创建对象。构造方法声明同普通的方法一
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
-    
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
-    
-      <category term="构造方法" scheme="http://yoursite.com/tags/%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95/"/>
-    
-      <category term="constructor" scheme="http://yoursite.com/tags/constructor/"/>
     
   </entry>
   

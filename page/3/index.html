@@ -307,6 +307,154 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/java-tutorial-learning_the_lang_basic_class&object_class_4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/28/java-tutorial-learning_the_lang_basic_class&object_class_4/" itemprop="url">Java 学习指南_学习Java：基础-类-构造方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T15:00:59+08:00">
+                2017-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="为你的类提供构造方法"><a href="#为你的类提供构造方法" class="headerlink" title="为你的类提供构造方法"></a>为你的类提供构造方法</h1><p>类包含构造方法，可以被调用而根据类的蓝本创建对象。构造方法声明同普通的方法一样—只不过命名与类名相同且没有返回类型。例如，<code>Bicycle</code>类的构造方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Bicycle</span><span class="params">(<span class="keyword">int</span> startCadence, <span class="keyword">int</span> startSpeed, <span class="keyword">int</span> startGear)</span> </span>&#123;</div><div class="line">    gear = startGear;</div><div class="line">    cadence = startCadence;</div><div class="line">    speed = startSpeed;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果要创建一个名为<code>myBike</code>的对象，适用<code>new</code>操作符调用构造方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Bicycle myBike = <span class="keyword">new</span> Bicycle(<span class="number">30</span>, <span class="number">0</span>, <span class="number">8</span>);</div></pre></td></tr></table></figure>
+<p><code>new Bicycle(30, 0, 8)</code>为对象在内存中分配空间并初始化成员变量。</p>
+<p> <code>Bicycle</code> 类只有一个构造方法，它也可以有其他更多构造方法，包括无参的构造方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">Bicycle</span><span class="params">()</span> </span>&#123;</div><div class="line">    gear = <span class="number">1</span>;</div><div class="line">    cadence = <span class="number">10</span>;</div><div class="line">    speed = <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>Bicycle yourBike = new Bicycle();</code> 调用无惨构造方法创建一个名为<code>yourBike</code>的<code>Bicycle</code>类对象。</p>
+<p>两个构造方法都可以在<code>Bicycle</code>类中定义因为它们有不同的参数列表。同方法一样，Java平台根据参数列表的数量以及类型区分不同的构造方法。不能定义有同样数量和类型参数列表的构造方法，因为平台无法区分它们。这么左会引起编译错误。</p>
+<p>你可以不为类提供任何构造方法，当时这么左的时候必须小心。编译器为没有构造方法的类自动提供一个默认的无参构造函数。这个默认的构造方法会调用其父类的无参构造方法。这种情况下，如果父类没有无参构造方法编译器将会抱怨，因此你这么做之前必检查父类确实有无参构造器。如果你的类没有明确的父类，它有一个隐藏的父类<code>Object</code>,<code>Object</code>拥有无参构造方法。</p>
+<p>你可自己调用父类的构造函数。本课开始的<code>MountainBike</code>类就这么做了，在接口与继承课程中还会详细讨论。</p>
+<p>你可以使用限定修饰符来控制那些其他类可以访问构造方法。</p>
+<hr>
+<p><strong>注意:</strong>如果你不能调用<code>Myclass</code>的构造方法，就无法直接创建<code>Myclass</code>类的对象。</p>
+<hr>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/java-tutorial-learning_the_lang_basic_class&object_class_2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1656,149 +1804,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/26/java-tutorial-learning_the_lang_basic_control_flow_3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hello Young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/26/java-tutorial-learning_the_lang_basic_control_flow_3/" itemprop="url">Java 学习指南_学习Java：基础-控制流程-while & do-while</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-26T09:00:59+08:00">
-                2017-09-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="while-以及-do-while-语句"><a href="#while-以及-do-while-语句" class="headerlink" title="while 以及 do-while 语句"></a>while 以及 do-while 语句</h1><p>当一个特定的条件为<code>true</code>时，<code>while</code>语句持续的执行一段代码块.它的语法形式如下：</p>
-<p>The <code>while</code> statement continually executes a block of statements while a particular condition is <code>true</code>. Its syntax can be expressed as:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> (expression) &#123;</div><div class="line">     statement(s)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>while</code>语句计算一个必须返回布尔值的表达式的值。如果这个表达式的结果为<code>true</code>,<code>while</code>语句，执行其代码块中的语句，<code>while</code>语句会持续验证表达式的值，并执行它的代码块直到表达式的结果返回<code>false</code>。使用<code>while</code>语句打印出1到10的值可以通过如下的示例程序 <a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/examples/WhileDemo.java" target="_blank" rel="external"><code>WhileDemo</code></a> 完成:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">WhileDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> count = <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span> (count &lt; <span class="number">11</span>) &#123;</div><div class="line">            System.out.println(<span class="string">"Count is: "</span> + count);</div><div class="line">            count++;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>你可以像下面的代码一样实现一个无限循环(死循环):</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</div><div class="line">    <span class="comment">// your code goes here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Java编程语言同样提供了<code>do-while</code>语句，形式如下:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">     statement(s)</div><div class="line">&#125; <span class="keyword">while</span> (expression);</div></pre></td></tr></table></figure>
-<p> <code>do-while</code> 与 <code>while</code> 语句的区别在于 <code>do-while</code> 在代码块的底部计算表达式的布尔值结果而不是在顶部。因此，<code>do</code>代码块中的语句至少执行一次,就像下面的示例代码展示的一样 <a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/examples/DoWhileDemo.java" target="_blank" rel="external"><code>DoWhileDemo</code></a> :</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DoWhileDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> count = <span class="number">1</span>;</div><div class="line">        <span class="keyword">do</span> &#123;</div><div class="line">            System.out.println(<span class="string">"Count is: "</span> + count);</div><div class="line">            count++;</div><div class="line">        &#125; <span class="keyword">while</span> (count &lt; <span class="number">11</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1848,7 +1853,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">62</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
