@@ -41,6 +41,8 @@ keywords:
 - [目标类型Target Typing](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#target-typing)[目标类型以及方法参数Target Types and Method Arguments](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#target-types-and-method-arguments)
 - [序列化Serialization](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#serialization)
 
+<!-- more -->
+
 ## [Lambda表达式最佳实践Ideal Use Case for Lambda Expressions]()
 
 假设你正在创建一个社交网络应用。你想要创建一个功能来满足管理员的各种操作，例如，向社交网络应用中中满足特定规则的成员发送消息。下面的表格描述了这个案例的详细信息。
