@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-19T08:06:08.267Z</updated>
+  <updated>2018-03-19T08:11:25.046Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2018/03/15/java-tutorial-learning_the_lang_basic_lambda/"/>
     <id>http://yoursite.com/2018/03/15/java-tutorial-learning_the_lang_basic_lambda/</id>
     <published>2018-03-15T07:51:59.000Z</published>
-    <updated>2018-03-19T08:06:08.267Z</updated>
+    <updated>2018-03-19T08:11:25.046Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Lambda-表达式-Lambda-Expressions"><a href="#Lambda-表达式-Lambda-Expressions" class="headerlink" title="Lambda 表达式 Lambda Expressions"></a>Lambda 表达式 Lambda Expressions</h1><p>使用匿名类的一个问题在于，如果你要实现的匿名类非常的简单，例如只包含一个方法的借口，那么匿名列的语法看起来就不够简洁和轻便。这种情况下，你通常会尝试将某个功能作为参数传递给一其他方法，例如当点击按钮的时候会采取什么措施。Lambda表达式可以提供这样的功能，将功能作为方法的参数，或者代码作为数据。</p>
 <p>上一节中， <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html" target="_blank" rel="external">Anonymous Classes</a>, 向你展示了实现一个基本的类而不需要命名，譬如只有一个方法的类，不过匿名类看起来有点复杂和笨重。Lambda表达式可以使你更加紧凑的表达一个单方法类的实例。</p>
@@ -44,6 +44,7 @@
 <li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#target-typing" target="_blank" rel="external">目标类型Target Typing</a><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#target-types-and-method-arguments" target="_blank" rel="external">目标类型以及方法参数Target Types and Method Arguments</a></li>
 <li><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#serialization" target="_blank" rel="external">序列化Serialization</a></li>
 </ul>
+<a id="more"></a>
 <h2 id="Lambda表达式最佳实践Ideal-Use-Case-for-Lambda-Expressions"><a href="#Lambda表达式最佳实践Ideal-Use-Case-for-Lambda-Expressions" class="headerlink" title="Lambda表达式最佳实践Ideal Use Case for Lambda Expressions"></a><a href="">Lambda表达式最佳实践Ideal Use Case for Lambda Expressions</a></h2><p>假设你正在创建一个社交网络应用。你想要创建一个功能来满足管理员的各种操作，例如，向社交网络应用中中满足特定规则的成员发送消息。下面的表格描述了这个案例的详细信息。</p>
 <table>
 <thead>
@@ -246,7 +247,28 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Lambda-表达式-Lambda-Expressions&quot;&gt;&lt;a href=&quot;#Lambda-表达式-Lambda-Expressions&quot; class=&quot;headerlink&quot; title=&quot;Lambda 表达式 Lambda Expressions&quot;&gt;&lt;/a
+      &lt;h1 id=&quot;Lambda-表达式-Lambda-Expressions&quot;&gt;&lt;a href=&quot;#Lambda-表达式-Lambda-Expressions&quot; class=&quot;headerlink&quot; title=&quot;Lambda 表达式 Lambda Expressions&quot;&gt;&lt;/a&gt;Lambda 表达式 Lambda Expressions&lt;/h1&gt;&lt;p&gt;使用匿名类的一个问题在于，如果你要实现的匿名类非常的简单，例如只包含一个方法的借口，那么匿名列的语法看起来就不够简洁和轻便。这种情况下，你通常会尝试将某个功能作为参数传递给一其他方法，例如当点击按钮的时候会采取什么措施。Lambda表达式可以提供这样的功能，将功能作为方法的参数，或者代码作为数据。&lt;/p&gt;
+&lt;p&gt;上一节中， &lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Anonymous Classes&lt;/a&gt;, 向你展示了实现一个基本的类而不需要命名，譬如只有一个方法的类，不过匿名类看起来有点复杂和笨重。Lambda表达式可以使你更加紧凑的表达一个单方法类的实例。&lt;/p&gt;
+&lt;p&gt;本节将包含以下的内容:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#use-case&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Lambda表达式的经典应用Ideal Use Case for Lambda Expressions&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#approach1&quot;&gt;方法1：创建搜索某一特点的成员的方法Approach 1: Create Methods That Search for Members That Match One Characteristic&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#approach2&quot;&gt;方法2：创建更加通用的搜索方法Approach 2: Create More Generalized Search Methods&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#approach3&quot;&gt;方法3：用局部类实现特定搜索规则相关的的代码Approach 3: Specify Search Criteria Code in a Local Class&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#approach4&quot;&gt;方法4：用匿名类实现特定搜索规则相关的代码Approach 4: Specify Search Criteria Code in an Anonymous Class&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#approach5&quot;&gt;方法5：用Lambda表达式实现特定搜索规则的代码Approach 5: Specify Search Criteria Code with a Lambda Expression&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#approach6&quot;&gt;方法6：通过标准的功能接口使用lambda表达式Approach 6: Use Standard Functional Interfaces with Lambda Expressions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#approach7&quot;&gt;方法7：在你的应用中使用Lambda表达式Approach 7: Use Lambda Expressions Throughout Your Application&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#approach8&quot;&gt;方法8：使用反应提高可扩展性Approach 8: Use Generics More Extensively&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#approach9&quot;&gt;方法9：使用已Lambda表达式作为参数的聚合操作Approach 9: Use Aggregate Operations That Accept Lambda Expressions as Parameters&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#lambda-expressions-in-gui-applications&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;在GUI应用中使用Lambda表达式Lambda Expressions in GUI Applications&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#syntax&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Lambda表达式语法Syntax of Lambda Expressions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#accessing-local-variables&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;访问闭合区间的局部变量Accessing Local Variables of the Enclosing Scope&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#target-typing&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;目标类型Target Typing&lt;/a&gt;&lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#target-types-and-method-arguments&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;目标类型以及方法参数Target Types and Method Arguments&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#serialization&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;序列化Serialization&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
@@ -897,6 +919,48 @@
   </entry>
   
   <entry>
+    <title>Java 学习指南_学习Java：基础-类-this关键字</title>
+    <link href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_11/"/>
+    <id>http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_11/</id>
+    <published>2017-10-18T05:54:59.000Z</published>
+    <updated>2017-10-26T01:02:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用this关键字"><a href="#使用this关键字" class="headerlink" title="使用this关键字"></a>使用this关键字</h1><p>在一个实例方法或者是构造器中，<code>this</code>关键字指向<em>当前对象**current object</em>—被调用了方法或者构造器的对象。你可以通过<code>this</code>关键字在实例方法或者构造器中引用当前对象的任何成员。</p>
+<h2 id="this-与-Field"><a href="#this-与-Field" class="headerlink" title="this 与 Field"></a><code>this</code> 与 Field</h2><p>通常使用<code>this</code>关键字的原因是field被方法或构造器的参数遮蔽.例如,  <code>Point</code>可以这样写</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        x = a;</div><div class="line">        y = b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>同样也可以这样写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>构造器的每一个参数遮蔽对象的一个filed字段/属性–方法内<strong>x</strong> 是构造器第一参数的一本局部副本.为了引用 <code>Point</code> 的 <strong>x</strong>字段, 构造器必须使用 <code>this.x</code>.</p>
+<h2 id="this-与构造器-Constructor"><a href="#this-与构造器-Constructor" class="headerlink" title="this 与构造器 Constructor"></a><code>this</code> 与构造器 Constructor</h2><p>在一个构造器内，你同样可以使用<code>this</code>关键字来调用用一个类中的其他构造器。这样做叫作<em>explicit constructor invocation**显示的构造函数调用</em>.下面是一个 <code>Rectangle</code> 类,与对象一节中实现方法不同.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x, y;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> width, height;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, width, height);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">        <span class="keyword">this</span>.width = width;</div><div class="line">        <span class="keyword">this</span>.height = height;</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个类包含一系列的构造器.每一个构造器初始化初始化矩形的一些成员变量.构造器为没有提供初始化参数的成员变量设置一个默认值。例如。无参构造器在坐标(0,0)处创建一个1X1的矩形。这个两个参数的构造其调用了四个参数的构造器，传递里宽高参数并且使用了(0,0)坐标。就像之前一样，编译器决定去调用哪一个构造器，基于参数的数量以及类型。</p>
+<p>如果存在这种调用，对其他构造器的调用必须出现在构造器中的第一行。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;使用this关键字&quot;&gt;&lt;a href=&quot;#使用this关键字&quot; class=&quot;headerlink&quot; title=&quot;使用this关键字&quot;&gt;&lt;/a&gt;使用this关键字&lt;/h1&gt;&lt;p&gt;在一个实例方法或者是构造器中，&lt;code&gt;this&lt;/code&gt;关键字指向&lt;em&gt;当
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
+    
+      <category term="class" scheme="http://yoursite.com/tags/class/"/>
+    
+      <category term="this" scheme="http://yoursite.com/tags/this/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java 学习指南_学习Java：基础-类-访问控制</title>
     <link href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_12/"/>
     <id>http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_12/</id>
@@ -1031,48 +1095,6 @@
       <category term="Controlling Access" scheme="http://yoursite.com/tags/Controlling-Access/"/>
     
       <category term="访问控制" scheme="http://yoursite.com/tags/%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-类-this关键字</title>
-    <link href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_11/"/>
-    <id>http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_11/</id>
-    <published>2017-10-18T05:54:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="使用this关键字"><a href="#使用this关键字" class="headerlink" title="使用this关键字"></a>使用this关键字</h1><p>在一个实例方法或者是构造器中，<code>this</code>关键字指向<em>当前对象**current object</em>—被调用了方法或者构造器的对象。你可以通过<code>this</code>关键字在实例方法或者构造器中引用当前对象的任何成员。</p>
-<h2 id="this-与-Field"><a href="#this-与-Field" class="headerlink" title="this 与 Field"></a><code>this</code> 与 Field</h2><p>通常使用<code>this</code>关键字的原因是field被方法或构造器的参数遮蔽.例如,  <code>Point</code>可以这样写</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        x = a;</div><div class="line">        y = b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>同样也可以这样写：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>构造器的每一个参数遮蔽对象的一个filed字段/属性–方法内<strong>x</strong> 是构造器第一参数的一本局部副本.为了引用 <code>Point</code> 的 <strong>x</strong>字段, 构造器必须使用 <code>this.x</code>.</p>
-<h2 id="this-与构造器-Constructor"><a href="#this-与构造器-Constructor" class="headerlink" title="this 与构造器 Constructor"></a><code>this</code> 与构造器 Constructor</h2><p>在一个构造器内，你同样可以使用<code>this</code>关键字来调用用一个类中的其他构造器。这样做叫作<em>explicit constructor invocation**显示的构造函数调用</em>.下面是一个 <code>Rectangle</code> 类,与对象一节中实现方法不同.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x, y;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> width, height;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, width, height);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">        <span class="keyword">this</span>.width = width;</div><div class="line">        <span class="keyword">this</span>.height = height;</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个类包含一系列的构造器.每一个构造器初始化初始化矩形的一些成员变量.构造器为没有提供初始化参数的成员变量设置一个默认值。例如。无参构造器在坐标(0,0)处创建一个1X1的矩形。这个两个参数的构造其调用了四个参数的构造器，传递里宽高参数并且使用了(0,0)坐标。就像之前一样，编译器决定去调用哪一个构造器，基于参数的数量以及类型。</p>
-<p>如果存在这种调用，对其他构造器的调用必须出现在构造器中的第一行。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;使用this关键字&quot;&gt;&lt;a href=&quot;#使用this关键字&quot; class=&quot;headerlink&quot; title=&quot;使用this关键字&quot;&gt;&lt;/a&gt;使用this关键字&lt;/h1&gt;&lt;p&gt;在一个实例方法或者是构造器中，&lt;code&gt;this&lt;/code&gt;关键字指向&lt;em&gt;当
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
-    
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
-    
-      <category term="this" scheme="http://yoursite.com/tags/this/"/>
     
   </entry>
   

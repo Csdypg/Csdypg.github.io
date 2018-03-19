@@ -4,7 +4,7 @@
   <url>
     <loc>http://yoursite.com/2018/03/15/java-tutorial-learning_the_lang_basic_lambda/</loc>
     
-    <lastmod>2018-03-19T08:06:08.267Z</lastmod>
+    <lastmod>2018-03-19T08:11:25.046Z</lastmod>
     
   </url>
   
@@ -16,14 +16,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&object_class_8/</loc>
-    
-    <lastmod>2017-10-26T01:02:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/09/27/java-tutorial-learning_the_lang_basic_class&object_class/</loc>
+    <loc>http://yoursite.com/2017/09/20/java-tutorial-learning_the_lang_basic_control_flow_1/</loc>
     
     <lastmod>2017-10-26T01:02:21.000Z</lastmod>
     
@@ -37,7 +30,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&object_class_11/</loc>
+    <loc>http://yoursite.com/2017/09/27/java-tutorial-learning_the_lang_basic_class&object_class/</loc>
+    
+    <lastmod>2017-10-26T01:02:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/09/28/java-tutorial-learning_the_lang_basic_class&object_class_1/</loc>
+    
+    <lastmod>2017-10-26T01:02:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&object_class_10/</loc>
     
     <lastmod>2017-10-26T01:02:21.000Z</lastmod>
     
@@ -51,13 +58,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&object_class_13/</loc>
-    
-    <lastmod>2017-10-26T01:02:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&object_class_14/</loc>
     
     <lastmod>2017-10-26T01:02:21.000Z</lastmod>
@@ -65,7 +65,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/09/28/java-tutorial-learning_the_lang_basic_class&object_class_2/</loc>
+    <loc>http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&object_class_11/</loc>
+    
+    <lastmod>2017-10-26T01:02:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&object_class_13/</loc>
     
     <lastmod>2017-10-26T01:02:21.000Z</lastmod>
     
@@ -73,6 +80,13 @@
   
   <url>
     <loc>http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&object_class_15/</loc>
+    
+    <lastmod>2017-10-26T01:02:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/09/28/java-tutorial-learning_the_lang_basic_class&object_class_2/</loc>
     
     <lastmod>2017-10-26T01:02:21.000Z</lastmod>
     
@@ -93,6 +107,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&object_class_7/</loc>
+    
+    <lastmod>2017-10-26T01:02:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&object_class_5/</loc>
     
     <lastmod>2017-10-26T01:02:21.000Z</lastmod>
@@ -107,14 +128,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&object_class_7/</loc>
-    
-    <lastmod>2017-10-26T01:02:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/09/26/java-tutorial-learning_the_lang_basic_control_flow_3/</loc>
+    <loc>http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&object_class_8/</loc>
     
     <lastmod>2017-10-26T01:02:21.000Z</lastmod>
     
@@ -135,13 +149,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&object_q&e2/</loc>
-    
-    <lastmod>2017-10-26T01:02:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2017/09/20/java-tutorial-learning_the_lang_basic_control_flow/</loc>
     
     <lastmod>2017-10-26T01:02:21.000Z</lastmod>
@@ -149,42 +156,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&object_class_10/</loc>
-    
-    <lastmod>2017-10-26T01:02:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/09/27/java-tutorial-learning_the_lang_basic_control_flow_5/</loc>
-    
-    <lastmod>2017-10-26T01:02:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/09/20/java-tutorial-learning_the_lang_basic_control_flow_1/</loc>
-    
-    <lastmod>2017-10-26T01:02:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/09/26/java-tutorial-learning_the_lang_basic_control_flow_4/</loc>
-    
-    <lastmod>2017-10-26T01:02:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/09/20/java-tutorial-learning_the_lang_basic_control_flow_2/</loc>
-    
-    <lastmod>2017-10-26T01:02:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/09/27/java-tutorial-learning_the_lang_basic_control_flow_6/</loc>
+    <loc>http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&object_q&e2/</loc>
     
     <lastmod>2017-10-26T01:02:21.000Z</lastmod>
     
@@ -198,21 +170,35 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/09/28/java-tutorial-learning_the_lang_basic_class&object_class_1/</loc>
+    <loc>http://yoursite.com/2017/09/20/java-tutorial-learning_the_lang_basic_control_flow_2/</loc>
     
     <lastmod>2017-10-26T01:02:21.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/10/24/java-tutorial-learning_the_lang_basic_inner_class/</loc>
+    <loc>http://yoursite.com/2017/09/26/java-tutorial-learning_the_lang_basic_control_flow_3/</loc>
     
     <lastmod>2017-10-26T01:02:21.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/10/24/java-tutorial-learning_the_lang_basic_local_class/</loc>
+    <loc>http://yoursite.com/2017/09/27/java-tutorial-learning_the_lang_basic_control_flow_5/</loc>
+    
+    <lastmod>2017-10-26T01:02:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/09/26/java-tutorial-learning_the_lang_basic_control_flow_4/</loc>
+    
+    <lastmod>2017-10-26T01:02:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/09/27/java-tutorial-learning_the_lang_basic_control_flow_6/</loc>
     
     <lastmod>2017-10-26T01:02:21.000Z</lastmod>
     
@@ -226,7 +212,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/07/28/java-tutorial-learning_the_lang_basic_operator/</loc>
+    <loc>http://yoursite.com/2017/10/24/java-tutorial-learning_the_lang_basic_local_class/</loc>
+    
+    <lastmod>2017-10-26T01:02:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/10/24/java-tutorial-learning_the_lang_basic_inner_class/</loc>
+    
+    <lastmod>2017-10-26T01:02:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/09/07/java-tutorial-learning_the_lang_basic_operator_3/</loc>
     
     <lastmod>2017-09-22T01:35:24.000Z</lastmod>
     
@@ -240,42 +240,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/07/20/java-tutorial-learning_the_lang_basic_arrays/</loc>
-    
-    <lastmod>2017-09-22T01:35:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/08/21/java-tutorial-learning_the_lang_basic_operator_1/</loc>
-    
-    <lastmod>2017-09-22T01:35:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/09/07/java-tutorial-learning_the_lang_basic_operator_3/</loc>
-    
-    <lastmod>2017-09-22T01:35:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/09/07/java-tutorial-learning_the_lang_basic_operator_4/</loc>
-    
-    <lastmod>2017-09-22T01:35:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/09/07/java-tutorial-learning_the_lang_basic_operator_2/</loc>
-    
-    <lastmod>2017-09-22T01:35:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/09/07/java-tutorial-learning_the_lang_basic_operator_qea/</loc>
+    <loc>http://yoursite.com/2017/07/28/java-tutorial-learning_the_lang_basic_operator/</loc>
     
     <lastmod>2017-09-22T01:35:24.000Z</lastmod>
     
@@ -289,14 +254,49 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/07/05/java-tutorial-learning_the_lang_basic_primitive_data_type/</loc>
+    <loc>http://yoursite.com/2017/08/21/java-tutorial-learning_the_lang_basic_operator_1/</loc>
     
     <lastmod>2017-09-22T01:35:24.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/07/26/java-tutorial-learning_the_lang_basic_variables_qe/</loc>
+    <loc>http://yoursite.com/2017/09/07/java-tutorial-learning_the_lang_basic_operator_2/</loc>
+    
+    <lastmod>2017-09-22T01:35:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/07/20/java-tutorial-learning_the_lang_basic_arrays/</loc>
+    
+    <lastmod>2017-09-22T01:35:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/09/15/java-tutorial-learning_the_lang_basic_esb/</loc>
+    
+    <lastmod>2017-09-22T01:35:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/09/07/java-tutorial-learning_the_lang_basic_operator_4/</loc>
+    
+    <lastmod>2017-09-22T01:35:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/09/07/java-tutorial-learning_the_lang_basic_operator_qea/</loc>
+    
+    <lastmod>2017-09-22T01:35:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/07/05/java-tutorial-learning_the_lang_basic_primitive_data_type/</loc>
     
     <lastmod>2017-09-22T01:35:24.000Z</lastmod>
     
@@ -310,7 +310,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/09/15/java-tutorial-learning_the_lang_basic_esb/</loc>
+    <loc>http://yoursite.com/2017/07/26/java-tutorial-learning_the_lang_basic_variables_qe/</loc>
     
     <lastmod>2017-09-22T01:35:24.000Z</lastmod>
     
@@ -338,7 +338,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/07/02/java-tutorial-learning_the_lang_oo_concept/</loc>
+    <loc>http://yoursite.com/2017/06/26/java-tutorial-index/</loc>
+    
+    <lastmod>2017-07-05T00:43:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/07/03/java-tutorial-learning_the_lang_basic/</loc>
+    
+    <lastmod>2017-07-05T00:43:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/07/02/java-tutorial-learning_the_lang/</loc>
     
     <lastmod>2017-07-05T00:43:34.000Z</lastmod>
     
@@ -359,7 +373,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/07/02/java-tutorial-learning_the_lang/</loc>
+    <loc>http://yoursite.com/2017/07/03/java-tutorial-learning_the_lang_oo_package/</loc>
     
     <lastmod>2017-07-05T00:43:34.000Z</lastmod>
     
@@ -373,21 +387,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/07/03/java-tutorial-learning_the_lang_oo_package/</loc>
-    
-    <lastmod>2017-07-05T00:43:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2017/07/03/java-tutorial-learning_the_lang_oo_qea/</loc>
-    
-    <lastmod>2017-07-05T00:43:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/06/27/java_tutorial_getting_started/</loc>
     
     <lastmod>2017-07-05T00:43:34.000Z</lastmod>
     
@@ -401,7 +401,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/06/28/java_tutorial_getting_started_java_%20phenomenon/</loc>
+    <loc>http://yoursite.com/2017/06/27/java_tutorial_getting_started/</loc>
     
     <lastmod>2017-07-05T00:43:34.000Z</lastmod>
     
@@ -422,14 +422,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/06/26/java-tutorial-index/</loc>
+    <loc>http://yoursite.com/2017/06/28/java_tutorial_getting_started_java_%20phenomenon/</loc>
     
     <lastmod>2017-07-05T00:43:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/07/03/java-tutorial-learning_the_lang_basic/</loc>
+    <loc>http://yoursite.com/2017/07/02/java-tutorial-learning_the_lang_oo_concept/</loc>
     
     <lastmod>2017-07-05T00:43:34.000Z</lastmod>
     
