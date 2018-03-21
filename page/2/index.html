@@ -307,7 +307,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&object_class_15/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/24/java-tutorial-learning_the_lang_basic_local_class/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hello Young">
@@ -326,7 +326,803 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/20/java-tutorial-learning_the_lang_basic_class&object_class_15/" itemprop="url">Java 学习指南_学习Java：基础-类和对象总结</a></h1>
+                <a class="post-title-link" href="/2017/10/24/java-tutorial-learning_the_lang_basic_local_class/" itemprop="url">Java 学习指南_学习Java：基础-局部类</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-24T14:51:59+08:00">
+                2017-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="局部类Local-Classes"><a href="#局部类Local-Classes" class="headerlink" title="局部类Local Classes"></a>局部类Local Classes</h1><p>局部类是指定义在一个代码块<em>block</em>中的类，一组包含与<code>{}</code>之内的一组语句。</p>
+<p>本节包含了以下内容:</p>
+<ul>
+<li>定义一个局部类<a href="https://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html#declaring-local-classes" target="_blank" rel="external">Declaring Local Classes</a></li>
+<li>访问所属类的成员Accessing Members of an Enclosing Class<ul>
+<li>遮蔽与局部类<a href="https://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html#shadowing-and-local-classes" target="_blank" rel="external">Shadowing and Local Classes</a></li>
+</ul>
+</li>
+<li>局部类与内部类相似<a href="https://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html#local-classes-are-similar-to-inner-classes" target="_blank" rel="external">Local Classes Are Similar To Inner Classes</a></li>
+</ul>
+<h2 id="定义局部类Declaring-Local-Classes"><a href="#定义局部类Declaring-Local-Classes" class="headerlink" title="定义局部类Declaring Local Classes"></a>定义局部类<a href="">Declaring Local Classes</a></h2><p>你可以在任何代码块中定义局部类(参考 <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/expressions.html" target="_blank" rel="external">Expressions, Statements, and Blocks</a> 表达式，语句代码块获取更多的信息).例如:你可以在一个方法体内，一个<code>for</code>循环内或者一个<code>if</code>语句中定义局部类。</p>
+<p>下面的例子, <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/examples/LocalClassExample.java" target="_blank" rel="external"><code>LocalClassExample</code></a>,验证了两个电话号码。他在方法<code>validatePhoneNumber</code>方法内定义了一个局部类<code>PhoneNumber</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LocalClassExample</span> </span>&#123;</div><div class="line">  </div><div class="line">    <span class="keyword">static</span> String regularExpression = <span class="string">"[^0-9]"</span>;</div><div class="line">  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">validatePhoneNumber</span><span class="params">(</span></span></div><div class="line">        String phoneNumber1, String phoneNumber2) &#123;</div><div class="line">      </div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> numberLength = <span class="number">10</span>;</div><div class="line">        </div><div class="line">        <span class="comment">// Valid in JDK 8 and later:</span></div><div class="line">       </div><div class="line">        <span class="comment">// int numberLength = 10;</span></div><div class="line">       </div><div class="line">        <span class="class"><span class="keyword">class</span> <span class="title">PhoneNumber</span> </span>&#123;</div><div class="line">            </div><div class="line">            String formattedPhoneNumber = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">            PhoneNumber(String phoneNumber)&#123;</div><div class="line">                <span class="comment">// numberLength = 7;</span></div><div class="line">                String currentNumber = phoneNumber.replaceAll(</div><div class="line">                  regularExpression, <span class="string">""</span>);</div><div class="line">                <span class="keyword">if</span> (currentNumber.length() == numberLength)</div><div class="line">                    formattedPhoneNumber = currentNumber;</div><div class="line">                <span class="keyword">else</span></div><div class="line">                    formattedPhoneNumber = <span class="keyword">null</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="function"><span class="keyword">public</span> String <span class="title">getNumber</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> formattedPhoneNumber;</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">            <span class="comment">// Valid in JDK 8 and later:</span></div><div class="line"></div><div class="line"><span class="comment">//            public void printOriginalNumbers() &#123;</span></div><div class="line"><span class="comment">//                System.out.println("Original numbers are " + phoneNumber1 +</span></div><div class="line"><span class="comment">//                    " and " + phoneNumber2);</span></div><div class="line"><span class="comment">//            &#125;</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        PhoneNumber myNumber1 = <span class="keyword">new</span> PhoneNumber(phoneNumber1);</div><div class="line">        PhoneNumber myNumber2 = <span class="keyword">new</span> PhoneNumber(phoneNumber2);</div><div class="line">        </div><div class="line">        <span class="comment">// Valid in JDK 8 and later:</span></div><div class="line"></div><div class="line"><span class="comment">//        myNumber1.printOriginalNumbers();</span></div><div class="line"></div><div class="line">        <span class="keyword">if</span> (myNumber1.getNumber() == <span class="keyword">null</span>) </div><div class="line">            System.out.println(<span class="string">"First number is invalid"</span>);</div><div class="line">        <span class="keyword">else</span></div><div class="line">            System.out.println(<span class="string">"First number is "</span> + myNumber1.getNumber());</div><div class="line">        <span class="keyword">if</span> (myNumber2.getNumber() == <span class="keyword">null</span>)</div><div class="line">            System.out.println(<span class="string">"Second number is invalid"</span>);</div><div class="line">        <span class="keyword">else</span></div><div class="line">            System.out.println(<span class="string">"Second number is "</span> + myNumber2.getNumber());</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String... args)</span> </span>&#123;</div><div class="line">        validatePhoneNumber(<span class="string">"123-456-7890"</span>, <span class="string">"456-7890"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个例子通过两部验证一个电话号码，首先将电话号码中所有除了0-9的数字一处，然后检查电话号码是否包含了10个数字（北美的电话号码长度）.例子的输出如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">First number is 1234567890</div><div class="line">Second number is invalid</div></pre></td></tr></table></figure>
+<h2 id="局部类访问你所处类的成员Accessing-Members-of-an-Enclosing-Class"><a href="#局部类访问你所处类的成员Accessing-Members-of-an-Enclosing-Class" class="headerlink" title="局部类访问你所处类的成员Accessing Members of an Enclosing Class"></a>局部类访问你所处类的成员<a href="">Accessing Members of an Enclosing Class</a></h2><p>局部类有访问其所处类成员的权限。前面的例子中，<code>PhoneNumber</code>构造器访问了成员 <code>LocalClassExample.regularExpression</code>. 另外，局部类有访问局部变量的权限。不过，局部类只能访问被声明未<code>final</code>的局部变量。当一个局部类访问一个局部变量或者时所处代码块的参数时，它捕获<em>captures</em>了那个变量或者参数。例如，<code>PhoneNumber</code>构造器可以访问局部变量<code>numberLength</code>因为他是定义未<code>final</code>的；<code>numberLength</code>是一个<em>捕获变量</em>captured <em>variable</em>.</p>
+<p>然而你，Java SE 8开始，可以访问所属代码块中定义未final或者有效最终<em>effectively final</em>的变量以及参数.例如，假设变量<code>numberLength</code>没有被声明为<code>final</code>，并且在<code>PhoneNumber</code>的构造其中加了如下的代码，将其变量值改变为数字7：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">PhoneNumber(String phoneNumber) &#123;</div><div class="line">    numberLength = <span class="number">7</span>;</div><div class="line">    String currentNumber = phoneNumber.replaceAll(</div><div class="line">        regularExpression, <span class="string">""</span>);</div><div class="line">    <span class="keyword">if</span> (currentNumber.length() == numberLength)</div><div class="line">        formattedPhoneNumber = currentNumber;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        formattedPhoneNumber = <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>因为这个赋值语句，变量<code>numberLength</code>就是不再时一个有效最终值。这样做的结果就是，当<code>PhoneNumber</code>类尝试引用局部变量 <code>numberLength</code>时， Java编译器生成一个错误信息，类似“local variable referenced from an inner class must be final or effectively final”（内部类中引用的局部变量必须是一个最终或或者一个等效最终值）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">if (currentNumber.length() == numberLength)</div></pre></td></tr></table></figure>
+<p>从Java SE 8开始，你再一个方法中定义局部变量时，他可以访问方法的参数。例如，你可以再局部类<code>PhoneNumber</code>中定义如下方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printOriginalNumbers</span><span class="params">()</span> </span>&#123;</div><div class="line">    System.out.println(<span class="string">"Original numbers are "</span> + phoneNumber1 +</div><div class="line">        <span class="string">" and "</span> + phoneNumber2);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>方法<code>printOriginalNumbers</code>方位了方法 <code>validatePhoneNumber</code>的两个参数 <code>phoneNumber1</code> 以及<code>phoneNumber2</code> 。</p>
+<h3 id="局部类与遮蔽Shadowing-and-Local-Classes"><a href="#局部类与遮蔽Shadowing-and-Local-Classes" class="headerlink" title="局部类与遮蔽Shadowing and Local Classes"></a><a href="">局部类与遮蔽Shadowing and Local Classes</a></h3><p>再局部类中声明一个类型（譬如变量）遮蔽其所在闭合范围内拥有相同名字的类型。参考遮蔽 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html#shadowing" target="_blank" rel="external">Shadowing</a> 获取更多信息。</p>
+<h2 id="局部类与内部类相似Local-Classes-Are-Similar-To-Inner-Classes"><a href="#局部类与内部类相似Local-Classes-Are-Similar-To-Inner-Classes" class="headerlink" title="局部类与内部类相似Local Classes Are Similar To Inner Classes"></a><a href="">局部类与内部类相似Local Classes Are Similar To Inner Classes</a></h2><p>局部类与内部类相似，因为它们都不定义任何的静态static成员。局部类如果再静态方法内，譬如 <code>PhoneNumber</code>类,定义再静态方法 <code>validatePhoneNumber</code>中,就只能引用闭合范围内的静态成员。如果你不讲成员变量 <code>regularExpression</code> 定义为静态static,那么Java编译器就会生成一个错误， “non-static variable <code>regularExpression</code> cannot be referenced from a static context.”（非静态变量<code>regularExpression</code>不能再一个静态的上下文中引用)</p>
+<p>局部类是非静态的，因为它可以方法所属闭合代码块中的实例变量。因此它们几乎不能包含任何类型的静态声明。</p>
+<p>你不能再一个代码块中定义接口，因为接口再本质上静态的。例如，下面的代码引用是不能编译的因为接口<code>HelloThere</code>被定义再方法<code>greetInEnglish</code>方法体中:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greetInEnglish</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">HelloThere</span> </span>&#123;</div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greet</span><span class="params">()</span></span>;</div><div class="line">    &#125;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">EnglishHelloThere</span> <span class="keyword">implements</span> <span class="title">HelloThere</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">greet</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"Hello "</span> + name);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    HelloThere myGreeting = <span class="keyword">new</span> EnglishHelloThere();</div><div class="line">    myGreeting.greet();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>你不能再一个局部类中定义静态的初始化器或者成员。以下的代码不能通过编译，因为方法 <code>EnglishGoodbye.sayGoodbye</code> 被声明为 <code>static</code>. 当遇到这种方法定义时编译器会生成一个错误类似 “modifier ‘static’ is only allowed in constant variable declaration”（限定符static只能用再常量的声明上） :</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayGoodbyeInEnglish</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">EnglishGoodbye</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sayGoodbye</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"Bye bye"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    EnglishGoodbye.sayGoodbye();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>局部类可以有静态成员除非时常量. (常量 <em>constant variable</em>是一个定义为final的基本数据类型或者String字符串类型的变量初始化为一个编译时的常量表达式。编译时常量表达式同时时一个字符串或者时编译时可以计算的运算表达式。参考理解成员变量<a href="https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html" target="_blank" rel="external">Understanding Class Members</a> 获取更多信息.) 以下代码摘绿可以通过编译，因为静态成员 <code>EnglishGoodbye.farewell</code> 是一个常量:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayGoodbyeInEnglish</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">EnglishGoodbye</span> </span>&#123;</div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String farewell = <span class="string">"Bye bye"</span>;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayGoodbye</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(farewell);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    EnglishGoodbye myEnglishGoodbye = <span class="keyword">new</span> EnglishGoodbye();</div><div class="line">    myEnglishGoodbye.sayGoodbye();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/24/java-tutorial-learning_the_lang_basic_inner_class/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/24/java-tutorial-learning_the_lang_basic_inner_class/" itemprop="url">Java 学习指南_学习Java：基础-内部类</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-24T14:00:59+08:00">
+                2017-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h1><p>讨论内部类的使用之前，首先来观察一个数组。接下来的例子中，你创建一个数组，使用Integer指填充这个数组，然后只升序输出这个数组中下标为偶数的值。</p>
+<p><a href="https://docs.oracle.com/javase/tutorial/java/javaOO/examples/DataStructure.java" target="_blank" rel="external"><code>DataStructure.java</code></a> 例子有以下几个部分组成：</p>
+<ul>
+<li><code>DataStructure</code> 外部类，包含了一个创建<code>DataStructure</code>实例的构造函数，实例包含一个填充了连续的整数数组（0，1，2，3…）以及一个打印出数组偶数下标元素的值的方法。</li>
+<li><code>EvenIterator</code>内部类，实现了<code>DataStructureIterator</code>接口，并继承了 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html" target="_blank" rel="external"><code>Iterator</code></a><code>&lt;</code> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html" target="_blank" rel="external"><code>Integer</code></a><code>&gt;</code> 迭代器接口。迭代器是用来一步步的迭代一个数据结构并且通常有一个测试是否到达最后一个元素的方法，获取当前的元素并将指针移向下一个元素。</li>
+<li>一个<code>main</code>方法，实例化一个<code>DataStructure</code>对象 <code>ds</code>,调用<code>ds</code>对象的<code>printEven</code>方法来输出<code>arrayOfInts</code>数组中具有偶数下边的元素值。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DataStructure</span> </span>&#123;</div><div class="line">    </div><div class="line">    <span class="comment">// Create an array</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> SIZE = <span class="number">15</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] arrayOfInts = <span class="keyword">new</span> <span class="keyword">int</span>[SIZE];</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DataStructure</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// fill the array with ascending integer values</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; SIZE; i++) &#123;</div><div class="line">            arrayOfInts[i] = i;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printEven</span><span class="params">()</span> </span>&#123;</div><div class="line">        </div><div class="line">        <span class="comment">// Print out values of even indices of the array</span></div><div class="line">        DataStructureIterator iterator = <span class="keyword">this</span>.new EvenIterator();</div><div class="line">        <span class="keyword">while</span> (iterator.hasNext()) &#123;</div><div class="line">            System.out.print(iterator.next() + <span class="string">" "</span>);</div><div class="line">        &#125;</div><div class="line">        System.out.println();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">DataStructureIterator</span> <span class="keyword">extends</span> <span class="title">java</span>.<span class="title">util</span>.<span class="title">Iterator</span>&lt;<span class="title">Integer</span>&gt; </span>&#123; &#125; </div><div class="line"></div><div class="line">    <span class="comment">// Inner class implements the DataStructureIterator interface,</span></div><div class="line">    <span class="comment">// which extends the Iterator&lt;Integer&gt; interface</span></div><div class="line">    </div><div class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">EvenIterator</span> <span class="keyword">implements</span> <span class="title">DataStructureIterator</span> </span>&#123;</div><div class="line">        </div><div class="line">        <span class="comment">// Start stepping through the array from the beginning</span></div><div class="line">        <span class="keyword">private</span> <span class="keyword">int</span> nextIndex = <span class="number">0</span>;</div><div class="line">        </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</div><div class="line">            </div><div class="line">            <span class="comment">// Check if the current element is the last in the array</span></div><div class="line">            <span class="keyword">return</span> (nextIndex &lt;= SIZE - <span class="number">1</span>);</div><div class="line">        &#125;        </div><div class="line">        </div><div class="line">        <span class="function"><span class="keyword">public</span> Integer <span class="title">next</span><span class="params">()</span> </span>&#123;</div><div class="line">            </div><div class="line">            <span class="comment">// Record a value of an even index of the array</span></div><div class="line">            Integer retValue = Integer.valueOf(arrayOfInts[nextIndex]);</div><div class="line">            </div><div class="line">            <span class="comment">// Get the next even element</span></div><div class="line">            nextIndex += <span class="number">2</span>;</div><div class="line">            <span class="keyword">return</span> retValue;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String s[])</span> </span>&#123;</div><div class="line">        </div><div class="line">        <span class="comment">// Fill the array with integer values and print out only</span></div><div class="line">        <span class="comment">// values of even indices</span></div><div class="line">        DataStructure ds = <span class="keyword">new</span> DataStructure();</div><div class="line">        ds.printEven();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">0 2 4 6 8 10 12 14</div></pre></td></tr></table></figure>
+<p>注意<code>EvenIterator</code>类直接引用<code>DataStructure</code>对象的实例变量<code>arrayOfInts</code>.</p>
+<p>你可以使用内部类来实现类似以上例子中的辅助类。处理用户界面事件时，你必须直到如何使用内部类，因为事件处理机制使通过内部类来扩展其用法。</p>
+<h2 id="局部类与匿名内部类"><a href="#局部类与匿名内部类" class="headerlink" title="局部类与匿名内部类"></a>局部类与匿名内部类</h2><p>有中附加的内部类。你可以在一个方法的内部定义一个类，这样的类叫做局部类 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html" target="_blank" rel="external">local classes</a>. 。你同样可以在方法内定义一个未命名内部类，这样的类讲过匿名内部类 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html" target="_blank" rel="external">anonymous classes</a>.。</p>
+<h2 id="限定修饰符"><a href="#限定修饰符" class="headerlink" title="限定修饰符"></a>限定修饰符</h2><p>你对内部类使用同外部类其他成员一样的限定修饰符。例如，你可以使用特定的<code>private</code>,<code>public</code>,以及<code>protected</code>来显示对内部类的访问，同其他类的成员一样。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/23/java-tutorial-learning_the_lang_basic_nested_class/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/23/java-tutorial-learning_the_lang_basic_nested_class/" itemprop="url">Java 学习指南_学习Java：基础-嵌套类</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-23T17:00:59+08:00">
+                2017-10-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="嵌套类"><a href="#嵌套类" class="headerlink" title="嵌套类"></a>嵌套类</h1><p>java编程语言允许你在一个类的内部定义类。这样的类叫做<em>嵌套类**nested class</em>,示例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</div><div class="line">    ...</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">NestedClass</span> </span>&#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<p><strong>术语Terminology</strong>: 嵌套类分为两类，静态和非静态.声明为<code>static</code>的嵌套类叫做 <em>static nested classes</em>静态嵌套类。非静态嵌套类叫做<em>inner classes</em>内部类。</p>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</div><div class="line">    ...</div><div class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticNestedClass</span> </span>&#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span> </span>&#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>嵌套类是其所在类的成员。非静态嵌套类（内部类）具有访问所在类的其他成员的访问权限，即使是私有的成员。静态内部类没有访问其所在类的其他成员的权限。作为<code>OuterClass</code>的成员，一个嵌套类可以被声明为<code>private</code>,<code>public</code>,<code>protected</code>或者包级私有（package private 默认）。（重申以下外部类只能 被定义为<code>public</code> 或者 包级私有）。</p>
+<h2 id="为什么使用嵌套类"><a href="#为什么使用嵌套类" class="headerlink" title="为什么使用嵌套类?"></a>为什么使用嵌套类?</h2><p>驱使使用嵌套类的原因包括以下几个：</p>
+<ul>
+<li><strong>它是为只在一个地方使用的类的逻辑分类的一种方法It is a way of logically grouping classes that are only used in one place</strong>: 如果一个类支只对另外一个类有用，那么把它嵌入那个类中是两者保持在一起是符合逻辑的。嵌套进这样的<em>辅助类</em> 是他们的包结构更加的合理化。</li>
+<li><strong>增加封装性It increases encapsulation</strong>:  考虑两个顶级的类，A和B，如果B需要访问A中原本声明为<code>private</code>的成员。通过将B吟唱在A类内，A的成员可以被定义为<code>private</code>私有，并且B可以访问它们，B本身也可以对于外部世界隐藏。</li>
+<li><strong>是代码更加易读和易于管理It can lead to more readable and maintainable code</strong>: 将小类嵌套与顶级类中是代码更接近它使用的地方。</li>
+</ul>
+<h2 id="静态嵌套类Static-Nested-Classes"><a href="#静态嵌套类Static-Nested-Classes" class="headerlink" title="静态嵌套类Static Nested Classes"></a>静态嵌套类Static Nested Classes</h2><p>与类方法和类变量一样，静态嵌套类是与其外部类相关联的。并且像静态类方法一样，一个静态嵌套类不能直接引用类中定义的实例变量和实例方法：只能通过一个对象的引用来使用。</p>
+<hr>
+<p><strong>注意</strong>:  静态嵌套类与其外部类或者其他类的实例成员交互 与它的顶级类一样。实际上，一个静态嵌套类与与顶积累表现一样，只不过可以方便的嵌入其他定义类，构建包更加便利。</p>
+<p>static nested class interacts with the instance members of its outer class (and other classes) just like any other top-level class. In effect, a static nested class is behaviorally a top-level class that has been nested in another top-level class for packaging convenience.</p>
+<hr>
+<p>静态嵌套类通过其所有类的类名来访问例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">OuterClass.StaticNestedClass</div></pre></td></tr></table></figure>
+<p>如果需要创建一个静态嵌套类的对象，使用如下的语法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">OuterClass.StaticNestedClass nestedObject =</div><div class="line">     <span class="keyword">new</span> OuterClass.StaticNestedClass();</div></pre></td></tr></table></figure>
+<h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><p>与实例方法和实例变量一样，一个内部类是与其所有类的实例相关联的，并且可以直接访问其实例方法和字段/域。 同样，因为内部类是域实例向关联的，所以它本身不能定义任何的静态成员。</p>
+<p>内部类的实例对象存在与外部类实例的内部，观察下面的类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</div><div class="line">    ...</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span> </span>&#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一个内部类 <code>InnerClass</code> 的实例只能存在于一个<code>OuterClass</code>类的实例内部，并且可以直接访问该实例的方法和字段/域。</p>
+<p>实例化一个内部类，你必须现实里话外部类。然后，通过外部类的对象创建内部对象，语法如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">OuterClass.InnerClass innerObject = outerObject.new InnerClass();</div></pre></td></tr></table></figure>
+<p>内部类还有两种特殊情况：<a href="">局部类</a> 和 <a href="">匿名内部类</a>.: <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html" target="_blank" rel="external">local classes</a> and <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html" target="_blank" rel="external">anonymous classes</a>.</p>
+<h2 id="遮蔽Shadowing"><a href="#遮蔽Shadowing" class="headerlink" title="遮蔽Shadowing"></a>遮蔽<a href="">Shadowing</a></h2><p>如果在一个特定的范围内（例如在一个内部类或者是方法顶以内）定义一个类型（例如成员变量或者是参数名称）与闭合区域内（例如外部类的闭合区域内）的另外一个声明有相同的名字，那么这个声明就会遮蔽闭合区域内的声明。你不能指通过名字引用被遮蔽的声明。下面是一个例子， <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/examples/ShadowTest.java" target="_blank" rel="external"><code>ShadowTest</code></a>, 演示了这个现象:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShadowTest</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">FirstLevel</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">methodInFirstLevel</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"x = "</span> + x);</div><div class="line">            System.out.println(<span class="string">"this.x = "</span> + <span class="keyword">this</span>.x);</div><div class="line">            System.out.println(<span class="string">"ShadowTest.this.x = "</span> + ShadowTest.<span class="keyword">this</span>.x);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String... args)</span> </span>&#123;</div><div class="line">        ShadowTest st = <span class="keyword">new</span> ShadowTest();</div><div class="line">        ShadowTest.FirstLevel fl = st.new FirstLevel();</div><div class="line">        fl.methodInFirstLevel(<span class="number">23</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以下为这个例子的输出:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">x = <span class="number">23</span></div><div class="line"><span class="keyword">this</span>.x = <span class="number">1</span></div><div class="line">ShadowTest.<span class="keyword">this</span>.x = <span class="number">0</span></div></pre></td></tr></table></figure>
+<p>这个例子定义了三个变量名字都为<code>x</code>: 类<code>ShadowTest</code>的成员变量，内部类<code>FirstLevel</code>的成员变量，以及方法<code>methodInFirstLevel</code>的参数。方法<code>methodInFirstLevel</code>的参数<code>x</code>遮蔽了内部类<code>FirstLevel</code>的变量x。因此，当你在方法<code>methodInFirstLevel</code>中使用<code>x</code>时，引用的时方法的参数。为了引用内部类<code>FirstLevel</code>的成员变量，使用<code>this</code>挂件子来代表笔和空间:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">System.out.println(<span class="string">"this.x = "</span> + <span class="keyword">this</span>.x);</div></pre></td></tr></table></figure>
+<p>为了引用更大的闭合范围内的成员变量，需要使用它所属于的类名。例如，下面的语句，在<code>methodInFirstLevel</code>方法中引用了<code>ShadowTest</code>类的成员变量:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">System.out.println(<span class="string">"ShadowTest.this.x = "</span> + ShadowTest.<span class="keyword">this</span>.x);</div></pre></td></tr></table></figure>
+<h2 id="序列化Serialization"><a href="#序列化Serialization" class="headerlink" title="序列化Serialization"></a>序列化<a href="">Serialization</a></h2><p>内部类的序列化，包括局部类和匿名内部类，强力不建议。当Java编译器编译确定的结构，例如内部类，会创建合成构造 <em>synthetic constructs</em>; 包括类，方法，字段，以及其他的结构，这些结构在源码中并没有对应的相应的构造。合成构造能使使Java编译器在不更换JVM的情况下实现新的Java语言特性。然而合成构造可能因为不同固定Java编译器实现而有区别，意味着<code>.class</code>文件可能因为不同的实现也有所不同。因此，如果你用不同的JRE实现序列化和反序列化一个内部类的时候可能会出现各种各样的复杂问题。</p>
+<p>参考 <a href="https://docs.oracle.com/javase/tutorial/reflect/member/methodparameterreflection.html#implcit_and_synthetic" target="_blank" rel="external">Implicit and Synthetic Parameters</a>  隐式合成参数， <a href="https://docs.oracle.com/javase/tutorial/reflect/member/methodparameterreflection.html" target="_blank" rel="external">Obtaining Names of Method Parameters</a> 获取方法参数名 章节，来获取内部类编译时生成合成构造的更多信息。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/java-tutorial-learning_class&object_q&e1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/20/java-tutorial-learning_class&object_q&e1/" itemprop="url">Java 学习指南_学习Java：基础-类-问题与练习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T15:39:59+08:00">
+                2017-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="类：问题与练习"><a href="#类：问题与练习" class="headerlink" title="类：问题与练习"></a>类：问题与练习</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
+<li><p>观察下面的类:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IdentifyMyParts</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> x = <span class="number">7</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">3</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><p><strong>问题</strong>: 哪一个是类变量?</p>
+</li>
+<li><p><strong>问题</strong>:哪一个是实例变量?</p>
+</li>
+<li><p><strong>问题</strong>: 以下代码的输出内容是什么:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">IdentifyMyParts a = new IdentifyMyParts(); </div><div class="line">IdentifyMyParts b = new IdentifyMyParts(); </div><div class="line">a.y = 5; </div><div class="line">b.y = 6; </div><div class="line">a.x = 1; </div><div class="line">b.x = 2; </div><div class="line">System.out.println(&quot;a.y = &quot; + a.y); </div><div class="line">System.out.println(&quot;b.y = &quot; + b.y); </div><div class="line">System.out.println(&quot;a.x = &quot; + a.x); </div><div class="line">System.out.println(&quot;b.x = &quot; + b.x); </div><div class="line">System.out.println(&quot;IdentifyMyParts.x = &quot; + IdentifyMyParts.x);</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><ol>
+<li><strong>练习</strong>: 写一个类，类的每一个实例代表了一副牌中的一张。没一张牌有两个属性：点数与花色。保留你的解决方案，在 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/QandE/enum-questions.html" target="_blank" rel="external">Enum Types</a> 枚举类一节中会要求你重写这个类.</li>
+<li><strong>练习</strong>: 写一个类，类的每一个实例代表<strong>一整副</strong>扑克。同样保留这个类。</li>
+<li><strong>练习</strong>：写一个小程序来测试你的单长牌与扑克类。可以简单的创建一副扑克并展示它其中的每一张牌。</li>
+</ol>
+<h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/20/java-tutorial-learning_class&object_q&e1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/java-tutorial-learning_class&object_q&e2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/20/java-tutorial-learning_class&object_q&e2/" itemprop="url">Java 学习指南_学习Java：基础-对象-问题与练习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T14:53:59+08:00">
+                2017-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="对象-问题与练习"><a href="#对象-问题与练习" class="headerlink" title="对象-问题与练习"></a>对象-问题与练习</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
+<li><p><strong>问题</strong>: 下面的程序有什么问题?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomethingIsWrong</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Rectangle myRect;</div><div class="line">        myRect.width = <span class="number">40</span>;</div><div class="line">        myRect.height = <span class="number">50</span>;</div><div class="line">        System.out.println(<span class="string">"myRect's area is "</span> + myRect.area());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>问题</strong>:  以下代码创建了一个数组对象和字符串对象。当代码实行完毕后，有多少个指向那些对象的引用?是否两个对象都将会垃圾回收器回收?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">String[] students = <span class="keyword">new</span> String[<span class="number">10</span>];</div><div class="line">String studentName = <span class="string">"Peter Smith"</span>;</div><div class="line">students[<span class="number">0</span>] = studentName;</div><div class="line">studentName = <span class="keyword">null</span>;</div><div class="line">...</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>问题</strong>: 程序是如何销毁一个它创建的对象的?</p>
+</li>
+</ol>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><ol>
+<li><p><strong>练习</strong>: 修复 <code>SomethingIsWrong</code> 代码在问题1中的错误.</p>
+</li>
+<li><p><strong>练习</strong>: 已知以下类 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/QandE/NumberHolder.java" target="_blank" rel="external"><code>NumberHolder</code></a>, 些以下代码创建一个该类的实例，初始化它的两个成员变量，然后显示每个成员变量的值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NumberHolder</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> anInt;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">float</span> aFloat;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/20/java-tutorial-learning_class&object_q&e2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/java-tutorial-learning_class&object_class_15/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/20/java-tutorial-learning_class&object_class_15/" itemprop="url">Java 学习指南_学习Java：基础-类和对象总结</a></h1>
         
 
         <div class="post-meta">
@@ -452,7 +1248,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&object_class_14/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/java-tutorial-learning_class&object_class_14/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hello Young">
@@ -471,7 +1267,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/20/java-tutorial-learning_the_lang_basic_class&object_class_14/" itemprop="url">Java 学习指南_学习Java：基础-类-初始化字段</a></h1>
+                <a class="post-title-link" href="/2017/10/20/java-tutorial-learning_class&object_class_14/" itemprop="url">Java 学习指南_学习Java：基础-类-初始化字段</a></h1>
         
 
         <div class="post-meta">
@@ -604,7 +1400,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&object_class_13/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/20/java-tutorial-learning_class&object_class_13/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hello Young">
@@ -623,7 +1419,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/20/java-tutorial-learning_the_lang_basic_class&object_class_13/" itemprop="url">Java 学习指南_学习Java：基础-类-类的成员</a></h1>
+                <a class="post-title-link" href="/2017/10/20/java-tutorial-learning_class&object_class_13/" itemprop="url">Java 学习指南_学习Java：基础-类-类的成员</a></h1>
         
 
         <div class="post-meta">
@@ -777,7 +1573,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&object_class_11/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/18/java-tutorial-learning_class&object_class_11/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hello Young">
@@ -796,7 +1592,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/18/java-tutorial-learning_the_lang_basic_class&object_class_11/" itemprop="url">Java 学习指南_学习Java：基础-类-this关键字</a></h1>
+                <a class="post-title-link" href="/2017/10/18/java-tutorial-learning_class&object_class_11/" itemprop="url">Java 学习指南_学习Java：基础-类-this关键字</a></h1>
         
 
         <div class="post-meta">
@@ -920,7 +1716,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&object_class_12/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/18/java-tutorial-learning_class&object_class_12/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hello Young">
@@ -939,7 +1735,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/18/java-tutorial-learning_the_lang_basic_class&object_class_12/" itemprop="url">Java 学习指南_学习Java：基础-类-访问控制</a></h1>
+                <a class="post-title-link" href="/2017/10/18/java-tutorial-learning_class&object_class_12/" itemprop="url">Java 学习指南_学习Java：基础-类-访问控制</a></h1>
         
 
         <div class="post-meta">
@@ -1148,758 +1944,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&object_class_10/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hello Young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/18/java-tutorial-learning_the_lang_basic_class&object_class_10/" itemprop="url">Java 学习指南_学习Java：基础-类-方法返回值</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-18T11:00:59+08:00">
-                2017-10-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="从方法返回值"><a href="#从方法返回值" class="headerlink" title="从方法返回值"></a>从方法返回值</h1><p>当以下情况出现时方法会返回到调用他的代码处：</p>
-<ul>
-<li>完成方法中的所有语句</li>
-<li>执行到一个 <code>return</code>语句</li>
-<li>或者抛出一个异常(稍后讨论)</li>
-</ul>
-<p>哪一个先出现都会返回。</p>
-<p>在方法声明时你会定义方法的返回类型。在方法体中，使用 <code>return</code>语句来返回值。</p>
-<p>声明<code>void</code>返回类型的方法不会返回值，不一定要包含一个<code>return</code>语句,但是可以这么做。这种情况下，一个<code>return</code>语句可以用程序分支跳出一个控制流程块并且退出方法，使用方法如下:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span>;</div></pre></td></tr></table></figure>
-<p>如果你你视图在声明了<code>void</code>的方法里返回一个值，将会出现编译错误。</p>
-<p>任何没有声明<code>void</code>的方法都必须包含一个<code>return</code>语句和对应的返回值,如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> returnValue;</div></pre></td></tr></table></figure>
-<p>返回值的数据类型必须与方法声明的返回类型匹配;你不能在生命的<code>boolean</code>返回类型的方法里返回一个整形。</p>
-<p>在对象一节中讨论的 <code>Rectangle</code> <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/examples/Rectangle.java" target="_blank" rel="external"><code>Rectangle</code></a> 类的 <code>getArea()</code>方法返回一个integer:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// a method for computing the area of the rectangle</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getArea</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> width * height;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>方法返回的值为表达式 <code>width*height</code>的计算结果.</p>
-<p> <code>getArea</code> 方法返回了一个基本数据类型. 方法同样可以返回引用类型的数据.例如 ，在一个操纵 <code>Bicycle</code> 对象的类里，我们可能会看到这样的方法:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Bicycle <span class="title">seeWhosFastest</span><span class="params">(Bicycle myBike, Bicycle yourBike,</span></span></div><div class="line">                              Environment env) &#123;</div><div class="line">    Bicycle fastest;</div><div class="line">    <span class="comment">// code to calculate which bike is </span></div><div class="line">    <span class="comment">// faster, given each bike's gear </span></div><div class="line">    <span class="comment">// and cadence and given the </span></div><div class="line">    <span class="comment">// environment (terrain and wind)</span></div><div class="line">    <span class="keyword">return</span> fastest;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="返回类型为一个类或者接口Returning-a-Class-or-Interface"><a href="#返回类型为一个类或者接口Returning-a-Class-or-Interface" class="headerlink" title="返回类型为一个类或者接口Returning a Class or Interface"></a>返回类型为一个类或者接口Returning a Class or Interface</h2><p>如果你对本章节感到费解，可以先跳过，学习完<a href="">接口与继承</a>课程之后返回来学习。</p>
-<p>当一个方法使用一个类名作为它的返回类型，例如 <code>whosFastest</code>这样,返回对象的类型必须使这个类或者这个类的子类。假设你有继承关系， <code>ImaginaryNumber</code> 是 <code>java.lang.Number</code>类的子类,  <code>java.lang.Number</code>类是<code>Object</code>的子类, 如下图所示.</p>
-<p><img src="http://docs.oracle.com/javase/tutorial/figures/java/classes-hierarchy.gif" alt="The class hierarchy for ImaginaryNumber"></p>
-<p> <code>ImaginaryNumber</code>类的继承关系</p>
-<p>现在假设你有一个返回类型为<code>Number</code>的方法声明:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Number <span class="title">returnANumber</span><span class="params">()</span> </span>&#123;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p> <code>returnANumber</code> 方法可以返回 <code>ImaginaryNumber</code> 但是不能返回 <code>Object</code>. <code>ImaginaryNumber</code> 是一个 <code>Number</code> 因为他是 <code>Number</code>的子类. 但是<code>Object</code>并不一定是一个 <code>Number</code> — 它可能是一个 <code>String</code> 或者其他的类型.</p>
-<p>你可以通过定义一个方法的返回类型为源方法返回类型的子类来覆盖一个方法，如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> ImaginaryNumber <span class="title">returnANumber</span><span class="params">()</span> </span>&#123;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这种技术叫做 <em>covariant return type协变返回类型</em>,意味着返回类型允许用某一个类和其子类来区分。</p>
-<hr>
-<p><strong>注意</strong>:你同样可以声明接口为返回类型。这种情况下，你返回对象的类型必须是对应接口的实现类。</p>
-<hr>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&object_class_9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hello Young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/13/java-tutorial-learning_the_lang_basic_class&object_class_9/" itemprop="url">Java 学习指南_学习Java：基础-类-类的其他内容</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-13T16:00:59+08:00">
-                2017-10-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="类-其他内容"><a href="#类-其他内容" class="headerlink" title="类-其他内容"></a>类-其他内容</h1><p>该部分将覆盖类的更多方面。基于你之前学习的使用对象的引用以及<code>.</code>点操作符的关于对象的章节。:</p>
-<ul>
-<li>通过方法返回值.</li>
-<li><code>this</code>关键字.</li>
-<li>类vs.实例 成员.</li>
-<li>访问控制.</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&object_class_8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hello Young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/13/java-tutorial-learning_the_lang_basic_class&object_class_8/" itemprop="url">Java 学习指南_学习Java：基础-类-使用对象</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-13T15:00:59+08:00">
-                2017-10-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="使用对象"><a href="#使用对象" class="headerlink" title="使用对象"></a>使用对象</h1><p>一旦你创建了一个对象，你可能想要用它做一些事情。你可能需要使用这个对象的字段/成员变量中的一个，改变它，或者调用的方法来执行某些行为。</p>
-<h2 id="引用对象的字段-属性-成员变量"><a href="#引用对象的字段-属性-成员变量" class="headerlink" title="引用对象的字段/属性/成员变量"></a>引用对象的字段/属性/成员变量</h2><p>对象的字段通过它的名称来访问。你必须使用一个无歧义的名称。</p>
-<p>你可能会在一个类中使用简单的名称。例如，我们可以在<code>Rectangle</code>类中加上一个语句。来打印它的 <code>width</code> 和 <code>height</code>:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">System.out.println(<span class="string">"Width and height are: "</span> + width + <span class="string">", "</span> + height);</div></pre></td></tr></table></figure>
-<p>在这种情况下，<code>width</code> 和 <code>height</code>是简单的名称.在对象的类之外的代码中必须使用一个对象的引用或者表达式，紧接着一个点<code>.</code>操作符，紧接着字段的名称来引用，例如</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">objectReference.fieldName</div></pre></td></tr></table></figure>
-<p>例如， <code>CreateObjectDemo</code> 类中的代码是 <code>Rectangle</code> 类之外的代码.所以<code>Rectangle</code> 对象 <code>rectOne</code>的字段 <code>origin</code>, <code>width</code>, <code>height</code>的引用必须分别使用 <code>rectOne.origin</code>, <code>rectOne.width</code>, 以及 <code>rectOne.height</code>这样的名字.以下代码使用了两个这样的名称来展示<code>rectOne</code>的 <code>width</code>以及<code>height</code>字段:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">System.out.println(<span class="string">"Width of rectOne: "</span>  + rectOne.width);</div><div class="line">System.out.println(<span class="string">"Height of rectOne: "</span> + rectOne.height);</div></pre></td></tr></table></figure>
-<p>如果在以上代码中尝试使用简单的名字如 <code>width</code> ， <code>height</code> 并不会起作用，这两字段只存在于一个对象之中——并且会导致编译错误。</p>
-<p>接着，程序使用相似的代码展示了<code>rectTwo</code>对象的信息。同类型的对象有他们自己的实例变量的副本。这样的话，每一个<code>Rectangle</code>对象都有名为 <code>origin</code>, <code>width</code>, 和 <code>height</code>等字段.当你通过一个引用变量访问其实例变量时，你引用的时那个特定的对象的字段。两个对象 <code>rectOne</code> 和 <code>rectTwo</code> ，在 <code>CreateObjectDemo</code> 有着不同的 <code>origin</code>, <code>width</code>, 和 <code>height</code> 字段.</p>
-<p>为了方位一个实例变量，你可以使用命名的引用对象，就像之前的例子一样，或者你也可以使用任何返回该对象引用的表达式。重申一下，<code>new</code>操作符返回一个对象的引用。因此使用new的返回值来访问其实例变量:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> height = <span class="keyword">new</span> Rectangle().height;</div></pre></td></tr></table></figure>
-<p>这个语句使用new创建 <code>Rectangle</code> 对象并且直接获取了他的高度。实质上，这个语句运算出一个<code>Rectangle</code>的默认高度。注意这个语句过后，程序中不在持有已经创建的<code>Rectangle</code>的对象引用，因为程序没有将这个引用存储在任何地方。这个对象没有别引用，并且它的资源时空间的将被Java虚拟机回收。</p>
-<h2 id="调用一个对象的方法"><a href="#调用一个对象的方法" class="headerlink" title="调用一个对象的方法"></a>调用一个对象的方法</h2><p>你也会用一个对象引用调用一个对象的方法。在对象应用的名称后面加上方法名，中间使用一个<code>.</code>操作符链接。同样，在闭合的<code>()</code>提供方法所需的参数，如果方法不需要参数，使用空的<code>()</code>.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">objectReference.methodName(argumentList);</div></pre></td></tr></table></figure>
-<p>或者:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">objectReference.methodName();</div></pre></td></tr></table></figure>
-<p> <code>Rectangle</code> 类有两个方法: <code>getArea()</code>用来计算矩形的面积， <code>move()</code> 方法来盖面正方形的源点。下面是程序调用这两个方法的代码:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">System.out.println(<span class="string">"Area of rectOne: "</span> + rectOne.getArea());</div><div class="line">...</div><div class="line">rectTwo.move(<span class="number">40</span>, <span class="number">72</span>);</div></pre></td></tr></table></figure>
-<p>第一行语句，调用了 <code>rectOne</code>的 <code>getArea()</code> 方法并且显示了结果。第二行移动了 <code>rectTwo</code> 因为 <code>move()</code> 方法为对象的 <code>origin.x</code> 和 <code>origin.y</code>赋了新的值.</p>
-<p>对于实例变量，对象引用必须时一个指向对象的引用。你可以使用一个变量名，同样可以使用一个返回对象引用的表达式。<code>new</code>操作符返回一个对象引用，因此你可以直接使用这个表达式的返回值来调用对象的方法:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Rectangle(<span class="number">100</span>, <span class="number">50</span>).getArea()</div></pre></td></tr></table></figure>
-<p>表达式 <code>new Rectangle(100, 50)</code>返回一个 <code>Rectangle</code> 对象的引用。正如展示的一样，可以使用<code>.</code>符号来调用这个新的<code>Rectangle</code>的<code>getArea()</code>方法。</p>
-<p>有些方法，例如 <code>getArea()</code>,返回一个值。对于返回值的方法，你在在表达式中使用方法调用。你可以将返回值赋值给变量，可以用来做决定，或者控制循环语句。这段代码将 <code>getArea()</code> 的返回值赋值给变量 <code>areaOfRectangle</code>:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> areaOfRectangle = <span class="keyword">new</span> Rectangle(<span class="number">100</span>, <span class="number">50</span>).getArea();</div></pre></td></tr></table></figure>
-<p>记住，调用一个特定对象的方法就好像向这个对象发送信息。本例中，调用的<code>getArea()</code>方法构造器返回的rectangle对象的方法。</p>
-<h2 id="垃圾回收The-Garbage-Collector"><a href="#垃圾回收The-Garbage-Collector" class="headerlink" title="垃圾回收The Garbage Collector"></a>垃圾回收The Garbage Collector</h2><p>有些面向对象的编程语言要求你持续跟踪你创建的所有对象，并且在不需要的时候明确的销毁它们。明确的管理内存是及其乏味并且容易出错的过程。Java编程语言允许你创建任意数量你想要的对象（当然受限与你的系统处理能力），并且无需担心何时销毁。Java 运行时环境确定对象不会再被使用的时候会删除对象。这个过程叫做<code>垃圾回收</code><em>garbage collection</em>.</p>
-<p>当一个对象没有引用指向它的时候，是符合垃圾回收条件的。或者，你可以通过将一个变量设置为特殊的值<code>null</code>，显式的清理一个对象引用。记住，一个程序可能对一个对象有非常多的引用;一个对象被垃圾回收前必须清理所有指向它的引用。</p>
-<p>Java运行时环境有一个垃圾回收器，周期性的释放被没有引用指向的对象占用的内存。垃圾回收器确定时机正确时，会自动完成其工作。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&object_class_7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hello Young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/13/java-tutorial-learning_the_lang_basic_class&object_class_7/" itemprop="url">Java 学习指南_学习Java：基础-类-创建对象</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-13T13:00:59+08:00">
-                2017-10-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h1><p>如你所知，类提供了对象的蓝图/模板；你可以通过类创建对象。下面的每一个语句取自 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/examples/CreateObjectDemo.java" target="_blank" rel="external"><code>CreateObjectDemo</code></a> ，都创建了一个对象并将它赋值给一个变量:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Point originOne = <span class="keyword">new</span> Point(<span class="number">23</span>, <span class="number">94</span>);</div><div class="line">Rectangle rectOne = <span class="keyword">new</span> Rectangle(originOne, <span class="number">100</span>, <span class="number">200</span>);</div><div class="line">Rectangle rectTwo = <span class="keyword">new</span> Rectangle(<span class="number">50</span>, <span class="number">100</span>);</div></pre></td></tr></table></figure>
-<p>第一行创建了一个 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/examples/Point.java" target="_blank" rel="external"><code>Point</code></a> 类的对象,第二行及第三行创建了 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/examples/Rectangle.java" target="_blank" rel="external"><code>Rectangle</code></a> 类的对象.</p>
-<p>每一行语句都包含了三部分，详情如下：</p>
-<ol>
-<li><strong>声明Declaration</strong>: 首先定义了变量对应的数据类型和变量名.</li>
-<li><strong>实例化Instantiation</strong>:  <code>new</code>  关键字时Java的创建（实例化）对象操作符.</li>
-<li><strong>初始化Initialization</strong>:  <code>new</code> 操作符接下来调用一个构造方法，构造方法初始化这个新的对象.</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/13/java-tutorial-learning_the_lang_basic_class&object_class_7/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&object_class_6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hello Young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/13/java-tutorial-learning_the_lang_basic_class&object_class_6/" itemprop="url">Java 学习指南_学习Java：基础-类-对象</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-13T11:00:59+08:00">
-                2017-10-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><p>一个特定的Java程序创建许多对象，就像你学过的，通过方法调用进行交出。通过对象的交互，一个程序可以处理各种各样的任务，诸如实现一个GUI（用户交互界面），运行一个动画，或者通过网路发送和接受信息。一旦一个对象完成了被创建的过程，它的资源可以被其他对象循环使用。</p>
-<p>下面有一个小程序，叫做 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/examples/CreateObjectDemo.java" target="_blank" rel="external"><code>CreateObjectDemo</code></a>, 创建了三个对下给你，一个点对象 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/examples/Point.java" target="_blank" rel="external"><code>Point</code></a> 和两个矩形 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/examples/Rectangle.java" target="_blank" rel="external"><code>Rectangle</code></a> 对象. 你会需要三个资源文件来完成这个程序.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CreateObjectDemo</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		</div><div class="line">        <span class="comment">// Declare and create a point object and two rectangle objects.</span></div><div class="line">        Point originOne = <span class="keyword">new</span> Point(<span class="number">23</span>, <span class="number">94</span>);</div><div class="line">        Rectangle rectOne = <span class="keyword">new</span> Rectangle(originOne, <span class="number">100</span>, <span class="number">200</span>);</div><div class="line">        Rectangle rectTwo = <span class="keyword">new</span> Rectangle(<span class="number">50</span>, <span class="number">100</span>);</div><div class="line">		</div><div class="line">        <span class="comment">// display rectOne's width, height, and area</span></div><div class="line">        System.out.println(<span class="string">"Width of rectOne: "</span> + rectOne.width);</div><div class="line">        System.out.println(<span class="string">"Height of rectOne: "</span> + rectOne.height);</div><div class="line">        System.out.println(<span class="string">"Area of rectOne: "</span> + rectOne.getArea());</div><div class="line">		</div><div class="line">        <span class="comment">// set rectTwo's position</span></div><div class="line">        rectTwo.origin = originOne;</div><div class="line">		</div><div class="line">        <span class="comment">// display rectTwo's position</span></div><div class="line">        System.out.println(<span class="string">"X Position of rectTwo: "</span> + rectTwo.origin.x);</div><div class="line">        System.out.println(<span class="string">"Y Position of rectTwo: "</span> + rectTwo.origin.y);</div><div class="line">		</div><div class="line">        <span class="comment">// move rectTwo and display its new position</span></div><div class="line">        rectTwo.move(<span class="number">40</span>, <span class="number">72</span>);</div><div class="line">        System.out.println(<span class="string">"X Position of rectTwo: "</span> + rectTwo.origin.x);</div><div class="line">        System.out.println(<span class="string">"Y Position of rectTwo: "</span> + rectTwo.origin.y);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个程序创建，操作了三个不同的随想并显示了其信息，以下为输出情况:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Width of rectOne: <span class="number">100</span></div><div class="line">Height of rectOne: <span class="number">200</span></div><div class="line">Area of rectOne: <span class="number">20000</span></div><div class="line">X Position of rectTwo: <span class="number">23</span></div><div class="line">Y Position of rectTwo: <span class="number">94</span></div><div class="line">X Position of rectTwo: <span class="number">40</span></div><div class="line">Y Position of rectTwo: <span class="number">72</span></div></pre></td></tr></table></figure>
-<p>接下来的三部分使用上面的例子描述了一个对象在程序中的生命周期。通过特们，你可以学习到如何在你的程序中创建和使用对象。同样可以学习到系统在对象的生命周期结束后如何清理它们。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1949,7 +1993,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1971,7 +2015,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">67</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

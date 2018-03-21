@@ -307,6 +307,736 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/27/java-tutorial-learning_class&object_class/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/27/java-tutorial-learning_class&object_class/" itemprop="url">Java 学习指南_学习Java：基础-类</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T12:00:59+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>在标题为 <a href="http://docs.oracle.com/javase/tutorial/java/concepts/index.html" target="_blank" rel="external">面向对象编程概念 </a>的课程中介绍面向对象编程概念时使用了一个bicycle自行车类作为例子，包含赛车，山地车作为子类。这里有一个简单的代码示例作为<code>Bicycle</code>类的一种可能实现，让你对类的定义有一个大致的了解。接下来的课程中将会一步一步的复习和解释类的定义，现在先不要关注太多的细节。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bicycle</span> </span>&#123;</div><div class="line">        </div><div class="line">    <span class="comment">// the Bicycle class has</span></div><div class="line">    <span class="comment">// three fields</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> cadence;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> gear;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> speed;</div><div class="line">        </div><div class="line">    <span class="comment">// the Bicycle class has</span></div><div class="line">    <span class="comment">// one constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Bicycle</span><span class="params">(<span class="keyword">int</span> startCadence, <span class="keyword">int</span> startSpeed, <span class="keyword">int</span> startGear)</span> </span>&#123;</div><div class="line">        gear = startGear;</div><div class="line">        cadence = startCadence;</div><div class="line">        speed = startSpeed;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="comment">// the Bicycle class has</span></div><div class="line">    <span class="comment">// four methods</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCadence</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;</div><div class="line">        cadence = newValue;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setGear</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;</div><div class="line">        gear = newValue;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">applyBrake</span><span class="params">(<span class="keyword">int</span> decrement)</span> </span>&#123;</div><div class="line">        speed -= decrement;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">speedUp</span><span class="params">(<span class="keyword">int</span> increment)</span> </span>&#123;</div><div class="line">        speed += increment;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>定义一i个<code>Bicycle</code>类的子类<code>MountainBike</code>l类可能如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MountainBike</span> <span class="keyword">extends</span> <span class="title">Bicycle</span> </span>&#123;</div><div class="line">        </div><div class="line">    <span class="comment">// the MountainBike subclass has</span></div><div class="line">    <span class="comment">// one field</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> seatHeight;</div><div class="line"></div><div class="line">    <span class="comment">// the MountainBike subclass has</span></div><div class="line">    <span class="comment">// one constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MountainBike</span><span class="params">(<span class="keyword">int</span> startHeight, <span class="keyword">int</span> startCadence,</span></span></div><div class="line">                        <span class="keyword">int</span> startSpeed, <span class="keyword">int</span> startGear) &#123;</div><div class="line">        <span class="keyword">super</span>(startCadence, startSpeed, startGear);</div><div class="line">        seatHeight = startHeight;</div><div class="line">    &#125;   </div><div class="line">        </div><div class="line">    <span class="comment">// the MountainBike subclass has</span></div><div class="line">    <span class="comment">// one method</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHeight</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;</div><div class="line">        seatHeight = newValue;</div><div class="line">    &#125;   </div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>MountainBike</code> 类继承了自行车类的所有fields字段/域 以及方法，并且添加了field <code>seatHeight</code>，以及一个设置它的方法（山地车拥有可以根据地形调整高度的座位）。 </p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/27/java-tutorial-learning_class&object/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/27/java-tutorial-learning_class&object/" itemprop="url">Java 学习指南_学习Java：基础-类与对象</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T12:00:59+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="课程-类与对象"><a href="#课程-类与对象" class="headerlink" title="课程:类与对象"></a>课程:类与对象</h1><p>根据你已经掌握的java编程语言基础知识，你可以学习写你自己的类。本课程中你会找到定义类的相关信息。包括定义成员变量，方法，以及构造函数。</p>
+<p>你会学习如何使用你的类创建对象，以及如何使用创建的对象。</p>
+<p>本课程同样覆盖了嵌套类以及枚举类。</p>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a><a href="">类</a></h2><p>这一部分将为你剖析一个类的结构，展示如定义成员变量，方法，以及构造函数。</p>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a><a href="">对象</a></h2><p>这一部分包括了如何创建以及使用对象。你会学习如何实例化一个对象，以及实例化之后如何使用点操作符号访问对象的实例变量以及方法。</p>
+<h2 id="类详细介绍"><a href="#类详细介绍" class="headerlink" title="类详细介绍"></a><a href="">类详细介绍</a></h2><p>这一部分依据上一节的类使用参考以及点操作符号的知识介绍类的更多方面：从方法中返回值，<code>this</code>关键字，类与实例成员，以及访问控制。</p>
+<h2 id="嵌套类（内部类）"><a href="#嵌套类（内部类）" class="headerlink" title="嵌套类（内部类）"></a><a href="">嵌套类（内部类）</a></h2><p>静态嵌套类，内部类，匿名内部类，局部类，以及lambda表达式都包含在内，同时也包含了何时使用某种方法的讨论。</p>
+<h2 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a><a href="">枚举类型</a></h2><p>本节包括了枚举类型，一种语序你定义和使用常量集合的特殊类。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/27/java-tutorial-learning_the_lang_basic_control_flow_q&e/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/27/java-tutorial-learning_the_lang_basic_control_flow_q&e/" itemprop="url">Java 学习指南_学习Java：基础-控制流程-问答与练习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T11:30:59+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="控制流程为题与练习"><a href="#控制流程为题与练习" class="headerlink" title="控制流程为题与练习"></a>控制流程为题与练习</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
+<li>java编程语言支持的最基本的控制流程语句是 <strong>？</strong> 语句.</li>
+<li><strong>？</strong>语句允许一定数量的可能执行路径。</li>
+<li>？语句与<code>while</code>语句相似，但是在执行代码块的<strong>？</strong>计算控制表达式的布尔值.</li>
+<li>问题: 如何使用<code>for</code>语句写一个无限循环？</li>
+<li>问题:如何用<code>while</code>语句写一个无限循环？</li>
+</ol>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><ol>
+<li><p>观察以下代码片段.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (aNumber &gt;= <span class="number">0</span>)</div><div class="line">    <span class="keyword">if</span> (aNumber == <span class="number">0</span>)</div><div class="line">        System.out.println(<span class="string">"first string"</span>);</div><div class="line"><span class="keyword">else</span> </div><div class="line">    System.out.println(<span class="string">"second string"</span>);</div><div class="line">System.out.println(<span class="string">"third string"</span>);</div></pre></td></tr></table></figure>
+<ol>
+<li><p>练习:如果<code>aNumber</code>的值为3输出的结果可能是什么？</p>
+</li>
+<li><p>练习:如果<code>aNumber</code>的值为3，程序的输出是什么？你的预测是什么？解释为什么输出这个结果，换句话说，代码片段的控制流程是什么? </p>
+</li>
+<li><p>练习: </p>
+<p>仅使用空格和换行符重新格式化代码使代码放容易理解.</p>
+</li>
+<li><p>练习:</p>
+<p>使用<code>{}</code>使代码更加清晰易读，已减少在后期维护过程中可能出现的错误.</p>
+</li>
+</ol>
+</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/27/java-tutorial-learning_the_lang_basic_control_flow_q&e/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/27/java-tutorial-learning_the_lang_basic_control_flow_6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/27/java-tutorial-learning_the_lang_basic_control_flow_6/" itemprop="url">Java 学习指南_学习Java：基础-控制流程-总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T10:40:59+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="控制流程总结"><a href="#控制流程总结" class="headerlink" title="控制流程总结"></a>控制流程总结</h1><p> <code>if-then</code>语句时所有控制流程中最基本的语句。当一个特定的测试验证为<code>true</code>时告诉程序执行确定的某一部分代码。 <code>if-then-else</code> 语句为if引用计算结果为<code>false</code>时提供第二个执行选择。<code>switch</code>语句允许一定数量的可能执行路径。<code>while</code>与<code>do-while</code>语句当特定的条件为<code>true</code>循环执行某一代码块，区别为<code>while</code>在执行前计算控制表达式，<code>do-while</code>在执行后计算控制表达式，因此在<code>do</code>代码块之内的代码至少被执行一次。<code>for</code>语句为迭代一定范围内的值提供了一种简介的方法，<code>for</code>语句有两种形式，其中增强<code>for</code>语句用来迭代一个集合或者数组。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/27/java-tutorial-learning_the_lang_basic_control_flow_5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/27/java-tutorial-learning_the_lang_basic_control_flow_5/" itemprop="url">Java 学习指南_学习Java：基础-控制流程-分支语句</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T10:00:59+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="分支语句"><a href="#分支语句" class="headerlink" title="分支语句"></a>分支语句</h1><h2 id="break-语句"><a href="#break-语句" class="headerlink" title="break 语句"></a><code>break</code> 语句</h2><p><code>break</code> 语句有两种形式，带标签以及不带标签，你之前在<code>switch</code>语句的讨论中已经见到国不带标签的<code>break</code>语句。你同样可以使用不带标签<code>break</code>语句来终止一个 <code>for</code>, <code>while</code>, 或者 <code>do-while</code> 循环,就像下面示例程序展示的一样 <a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/examples/BreakDemo.java" target="_blank" rel="external"><code>BreakDemo</code></a> :</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BreakDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">int</span>[] arrayOfInts = </div><div class="line">            &#123; <span class="number">32</span>, <span class="number">87</span>, <span class="number">3</span>, <span class="number">589</span>,</div><div class="line">              <span class="number">12</span>, <span class="number">1076</span>, <span class="number">2000</span>,</div><div class="line">              <span class="number">8</span>, <span class="number">622</span>, <span class="number">127</span> &#125;;</div><div class="line">        <span class="keyword">int</span> searchfor = <span class="number">12</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> i;</div><div class="line">        <span class="keyword">boolean</span> foundIt = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; arrayOfInts.length; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (arrayOfInts[i] == searchfor) &#123;</div><div class="line">                foundIt = <span class="keyword">true</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (foundIt) &#123;</div><div class="line">            System.out.println(<span class="string">"Found "</span> + searchfor + <span class="string">" at index "</span> + i);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            System.out.println(searchfor + <span class="string">" not in the array"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个程序在一个数组中搜索数字12。<code>break</code>语句，当找到这个值时终止循环。控制流程跳转至for循环结束以后的语句。程序的输出如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Found <span class="number">12</span> at index <span class="number">4</span></div></pre></td></tr></table></figure>
+<p>一个无标签的<code>break</code>语句终止最内层的 <code>switch</code>, <code>for</code>, <code>while</code>, 或者 <code>do-while</code> 语句,但是一个带标签的 <code>break</code> 语句可以终止外部的语句。下面的程序, <a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/examples/BreakWithLabelDemo.java" target="_blank" rel="external"><code>BreakWithLabelDemo</code></a>,和前一个程序相似,但是使用了嵌套<code>for</code>循环在二维数组中搜索一个值.当找到这个值时，一个带标签的<code>break</code>语句终止外部的循环（标签’search’）:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BreakWithLabelDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">int</span>[][] arrayOfInts = &#123; </div><div class="line">            &#123; <span class="number">32</span>, <span class="number">87</span>, <span class="number">3</span>, <span class="number">589</span> &#125;,</div><div class="line">            &#123; <span class="number">12</span>, <span class="number">1076</span>, <span class="number">2000</span>, <span class="number">8</span> &#125;,</div><div class="line">            &#123; <span class="number">622</span>, <span class="number">127</span>, <span class="number">77</span>, <span class="number">955</span> &#125;</div><div class="line">        &#125;;</div><div class="line">        <span class="keyword">int</span> searchfor = <span class="number">12</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> i;</div><div class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</div><div class="line">        <span class="keyword">boolean</span> foundIt = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">    search:</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; arrayOfInts.length; i++) &#123;</div><div class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; arrayOfInts[i].length;</div><div class="line">                 j++) &#123;</div><div class="line">                <span class="keyword">if</span> (arrayOfInts[i][j] == searchfor) &#123;</div><div class="line">                    foundIt = <span class="keyword">true</span>;</div><div class="line">                    <span class="keyword">break</span> search;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (foundIt) &#123;</div><div class="line">            System.out.println(<span class="string">"Found "</span> + searchfor + <span class="string">" at "</span> + i + <span class="string">", "</span> + j);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            System.out.println(searchfor + <span class="string">" not in the array"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出如下.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Found 12 at 1, 0</div></pre></td></tr></table></figure>
+<p><code>break</code>语句终止标记的语句；并不是控制流程跳转至标签，而是跳转至标签语句（块）之后的语句。</p>
+<h2 id="continue-语句"><a href="#continue-语句" class="headerlink" title="continue 语句"></a><code>continue</code> 语句</h2><p> <code>continue</code>跳过一个 <code>for</code>, <code>while</code> , 或者 <code>do-while</code> 循环的当前迭代.无标签的<code>continue</code>语句跳至最内层循环体的结尾，然后球的控制循环<code>boolean</code>表达式的值。下面的程序, <a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/examples/ContinueDemo.java" target="_blank" rel="external"><code>ContinueDemo</code></a> , 检查字符串<code>String</code>的每一个字符，统计遇到的字母”p”的数量。如果遇到的字符不是’’p”,<code>continue</code>语句控制流程掠过剩下的循环直接进行下一个字符的检测。如果该字符是”p”,程序为基数增加1.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ContinueDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">        String searchMe = <span class="string">"peter piper picked a "</span> + <span class="string">"peck of pickled peppers"</span>;</div><div class="line">        <span class="keyword">int</span> max = searchMe.length();</div><div class="line">        <span class="keyword">int</span> numPs = <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; max; i++) &#123;</div><div class="line">            <span class="comment">// interested only in p's</span></div><div class="line">            <span class="keyword">if</span> (searchMe.charAt(i) != <span class="string">'p'</span>)</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line"></div><div class="line">            <span class="comment">// process p's</span></div><div class="line">            numPs++;</div><div class="line">        &#125;</div><div class="line">        System.out.println(<span class="string">"Found "</span> + numPs + <span class="string">" p's in the string."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以下为程序的输出：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Found <span class="number">9</span> p<span class="string">'s in the string.</span></div></pre></td></tr></table></figure>
+<p>为了是效果更加明显，试着删掉<code>continue</code>语句然后重新编译运行，计数就会出错，输出35而不是9。</p>
+<p>一个带标签的<code>continue</code>语句掠过一个有对应标签的外部循环的当前一次迭代。下面的示例程序，, <code>ContinueWithLabelDemo</code>, 使用嵌套循环搜索一个子字符串在另一个字符串中出现的位置。使用两个嵌套循环是必要的：一个用来遍历子字符串，另一个用来遍历被搜索的字符串。以下程序，<a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/examples/ContinueWithLabelDemo.java" target="_blank" rel="external"><code>ContinueWithLabelDemo</code></a>, 使用带标签的<code>continue</code>语句来掠过外部循环的迭代。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ContinueWithLabelDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">        String searchMe = <span class="string">"Look for a substring in me"</span>;</div><div class="line">        String substring = <span class="string">"sub"</span>;</div><div class="line">        <span class="keyword">boolean</span> foundIt = <span class="keyword">false</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> max = searchMe.length() - </div><div class="line">                  substring.length();</div><div class="line"></div><div class="line">    test:</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= max; i++) &#123;</div><div class="line">            <span class="keyword">int</span> n = substring.length();</div><div class="line">            <span class="keyword">int</span> j = i;</div><div class="line">            <span class="keyword">int</span> k = <span class="number">0</span>;</div><div class="line">            <span class="keyword">while</span> (n-- != <span class="number">0</span>) &#123;</div><div class="line">                <span class="keyword">if</span> (searchMe.charAt(j++) != substring.charAt(k++)) &#123;</div><div class="line">                    <span class="keyword">continue</span> test;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            foundIt = <span class="keyword">true</span>;</div><div class="line">                <span class="keyword">break</span> test;</div><div class="line">        &#125;</div><div class="line">        System.out.println(foundIt ? <span class="string">"Found it"</span> : <span class="string">"Didn't find it"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以下为程序的输出：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Found it</div></pre></td></tr></table></figure>
+<h2 id="return-语句"><a href="#return-语句" class="headerlink" title="return 语句"></a><code>return</code> 语句</h2><p>最后一个分支语句是<code>return</code>语句。<code>return</code>语句存在与当前的方法中，控制流程返回到方法被调用的地方。<code>return</code>语句有两种形式：一种返回一个值，一种不返回。返回值的时候只需要把返回的值（或者是用来计算返回值的表达式）放在<code>return</code>关键字之后。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> ++count;</div></pre></td></tr></table></figure>
+<p>返回值的数据类型必须有方法声明的返回值的数据类型匹配。当方法的声明为<code>void</code>时，需要使用不带返回值的<code>return</code>形式。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span>;</div></pre></td></tr></table></figure>
+<p>类与对象 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/methods.html" target="_blank" rel="external">Classes and Objects</a> 课程将会覆盖所有你需要知道的写方法的知识。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/26/java-tutorial-learning_the_lang_basic_control_flow_4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1030,769 +1760,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/15/java-tutorial-learning_the_lang_basic_esb_qe/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hello Young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/15/java-tutorial-learning_the_lang_basic_esb_qe/" itemprop="url">Java 学习指南_学习Java：表达式，语句，代码块</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-15T10:53:59+08:00">
-                2017-09-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="表达式，语句，代码块练习"><a href="#表达式，语句，代码块练习" class="headerlink" title="表达式，语句，代码块练习"></a>表达式，语句，代码块练习</h1><h2 id="问题答案"><a href="#问题答案" class="headerlink" title="问题答案"></a>问题答案</h2><ol>
-<li><p>元素安抚可以用来构建计算值的<strong>_</strong>。</p>
-</li>
-<li><p>表达式是<strong>_</strong>的核心组件。</p>
-</li>
-<li><p>语句可以组织为<strong>_</strong>.</p>
-</li>
-<li><p>以下代码片段是一个<strong>_</strong>表达式.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> * <span class="number">2</span> * <span class="number">3</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>语句类似与自然语言中的句子，但是不用句号左结尾，而是 用<strong>_</strong> .</p>
-</li>
-<li><p>代码块是包含在<strong>_</strong>内的一组空语句或者多个语句，可以出现在任何允许出现单独代码块的地方</p>
-</li>
-</ol>
-<h2 id="练习答案"><a href="#练习答案" class="headerlink" title="练习答案"></a>练习答案</h2><p>区分以下表达式语句的类型:</p>
-<ul>
-<li><code>aValue = 8933.234; //</code></li>
-<li><code>aValue++; //</code></li>
-<li><code>System.out.println(&quot;Hello World!&quot;); //</code></li>
-<li><code>Bicycle myBike = new Bicycle(); //</code></li>
-</ul>
-<h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/15/java-tutorial-learning_the_lang_basic_esb_qe/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/15/java-tutorial-learning_the_lang_basic_esb/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hello Young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/15/java-tutorial-learning_the_lang_basic_esb/" itemprop="url">Java 学习指南_学习Java：表达式，语句，代码块</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-15T10:00:59+08:00">
-                2017-09-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="表达式，语句，代码块"><a href="#表达式，语句，代码块" class="headerlink" title="表达式，语句，代码块"></a>表达式，语句，代码块</h1><p>现在你已经理解了变量和运算符，是时候表现真正的技术了，哦不是时候学习<em>表达式，语句，代码块</em> <em>expressions</em>, <em>statements</em>, and <em>blocks</em>了.运算符可以用来构成表达式，计算值；表达式时语句的核心部件；语句可以被组织为代码块。</p>
-<h2 id="表达式Expressions"><a href="#表达式Expressions" class="headerlink" title="表达式Expressions"></a>表达式Expressions</h2><p><em>表达式</em> 是由变量，运算符，以及方法调用按照Java语言的语法组成的结构，最终球的一个单独的值。已经见到过表达式的例子，参考下面的代码:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> cadence = <span class="number">0</span>;</div><div class="line">anArray[<span class="number">0</span>] = <span class="number">100</span>;</div><div class="line">System.out.println(<span class="string">"Element 1 at index 0: "</span> + anArray[<span class="number">0</span>]);</div><div class="line"></div><div class="line"><span class="keyword">int</span> result = <span class="number">1</span> + <span class="number">2</span>; <span class="comment">// result is now 3</span></div><div class="line"><span class="keyword">if</span> (value1 == value2) </div><div class="line">    System.out.println(<span class="string">"value1 == value2"</span>);</div></pre></td></tr></table></figure>
-<p>表达式返回值的数据类型取决于表达式使用的元素。表达式 <code>cadence = 0</code> 返回 <code>int</code> 因为赋值运算符返回其左边的操作因子相同的数据类型；再本例中, <code>cadence</code> 是一个<code>int</code>. 就像你看到的其他表达式一样，表达式也可以返回其他数据类型的值，例如 <code>boolean</code> 或者 <code>String</code>.</p>
-<p>Java编程语言允许你使用各种各样的小表达式作为一小部分来构建混合表达式，只要数据类型取其他部分匹配。下面是一个混合表达式的例子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> * <span class="number">2</span> * <span class="number">3</span></div></pre></td></tr></table></figure>
-<p>在这个特定的例子里，表达式计算的顺序并不重要，以为乘法计算的结果不依赖计算顺序，结果始终一致，不管你如何计算。然而，并不是所有的表达式都不需要考虑顺序。例如，以下表达式，你先计算加法或者除法得到的结果时不一样的:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x + y / <span class="number">100</span>    <span class="comment">// ambiguous有歧义</span></div></pre></td></tr></table></figure>
-<p>你可以使用小括号(和)来严格区分表达式的执行顺序。例如：想要让上面的表达式无歧义，你可以这样写：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(x + y) / <span class="number">100</span>  <span class="comment">// unambiguous, recommended无歧义，推荐</span></div></pre></td></tr></table></figure>
-<p>如果你没有明确的指示运算符的运算顺序,则运算顺序由运算符默认的优先级来确定。拥有更高优先级的运算符，将会有限运算。例如：除法比加法拥有更高的优先级。因此以下两个表达式的运算结果时一样的：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">x + y / <span class="number">100</span> </div><div class="line">x + (y / <span class="number">100</span>) <span class="comment">// unambiguous, recommended</span></div></pre></td></tr></table></figure>
-<p>当书写复合表达式时，用小括号明确指示那一个运算符先进行计算。这么做可以时代码更加易读和易于管理。</p>
-<h2 id="语句Statements"><a href="#语句Statements" class="headerlink" title="语句Statements"></a>语句Statements</h2><p>语句可以大致理解为自然语言中的句子。一个语句勾构成了一个完整的执行单元。以下类型的表达式以 (<code>;</code>)分号结束可以组成语句。</p>
-<ul>
-<li>赋值表达式Assignment expressions</li>
-<li>自增自减符号的运用Any use of <code>++</code> or <code>--</code></li>
-<li>方法的调用Method invocations</li>
-<li>创建对象表达式Object creation expressions</li>
-</ul>
-<p>这些语句被成为表达式语句<em>expression statements</em>. 以下时一些表达式语句的例子。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// assignment statement 赋值语句</span></div><div class="line">aValue = <span class="number">8933.234</span>;</div><div class="line"><span class="comment">// increment statement 自增语句</span></div><div class="line">aValue++;</div><div class="line"><span class="comment">// method invocation statement 方法调用语句</span></div><div class="line">System.out.println(<span class="string">"Hello World!"</span>);</div><div class="line"><span class="comment">// object creation statement 创建对象语句</span></div><div class="line">Bicycle myBike = <span class="keyword">new</span> Bicycle();</div></pre></td></tr></table></figure>
-<p>除了表达式语句之外，还有另外两种语句：声明语句，和控制流程语句（ <em>declaration statements</em> and <em>control flow statements</em>）. 声明语句声明一个变量，你已经见过很多例子:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// declaration statement</span></div><div class="line"><span class="keyword">double</span> aValue = <span class="number">8933.234</span>;</div></pre></td></tr></table></figure>
-<p>最后，控制流程语句控制语句被执行的规则。下一章节你将会学到更多控制流程相关的内容<a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/flow.html" target="_blank" rel="external">Control Flow Statements</a>.</p>
-<h2 id="代码块Blocks"><a href="#代码块Blocks" class="headerlink" title="代码块Blocks"></a>代码块Blocks</h2><p>代码块是包含在花括号内的一组空语句或者多个语句，可以出现在任何允许出现单独代码块的地方。以下是代码块的示例代码, <a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/examples/BlockDemo.java" target="_blank" rel="external"><code>BlockDemo</code></a>:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BlockDemo</span> </span>&#123;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">          <span class="keyword">boolean</span> condition = <span class="keyword">true</span>;</div><div class="line">          <span class="keyword">if</span> (condition) &#123; <span class="comment">// begin block 1</span></div><div class="line">               System.out.println(<span class="string">"Condition is true."</span>);</div><div class="line">          &#125; <span class="comment">// end block one</span></div><div class="line">          <span class="keyword">else</span> &#123; <span class="comment">// begin block 2</span></div><div class="line">               System.out.println(<span class="string">"Condition is false."</span>);</div><div class="line">          &#125; <span class="comment">// end block 2</span></div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/07/java-tutorial-learning_the_lang_basic_operator_4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hello Young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/07/java-tutorial-learning_the_lang_basic_operator_4/" itemprop="url">Java 学习指南_学习Java：运算符总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-07T16:58:59+08:00">
-                2017-09-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="运算符总结Summary-of-Operators"><a href="#运算符总结Summary-of-Operators" class="headerlink" title="运算符总结Summary of Operators"></a>运算符总结Summary of Operators</h1><p>一下快速参考总结了Java编程语言所支持的运算符。</p>
-<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">=     赋值 Simple assignment operator</div></pre></td></tr></table></figure>
-<h2 id="数学运算符"><a href="#数学运算符" class="headerlink" title="数学运算符"></a>数学运算符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">+       加法/字符串链接Additive operator (also used</div><div class="line">        for String concatenation)</div><div class="line">-       减法Subtraction operator</div><div class="line">*       乘法Multiplication operator</div><div class="line">/       除法Division operator</div><div class="line">%       取余数Remainder operator</div></pre></td></tr></table></figure>
-<h2 id="一元运算符"><a href="#一元运算符" class="headerlink" title="一元运算符"></a>一元运算符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">+       一元正号操作，可省略Unary plus operator; indicates</div><div class="line">        positive value (numbers are </div><div class="line">        positive without this, however)</div><div class="line">-       一元负号操作，取相反数Unary minus operator; negates</div><div class="line">        an expression</div><div class="line">++      自增操作，表达式值增加1.Increment operator; increments</div><div class="line">        a value by 1</div><div class="line">--      自减操作，表达式值减少1.Decrement operator; decrements</div><div class="line">        a value by 1</div><div class="line">!       逻辑否操作，取反。Logical complement operator;</div><div class="line">        inverts the value of a boolean</div></pre></td></tr></table></figure>
-<h2 id="相等及关系运算"><a href="#相等及关系运算" class="headerlink" title="相等及关系运算"></a>相等及关系运算</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">==      等于Equal to</div><div class="line">!=      不等于Not equal to</div><div class="line">&gt;       大于Greater than</div><div class="line">&gt;=      大于等于Greater than or equal to</div><div class="line">&lt;       小于Less than</div><div class="line">&lt;=      小于等于Less than or equal to</div></pre></td></tr></table></figure>
-<h2 id="条件运算Conditional-Operators"><a href="#条件运算Conditional-Operators" class="headerlink" title="条件运算Conditional Operators"></a>条件运算Conditional Operators</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&amp;&amp;      条件与运算Conditional-AND</div><div class="line">||      条件或运算Conditional-OR</div><div class="line">?:      三木运算Ternary (shorthand for </div><div class="line">        if-then-else statement 简便的if-then-else形式)</div></pre></td></tr></table></figure>
-<h2 id="类比较运算Type-Comparison-Operator"><a href="#类比较运算Type-Comparison-Operator" class="headerlink" title="类比较运算Type Comparison Operator"></a>类比较运算Type Comparison Operator</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">instanceof      将一个对象与具体的类，接口比较Compares an object to </div><div class="line">                a specified type</div></pre></td></tr></table></figure>
-<h2 id="位运算与位移运算Bitwise-and-Bit-Shift-Operators"><a href="#位运算与位移运算Bitwise-and-Bit-Shift-Operators" class="headerlink" title="位运算与位移运算Bitwise and Bit Shift Operators"></a>位运算与位移运算Bitwise and Bit Shift Operators</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">~       一元补码运算Unary bitwise complement</div><div class="line">&lt;&lt;      有符号左位移Signed left shift</div><div class="line">&gt;&gt;      有符号右位移Signed right shift</div><div class="line">&gt;&gt;&gt;     无符号右位移Unsigned right shift</div><div class="line">&amp;       位与运算Bitwise AND</div><div class="line">^       位异或运算Bitwise exclusive OR</div><div class="line">|       位或运算Bitwise inclusive OR</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/07/java-tutorial-learning_the_lang_basic_operator_qea/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hello Young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/07/java-tutorial-learning_the_lang_basic_operator_qea/" itemprop="url">Java 学习指南_学习Java：运算符问题与练习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-07T16:58:59+08:00">
-                2017-09-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="运算符问题与练习"><a href="#运算符问题与练习" class="headerlink" title="运算符问题与练习"></a>运算符问题与练习</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
-<li><p>观察以下代码片段.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arrayOfInts[j] &gt; arrayOfInts[j+1]</div></pre></td></tr></table></figure>
-<p>包含了那些运算符?</p>
-</li>
-<li><p>观察以下代码片段.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int i = 10;</div><div class="line">int n = i++%5;</div></pre></td></tr></table></figure>
-<ol>
-<li>代码执行以后 <code>i</code> 和 <code>n</code> 的值应该是什么?</li>
-<li>如果用前置自增操作符(<code>++i)</code>)，取代后置自增操作符 (<code>i++</code>),  <code>i</code> and <code>n</code> 的最终值应该是什么?</li>
-</ol>
-</li>
-<li><p>为了反转一个<code>boolean</code>, 应该使用哪一个操作符?</p>
-</li>
-<li><p>哪一个运算符是位了比较两个对象的值, <code>=</code> 还是 <code>==</code> ?</p>
-</li>
-<li><p>解释后面的代码片段: <code>result = someCondition ? value1 : value2;</code></p>
-</li>
-</ol>
-<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><ol>
-<li><p>将一下代码改变位符合运算符为变量赋值:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArithmeticDemo</span> </span>&#123;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String[] args)</span></span>&#123;</div><div class="line">          </div><div class="line">          <span class="keyword">int</span> result = <span class="number">1</span> + <span class="number">2</span>; <span class="comment">// result is now 3</span></div><div class="line">          System.out.println(result);</div><div class="line"></div><div class="line">          result = result - <span class="number">1</span>; <span class="comment">// result is now 2</span></div><div class="line">          System.out.println(result);</div><div class="line"></div><div class="line">          result = result * <span class="number">2</span>; <span class="comment">// result is now 4</span></div><div class="line">          System.out.println(result);</div><div class="line"></div><div class="line">          result = result / <span class="number">2</span>; <span class="comment">// result is now 2</span></div><div class="line">          System.out.println(result);</div><div class="line"></div><div class="line">          result = result + <span class="number">8</span>; <span class="comment">// result is now 10</span></div><div class="line">          result = result % <span class="number">7</span>; <span class="comment">// result is now 3</span></div><div class="line">          System.out.println(result);</div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>以下代码中，解释 “6”为什么被打印了两次:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrePostDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> i = <span class="number">3</span>;</div><div class="line">        i++;</div><div class="line">        System.out.println(i);    <span class="comment">// "4"</span></div><div class="line">        ++i;                     </div><div class="line">        System.out.println(i);    <span class="comment">// "5"</span></div><div class="line">        System.out.println(++i);  <span class="comment">// "6"</span></div><div class="line">        System.out.println(i++);  <span class="comment">// "6"</span></div><div class="line">        System.out.println(i);    <span class="comment">// "7"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/07/java-tutorial-learning_the_lang_basic_operator_qea/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/07/java-tutorial-learning_the_lang_basic_operator_3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hello Young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/07/java-tutorial-learning_the_lang_basic_operator_3/" itemprop="url">Java 学习指南_学习Java：位运算与位移运算</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-07T12:58:59+08:00">
-                2017-09-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="位运算与位移运算Bitwise-and-Bit-Shift-Operators"><a href="#位运算与位移运算Bitwise-and-Bit-Shift-Operators" class="headerlink" title="位运算与位移运算Bitwise and Bit Shift Operators"></a>位运算与位移运算Bitwise and Bit Shift Operators</h1><p>Java编程语言同样提供了完整的位运算以及位移运算运算符。因为本节所讨论的运算符并不常用。因此简单介绍，目的只是为了让你意识到这些运算符的存在。</p>
-<p>一元位运算符补码运算 “<code>~</code>“ 反转一个位的形式；可以用于任意一个整形类型，将每一个“0”变为“1”，将每一个“1”变为“0”。例如，一个<code>byte</code>包含8位；将该操作符应用到形如”00000000”的值将得到 “11111111”.</p>
-<p>有符号的左位移运算符 “<code>&lt;&lt;</code>“ 将一个位组向左移动，有符号的右位移运算付”<code>&gt;&gt;</code>“将一个位组向右移动。位组为运算符左边的操作因子， 移动位置的数目为运算符右边的操作因子。无符号的右位移运算符 “<code>&gt;&gt;&gt;</code>“ 在最左的位置上加入一个0，而 <code>&quot;&gt;&gt;&quot;</code> 之后的最左位置则要取决于符号的扩展。</p>
-<p>位运算 <code>&amp;</code>符号表示 位与运算。</p>
-<p>位运算 <code>^</code>符号表示位异或运算。</p>
-<p>位运算 <code>|</code>符号表示位或运算。下面的程序, <a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/examples/BitDemo.java" target="_blank" rel="external"><code>BitDemo</code></a>, 使用的位与运算并且将结果打印了出来.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BitDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> bitmask = <span class="number">0x000F</span>;</div><div class="line">        <span class="keyword">int</span> val = <span class="number">0x2222</span>;</div><div class="line">        <span class="comment">// prints "2"</span></div><div class="line">        System.out.println(val &amp; bitmask);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1842,7 +1809,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1864,7 +1831,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">67</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

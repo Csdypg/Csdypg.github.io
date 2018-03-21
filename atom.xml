@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-19T10:27:32.406Z</updated>
+  <updated>2018-03-21T10:24:38.002Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,9 +16,280 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Java 学习指南_学习Java：预定义的注解类型</title>
+    <link href="http://yoursite.com/2018/03/21/java-tutorial-learning_annotation_predefined/"/>
+    <id>http://yoursite.com/2018/03/21/java-tutorial-learning_annotation_predefined/</id>
+    <published>2018-03-21T11:26:59.000Z</published>
+    <updated>2018-03-21T10:24:38.002Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="预定义的注解类型"><a href="#预定义的注解类型" class="headerlink" title="预定义的注解类型"></a>预定义的注解类型</h1><p>A set of annotation types are predefined in the Java SE API. Some annotation types are used by the Java compiler, and some apply to other annotations.</p>
+<h2 id="Java语言使用的注解"><a href="#Java语言使用的注解" class="headerlink" title="Java语言使用的注解"></a>Java语言使用的注解</h2><p>The predefined annotation types defined in <code>java.lang</code> are <code>@Deprecated</code>, <code>@Override</code>, and <code>@SuppressWarnings</code>.</p>
+<p><strong>@Deprecated</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html" target="_blank" rel="external"><code>@Deprecated</code></a> annotation indicates that the marked element is <em>deprecated</em> and should no longer be used. The compiler generates a warning whenever a program uses a method, class, or field with the <code>@Deprecated</code> annotation. When an element is deprecated, it should also be documented using the Javadoc <code>@deprecated</code> tag, as shown in the following example. The use of the at sign (<code>@</code>) in both Javadoc comments and in annotations is not coincidental: they are related conceptually. Also, note that the Javadoc tag starts with a lowercase <em>d</em> and the annotation starts with an uppercase <em>D</em>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">   // Javadoc comment follows</div><div class="line">    /**</div><div class="line">     * @deprecated</div><div class="line">     * explanation of why it was deprecated</div><div class="line">     */</div><div class="line">    @Deprecated</div><div class="line">    static void deprecatedMethod() &#123; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>@Override</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Override.html" target="_blank" rel="external"><code>@Override</code></a> annotation informs the compiler that the element is meant to override an element declared in a superclass. Overriding methods will be discussed in<a href="https://docs.oracle.com/javase/tutorial/java/IandI/index.html" target="_blank" rel="external">Interfaces and Inheritance</a>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// mark method as a superclass method</div><div class="line">// that has been overridden</div><div class="line">@Override </div><div class="line">int overriddenMethod() &#123; &#125;</div></pre></td></tr></table></figure>
+<p>While it is not required to use this annotation when overriding a method, it helps to prevent errors. If a method marked with <code>@Override</code> fails to correctly override a method in one of its superclasses, the compiler generates an error.</p>
+<p><strong>@SuppressWarnings</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html" target="_blank" rel="external"><code>@SuppressWarnings</code></a> annotation tells the compiler to suppress specific warnings that it would otherwise generate. In the following example, a deprecated method is used, and the compiler usually generates a warning. In this case, however, the annotation causes the warning to be suppressed.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// use a deprecated method and tell </div><div class="line">// compiler not to generate a warning</div><div class="line">@SuppressWarnings(&quot;deprecation&quot;)</div><div class="line"> void useDeprecatedMethod() &#123;</div><div class="line">     // deprecation warning</div><div class="line">     // - suppressed</div><div class="line">     objectOne.deprecatedMethod();</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>Every compiler warning belongs to a category. The Java Language Specification lists two categories: <code>deprecation</code> and <code>unchecked</code>. The <code>unchecked</code> warning can occur when interfacing with legacy code written before the advent of <a href="https://docs.oracle.com/javase/tutorial/java/generics/index.html" target="_blank" rel="external">generics</a>. To suppress multiple categories of warnings, use the following syntax:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@SuppressWarnings(&#123;&quot;unchecked&quot;, &quot;deprecation&quot;&#125;)</div></pre></td></tr></table></figure>
+<p><strong>@SafeVarargs</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SafeVarargs.html" target="_blank" rel="external"><code>@SafeVarargs</code></a> annotation, when applied to a method or constructor, asserts that the code does not perform potentially unsafe operations on its <code>varargs</code>parameter. When this annotation type is used, unchecked warnings relating to <code>varargs</code> usage are suppressed.</p>
+<p><strong>@FunctionalInterface</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html" target="_blank" rel="external"><code>@FunctionalInterface</code></a> annotation, introduced in Java SE 8, indicates that the type declaration is intended to be a functional interface, as defined by the Java Language Specification.</p>
+<h2 id="用于其他注解的注解"><a href="#用于其他注解的注解" class="headerlink" title="用于其他注解的注解"></a>用于其他注解的注解</h2><p>Annotations that apply to other annotations are called <em>meta-annotations</em>. There are several meta-annotation types defined in <code>java.lang.annotation</code>.</p>
+<p><strong>@Retention</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Retention.html" target="_blank" rel="external"><code>@Retention</code></a> annotation specifies how the marked annotation is stored:</p>
+<ul>
+<li><code>RetentionPolicy.SOURCE</code> – The marked annotation is retained only in the source level and is ignored by the compiler.</li>
+<li><code>RetentionPolicy.CLASS</code> – The marked annotation is retained by the compiler at compile time, but is ignored by the Java Virtual Machine (JVM).</li>
+<li><code>RetentionPolicy.RUNTIME</code> – The marked annotation is retained by the JVM so it can be used by the runtime environment.</li>
+</ul>
+<p><strong>@Documented</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html" target="_blank" rel="external"><code>@Documented</code></a> annotation indicates that whenever the specified annotation is used those elements should be documented using the Javadoc tool. (By default, annotations are not included in Javadoc.) For more information, see the <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/javadoc/index.html" target="_blank" rel="external">Javadoc tools page</a>.</p>
+<p><strong>@Target</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html" target="_blank" rel="external"><code>@Target</code></a> annotation marks another annotation to restrict what kind of Java elements the annotation can be applied to. A target annotation specifies one of the following element types as its value:</p>
+<ul>
+<li><code>ElementType.ANNOTATION_TYPE</code> can be applied to an annotation type.</li>
+<li><code>ElementType.CONSTRUCTOR</code> can be applied to a constructor.</li>
+<li><code>ElementType.FIELD</code> can be applied to a field or property.</li>
+<li><code>ElementType.LOCAL_VARIABLE</code> can be applied to a local variable.</li>
+<li><code>ElementType.METHOD</code> can be applied to a method-level annotation.</li>
+<li><code>ElementType.PACKAGE</code> can be applied to a package declaration.</li>
+<li><code>ElementType.PARAMETER</code> can be applied to the parameters of a method.</li>
+<li><code>ElementType.TYPE</code> can be applied to any element of a class.</li>
+</ul>
+<p><strong>@Inherited</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Inherited.html" target="_blank" rel="external"><code>@Inherited</code></a> annotation indicates that the annotation type can be inherited from the super class. (This is not true by default.) When the user queries the annotation type and the class has no annotation for this type, the class’ superclass is queried for the annotation type. This annotation applies only to class declarations.</p>
+<p><strong>@Repeatable</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Repeatable.html" target="_blank" rel="external"><code>@Repeatable</code></a> annotation, introduced in Java SE 8, indicates that the marked annotation can be applied more than once to the same declaration or type use. For more information, see <a href="https://docs.oracle.com/javase/tutorial/java/annotations/repeating.html" target="_blank" rel="external">Repeating Annotations</a>.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;预定义的注解类型&quot;&gt;&lt;a href=&quot;#预定义的注解类型&quot; class=&quot;headerlink&quot; title=&quot;预定义的注解类型&quot;&gt;&lt;/a&gt;预定义的注解类型&lt;/h1&gt;&lt;p&gt;A set of annotation types are predefined in th
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="注解" scheme="http://yoursite.com/tags/%E6%B3%A8%E8%A7%A3/"/>
+    
+      <category term="annotation" scheme="http://yoursite.com/tags/annotation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 学习指南_学习Java：基础-枚举类问题与练习</title>
+    <link href="http://yoursite.com/2018/03/21/java-tutorial-learning_class&amp;object_enum_q&amp;e/"/>
+    <id>http://yoursite.com/2018/03/21/java-tutorial-learning_class&amp;object_enum_q&amp;e/</id>
+    <published>2018-03-21T10:51:59.000Z</published>
+    <updated>2018-03-21T09:01:43.918Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="枚举类问题与练习"><a href="#枚举类问题与练习" class="headerlink" title="枚举类问题与练习"></a>枚举类问题与练习</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
+<li>问题: True or false: 枚举类可以是 java.lang.String类的子类.</li>
+</ol>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><ol>
+<li>练习: 重写 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/QandE/creating-questions.html" target="_blank" rel="external">Questions and Exercises: Classes</a> 中 <code>Card</code> 类，使用枚举类来表示扑克中的花色和点数。</li>
+<li>练习: 重写 <code>Deck</code> 类.</li>
+</ol>
+<h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1><a id="more"></a>
+<h2 id="问题答案"><a href="#问题答案" class="headerlink" title="问题答案"></a>问题答案</h2><ol>
+<li><p>问题: True or false: 枚举类可以是 java.lang.String类的子类.</p>
+<p>答案: False. 所有的枚举类都继承自 <code>java.lang.Enum</code>.因为一个类只能继承字一个父类，Java语言不支持多重继承，因此枚举类不可能是任何其他类的子类.</p>
+</li>
+</ol>
+<h2 id="练习答案"><a href="#练习答案" class="headerlink" title="练习答案"></a>练习答案</h2><ol>
+<li><p>练习: 重写 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/QandE/creating-questions.html" target="_blank" rel="external">Questions and Exercises: Classes</a> 中 <code>Card</code> 类，使用枚举类来表示扑克中的花色和点数。</p>
+<p>答案: 参考 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/examples/Card3.java" target="_blank" rel="external"><code>Card3.java</code></a>, <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/examples/Suit.java" target="_blank" rel="external"><code>Suit.java</code></a>, 和 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/examples/Rank.java" target="_blank" rel="external"><code>Rank.java</code></a>.</p>
+</li>
+<li><p>练习: 重写 <code>Deck</code> 类.</p>
+<p>答案: 参考 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/examples/Deck3.java" target="_blank" rel="external"><code>Deck3.java</code></a>.</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;枚举类问题与练习&quot;&gt;&lt;a href=&quot;#枚举类问题与练习&quot; class=&quot;headerlink&quot; title=&quot;枚举类问题与练习&quot;&gt;&lt;/a&gt;枚举类问题与练习&lt;/h1&gt;&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;问题: True or false: 枚举类可以是 java.lang.String类的子类.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;练习&quot;&gt;&lt;a href=&quot;#练习&quot; class=&quot;headerlink&quot; title=&quot;练习&quot;&gt;&lt;/a&gt;练习&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;练习: 重写 &lt;a href=&quot;https://docs.oracle.com/javase/tutorial/java/javaOO/QandE/creating-questions.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Questions and Exercises: Classes&lt;/a&gt; 中 &lt;code&gt;Card&lt;/code&gt; 类，使用枚举类来表示扑克中的花色和点数。&lt;/li&gt;
+&lt;li&gt;练习: 重写 &lt;code&gt;Deck&lt;/code&gt; 类.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&quot;答案&quot;&gt;&lt;a href=&quot;#答案&quot; class=&quot;headerlink&quot; title=&quot;答案&quot;&gt;&lt;/a&gt;答案&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
+    
+      <category term="enum" scheme="http://yoursite.com/tags/enum/"/>
+    
+      <category term="枚举类" scheme="http://yoursite.com/tags/%E6%9E%9A%E4%B8%BE%E7%B1%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 学习指南_学习Java：定义一个注解类型</title>
+    <link href="http://yoursite.com/2018/03/21/java-tutorial-learning_annotation_declaring/"/>
+    <id>http://yoursite.com/2018/03/21/java-tutorial-learning_annotation_declaring/</id>
+    <published>2018-03-21T10:21:59.000Z</published>
+    <updated>2018-03-21T10:22:06.572Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="定义一个注解类型"><a href="#定义一个注解类型" class="headerlink" title="定义一个注解类型"></a>定义一个注解类型</h1><p>许多注解代替代码中的注释。</p>
+<p>假设一个软件组通常在类体的起始处填写注释已提供重要的信息:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Generation3List</span> <span class="keyword">extends</span> <span class="title">Generation2List</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="comment">// Author: John Doe</span></div><div class="line">   <span class="comment">// Date: 3/17/2002</span></div><div class="line">   <span class="comment">// Current revision: 6</span></div><div class="line">   <span class="comment">// Last modified: 4/12/2004</span></div><div class="line">   <span class="comment">// By: Jane Doe</span></div><div class="line">   <span class="comment">// Reviewers: Alice, Bill, Cindy</span></div><div class="line"></div><div class="line">   <span class="comment">// class code goes here</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>为了使用注解添加这些元数据，你必须先定义一个注解类型 <em>annotation type</em>. 其语法如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@interface</span> ClassPreamble &#123;</div><div class="line">   <span class="function">String <span class="title">author</span><span class="params">()</span></span>;</div><div class="line">   <span class="function">String <span class="title">date</span><span class="params">()</span></span>;</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">currentRevision</span><span class="params">()</span> <span class="keyword">default</span> 1</span>;</div><div class="line">   <span class="function">String <span class="title">lastModified</span><span class="params">()</span> <span class="keyword">default</span> "N/A"</span>;</div><div class="line">   <span class="function">String <span class="title">lastModifiedBy</span><span class="params">()</span> <span class="keyword">default</span> "N/A"</span>;</div><div class="line">   <span class="comment">// Note use of array</span></div><div class="line">   String[] reviewers();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注解类型的定义看起来像是接口的定义，只不过关键字<code>interface</code>前面多了一个符号 (<code>@</code>) (@ = AT, 与注解的符号一样).</p>
+<p>注解类型是接口 <em>interface</em>的一种格式后面的课程会讲到,现在你不需要理解接口。</p>
+<p>上面的注解类型定义，类体中包含了注解类型元素 <em>annotation type element</em> 的定义,看起来像是方法，不过注意，他们可以定义默认值。</p>
+<p>定义注解类型之后，你可以使用这个注解类型，并填入元素值，像下面这样:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@ClassPreamble</span> (</div><div class="line">   author = <span class="string">"John Doe"</span>,</div><div class="line">   date = <span class="string">"3/17/2002"</span>,</div><div class="line">   currentRevision = <span class="number">6</span>,</div><div class="line">   lastModified = <span class="string">"4/12/2004"</span>,</div><div class="line">   lastModifiedBy = <span class="string">"Jane Doe"</span>,</div><div class="line">   <span class="comment">// Note array notation</span></div><div class="line">   reviewers = &#123;<span class="string">"Alice"</span>, <span class="string">"Bob"</span>, <span class="string">"Cindy"</span>&#125;</div><div class="line">)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Generation3List</span> <span class="keyword">extends</span> <span class="title">Generation2List</span> </span>&#123;</div><div class="line"></div><div class="line"><span class="comment">// class code goes here</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<p><strong>注意:</strong> 为了是 <code>@ClassPreamble</code> 注解定义的元素出现在java文档生成器生成的文档中，你必须为 <code>@ClassPreamble</code> 注解的定义添加d <code>@Documented</code> 注解:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// import this to use @Documented</div><div class="line">import java.lang.annotation.*;</div><div class="line"></div><div class="line">@Documented</div><div class="line">@interface ClassPreamble &#123;</div><div class="line"></div><div class="line">   // Annotation element definitions</div><div class="line">   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;定义一个注解类型&quot;&gt;&lt;a href=&quot;#定义一个注解类型&quot; class=&quot;headerlink&quot; title=&quot;定义一个注解类型&quot;&gt;&lt;/a&gt;定义一个注解类型&lt;/h1&gt;&lt;p&gt;许多注解代替代码中的注释。&lt;/p&gt;
+&lt;p&gt;假设一个软件组通常在类体的起始处填写注释已提供重要
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="注解" scheme="http://yoursite.com/tags/%E6%B3%A8%E8%A7%A3/"/>
+    
+      <category term="annotation" scheme="http://yoursite.com/tags/annotation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 学习指南_学习Java：注解</title>
+    <link href="http://yoursite.com/2018/03/21/java-tutorial-learning_annotation/"/>
+    <id>http://yoursite.com/2018/03/21/java-tutorial-learning_annotation/</id>
+    <published>2018-03-21T09:26:59.000Z</published>
+    <updated>2018-03-21T09:27:12.734Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="课程-注解"><a href="#课程-注解" class="headerlink" title="课程: 注解"></a>课程: 注解</h1><p><em>注解Annotations</em>, 一种元数据的格式,提供程序相关的数据而不是程序本身. 注解并不会直接影响所标注的代码的影响。</p>
+<p>注解有一系列的作用，分别如下:</p>
+<ul>
+<li><strong>编译所用的注解信息</strong> — 注解可以用来侦测错误或者忽略警告.</li>
+<li><strong>编译时以及部署时的处理Compile-time and deployment-time processing</strong> — 软件工具可以处理注解信息来生成代码,XML文件等。</li>
+<li><strong>运行时的处理Runtime processing</strong> — 某些注解可在运行时检测.</li>
+</ul>
+<p>本课程解释了哪里可以用到注解，如何应用注解，JavaSE api预定义了那些可用的注解类型，注解类型如何与插件式的系统想结果写出强壮的类型检查代码，以及如何实现可重复的注解。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;课程-注解&quot;&gt;&lt;a href=&quot;#课程-注解&quot; class=&quot;headerlink&quot; title=&quot;课程: 注解&quot;&gt;&lt;/a&gt;课程: 注解&lt;/h1&gt;&lt;p&gt;&lt;em&gt;注解Annotations&lt;/em&gt;, 一种元数据的格式,提供程序相关的数据而不是程序本身. 注解并不会
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="注解" scheme="http://yoursite.com/tags/%E6%B3%A8%E8%A7%A3/"/>
+    
+      <category term="annotation" scheme="http://yoursite.com/tags/annotation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 学习指南_学习Java：注解基础</title>
+    <link href="http://yoursite.com/2018/03/21/java-tutorial-learning_annotation_basic/"/>
+    <id>http://yoursite.com/2018/03/21/java-tutorial-learning_annotation_basic/</id>
+    <published>2018-03-21T09:26:59.000Z</published>
+    <updated>2018-03-21T09:55:27.194Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="注解基础"><a href="#注解基础" class="headerlink" title="注解基础"></a>注解基础</h1><h2 id="注解的格式"><a href="#注解的格式" class="headerlink" title="注解的格式"></a>注解的格式</h2><p>最贱的注解格式实例如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Entity</span></div></pre></td></tr></table></figure>
+<p>标志符号 (<code>@</code>) 向编译器表示紧跟着的信息是注解，下面的例子注解的名字为<code>Override</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">mySuperMethod</span><span class="params">()</span> </span>&#123; ... &#125;</div></pre></td></tr></table></figure>
+<p>注解可以包含元素 <em>elements</em>,可以是署名的，也可以是匿名的，元素有对应的值:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Author</span>(</div><div class="line">   name = <span class="string">"Benjamin Franklin"</span>,</div><div class="line">   date = <span class="string">"3/27/2003"</span></div><div class="line">)</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span>() </span>&#123; ... &#125;</div></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@SuppressWarnings</span>(value = <span class="string">"unchecked"</span>)</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">myMethod</span><span class="params">()</span> </span>&#123; ... &#125;</div></pre></td></tr></table></figure>
+<p>如果只有一个名为<code>value</code>的元素，那么元素署名可以省略，如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">myMethod</span><span class="params">()</span> </span>&#123; ... &#125;</div></pre></td></tr></table></figure>
+<p>如果注解不包含元素，那么小括号也可以移除，就像之前的<code>@Override</code>注解.</p>
+<p>也可以在统一个声明或者定义处使用多个注解:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Author</span>(name = <span class="string">"Jane Doe"</span>)</div><div class="line"><span class="meta">@EBook</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123; ... &#125;</div></pre></td></tr></table></figure>
+<p>如果多个注解拥有同样的类型，叫做重复注解repeating annotation:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Author</span>(name = <span class="string">"Jane Doe"</span>)</div><div class="line"><span class="meta">@Author</span>(name = <span class="string">"John Smith"</span>)</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123; ... &#125;</div></pre></td></tr></table></figure>
+<p>重复注解在Java SE8中支持的，获取更多相关信息可以参看 <a href="https://docs.oracle.com/javase/tutorial/java/annotations/repeating.html" target="_blank" rel="external">Repeating Annotations</a>.</p>
+<p>注解类型可以是<code>java.lang</code>或者<code>java.lang.annotation</code>包中的一种。之前的例子中<code>Override</code> and <code>SuppressWarnings</code> 是 <a href="https://docs.oracle.com/javase/tutorial/java/annotations/predefined.html" target="_blank" rel="external">预定义注解predefined Java annotations</a>.你也可以定义自己的注解类型， <code>Author</code> 和 <code>Ebook</code> 注解是自定义注解类型。</p>
+<h2 id="注解可以用在哪里"><a href="#注解可以用在哪里" class="headerlink" title="注解可以用在哪里"></a>注解可以用在哪里</h2><p>注解可以用定义：类，字段，方法以及其他编程元素定义时可以使用。挡在定义时使用注解，按照惯例每一个注解占一行.</p>
+<p>Java SE8 版本中，注解同样可以应用在类型使用时，以下是一些列子:</p>
+<ul>
+<li><p>类型实例创建表达式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new @Interned MyObject();</div></pre></td></tr></table></figure>
+</li>
+<li><p>类型转换:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myString = (@NonNull String) str;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>implements</code> 引用时:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">class UnmodifiableList&lt;T&gt; implements</div><div class="line">    @Readonly List&lt;@Readonly T&gt; &#123; ... &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>声明抛出异常时:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">void monitorTemperature() throws</div><div class="line">    @Critical TemperatureException &#123; ... &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这种形式的注解叫做类型注解 <em>type annotation</em>.获取更多相关信息，参考 <a href="https://docs.oracle.com/javase/tutorial/java/annotations/type_annotations.html" target="_blank" rel="external">类型注解与插件式类型系统Type Annotations and Pluggable Type Systems</a>.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;注解基础&quot;&gt;&lt;a href=&quot;#注解基础&quot; class=&quot;headerlink&quot; title=&quot;注解基础&quot;&gt;&lt;/a&gt;注解基础&lt;/h1&gt;&lt;h2 id=&quot;注解的格式&quot;&gt;&lt;a href=&quot;#注解的格式&quot; class=&quot;headerlink&quot; title=&quot;注解的格式&quot;&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="注解" scheme="http://yoursite.com/tags/%E6%B3%A8%E8%A7%A3/"/>
+    
+      <category term="annotation" scheme="http://yoursite.com/tags/annotation/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java 学习指南_学习Java：基础-枚举类</title>
-    <link href="http://yoursite.com/2018/03/19/java-tutorial-learning_the_lang_basic_class_enum/"/>
-    <id>http://yoursite.com/2018/03/19/java-tutorial-learning_the_lang_basic_class_enum/</id>
+    <link href="http://yoursite.com/2018/03/19/java-tutorial-learning_class&amp;object_enum/"/>
+    <id>http://yoursite.com/2018/03/19/java-tutorial-learning_class&amp;object_enum/</id>
     <published>2018-03-19T10:51:59.000Z</published>
     <updated>2018-03-19T10:27:32.406Z</updated>
     
@@ -71,8 +342,8 @@
   
   <entry>
     <title>Java 学习指南_学习Java：基础-嵌套类问题与联系</title>
-    <link href="http://yoursite.com/2018/03/19/java-tutorial-learning_the_lang_basic_class_nested_class_q&amp;e/"/>
-    <id>http://yoursite.com/2018/03/19/java-tutorial-learning_the_lang_basic_class_nested_class_q&amp;e/</id>
+    <link href="http://yoursite.com/2018/03/19/java-tutorial-learning_class&amp;object_nested_class_q&amp;e/"/>
+    <id>http://yoursite.com/2018/03/19/java-tutorial-learning_class&amp;object_nested_class_q&amp;e/</id>
     <published>2018-03-19T09:51:59.000Z</published>
     <updated>2018-03-19T09:41:58.533Z</updated>
     
@@ -237,8 +508,8 @@
   
   <entry>
     <title>Java 学习指南_学习Java：基础-何时使用嵌套类，局部类，匿名类，Lambda</title>
-    <link href="http://yoursite.com/2018/03/19/java-tutorial-learning_the_lang_basic_class_when_to_use/"/>
-    <id>http://yoursite.com/2018/03/19/java-tutorial-learning_the_lang_basic_class_when_to_use/</id>
+    <link href="http://yoursite.com/2018/03/19/java-tutorial-learning_class&amp;object_when_to_use/"/>
+    <id>http://yoursite.com/2018/03/19/java-tutorial-learning_class&amp;object_when_to_use/</id>
     <published>2018-03-19T06:51:59.000Z</published>
     <updated>2018-03-19T09:02:44.203Z</updated>
     
@@ -561,8 +832,8 @@
   
   <entry>
     <title>Java 学习指南_学习Java：基础-匿名类</title>
-    <link href="http://yoursite.com/2017/12/04/java-tutorial-learning_the_lang_basic_anonymous_class/"/>
-    <id>http://yoursite.com/2017/12/04/java-tutorial-learning_the_lang_basic_anonymous_class/</id>
+    <link href="http://yoursite.com/2017/12/04/java-tutorial-learning_class&amp;object_anonymous_class/"/>
+    <id>http://yoursite.com/2017/12/04/java-tutorial-learning_class&amp;object_anonymous_class/</id>
     <published>2017-12-04T06:51:59.000Z</published>
     <updated>2017-12-04T03:03:17.000Z</updated>
     
@@ -827,11 +1098,11 @@
   </entry>
   
   <entry>
-    <title>Java 学习指南_学习Java：基础-类-问题域练习</title>
-    <link href="http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&amp;object_q&amp;e1/"/>
-    <id>http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&amp;object_q&amp;e1/</id>
+    <title>Java 学习指南_学习Java：基础-类-问题与练习</title>
+    <link href="http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_q&amp;e1/"/>
+    <id>http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_q&amp;e1/</id>
     <published>2017-10-20T07:39:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
+    <updated>2018-03-21T08:51:38.427Z</updated>
     
     <content type="html"><![CDATA[<h1 id="类：问题与练习"><a href="#类：问题与练习" class="headerlink" title="类：问题与练习"></a>类：问题与练习</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
 <li><p>观察下面的类:</p>
@@ -930,8 +1201,8 @@
   
   <entry>
     <title>Java 学习指南_学习Java：基础-对象-问题与练习</title>
-    <link href="http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&amp;object_q&amp;e2/"/>
-    <id>http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&amp;object_q&amp;e2/</id>
+    <link href="http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_q&amp;e2/"/>
+    <id>http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_q&amp;e2/</id>
     <published>2017-10-20T06:53:59.000Z</published>
     <updated>2017-10-26T01:02:21.000Z</updated>
     
@@ -1018,8 +1289,8 @@
   
   <entry>
     <title>Java 学习指南_学习Java：基础-类和对象总结</title>
-    <link href="http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&amp;object_class_15/"/>
-    <id>http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&amp;object_class_15/</id>
+    <link href="http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_class_15/"/>
+    <id>http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_class_15/</id>
     <published>2017-10-20T06:00:59.000Z</published>
     <updated>2017-10-26T01:02:21.000Z</updated>
     
@@ -1054,9 +1325,9 @@
     
       <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
     
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
-    
       <category term="对象" scheme="http://yoursite.com/tags/%E5%AF%B9%E8%B1%A1/"/>
+    
+      <category term="class" scheme="http://yoursite.com/tags/class/"/>
     
       <category term="Object" scheme="http://yoursite.com/tags/Object/"/>
     
@@ -1064,8 +1335,8 @@
   
   <entry>
     <title>Java 学习指南_学习Java：基础-类-初始化字段</title>
-    <link href="http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&amp;object_class_14/"/>
-    <id>http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&amp;object_class_14/</id>
+    <link href="http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_class_14/"/>
+    <id>http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_class_14/</id>
     <published>2017-10-20T04:23:59.000Z</published>
     <updated>2017-10-26T01:02:21.000Z</updated>
     
@@ -1118,8 +1389,8 @@
   
   <entry>
     <title>Java 学习指南_学习Java：基础-类-类的成员</title>
-    <link href="http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&amp;object_class_13/"/>
-    <id>http://yoursite.com/2017/10/20/java-tutorial-learning_the_lang_basic_class&amp;object_class_13/</id>
+    <link href="http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_class_13/"/>
+    <id>http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_class_13/</id>
     <published>2017-10-20T03:21:59.000Z</published>
     <updated>2017-10-26T01:02:21.000Z</updated>
     
@@ -1192,8 +1463,8 @@
   
   <entry>
     <title>Java 学习指南_学习Java：基础-类-this关键字</title>
-    <link href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_11/"/>
-    <id>http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_11/</id>
+    <link href="http://yoursite.com/2017/10/18/java-tutorial-learning_class&amp;object_class_11/"/>
+    <id>http://yoursite.com/2017/10/18/java-tutorial-learning_class&amp;object_class_11/</id>
     <published>2017-10-18T05:54:59.000Z</published>
     <updated>2017-10-26T01:02:21.000Z</updated>
     
@@ -1234,8 +1505,8 @@
   
   <entry>
     <title>Java 学习指南_学习Java：基础-类-访问控制</title>
-    <link href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_12/"/>
-    <id>http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_12/</id>
+    <link href="http://yoursite.com/2017/10/18/java-tutorial-learning_class&amp;object_class_12/"/>
+    <id>http://yoursite.com/2017/10/18/java-tutorial-learning_class&amp;object_class_12/</id>
     <published>2017-10-18T05:54:59.000Z</published>
     <updated>2017-10-26T01:02:21.000Z</updated>
     
@@ -1367,298 +1638,6 @@
       <category term="Controlling Access" scheme="http://yoursite.com/tags/Controlling-Access/"/>
     
       <category term="访问控制" scheme="http://yoursite.com/tags/%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-类-方法返回值</title>
-    <link href="http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_10/"/>
-    <id>http://yoursite.com/2017/10/18/java-tutorial-learning_the_lang_basic_class&amp;object_class_10/</id>
-    <published>2017-10-18T03:00:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="从方法返回值"><a href="#从方法返回值" class="headerlink" title="从方法返回值"></a>从方法返回值</h1><p>当以下情况出现时方法会返回到调用他的代码处：</p>
-<ul>
-<li>完成方法中的所有语句</li>
-<li>执行到一个 <code>return</code>语句</li>
-<li>或者抛出一个异常(稍后讨论)</li>
-</ul>
-<p>哪一个先出现都会返回。</p>
-<p>在方法声明时你会定义方法的返回类型。在方法体中，使用 <code>return</code>语句来返回值。</p>
-<p>声明<code>void</code>返回类型的方法不会返回值，不一定要包含一个<code>return</code>语句,但是可以这么做。这种情况下，一个<code>return</code>语句可以用程序分支跳出一个控制流程块并且退出方法，使用方法如下:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span>;</div></pre></td></tr></table></figure>
-<p>如果你你视图在声明了<code>void</code>的方法里返回一个值，将会出现编译错误。</p>
-<p>任何没有声明<code>void</code>的方法都必须包含一个<code>return</code>语句和对应的返回值,如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> returnValue;</div></pre></td></tr></table></figure>
-<p>返回值的数据类型必须与方法声明的返回类型匹配;你不能在生命的<code>boolean</code>返回类型的方法里返回一个整形。</p>
-<p>在对象一节中讨论的 <code>Rectangle</code> <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/examples/Rectangle.java" target="_blank" rel="external"><code>Rectangle</code></a> 类的 <code>getArea()</code>方法返回一个integer:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// a method for computing the area of the rectangle</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getArea</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> width * height;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>方法返回的值为表达式 <code>width*height</code>的计算结果.</p>
-<p> <code>getArea</code> 方法返回了一个基本数据类型. 方法同样可以返回引用类型的数据.例如 ，在一个操纵 <code>Bicycle</code> 对象的类里，我们可能会看到这样的方法:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Bicycle <span class="title">seeWhosFastest</span><span class="params">(Bicycle myBike, Bicycle yourBike,</span></span></div><div class="line">                              Environment env) &#123;</div><div class="line">    Bicycle fastest;</div><div class="line">    <span class="comment">// code to calculate which bike is </span></div><div class="line">    <span class="comment">// faster, given each bike's gear </span></div><div class="line">    <span class="comment">// and cadence and given the </span></div><div class="line">    <span class="comment">// environment (terrain and wind)</span></div><div class="line">    <span class="keyword">return</span> fastest;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="返回类型为一个类或者接口Returning-a-Class-or-Interface"><a href="#返回类型为一个类或者接口Returning-a-Class-or-Interface" class="headerlink" title="返回类型为一个类或者接口Returning a Class or Interface"></a>返回类型为一个类或者接口Returning a Class or Interface</h2><p>如果你对本章节感到费解，可以先跳过，学习完<a href="">接口与继承</a>课程之后返回来学习。</p>
-<p>当一个方法使用一个类名作为它的返回类型，例如 <code>whosFastest</code>这样,返回对象的类型必须使这个类或者这个类的子类。假设你有继承关系， <code>ImaginaryNumber</code> 是 <code>java.lang.Number</code>类的子类,  <code>java.lang.Number</code>类是<code>Object</code>的子类, 如下图所示.</p>
-<p><img src="http://docs.oracle.com/javase/tutorial/figures/java/classes-hierarchy.gif" alt="The class hierarchy for ImaginaryNumber"></p>
-<p> <code>ImaginaryNumber</code>类的继承关系</p>
-<p>现在假设你有一个返回类型为<code>Number</code>的方法声明:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Number <span class="title">returnANumber</span><span class="params">()</span> </span>&#123;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p> <code>returnANumber</code> 方法可以返回 <code>ImaginaryNumber</code> 但是不能返回 <code>Object</code>. <code>ImaginaryNumber</code> 是一个 <code>Number</code> 因为他是 <code>Number</code>的子类. 但是<code>Object</code>并不一定是一个 <code>Number</code> — 它可能是一个 <code>String</code> 或者其他的类型.</p>
-<p>你可以通过定义一个方法的返回类型为源方法返回类型的子类来覆盖一个方法，如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> ImaginaryNumber <span class="title">returnANumber</span><span class="params">()</span> </span>&#123;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这种技术叫做 <em>covariant return type协变返回类型</em>,意味着返回类型允许用某一个类和其子类来区分。</p>
-<hr>
-<p><strong>注意</strong>:你同样可以声明接口为返回类型。这种情况下，你返回对象的类型必须是对应接口的实现类。</p>
-<hr>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;从方法返回值&quot;&gt;&lt;a href=&quot;#从方法返回值&quot; class=&quot;headerlink&quot; title=&quot;从方法返回值&quot;&gt;&lt;/a&gt;从方法返回值&lt;/h1&gt;&lt;p&gt;当以下情况出现时方法会返回到调用他的代码处：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;完成方法中的所有语句&lt;/li&gt;
-&lt;l
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
-    
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
-    
-      <category term="method" scheme="http://yoursite.com/tags/method/"/>
-    
-      <category term="return" scheme="http://yoursite.com/tags/return/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-类-类的其他内容</title>
-    <link href="http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&amp;object_class_9/"/>
-    <id>http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&amp;object_class_9/</id>
-    <published>2017-10-13T08:00:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="类-其他内容"><a href="#类-其他内容" class="headerlink" title="类-其他内容"></a>类-其他内容</h1><p>该部分将覆盖类的更多方面。基于你之前学习的使用对象的引用以及<code>.</code>点操作符的关于对象的章节。:</p>
-<ul>
-<li>通过方法返回值.</li>
-<li><code>this</code>关键字.</li>
-<li>类vs.实例 成员.</li>
-<li>访问控制.</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;类-其他内容&quot;&gt;&lt;a href=&quot;#类-其他内容&quot; class=&quot;headerlink&quot; title=&quot;类-其他内容&quot;&gt;&lt;/a&gt;类-其他内容&lt;/h1&gt;&lt;p&gt;该部分将覆盖类的更多方面。基于你之前学习的使用对象的引用以及&lt;code&gt;.&lt;/code&gt;点操作符的关于对象的
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
-    
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-类-使用对象</title>
-    <link href="http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&amp;object_class_8/"/>
-    <id>http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&amp;object_class_8/</id>
-    <published>2017-10-13T07:00:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="使用对象"><a href="#使用对象" class="headerlink" title="使用对象"></a>使用对象</h1><p>一旦你创建了一个对象，你可能想要用它做一些事情。你可能需要使用这个对象的字段/成员变量中的一个，改变它，或者调用的方法来执行某些行为。</p>
-<h2 id="引用对象的字段-属性-成员变量"><a href="#引用对象的字段-属性-成员变量" class="headerlink" title="引用对象的字段/属性/成员变量"></a>引用对象的字段/属性/成员变量</h2><p>对象的字段通过它的名称来访问。你必须使用一个无歧义的名称。</p>
-<p>你可能会在一个类中使用简单的名称。例如，我们可以在<code>Rectangle</code>类中加上一个语句。来打印它的 <code>width</code> 和 <code>height</code>:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">System.out.println(<span class="string">"Width and height are: "</span> + width + <span class="string">", "</span> + height);</div></pre></td></tr></table></figure>
-<p>在这种情况下，<code>width</code> 和 <code>height</code>是简单的名称.在对象的类之外的代码中必须使用一个对象的引用或者表达式，紧接着一个点<code>.</code>操作符，紧接着字段的名称来引用，例如</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">objectReference.fieldName</div></pre></td></tr></table></figure>
-<p>例如， <code>CreateObjectDemo</code> 类中的代码是 <code>Rectangle</code> 类之外的代码.所以<code>Rectangle</code> 对象 <code>rectOne</code>的字段 <code>origin</code>, <code>width</code>, <code>height</code>的引用必须分别使用 <code>rectOne.origin</code>, <code>rectOne.width</code>, 以及 <code>rectOne.height</code>这样的名字.以下代码使用了两个这样的名称来展示<code>rectOne</code>的 <code>width</code>以及<code>height</code>字段:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">System.out.println(<span class="string">"Width of rectOne: "</span>  + rectOne.width);</div><div class="line">System.out.println(<span class="string">"Height of rectOne: "</span> + rectOne.height);</div></pre></td></tr></table></figure>
-<p>如果在以上代码中尝试使用简单的名字如 <code>width</code> ， <code>height</code> 并不会起作用，这两字段只存在于一个对象之中——并且会导致编译错误。</p>
-<p>接着，程序使用相似的代码展示了<code>rectTwo</code>对象的信息。同类型的对象有他们自己的实例变量的副本。这样的话，每一个<code>Rectangle</code>对象都有名为 <code>origin</code>, <code>width</code>, 和 <code>height</code>等字段.当你通过一个引用变量访问其实例变量时，你引用的时那个特定的对象的字段。两个对象 <code>rectOne</code> 和 <code>rectTwo</code> ，在 <code>CreateObjectDemo</code> 有着不同的 <code>origin</code>, <code>width</code>, 和 <code>height</code> 字段.</p>
-<p>为了方位一个实例变量，你可以使用命名的引用对象，就像之前的例子一样，或者你也可以使用任何返回该对象引用的表达式。重申一下，<code>new</code>操作符返回一个对象的引用。因此使用new的返回值来访问其实例变量:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> height = <span class="keyword">new</span> Rectangle().height;</div></pre></td></tr></table></figure>
-<p>这个语句使用new创建 <code>Rectangle</code> 对象并且直接获取了他的高度。实质上，这个语句运算出一个<code>Rectangle</code>的默认高度。注意这个语句过后，程序中不在持有已经创建的<code>Rectangle</code>的对象引用，因为程序没有将这个引用存储在任何地方。这个对象没有别引用，并且它的资源时空间的将被Java虚拟机回收。</p>
-<h2 id="调用一个对象的方法"><a href="#调用一个对象的方法" class="headerlink" title="调用一个对象的方法"></a>调用一个对象的方法</h2><p>你也会用一个对象引用调用一个对象的方法。在对象应用的名称后面加上方法名，中间使用一个<code>.</code>操作符链接。同样，在闭合的<code>()</code>提供方法所需的参数，如果方法不需要参数，使用空的<code>()</code>.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">objectReference.methodName(argumentList);</div></pre></td></tr></table></figure>
-<p>或者:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">objectReference.methodName();</div></pre></td></tr></table></figure>
-<p> <code>Rectangle</code> 类有两个方法: <code>getArea()</code>用来计算矩形的面积， <code>move()</code> 方法来盖面正方形的源点。下面是程序调用这两个方法的代码:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">System.out.println(<span class="string">"Area of rectOne: "</span> + rectOne.getArea());</div><div class="line">...</div><div class="line">rectTwo.move(<span class="number">40</span>, <span class="number">72</span>);</div></pre></td></tr></table></figure>
-<p>第一行语句，调用了 <code>rectOne</code>的 <code>getArea()</code> 方法并且显示了结果。第二行移动了 <code>rectTwo</code> 因为 <code>move()</code> 方法为对象的 <code>origin.x</code> 和 <code>origin.y</code>赋了新的值.</p>
-<p>对于实例变量，对象引用必须时一个指向对象的引用。你可以使用一个变量名，同样可以使用一个返回对象引用的表达式。<code>new</code>操作符返回一个对象引用，因此你可以直接使用这个表达式的返回值来调用对象的方法:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Rectangle(<span class="number">100</span>, <span class="number">50</span>).getArea()</div></pre></td></tr></table></figure>
-<p>表达式 <code>new Rectangle(100, 50)</code>返回一个 <code>Rectangle</code> 对象的引用。正如展示的一样，可以使用<code>.</code>符号来调用这个新的<code>Rectangle</code>的<code>getArea()</code>方法。</p>
-<p>有些方法，例如 <code>getArea()</code>,返回一个值。对于返回值的方法，你在在表达式中使用方法调用。你可以将返回值赋值给变量，可以用来做决定，或者控制循环语句。这段代码将 <code>getArea()</code> 的返回值赋值给变量 <code>areaOfRectangle</code>:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> areaOfRectangle = <span class="keyword">new</span> Rectangle(<span class="number">100</span>, <span class="number">50</span>).getArea();</div></pre></td></tr></table></figure>
-<p>记住，调用一个特定对象的方法就好像向这个对象发送信息。本例中，调用的<code>getArea()</code>方法构造器返回的rectangle对象的方法。</p>
-<h2 id="垃圾回收The-Garbage-Collector"><a href="#垃圾回收The-Garbage-Collector" class="headerlink" title="垃圾回收The Garbage Collector"></a>垃圾回收The Garbage Collector</h2><p>有些面向对象的编程语言要求你持续跟踪你创建的所有对象，并且在不需要的时候明确的销毁它们。明确的管理内存是及其乏味并且容易出错的过程。Java编程语言允许你创建任意数量你想要的对象（当然受限与你的系统处理能力），并且无需担心何时销毁。Java 运行时环境确定对象不会再被使用的时候会删除对象。这个过程叫做<code>垃圾回收</code><em>garbage collection</em>.</p>
-<p>当一个对象没有引用指向它的时候，是符合垃圾回收条件的。或者，你可以通过将一个变量设置为特殊的值<code>null</code>，显式的清理一个对象引用。记住，一个程序可能对一个对象有非常多的引用;一个对象被垃圾回收前必须清理所有指向它的引用。</p>
-<p>Java运行时环境有一个垃圾回收器，周期性的释放被没有引用指向的对象占用的内存。垃圾回收器确定时机正确时，会自动完成其工作。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;使用对象&quot;&gt;&lt;a href=&quot;#使用对象&quot; class=&quot;headerlink&quot; title=&quot;使用对象&quot;&gt;&lt;/a&gt;使用对象&lt;/h1&gt;&lt;p&gt;一旦你创建了一个对象，你可能想要用它做一些事情。你可能需要使用这个对象的字段/成员变量中的一个，改变它，或者调用的方法来执行
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="对象" scheme="http://yoursite.com/tags/%E5%AF%B9%E8%B1%A1/"/>
-    
-      <category term="Object" scheme="http://yoursite.com/tags/Object/"/>
-    
-      <category term="垃圾回收" scheme="http://yoursite.com/tags/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/"/>
-    
-      <category term="gc" scheme="http://yoursite.com/tags/gc/"/>
-    
-      <category term="Garbage Collector" scheme="http://yoursite.com/tags/Garbage-Collector/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-类-创建对象</title>
-    <link href="http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&amp;object_class_7/"/>
-    <id>http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&amp;object_class_7/</id>
-    <published>2017-10-13T05:00:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h1><p>如你所知，类提供了对象的蓝图/模板；你可以通过类创建对象。下面的每一个语句取自 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/examples/CreateObjectDemo.java" target="_blank" rel="external"><code>CreateObjectDemo</code></a> ，都创建了一个对象并将它赋值给一个变量:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Point originOne = <span class="keyword">new</span> Point(<span class="number">23</span>, <span class="number">94</span>);</div><div class="line">Rectangle rectOne = <span class="keyword">new</span> Rectangle(originOne, <span class="number">100</span>, <span class="number">200</span>);</div><div class="line">Rectangle rectTwo = <span class="keyword">new</span> Rectangle(<span class="number">50</span>, <span class="number">100</span>);</div></pre></td></tr></table></figure>
-<p>第一行创建了一个 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/examples/Point.java" target="_blank" rel="external"><code>Point</code></a> 类的对象,第二行及第三行创建了 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/examples/Rectangle.java" target="_blank" rel="external"><code>Rectangle</code></a> 类的对象.</p>
-<p>每一行语句都包含了三部分，详情如下：</p>
-<ol>
-<li><strong>声明Declaration</strong>: 首先定义了变量对应的数据类型和变量名.</li>
-<li><strong>实例化Instantiation</strong>:  <code>new</code>  关键字时Java的创建（实例化）对象操作符.</li>
-<li><strong>初始化Initialization</strong>:  <code>new</code> 操作符接下来调用一个构造方法，构造方法初始化这个新的对象.</li>
-</ol>
-<a id="more"></a>
-<h2 id="定义一个引用对象的变量"><a href="#定义一个引用对象的变量" class="headerlink" title="定义一个引用对象的变量"></a>定义一个引用对象的变量</h2><p>首先你，学到了如何声明一个变量，这样写:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">type name;<span class="comment">// 类型 名称</span></div></pre></td></tr></table></figure>
-<p>这么做就告诉了编译器你将使用<code>name</code>指向/引用类型为<code>type</code>的数据。作为基本数据变量，这个声明同样会为变量预备/分配适当数量的内存。</p>
-<p>你同样可以定义一个引用类型的变量，例如:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Point originOne;</div></pre></td></tr></table></figure>
-<p>如果你向这样声明 <code>originOne</code>变量,它的值时不确定的，直到你个对象确实创建并赋值给它。简单的声明一个引用类型的变量并不会创建一个对象。因此，你需要使用<code>new</code>操作符，就像上一节讲的。在你的代码中使用它之前你必须创建一个对象并赋值给它。不然的话，就会出现一个编译错误。</p>
-<p>在现在的这种情况下，当前的变量时么有引用对象的，示例如下（变量名，<code>originOne</code>,没有指向任何东西）:</p>
-<p><img src="http://docs.oracle.com/javase/tutorial/figures/java/objects-null.gif" alt="originOne is null."></p>
-<h2 id="实例化一个类Instantiating-a-Class"><a href="#实例化一个类Instantiating-a-Class" class="headerlink" title="实例化一个类Instantiating a Class"></a>实例化一个类Instantiating a Class</h2><p> <code>new</code>操作符实例化一个 类，通过为新的对象分配一块内存并返回指向这块内存的引用。<code>new</code>操作符同样调用了类的构造方法。</p>
-<hr>
-<p><strong>注意</strong>: 单词 “instantiating a class” 实例化一个类与 “creating an object.”创建一个对象意思一样。当你创建你对象的时候，你创建一个类的实例，或者说实例化一个类。</p>
-<hr>
-<p> <code>new</code> 操作符要求一个单独的后缀参数:一个构造函数的调用.构造函数名提供了需要实例化的类名。</p>
-<p> <code>new</code>操作符返回一个它创建的对象的引用。这个引用通常赋值给一个对应类型的变量。就像这样:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Point originOne = <span class="keyword">new</span> Point(<span class="number">23</span>, <span class="number">94</span>);</div></pre></td></tr></table></figure>
-<p><code>new</code>操作符返回的引用并不一样非要复制给一个变量，它也可以直接在一个表达式中使用。例如:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> height = <span class="keyword">new</span> Rectangle().height;</div></pre></td></tr></table></figure>
-<p>下一节还会讨论这个语句。</p>
-<h2 id="初始化一个对象Initializing-an-Object"><a href="#初始化一个对象Initializing-an-Object" class="headerlink" title="初始化一个对象Initializing an Object"></a>初始化一个对象Initializing an Object</h2><p>以下为<code>Point</code> 类的代码:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        x = a;</div><div class="line">        y = b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个类包含唯一的构造方法。你很容易识别构造方法，因为它的名字与类名一样并且没有返回类型。<code>Point</code>类的构造方法需要两个<code>integer</code>参数 <code>(int a, int b)</code>.下面的语句提供了23和94作为这两个参数的值：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Point originOne = <span class="keyword">new</span> Point(<span class="number">23</span>, <span class="number">94</span>);</div></pre></td></tr></table></figure>
-<p>语句执行的结果可以用以下图例展示:</p>
-<p><img src="http://docs.oracle.com/javase/tutorial/figures/java/objects-oneRef.gif" alt="originOne now points to a Point object."></p>
-<p>下面是矩形<code>Rectangle</code>类的代码，包含了四个够高方法:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> width = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> height = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> Point origin;</div><div class="line"></div><div class="line">    <span class="comment">// four constructors</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">()</span> </span>&#123;</div><div class="line">        origin = <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(Point p)</span> </span>&#123;</div><div class="line">        origin = p;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> h)</span> </span>&#123;</div><div class="line">        origin = <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>);</div><div class="line">        width = w;</div><div class="line">        height = h;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(Point p, <span class="keyword">int</span> w, <span class="keyword">int</span> h)</span> </span>&#123;</div><div class="line">        origin = p;</div><div class="line">        width = w;</div><div class="line">        height = h;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// a method for moving the rectangle</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        origin.x = x;</div><div class="line">        origin.y = y;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// a method for computing the area of the rectangle</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getArea</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> width * height;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>每一个构造方法让你使用基本数据类型或者引用类型为矩形的定点，宽，高提供初始值。如果你个类有多个构造方法，它们必须有不同 的方法签名。Java编译器根据参数的类型和数量来区分构造函数。当Java编译其碰到虾米那的代码，它直到去调用要求<code>Point</code>,以及两个整数参数的构造方法:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Rectangle rectOne = <span class="keyword">new</span> Rectangle(originOne, <span class="number">100</span>, <span class="number">200</span>);</div></pre></td></tr></table></figure>
-<p>这个方法调用初始化<code>origin</code>为<code>originOne</code>,同样设置<code>width</code>为100，<code>height</code>为200。现在有两个引用指向同一个 <code>Point object</code>—一个对象可以有多个引用指向它，就像下面的图例所示:</p>
-<p><img src="http://docs.oracle.com/javase/tutorial/figures/java/objects-multipleRefs.gif" alt="Now the rectangle&#39;s origin variable also points to the Point."></p>
-<p>接下来的几行代码调用了要求两个<code>integer</code>整形参数的构造方法，为<code>width</code>和<code>height</code>提供了初始值。观察这个构造方法的代码，你会发现它创建了一个新的<code>Point</code>对象，其<code>x</code>,<code>y</code>的值初始化为0:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Rectangle rectTwo = <span class="keyword">new</span> Rectangle(<span class="number">50</span>, <span class="number">100</span>);</div></pre></td></tr></table></figure>
-<p><code>Rectangle</code> 构造方法使用了下面的语句，没有用到参数，因此叫做<em>无参构造器</em>， <em>no-argument constructor</em>:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Rectangle rect = <span class="keyword">new</span> Rectangle();</div></pre></td></tr></table></figure>
-<p>所有的类都至少有一个构造器。如果类没有像是的提供构造其，Java编译器为自动提供一个无参构造器，叫做<em>默认构造器</em> <em>default constructor</em>. 这个默认构造器调用父类的无参构造器，如果这个类没有其他父类则调用<code>Object</code>的构造器。如果这个父类没有构造器（<code>Object</code>有构造器），编译器将会拒绝这个程序。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;创建对象&quot;&gt;&lt;a href=&quot;#创建对象&quot; class=&quot;headerlink&quot; title=&quot;创建对象&quot;&gt;&lt;/a&gt;创建对象&lt;/h1&gt;&lt;p&gt;如你所知，类提供了对象的蓝图/模板；你可以通过类创建对象。下面的每一个语句取自 &lt;a href=&quot;http://docs.oracle.com/javase/tutorial/java/javaOO/examples/CreateObjectDemo.java&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;CreateObjectDemo&lt;/code&gt;&lt;/a&gt; ，都创建了一个对象并将它赋值给一个变量:&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Point originOne = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Point(&lt;span class=&quot;number&quot;&gt;23&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;94&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Rectangle rectOne = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Rectangle(originOne, &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Rectangle rectTwo = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Rectangle(&lt;span class=&quot;number&quot;&gt;50&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;第一行创建了一个 &lt;a href=&quot;http://docs.oracle.com/javase/tutorial/java/javaOO/examples/Point.java&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;Point&lt;/code&gt;&lt;/a&gt; 类的对象,第二行及第三行创建了 &lt;a href=&quot;http://docs.oracle.com/javase/tutorial/java/javaOO/examples/Rectangle.java&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;Rectangle&lt;/code&gt;&lt;/a&gt; 类的对象.&lt;/p&gt;
-&lt;p&gt;每一行语句都包含了三部分，详情如下：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;声明Declaration&lt;/strong&gt;: 首先定义了变量对应的数据类型和变量名.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;实例化Instantiation&lt;/strong&gt;:  &lt;code&gt;new&lt;/code&gt;  关键字时Java的创建（实例化）对象操作符.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;初始化Initialization&lt;/strong&gt;:  &lt;code&gt;new&lt;/code&gt; 操作符接下来调用一个构造方法，构造方法初始化这个新的对象.&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="创建对象" scheme="http://yoursite.com/tags/%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1/"/>
-    
-      <category term="Creating Object" scheme="http://yoursite.com/tags/Creating-Object/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-类-对象</title>
-    <link href="http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&amp;object_class_6/"/>
-    <id>http://yoursite.com/2017/10/13/java-tutorial-learning_the_lang_basic_class&amp;object_class_6/</id>
-    <published>2017-10-13T03:00:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><p>一个特定的Java程序创建许多对象，就像你学过的，通过方法调用进行交出。通过对象的交互，一个程序可以处理各种各样的任务，诸如实现一个GUI（用户交互界面），运行一个动画，或者通过网路发送和接受信息。一旦一个对象完成了被创建的过程，它的资源可以被其他对象循环使用。</p>
-<p>下面有一个小程序，叫做 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/examples/CreateObjectDemo.java" target="_blank" rel="external"><code>CreateObjectDemo</code></a>, 创建了三个对下给你，一个点对象 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/examples/Point.java" target="_blank" rel="external"><code>Point</code></a> 和两个矩形 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/examples/Rectangle.java" target="_blank" rel="external"><code>Rectangle</code></a> 对象. 你会需要三个资源文件来完成这个程序.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CreateObjectDemo</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		</div><div class="line">        <span class="comment">// Declare and create a point object and two rectangle objects.</span></div><div class="line">        Point originOne = <span class="keyword">new</span> Point(<span class="number">23</span>, <span class="number">94</span>);</div><div class="line">        Rectangle rectOne = <span class="keyword">new</span> Rectangle(originOne, <span class="number">100</span>, <span class="number">200</span>);</div><div class="line">        Rectangle rectTwo = <span class="keyword">new</span> Rectangle(<span class="number">50</span>, <span class="number">100</span>);</div><div class="line">		</div><div class="line">        <span class="comment">// display rectOne's width, height, and area</span></div><div class="line">        System.out.println(<span class="string">"Width of rectOne: "</span> + rectOne.width);</div><div class="line">        System.out.println(<span class="string">"Height of rectOne: "</span> + rectOne.height);</div><div class="line">        System.out.println(<span class="string">"Area of rectOne: "</span> + rectOne.getArea());</div><div class="line">		</div><div class="line">        <span class="comment">// set rectTwo's position</span></div><div class="line">        rectTwo.origin = originOne;</div><div class="line">		</div><div class="line">        <span class="comment">// display rectTwo's position</span></div><div class="line">        System.out.println(<span class="string">"X Position of rectTwo: "</span> + rectTwo.origin.x);</div><div class="line">        System.out.println(<span class="string">"Y Position of rectTwo: "</span> + rectTwo.origin.y);</div><div class="line">		</div><div class="line">        <span class="comment">// move rectTwo and display its new position</span></div><div class="line">        rectTwo.move(<span class="number">40</span>, <span class="number">72</span>);</div><div class="line">        System.out.println(<span class="string">"X Position of rectTwo: "</span> + rectTwo.origin.x);</div><div class="line">        System.out.println(<span class="string">"Y Position of rectTwo: "</span> + rectTwo.origin.y);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个程序创建，操作了三个不同的随想并显示了其信息，以下为输出情况:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Width of rectOne: <span class="number">100</span></div><div class="line">Height of rectOne: <span class="number">200</span></div><div class="line">Area of rectOne: <span class="number">20000</span></div><div class="line">X Position of rectTwo: <span class="number">23</span></div><div class="line">Y Position of rectTwo: <span class="number">94</span></div><div class="line">X Position of rectTwo: <span class="number">40</span></div><div class="line">Y Position of rectTwo: <span class="number">72</span></div></pre></td></tr></table></figure>
-<p>接下来的三部分使用上面的例子描述了一个对象在程序中的生命周期。通过特们，你可以学习到如何在你的程序中创建和使用对象。同样可以学习到系统在对象的生命周期结束后如何清理它们。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;对象&quot;&gt;&lt;a href=&quot;#对象&quot; class=&quot;headerlink&quot; title=&quot;对象&quot;&gt;&lt;/a&gt;对象&lt;/h1&gt;&lt;p&gt;一个特定的Java程序创建许多对象，就像你学过的，通过方法调用进行交出。通过对象的交互，一个程序可以处理各种各样的任务，诸如实现一个GUI（
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="对象" scheme="http://yoursite.com/tags/%E5%AF%B9%E8%B1%A1/"/>
-    
-      <category term="Object" scheme="http://yoursite.com/tags/Object/"/>
-    
-      <category term="constructor" scheme="http://yoursite.com/tags/constructor/"/>
     
   </entry>
   
