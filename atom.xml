@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-21T10:24:38.002Z</updated>
+  <updated>2018-03-23T03:02:47.607Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,50 +17,51 @@
   
   <entry>
     <title>Java 学习指南_学习Java：预定义的注解类型</title>
-    <link href="http://yoursite.com/2018/03/21/java-tutorial-learning_annotation_predefined/"/>
-    <id>http://yoursite.com/2018/03/21/java-tutorial-learning_annotation_predefined/</id>
-    <published>2018-03-21T11:26:59.000Z</published>
-    <updated>2018-03-21T10:24:38.002Z</updated>
+    <link href="http://yoursite.com/2018/03/23/java-tutorial-learning_annotation_predefined/"/>
+    <id>http://yoursite.com/2018/03/23/java-tutorial-learning_annotation_predefined/</id>
+    <published>2018-03-23T03:26:59.000Z</published>
+    <updated>2018-03-23T03:02:47.607Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="预定义的注解类型"><a href="#预定义的注解类型" class="headerlink" title="预定义的注解类型"></a>预定义的注解类型</h1><p>A set of annotation types are predefined in the Java SE API. Some annotation types are used by the Java compiler, and some apply to other annotations.</p>
-<h2 id="Java语言使用的注解"><a href="#Java语言使用的注解" class="headerlink" title="Java语言使用的注解"></a>Java语言使用的注解</h2><p>The predefined annotation types defined in <code>java.lang</code> are <code>@Deprecated</code>, <code>@Override</code>, and <code>@SuppressWarnings</code>.</p>
-<p><strong>@Deprecated</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html" target="_blank" rel="external"><code>@Deprecated</code></a> annotation indicates that the marked element is <em>deprecated</em> and should no longer be used. The compiler generates a warning whenever a program uses a method, class, or field with the <code>@Deprecated</code> annotation. When an element is deprecated, it should also be documented using the Javadoc <code>@deprecated</code> tag, as shown in the following example. The use of the at sign (<code>@</code>) in both Javadoc comments and in annotations is not coincidental: they are related conceptually. Also, note that the Javadoc tag starts with a lowercase <em>d</em> and the annotation starts with an uppercase <em>D</em>.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">   // Javadoc comment follows</div><div class="line">    /**</div><div class="line">     * @deprecated</div><div class="line">     * explanation of why it was deprecated</div><div class="line">     */</div><div class="line">    @Deprecated</div><div class="line">    static void deprecatedMethod() &#123; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>@Override</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Override.html" target="_blank" rel="external"><code>@Override</code></a> annotation informs the compiler that the element is meant to override an element declared in a superclass. Overriding methods will be discussed in<a href="https://docs.oracle.com/javase/tutorial/java/IandI/index.html" target="_blank" rel="external">Interfaces and Inheritance</a>.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// mark method as a superclass method</div><div class="line">// that has been overridden</div><div class="line">@Override </div><div class="line">int overriddenMethod() &#123; &#125;</div></pre></td></tr></table></figure>
-<p>While it is not required to use this annotation when overriding a method, it helps to prevent errors. If a method marked with <code>@Override</code> fails to correctly override a method in one of its superclasses, the compiler generates an error.</p>
-<p><strong>@SuppressWarnings</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html" target="_blank" rel="external"><code>@SuppressWarnings</code></a> annotation tells the compiler to suppress specific warnings that it would otherwise generate. In the following example, a deprecated method is used, and the compiler usually generates a warning. In this case, however, the annotation causes the warning to be suppressed.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// use a deprecated method and tell </div><div class="line">// compiler not to generate a warning</div><div class="line">@SuppressWarnings(&quot;deprecation&quot;)</div><div class="line"> void useDeprecatedMethod() &#123;</div><div class="line">     // deprecation warning</div><div class="line">     // - suppressed</div><div class="line">     objectOne.deprecatedMethod();</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p>Every compiler warning belongs to a category. The Java Language Specification lists two categories: <code>deprecation</code> and <code>unchecked</code>. The <code>unchecked</code> warning can occur when interfacing with legacy code written before the advent of <a href="https://docs.oracle.com/javase/tutorial/java/generics/index.html" target="_blank" rel="external">generics</a>. To suppress multiple categories of warnings, use the following syntax:</p>
+    <content type="html"><![CDATA[<h1 id="预定义的注解类型"><a href="#预定义的注解类型" class="headerlink" title="预定义的注解类型"></a>预定义的注解类型</h1><p>Java SE API 预定义了一系列的注解类型。一些是被Java编译器使用，另外一是应用于其他注解(注解的注解).</p>
+<h2 id="Java语言使用的注解"><a href="#Java语言使用的注解" class="headerlink" title="Java语言使用的注解"></a>Java语言使用的注解</h2><p><code>java.lang</code> 包中所定义的注解类型有 <code>@Deprecated</code>, <code>@Override</code>, 以及 <code>@SuppressWarnings</code>.</p>
+<p><strong>@Deprecated</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html" target="_blank" rel="external"><code>@Deprecated</code></a> 注解表明了标注的元素是不推荐的并且不应该再继续使用。无论什么时候程序使用了有该标记的类，方法，字段，编译器都会产生一个警告。如果元素标记了<code>@Deprecated</code>那么他的主时钟也必须是用Java文档 <code>@deprecated</code> 标签，正如下面的例子。在Java文档注释中使用符号<code>@</code>与注解中一样并不是巧合的coincidental：他们是关联的概念。不过，要注意，Java文档注释里的标签首字母为小写<code>d</code>注解中首字母为<code>D</code>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">   <span class="comment">// Javadoc comment follows</span></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@deprecated</span></div><div class="line">     * explanation of why it was deprecated</div><div class="line">     */</div><div class="line">    <span class="meta">@Deprecated</span></div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">deprecatedMethod</span><span class="params">()</span> </span>&#123; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>@Override</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Override.html" target="_blank" rel="external"><code>@Override</code></a>  注解告知编译器元素是为了复写在父类中定义的元素。复写方法将会在<a href="https://docs.oracle.com/javase/tutorial/java/IandI/index.html" target="_blank" rel="external">接口与继承Interfaces and Inheritance</a>一篇中讨论到.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// mark method as a superclass method</span></div><div class="line"><span class="comment">// that has been overridden</span></div><div class="line"><span class="meta">@Override</span> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">overriddenMethod</span><span class="params">()</span> </span>&#123; &#125;</div></pre></td></tr></table></figure>
+<p>当复写方法的时候并不是必须要使用这个注解，他可以帮助你预防错误。如果标记了<code>@Override</code>标记的方法没有正确的复写他父类中的一个方法，编译器就会产生错误。</p>
+<p><strong>@SuppressWarnings</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SuppressWarnings.html" target="_blank" rel="external"><code>@SuppressWarnings</code></a> 注解告诉编译器，阻止可能产生的特定的警告。下面的例子中，使用了一个不推荐的方法，编译器通常会生成一个警告。在这种情况下，使用这个注解就可以阻止产生警告.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// use a deprecated method and tell </span></div><div class="line"><span class="comment">// compiler not to generate a warning</span></div><div class="line"><span class="meta">@SuppressWarnings</span>(<span class="string">"deprecation"</span>)</div><div class="line"> <span class="function"><span class="keyword">void</span> <span class="title">useDeprecatedMethod</span><span class="params">()</span> </span>&#123;</div><div class="line">     <span class="comment">// deprecation warning</span></div><div class="line">     <span class="comment">// - suppressed</span></div><div class="line">     objectOne.deprecatedMethod();</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>每一个编译器警告属于一个分类。Java语言明确列出了两类警告： <code>deprecation</code> 以及 <code>unchecked</code>. </p>
+<p> <code>unchecked</code>警告，当遇到泛型 <a href="https://docs.oracle.com/javase/tutorial/java/generics/index.html" target="_blank" rel="external">generics</a>出现之前的遗留代码时可能会出现。 如果要阻止多个类型的警告，参考以下语法:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@SuppressWarnings(&#123;&quot;unchecked&quot;, &quot;deprecation&quot;&#125;)</div></pre></td></tr></table></figure>
-<p><strong>@SafeVarargs</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SafeVarargs.html" target="_blank" rel="external"><code>@SafeVarargs</code></a> annotation, when applied to a method or constructor, asserts that the code does not perform potentially unsafe operations on its <code>varargs</code>parameter. When this annotation type is used, unchecked warnings relating to <code>varargs</code> usage are suppressed.</p>
-<p><strong>@FunctionalInterface</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html" target="_blank" rel="external"><code>@FunctionalInterface</code></a> annotation, introduced in Java SE 8, indicates that the type declaration is intended to be a functional interface, as defined by the Java Language Specification.</p>
-<h2 id="用于其他注解的注解"><a href="#用于其他注解的注解" class="headerlink" title="用于其他注解的注解"></a>用于其他注解的注解</h2><p>Annotations that apply to other annotations are called <em>meta-annotations</em>. There are several meta-annotation types defined in <code>java.lang.annotation</code>.</p>
-<p><strong>@Retention</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Retention.html" target="_blank" rel="external"><code>@Retention</code></a> annotation specifies how the marked annotation is stored:</p>
+<p><strong>@SafeVarargs</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/SafeVarargs.html" target="_blank" rel="external"><code>@SafeVarargs</code></a> 注解，当使用在一个构造器或者方法时，断定该方法在使用可变参数时没有潜在的不安全因素。使用了该注解，与 <code>varargs</code>可变参数使用相关的未检查警告可以被阻止。</p>
+<p><strong>@FunctionalInterface</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/FunctionalInterface.html" target="_blank" rel="external"><code>@FunctionalInterface</code></a> 功能接口注解，在Java SE8中引入。表明是一个功能接口，与Java语言标准中定义的功能接口一样.</p>
+<h2 id="用于其他注解的注解"><a href="#用于其他注解的注解" class="headerlink" title="用于其他注解的注解"></a>用于其他注解的注解</h2><p>用于其注解的注解叫做元注解<em>meta-annotations</em>. <code>java.lang.annotation</code>中定义了数个元注解.</p>
+<p><strong>@Retention</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Retention.html" target="_blank" rel="external"><code>@Retention</code></a> 保留注解表明了注解是如何被存储的:</p>
 <ul>
-<li><code>RetentionPolicy.SOURCE</code> – The marked annotation is retained only in the source level and is ignored by the compiler.</li>
-<li><code>RetentionPolicy.CLASS</code> – The marked annotation is retained by the compiler at compile time, but is ignored by the Java Virtual Machine (JVM).</li>
-<li><code>RetentionPolicy.RUNTIME</code> – The marked annotation is retained by the JVM so it can be used by the runtime environment.</li>
+<li><code>RetentionPolicy.SOURCE</code> – 该标记表明注解只在资源层面被保留，编译器会忽略.</li>
+<li><code>RetentionPolicy.CLASS</code> – 该标记表明注解在编译时被保留，JVM会忽略.</li>
+<li><code>RetentionPolicy.RUNTIME</code> – 该标记表明注解会被JVM保留，可以再运行时使用.</li>
 </ul>
-<p><strong>@Documented</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html" target="_blank" rel="external"><code>@Documented</code></a> annotation indicates that whenever the specified annotation is used those elements should be documented using the Javadoc tool. (By default, annotations are not included in Javadoc.) For more information, see the <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/javadoc/index.html" target="_blank" rel="external">Javadoc tools page</a>.</p>
-<p><strong>@Target</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html" target="_blank" rel="external"><code>@Target</code></a> annotation marks another annotation to restrict what kind of Java elements the annotation can be applied to. A target annotation specifies one of the following element types as its value:</p>
+<p><strong>@Documented</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Documented.html" target="_blank" rel="external"><code>@Documented</code></a> 文档注解，表明使用了对应注解的元素，会被Java文档工具Javadoc tool使用。(默认情况下，注解不会被包含在Java文档中)。参考Java文档工具页面 <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/javadoc/index.html" target="_blank" rel="external">Javadoc tools page</a>，获取更多相关信息.</p>
+<p><strong>@Target</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Target.html" target="_blank" rel="external"><code>@Target</code></a> 注解，限制了限制了注解可以应用于那种Java元素类型。目标注解可以使用如下的元素类型作为它的值:</p>
 <ul>
-<li><code>ElementType.ANNOTATION_TYPE</code> can be applied to an annotation type.</li>
-<li><code>ElementType.CONSTRUCTOR</code> can be applied to a constructor.</li>
-<li><code>ElementType.FIELD</code> can be applied to a field or property.</li>
-<li><code>ElementType.LOCAL_VARIABLE</code> can be applied to a local variable.</li>
-<li><code>ElementType.METHOD</code> can be applied to a method-level annotation.</li>
-<li><code>ElementType.PACKAGE</code> can be applied to a package declaration.</li>
-<li><code>ElementType.PARAMETER</code> can be applied to the parameters of a method.</li>
-<li><code>ElementType.TYPE</code> can be applied to any element of a class.</li>
+<li><code>ElementType.ANNOTATION_TYPE</code> 可以应用于注解类型.</li>
+<li><code>ElementType.CONSTRUCTOR</code> 可以应用于构造器.</li>
+<li><code>ElementType.FIELD</code> 可以应用于字段或者属性（字段、枚举的常量）.</li>
+<li><code>ElementType.LOCAL_VARIABLE</code> 可以应用于局部变量.</li>
+<li><code>ElementType.METHOD</code> 可以应用于方法级别的注解.</li>
+<li><code>ElementType.PACKAGE</code> 可以应用于包的定义.</li>
+<li><code>ElementType.PARAMETER</code> 可以应用于方法的参数。</li>
+<li>ElementType.TYPE 可以应用于任何的类（接口、类、枚举、注解）。</li>
 </ul>
-<p><strong>@Inherited</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Inherited.html" target="_blank" rel="external"><code>@Inherited</code></a> annotation indicates that the annotation type can be inherited from the super class. (This is not true by default.) When the user queries the annotation type and the class has no annotation for this type, the class’ superclass is queried for the annotation type. This annotation applies only to class declarations.</p>
-<p><strong>@Repeatable</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Repeatable.html" target="_blank" rel="external"><code>@Repeatable</code></a> annotation, introduced in Java SE 8, indicates that the marked annotation can be applied more than once to the same declaration or type use. For more information, see <a href="https://docs.oracle.com/javase/tutorial/java/annotations/repeating.html" target="_blank" rel="external">Repeating Annotations</a>.</p>
+<p><strong>@Inherited</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Inherited.html" target="_blank" rel="external"><code>@Inherited</code></a> 继承注解表明，注解类型可以用从器的父类继承。(默认是不可以继承的)，当用户查询类的注解类型而类本身没有该注解时，就会查询其父类是否有该注解。这个注解只能使用与类的定义.</p>
+<p><strong>@Repeatable</strong> <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/Repeatable.html" target="_blank" rel="external"><code>@Repeatable</code></a> 可重复的注解，在Java SE 8中引入，表明该注解在同一个声明或者类型处可以使用不止一次。参考可重复注解 <a href="https://docs.oracle.com/javase/tutorial/java/annotations/repeating.html" target="_blank" rel="external">Repeating Annotations</a>.</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;预定义的注解类型&quot;&gt;&lt;a href=&quot;#预定义的注解类型&quot; class=&quot;headerlink&quot; title=&quot;预定义的注解类型&quot;&gt;&lt;/a&gt;预定义的注解类型&lt;/h1&gt;&lt;p&gt;A set of annotation types are predefined in th
+      &lt;h1 id=&quot;预定义的注解类型&quot;&gt;&lt;a href=&quot;#预定义的注解类型&quot; class=&quot;headerlink&quot; title=&quot;预定义的注解类型&quot;&gt;&lt;/a&gt;预定义的注解类型&lt;/h1&gt;&lt;p&gt;Java SE API 预定义了一系列的注解类型。一些是被Java编译器使用，另外一是应用于
     
     </summary>
     
@@ -185,44 +186,6 @@
   </entry>
   
   <entry>
-    <title>Java 学习指南_学习Java：注解</title>
-    <link href="http://yoursite.com/2018/03/21/java-tutorial-learning_annotation/"/>
-    <id>http://yoursite.com/2018/03/21/java-tutorial-learning_annotation/</id>
-    <published>2018-03-21T09:26:59.000Z</published>
-    <updated>2018-03-21T09:27:12.734Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="课程-注解"><a href="#课程-注解" class="headerlink" title="课程: 注解"></a>课程: 注解</h1><p><em>注解Annotations</em>, 一种元数据的格式,提供程序相关的数据而不是程序本身. 注解并不会直接影响所标注的代码的影响。</p>
-<p>注解有一系列的作用，分别如下:</p>
-<ul>
-<li><strong>编译所用的注解信息</strong> — 注解可以用来侦测错误或者忽略警告.</li>
-<li><strong>编译时以及部署时的处理Compile-time and deployment-time processing</strong> — 软件工具可以处理注解信息来生成代码,XML文件等。</li>
-<li><strong>运行时的处理Runtime processing</strong> — 某些注解可在运行时检测.</li>
-</ul>
-<p>本课程解释了哪里可以用到注解，如何应用注解，JavaSE api预定义了那些可用的注解类型，注解类型如何与插件式的系统想结果写出强壮的类型检查代码，以及如何实现可重复的注解。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;课程-注解&quot;&gt;&lt;a href=&quot;#课程-注解&quot; class=&quot;headerlink&quot; title=&quot;课程: 注解&quot;&gt;&lt;/a&gt;课程: 注解&lt;/h1&gt;&lt;p&gt;&lt;em&gt;注解Annotations&lt;/em&gt;, 一种元数据的格式,提供程序相关的数据而不是程序本身. 注解并不会
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="注解" scheme="http://yoursite.com/tags/%E6%B3%A8%E8%A7%A3/"/>
-    
-      <category term="annotation" scheme="http://yoursite.com/tags/annotation/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Java 学习指南_学习Java：注解基础</title>
     <link href="http://yoursite.com/2018/03/21/java-tutorial-learning_annotation_basic/"/>
     <id>http://yoursite.com/2018/03/21/java-tutorial-learning_annotation_basic/</id>
@@ -268,6 +231,44 @@
     <summary type="html">
     
       &lt;h1 id=&quot;注解基础&quot;&gt;&lt;a href=&quot;#注解基础&quot; class=&quot;headerlink&quot; title=&quot;注解基础&quot;&gt;&lt;/a&gt;注解基础&lt;/h1&gt;&lt;h2 id=&quot;注解的格式&quot;&gt;&lt;a href=&quot;#注解的格式&quot; class=&quot;headerlink&quot; title=&quot;注解的格式&quot;&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="注解" scheme="http://yoursite.com/tags/%E6%B3%A8%E8%A7%A3/"/>
+    
+      <category term="annotation" scheme="http://yoursite.com/tags/annotation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 学习指南_学习Java：注解</title>
+    <link href="http://yoursite.com/2018/03/21/java-tutorial-learning_annotation/"/>
+    <id>http://yoursite.com/2018/03/21/java-tutorial-learning_annotation/</id>
+    <published>2018-03-21T09:26:59.000Z</published>
+    <updated>2018-03-21T09:27:12.734Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="课程-注解"><a href="#课程-注解" class="headerlink" title="课程: 注解"></a>课程: 注解</h1><p><em>注解Annotations</em>, 一种元数据的格式,提供程序相关的数据而不是程序本身. 注解并不会直接影响所标注的代码的影响。</p>
+<p>注解有一系列的作用，分别如下:</p>
+<ul>
+<li><strong>编译所用的注解信息</strong> — 注解可以用来侦测错误或者忽略警告.</li>
+<li><strong>编译时以及部署时的处理Compile-time and deployment-time processing</strong> — 软件工具可以处理注解信息来生成代码,XML文件等。</li>
+<li><strong>运行时的处理Runtime processing</strong> — 某些注解可在运行时检测.</li>
+</ul>
+<p>本课程解释了哪里可以用到注解，如何应用注解，JavaSE api预定义了那些可用的注解类型，注解类型如何与插件式的系统想结果写出强壮的类型检查代码，以及如何实现可重复的注解。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;课程-注解&quot;&gt;&lt;a href=&quot;#课程-注解&quot; class=&quot;headerlink&quot; title=&quot;课程: 注解&quot;&gt;&lt;/a&gt;课程: 注解&lt;/h1&gt;&lt;p&gt;&lt;em&gt;注解Annotations&lt;/em&gt;, 一种元数据的格式,提供程序相关的数据而不是程序本身. 注解并不会
     
     </summary>
     
@@ -1462,48 +1463,6 @@
   </entry>
   
   <entry>
-    <title>Java 学习指南_学习Java：基础-类-this关键字</title>
-    <link href="http://yoursite.com/2017/10/18/java-tutorial-learning_class&amp;object_class_11/"/>
-    <id>http://yoursite.com/2017/10/18/java-tutorial-learning_class&amp;object_class_11/</id>
-    <published>2017-10-18T05:54:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="使用this关键字"><a href="#使用this关键字" class="headerlink" title="使用this关键字"></a>使用this关键字</h1><p>在一个实例方法或者是构造器中，<code>this</code>关键字指向<em>当前对象**current object</em>—被调用了方法或者构造器的对象。你可以通过<code>this</code>关键字在实例方法或者构造器中引用当前对象的任何成员。</p>
-<h2 id="this-与-Field"><a href="#this-与-Field" class="headerlink" title="this 与 Field"></a><code>this</code> 与 Field</h2><p>通常使用<code>this</code>关键字的原因是field被方法或构造器的参数遮蔽.例如,  <code>Point</code>可以这样写</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        x = a;</div><div class="line">        y = b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>同样也可以这样写：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>构造器的每一个参数遮蔽对象的一个filed字段/属性–方法内<strong>x</strong> 是构造器第一参数的一本局部副本.为了引用 <code>Point</code> 的 <strong>x</strong>字段, 构造器必须使用 <code>this.x</code>.</p>
-<h2 id="this-与构造器-Constructor"><a href="#this-与构造器-Constructor" class="headerlink" title="this 与构造器 Constructor"></a><code>this</code> 与构造器 Constructor</h2><p>在一个构造器内，你同样可以使用<code>this</code>关键字来调用用一个类中的其他构造器。这样做叫作<em>explicit constructor invocation**显示的构造函数调用</em>.下面是一个 <code>Rectangle</code> 类,与对象一节中实现方法不同.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x, y;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> width, height;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, width, height);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">        <span class="keyword">this</span>.width = width;</div><div class="line">        <span class="keyword">this</span>.height = height;</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个类包含一系列的构造器.每一个构造器初始化初始化矩形的一些成员变量.构造器为没有提供初始化参数的成员变量设置一个默认值。例如。无参构造器在坐标(0,0)处创建一个1X1的矩形。这个两个参数的构造其调用了四个参数的构造器，传递里宽高参数并且使用了(0,0)坐标。就像之前一样，编译器决定去调用哪一个构造器，基于参数的数量以及类型。</p>
-<p>如果存在这种调用，对其他构造器的调用必须出现在构造器中的第一行。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;使用this关键字&quot;&gt;&lt;a href=&quot;#使用this关键字&quot; class=&quot;headerlink&quot; title=&quot;使用this关键字&quot;&gt;&lt;/a&gt;使用this关键字&lt;/h1&gt;&lt;p&gt;在一个实例方法或者是构造器中，&lt;code&gt;this&lt;/code&gt;关键字指向&lt;em&gt;当
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
-    
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
-    
-      <category term="this" scheme="http://yoursite.com/tags/this/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Java 学习指南_学习Java：基础-类-访问控制</title>
     <link href="http://yoursite.com/2017/10/18/java-tutorial-learning_class&amp;object_class_12/"/>
     <id>http://yoursite.com/2017/10/18/java-tutorial-learning_class&amp;object_class_12/</id>
@@ -1638,6 +1597,48 @@
       <category term="Controlling Access" scheme="http://yoursite.com/tags/Controlling-Access/"/>
     
       <category term="访问控制" scheme="http://yoursite.com/tags/%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 学习指南_学习Java：基础-类-this关键字</title>
+    <link href="http://yoursite.com/2017/10/18/java-tutorial-learning_class&amp;object_class_11/"/>
+    <id>http://yoursite.com/2017/10/18/java-tutorial-learning_class&amp;object_class_11/</id>
+    <published>2017-10-18T05:54:59.000Z</published>
+    <updated>2017-10-26T01:02:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用this关键字"><a href="#使用this关键字" class="headerlink" title="使用this关键字"></a>使用this关键字</h1><p>在一个实例方法或者是构造器中，<code>this</code>关键字指向<em>当前对象**current object</em>—被调用了方法或者构造器的对象。你可以通过<code>this</code>关键字在实例方法或者构造器中引用当前对象的任何成员。</p>
+<h2 id="this-与-Field"><a href="#this-与-Field" class="headerlink" title="this 与 Field"></a><code>this</code> 与 Field</h2><p>通常使用<code>this</code>关键字的原因是field被方法或构造器的参数遮蔽.例如,  <code>Point</code>可以这样写</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">        x = a;</div><div class="line">        y = b;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>同样也可以这样写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="comment">//constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>构造器的每一个参数遮蔽对象的一个filed字段/属性–方法内<strong>x</strong> 是构造器第一参数的一本局部副本.为了引用 <code>Point</code> 的 <strong>x</strong>字段, 构造器必须使用 <code>this.x</code>.</p>
+<h2 id="this-与构造器-Constructor"><a href="#this-与构造器-Constructor" class="headerlink" title="this 与构造器 Constructor"></a><code>this</code> 与构造器 Constructor</h2><p>在一个构造器内，你同样可以使用<code>this</code>关键字来调用用一个类中的其他构造器。这样做叫作<em>explicit constructor invocation**显示的构造函数调用</em>.下面是一个 <code>Rectangle</code> 类,与对象一节中实现方法不同.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x, y;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> width, height;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(<span class="number">0</span>, <span class="number">0</span>, width, height);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;</div><div class="line">        <span class="keyword">this</span>.y = y;</div><div class="line">        <span class="keyword">this</span>.width = width;</div><div class="line">        <span class="keyword">this</span>.height = height;</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个类包含一系列的构造器.每一个构造器初始化初始化矩形的一些成员变量.构造器为没有提供初始化参数的成员变量设置一个默认值。例如。无参构造器在坐标(0,0)处创建一个1X1的矩形。这个两个参数的构造其调用了四个参数的构造器，传递里宽高参数并且使用了(0,0)坐标。就像之前一样，编译器决定去调用哪一个构造器，基于参数的数量以及类型。</p>
+<p>如果存在这种调用，对其他构造器的调用必须出现在构造器中的第一行。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;使用this关键字&quot;&gt;&lt;a href=&quot;#使用this关键字&quot; class=&quot;headerlink&quot; title=&quot;使用this关键字&quot;&gt;&lt;/a&gt;使用this关键字&lt;/h1&gt;&lt;p&gt;在一个实例方法或者是构造器中，&lt;code&gt;this&lt;/code&gt;关键字指向&lt;em&gt;当
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
+    
+      <category term="class" scheme="http://yoursite.com/tags/class/"/>
+    
+      <category term="this" scheme="http://yoursite.com/tags/this/"/>
     
   </entry>
   
