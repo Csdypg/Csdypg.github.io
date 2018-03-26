@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java,教程,variables,tutorial" />
+  <meta name="keywords" content="java,教程,tutorial,注解,annotation" />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="问题与练习问题 术语“实例变量”是非 ? 的另一种叫法。 术语“类变量”是 ? 的两一种叫法。 局部变量存储了临时的状态；它是在 ? 里声明的。 在方法的左括号和右括号里面声明的变量叫做 ?。 Java编程预言的八种基本数据类型是 ? 字符串类型的数据由 java.lang.String 类表示。 ?是持有固定数量的单一逐句类型值的容器对象。  练习 创建一个小项目定义一些fields。试着创建一">
-<meta name="keywords" content="java,教程,variables,tutorial">
+<meta name="description" content="Repeating Annotations#可重复注解 有时候你需要在定义或者类型使用时多次使用同一个注解。Java8中repeating annotations 可以实现. 例如，你在写一个程序，使用一个定时服务，是你的方法可以在特定的时间或者按着确切的调度计划执行。类似于UNIX系统的 cron 服务.现在你想要设置一个定时器来运行方法, doPeriodicCleanup, 在每个月的最后一">
+<meta name="keywords" content="java,教程,tutorial,注解,annotation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 学习指南_学习Java：基础—Variables问题与练习">
-<meta property="og:url" content="http://yoursite.com/2017/07/26/java-tutorial-learning_the_lang_basic_variables_qe/index.html">
+<meta property="og:title" content="Java 学习指南_学习Java：可重复注解">
+<meta property="og:url" content="http://yoursite.com/2018/03/23/java-tutorial-learning_annotation_repeating/index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="问题与练习问题 术语“实例变量”是非 ? 的另一种叫法。 术语“类变量”是 ? 的两一种叫法。 局部变量存储了临时的状态；它是在 ? 里声明的。 在方法的左括号和右括号里面声明的变量叫做 ?。 Java编程预言的八种基本数据类型是 ? 字符串类型的数据由 java.lang.String 类表示。 ?是持有固定数量的单一逐句类型值的容器对象。  练习 创建一个小项目定义一些fields。试着创建一">
-<meta property="og:updated_time" content="2017-09-22T01:35:24.000Z">
+<meta property="og:description" content="Repeating Annotations#可重复注解 有时候你需要在定义或者类型使用时多次使用同一个注解。Java8中repeating annotations 可以实现. 例如，你在写一个程序，使用一个定时服务，是你的方法可以在特定的时间或者按着确切的调度计划执行。类似于UNIX系统的 cron 服务.现在你想要设置一个定时器来运行方法, doPeriodicCleanup, 在每个月的最后一">
+<meta property="og:updated_time" content="2018-03-26T01:56:11.771Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java 学习指南_学习Java：基础—Variables问题与练习">
-<meta name="twitter:description" content="问题与练习问题 术语“实例变量”是非 ? 的另一种叫法。 术语“类变量”是 ? 的两一种叫法。 局部变量存储了临时的状态；它是在 ? 里声明的。 在方法的左括号和右括号里面声明的变量叫做 ?。 Java编程预言的八种基本数据类型是 ? 字符串类型的数据由 java.lang.String 类表示。 ?是持有固定数量的单一逐句类型值的容器对象。  练习 创建一个小项目定义一些fields。试着创建一">
+<meta name="twitter:title" content="Java 学习指南_学习Java：可重复注解">
+<meta name="twitter:description" content="Repeating Annotations#可重复注解 有时候你需要在定义或者类型使用时多次使用同一个注解。Java8中repeating annotations 可以实现. 例如，你在写一个程序，使用一个定时服务，是你的方法可以在特定的时间或者按着确切的调度计划执行。类似于UNIX系统的 cron 服务.现在你想要设置一个定时器来运行方法, doPeriodicCleanup, 在每个月的最后一">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/26/java-tutorial-learning_the_lang_basic_variables_qe/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/23/java-tutorial-learning_annotation_repeating/"/>
 
 
 
 
 
-  <title>Java 学习指南_学习Java：基础—Variables问题与练习 | Hello World</title>
+  <title>Java 学习指南_学习Java：可重复注解 | Hello World</title>
   
 
 
@@ -310,7 +310,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/26/java-tutorial-learning_the_lang_basic_variables_qe/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/23/java-tutorial-learning_annotation_repeating/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hello Young">
@@ -327,7 +327,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java 学习指南_学习Java：基础—Variables问题与练习</h1>
+          <h1 class="post-title" itemprop="name headline">Java 学习指南_学习Java：可重复注解</h1>
         
 
         <div class="post-meta">
@@ -339,8 +339,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T16:14:59+08:00">
-                2017-07-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-23T12:26:59+08:00">
+                2018-03-23
               </time>
             
 
@@ -396,37 +396,21 @@
       
 
       
-        <h1 id="问题与练习"><a href="#问题与练习" class="headerlink" title="问题与练习"></a>问题与练习</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
-<li>术语“实例变量”是非 <strong>?</strong> 的另一种叫法。</li>
-<li>术语“类变量”是 <strong>?</strong> 的两一种叫法。</li>
-<li>局部变量存储了临时的状态；它是在 <strong>?</strong> 里声明的。</li>
-<li>在方法的左括号和右括号里面声明的变量叫做 <strong>?</strong>。</li>
-<li>Java编程预言的八种基本数据类型是 <strong>?</strong></li>
-<li>字符串类型的数据由 <strong>java.lang.String</strong> 类表示。</li>
-<li><strong>?</strong>是持有固定数量的单一逐句类型值的容器对象。</li>
-</ol>
-<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><ol>
-<li>创建一个小项目定义一些fields。试着创建一些不合法的字段名，观察编译器产生的错误类型。使用命名规则与约定作为指导。</li>
-<li>在练习1中创建的项目，试着不初始化fields的值而打印他们。对局部变量尝试同样的操作观察会产生什么类型的编译错误。熟悉常见的编译错误会使你更容易发现程序中的bug。</li>
-</ol>
-<h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1><a id="more"></a>
-<h2 id="问题答案"><a href="#问题答案" class="headerlink" title="问题答案"></a>问题答案</h2><ol>
-<li>术语“实例变量”是非 <strong>静态域</strong> 的另一种叫法。</li>
-<li>术语“类变量”是 <strong>静态域</strong> 的两一种叫法。</li>
-<li>局部变量存储了临时的状态；它是在 <strong>方法</strong> 里声明的。</li>
-<li>在方法的左括号和右括号里面声明的变量叫做 <strong>参数</strong>。</li>
-<li>Java编程预言的八种基本数据类型是 <strong>byte, short, int, long, float, double, char, boolean.</strong></li>
-<li>字符串类型的数据由 <strong>java.lang.String</strong> 类表示。</li>
-<li><strong>数组 </strong>是持有固定数量的单一逐句类型值的容器对象。</li>
-</ol>
-<h2 id="练习答案"><a href="#练习答案" class="headerlink" title="练习答案"></a>练习答案</h2><ol>
-<li><p>创建一个小项目定义一些fields。试着创建一些不合法的字段名，观察编译器产生的错误类型。使用命名规则与约定作为指导。</p>
-<p>没有唯一的正确答案，结果根据你代码不同而不同。</p>
-</li>
-<li><p>在练习1中创建的项目，试着不初始化fields的值而打印他们。对局部变量尝试同样的操作观察会产生什么类型的编译错误。熟悉常见的编译错误会使你更容易发现程序中的bug。</p>
-<p>在说一次，没有唯一的正确答案，结果根据你代码不同而不同</p>
-</li>
-</ol>
+        <h1 id="Repeating-Annotations"><a href="#Repeating-Annotations" class="headerlink" title="Repeating Annotations"></a>Repeating Annotations</h1><p>#可重复注解</p>
+<p>有时候你需要在定义或者类型使用时多次使用同一个注解。Java8中<em>repeating annotations</em> 可以实现.</p>
+<p>例如，你在写一个程序，使用一个定时服务，是你的方法可以在特定的时间或者按着确切的调度计划执行。类似于UNIX系统的 <code>cron</code> 服务.现在你想要设置一个定时器来运行方法, <code>doPeriodicCleanup</code>, 在每个月的最后一天和每个周五的晚上11点。为了是计时器生效，创建<code>@Schedule</code>注解并在方法 <code>doPeriodicCleanup</code>方法上使用两次。第一次明确每个月的最后一天，第二个明确在每个周五晚上11点，一下是代码实例:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Schedule</span>(dayOfMonth=<span class="string">"last"</span>)</div><div class="line"><span class="meta">@Schedule</span>(dayOfWeek=<span class="string">"Fri"</span>, hour=<span class="string">"23"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doPeriodicCleanup</span><span class="params">()</span> </span>&#123; ... &#125;</div></pre></td></tr></table></figure>
+<p>上一个例子在方法上使用了同一个注解两次。你可以在使用标准注解的任何地方重复注解。例如，你有一个处理访问权限的异常的类。使用一个 <code>@Alert</code> 注解作用于客户经理，另一个作用于管理员:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Alert</span>(role=<span class="string">"Manager"</span>)</div><div class="line"><span class="meta">@Alert</span>(role=<span class="string">"Administrator"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UnauthorizedAccessException</span> <span class="keyword">extends</span> <span class="title">SecurityException</span> </span>&#123; ... &#125;</div></pre></td></tr></table></figure>
+<p>因为共存的原因，重复注解存储在有Java 编译器自动生成的的注解容器 <em>container annotation</em> 中。想要实现这种功能，需要在代码中做两处声明。</p>
+<h2 id="Step-1-定义一个可重复的注解类型"><a href="#Step-1-定义一个可重复的注解类型" class="headerlink" title="Step 1: 定义一个可重复的注解类型"></a>Step 1: 定义一个可重复的注解类型</h2><p>注解类型必须由 <code>@Repeatable</code>元注解标注 meta-annotation. 下面的例子定义了一个自定义的 <code>@Schedule</code>可重负注解类型:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.lang.annotation.Repeatable;</div><div class="line"></div><div class="line"><span class="meta">@Repeatable</span>(Schedules.class)</div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Schedule &#123;</div><div class="line">  <span class="function">String <span class="title">dayOfMonth</span><span class="params">()</span> <span class="keyword">default</span> "first"</span>;</div><div class="line">  <span class="function">String <span class="title">dayOfWeek</span><span class="params">()</span> <span class="keyword">default</span> "Mon"</span>;</div><div class="line">  <span class="function"><span class="keyword">int</span> <span class="title">hour</span><span class="params">()</span> <span class="keyword">default</span> 12</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>元注解 <code>@Repeatable</code> meta-annotation的值,包含在括号里, 是Java编译器自动生成的存储重复注解的注解容器的类型。本例中注解容器的类型是 <code>Schedules</code>,因此重复注解 <code>@Schedule</code> 存储在 <code>@Schedules</code> 注解中.</p>
+<p>没有声明注解类型为可重复时而多次使用会导致编译时错误。</p>
+<h2 id="Step-2-声明注解容器类型"><a href="#Step-2-声明注解容器类型" class="headerlink" title="Step 2: 声明注解容器类型"></a>Step 2: 声明注解容器类型</h2><p>注解容器类型必须有一个 <code>value</code>元素，元素为数组类型.数组的组件类型必须是可重复注解类型。注解容器 <code>Schedules</code> 类型定义如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Schedules &#123;</div><div class="line">    Schedule[] value();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="获取注解Retrieving-Annotations"><a href="#获取注解Retrieving-Annotations" class="headerlink" title="获取注解Retrieving Annotations"></a>获取注解Retrieving Annotations</h2><p>在反射接口 Reflection API中有几种可以取出注释的方法。方法的作用是返回一个单独的注解，例如<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/AnnotatedElement.html#getAnnotation-java.lang.Class-" target="_blank" rel="external">AnnotatedElement.getAnnotation(Class)</a>, 如果请求的注解类型只存在一个，那么结果不会改变，仍然只返回一个注解。如果某注解类型的注解存在多个，则要先获取他们的注解容器类型。这样，遗留代码仍然可以继续生效。在Java SE 8 中引入了其他的方法，可以通过注解容器一次性返回多个注解，例如<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/AnnotatedElement.html#getAnnotationsByType-java.lang.Class-" target="_blank" rel="external">AnnotatedElement.getAnnotationsByType(Class)</a>. 参考<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/AnnotatedElement.html" target="_blank" rel="external">AnnotatedElement</a> 类的详细介绍获取更多可用方法的信息。</p>
+<h2 id="设计思路Design-Considerations"><a href="#设计思路Design-Considerations" class="headerlink" title="设计思路Design Considerations"></a>设计思路Design Considerations</h2><p>当设计一个注解类型时，你必须要考虑这种注解类型的注解基数<em>cardinality</em>。可以使用注解零次，一次，或者如果注解类型被标记为<code>@Repeatable</code>可以使用多次。同样可以通过@Target元注解可以显示注解类型使用的地方。例如，你可以创建一个只用于方法或者字段的可冲入注解。仔细的设计你的注解类型已保证开发者更加有弹性的使用注解，并发挥强大作用，这是非常重要的。</p>
 
       
     </div>
@@ -483,7 +467,9 @@
           
             <a href="/tags/教程/" rel="tag"># 教程</a>
           
-            <a href="/tags/variables/" rel="tag"># variables</a>
+            <a href="/tags/注解/" rel="tag"># 注解</a>
+          
+            <a href="/tags/annotation/" rel="tag"># annotation</a>
           
         </div>
       
@@ -496,8 +482,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/26/java-tutorial-learning_the_lang_basic_variables_sum/" rel="next" title="Java 学习指南_学习Java：基础—变量总结">
-                <i class="fa fa-chevron-left"></i> Java 学习指南_学习Java：基础—变量总结
+              <a href="/2018/03/23/java-tutorial-learning_annotation_predefined copy/" rel="next" title="Java 学习指南_学习Java：预定义的注解类型">
+                <i class="fa fa-chevron-left"></i> Java 学习指南_学习Java：预定义的注解类型
               </a>
             
           </div>
@@ -506,8 +492,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/28/java-tutorial-learning_the_lang_basic_operator/" rel="prev" title="Java 学习指南_学习Java：运算符Operator">
-                Java 学习指南_学习Java：运算符Operator <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/23/java-tutorial-learning_annotation_type&pluggable/" rel="prev" title="Java 学习指南_学习Java：类型注解以及可插拔类型系统">
+                Java 学习指南_学习Java：类型注解以及可插拔类型系统 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -662,7 +648,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题与练习"><span class="nav-number">1.</span> <span class="nav-text">问题与练习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#练习"><span class="nav-number">1.2.</span> <span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#答案"><span class="nav-number">2.</span> <span class="nav-text">答案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题答案"><span class="nav-number">2.1.</span> <span class="nav-text">问题答案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#练习答案"><span class="nav-number">2.2.</span> <span class="nav-text">练习答案</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Repeating-Annotations"><span class="nav-number">1.</span> <span class="nav-text">Repeating Annotations</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-1-定义一个可重复的注解类型"><span class="nav-number">1.1.</span> <span class="nav-text">Step 1: 定义一个可重复的注解类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-2-声明注解容器类型"><span class="nav-number">1.2.</span> <span class="nav-text">Step 2: 声明注解容器类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取注解Retrieving-Annotations"><span class="nav-number">1.3.</span> <span class="nav-text">获取注解Retrieving Annotations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计思路Design-Considerations"><span class="nav-number">1.4.</span> <span class="nav-text">设计思路Design Considerations</span></a></li></ol></li></ol></div>
             
 
           </div>

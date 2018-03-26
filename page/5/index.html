@@ -307,6 +307,152 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/20/java-tutorial-learning_the_lang_basic_control_flow_1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/20/java-tutorial-learning_the_lang_basic_control_flow_1/" itemprop="url">Java 学习指南_学习Java：基础-控制流程-if-then&if-then-else</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-20T15:36:59+08:00">
+                2017-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="if-then以及if-then-else-语句"><a href="#if-then以及if-then-else-语句" class="headerlink" title="if-then以及if-then-else 语句"></a>if-then以及if-then-else 语句</h1><h2 id="if-then-语句"><a href="#if-then-语句" class="headerlink" title="if-then 语句"></a><code>if-then</code> 语句</h2><p> <code>if-then</code>语句是最基本的控制流程语句。它可以告诉程序只有某个特定的测试运算结果为<code>true</code>时执行确定的某部分代码。例如，在<code>Bicycle</code>类中只有自行车在运行的过程中时，才允许刹车减小自行车的速度。<code>applyBrakes</code>（使用刹车)方法的一种实现代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">applyBrakes</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">// the "if" clause: bicycle must be moving</span></div><div class="line">    <span class="keyword">if</span> (isMoving)&#123; </div><div class="line">        <span class="comment">// the "then" clause: decrease current speed</span></div><div class="line">        currentSpeed--;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果这个测试<code>isMoving</code>j结果为false(意味着自行车并没有在刹车状态),控制跳至 <code>if-then</code> 语句结尾.</p>
+<p>说明一下，当<code>if-then</code> then代码块中只有一句代码的时候，可以省略保卫代码块的花括号:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">applyBrakes</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">// same as above, but without braces </span></div><div class="line">    <span class="keyword">if</span> (isMoving)</div><div class="line">        currentSpeed--;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以平个人喜好来决定在只有一句代码的情况下是否使用花括号。不适用的话可能不会比较容易犯错，因为如果有第二句代码被加入到then代码块中时，会经常出现忘记添加花括号，编译器不会识别这样的手误；程序就会得到错误的结果。</p>
+<h2 id="if-then-else语句"><a href="#if-then-else语句" class="headerlink" title="if-then-else语句"></a><code>if-then-else</code>语句</h2><p> <code>if-then-else</code>语句 当if 字句运算结果为<code>false</code>时提供第二条执行路径。在<code>applyBrakes</code>方法中 可以使用<code>if-then-else</code>语句，如果自行车没有在运行状态下时使用的刹车也可以采取一些措施。这里简单的打印出错误信息声明自行车已经停止了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">applyBrakes</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (isMoving) &#123;</div><div class="line">        currentSpeed--;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        System.err.println(<span class="string">"The bicycle has already stopped!"</span>);</div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>下面的程序中, <a href="http://docs.oracle.com/javase/tutorial/java/nutsandbolts/examples/IfElseDemo.java" target="_blank" rel="external"><code>IfElseDemo</code></a>, 根据score分数的测试结果为grade级别赋值：大于等于90为A，大于等于80为B，等等.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">IfElseDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> testscore = <span class="number">76</span>;</div><div class="line">        <span class="keyword">char</span> grade;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (testscore &gt;= <span class="number">90</span>) &#123;</div><div class="line">            grade = <span class="string">'A'</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (testscore &gt;= <span class="number">80</span>) &#123;</div><div class="line">            grade = <span class="string">'B'</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (testscore &gt;= <span class="number">70</span>) &#123;</div><div class="line">            grade = <span class="string">'C'</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (testscore &gt;= <span class="number">60</span>) &#123;</div><div class="line">            grade = <span class="string">'D'</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            grade = <span class="string">'F'</span>;</div><div class="line">        &#125;</div><div class="line">        System.out.println(<span class="string">"Grade = "</span> + grade);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出结果如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Grade = C</div></pre></td></tr></table></figure>
+<p>你可能注意到<code>testScore</code>可以满足不止一个条件：<code>76&gt;=70</code>,<code>76&gt;=60</code>.不过，一旦一个条件满足了，相应的语句就会执行 <code>(grade = &#39;C&#39;;)</code> ，剩下的条件不在运算。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/20/java-tutorial-learning_the_lang_basic_control_flow/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -760,146 +906,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/07/java-tutorial-learning_the_lang_basic_operator_4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hello Young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/07/java-tutorial-learning_the_lang_basic_operator_4/" itemprop="url">Java 学习指南_学习Java：运算符总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-07T16:58:59+08:00">
-                2017-09-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="运算符总结Summary-of-Operators"><a href="#运算符总结Summary-of-Operators" class="headerlink" title="运算符总结Summary of Operators"></a>运算符总结Summary of Operators</h1><p>一下快速参考总结了Java编程语言所支持的运算符。</p>
-<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">=     赋值 Simple assignment operator</div></pre></td></tr></table></figure>
-<h2 id="数学运算符"><a href="#数学运算符" class="headerlink" title="数学运算符"></a>数学运算符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">+       加法/字符串链接Additive operator (also used</div><div class="line">        for String concatenation)</div><div class="line">-       减法Subtraction operator</div><div class="line">*       乘法Multiplication operator</div><div class="line">/       除法Division operator</div><div class="line">%       取余数Remainder operator</div></pre></td></tr></table></figure>
-<h2 id="一元运算符"><a href="#一元运算符" class="headerlink" title="一元运算符"></a>一元运算符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">+       一元正号操作，可省略Unary plus operator; indicates</div><div class="line">        positive value (numbers are </div><div class="line">        positive without this, however)</div><div class="line">-       一元负号操作，取相反数Unary minus operator; negates</div><div class="line">        an expression</div><div class="line">++      自增操作，表达式值增加1.Increment operator; increments</div><div class="line">        a value by 1</div><div class="line">--      自减操作，表达式值减少1.Decrement operator; decrements</div><div class="line">        a value by 1</div><div class="line">!       逻辑否操作，取反。Logical complement operator;</div><div class="line">        inverts the value of a boolean</div></pre></td></tr></table></figure>
-<h2 id="相等及关系运算"><a href="#相等及关系运算" class="headerlink" title="相等及关系运算"></a>相等及关系运算</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">==      等于Equal to</div><div class="line">!=      不等于Not equal to</div><div class="line">&gt;       大于Greater than</div><div class="line">&gt;=      大于等于Greater than or equal to</div><div class="line">&lt;       小于Less than</div><div class="line">&lt;=      小于等于Less than or equal to</div></pre></td></tr></table></figure>
-<h2 id="条件运算Conditional-Operators"><a href="#条件运算Conditional-Operators" class="headerlink" title="条件运算Conditional Operators"></a>条件运算Conditional Operators</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&amp;&amp;      条件与运算Conditional-AND</div><div class="line">||      条件或运算Conditional-OR</div><div class="line">?:      三木运算Ternary (shorthand for </div><div class="line">        if-then-else statement 简便的if-then-else形式)</div></pre></td></tr></table></figure>
-<h2 id="类比较运算Type-Comparison-Operator"><a href="#类比较运算Type-Comparison-Operator" class="headerlink" title="类比较运算Type Comparison Operator"></a>类比较运算Type Comparison Operator</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">instanceof      将一个对象与具体的类，接口比较Compares an object to </div><div class="line">                a specified type</div></pre></td></tr></table></figure>
-<h2 id="位运算与位移运算Bitwise-and-Bit-Shift-Operators"><a href="#位运算与位移运算Bitwise-and-Bit-Shift-Operators" class="headerlink" title="位运算与位移运算Bitwise and Bit Shift Operators"></a>位运算与位移运算Bitwise and Bit Shift Operators</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">~       一元补码运算Unary bitwise complement</div><div class="line">&lt;&lt;      有符号左位移Signed left shift</div><div class="line">&gt;&gt;      有符号右位移Signed right shift</div><div class="line">&gt;&gt;&gt;     无符号右位移Unsigned right shift</div><div class="line">&amp;       位与运算Bitwise AND</div><div class="line">^       位异或运算Bitwise exclusive OR</div><div class="line">|       位或运算Bitwise inclusive OR</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/07/java-tutorial-learning_the_lang_basic_operator_qea/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1023,6 +1029,146 @@
             </a>
           </div>
           <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/07/java-tutorial-learning_the_lang_basic_operator_4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/07/java-tutorial-learning_the_lang_basic_operator_4/" itemprop="url">Java 学习指南_学习Java：运算符总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-07T16:58:59+08:00">
+                2017-09-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="运算符总结Summary-of-Operators"><a href="#运算符总结Summary-of-Operators" class="headerlink" title="运算符总结Summary of Operators"></a>运算符总结Summary of Operators</h1><p>一下快速参考总结了Java编程语言所支持的运算符。</p>
+<h2 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">=     赋值 Simple assignment operator</div></pre></td></tr></table></figure>
+<h2 id="数学运算符"><a href="#数学运算符" class="headerlink" title="数学运算符"></a>数学运算符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">+       加法/字符串链接Additive operator (also used</div><div class="line">        for String concatenation)</div><div class="line">-       减法Subtraction operator</div><div class="line">*       乘法Multiplication operator</div><div class="line">/       除法Division operator</div><div class="line">%       取余数Remainder operator</div></pre></td></tr></table></figure>
+<h2 id="一元运算符"><a href="#一元运算符" class="headerlink" title="一元运算符"></a>一元运算符</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">+       一元正号操作，可省略Unary plus operator; indicates</div><div class="line">        positive value (numbers are </div><div class="line">        positive without this, however)</div><div class="line">-       一元负号操作，取相反数Unary minus operator; negates</div><div class="line">        an expression</div><div class="line">++      自增操作，表达式值增加1.Increment operator; increments</div><div class="line">        a value by 1</div><div class="line">--      自减操作，表达式值减少1.Decrement operator; decrements</div><div class="line">        a value by 1</div><div class="line">!       逻辑否操作，取反。Logical complement operator;</div><div class="line">        inverts the value of a boolean</div></pre></td></tr></table></figure>
+<h2 id="相等及关系运算"><a href="#相等及关系运算" class="headerlink" title="相等及关系运算"></a>相等及关系运算</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">==      等于Equal to</div><div class="line">!=      不等于Not equal to</div><div class="line">&gt;       大于Greater than</div><div class="line">&gt;=      大于等于Greater than or equal to</div><div class="line">&lt;       小于Less than</div><div class="line">&lt;=      小于等于Less than or equal to</div></pre></td></tr></table></figure>
+<h2 id="条件运算Conditional-Operators"><a href="#条件运算Conditional-Operators" class="headerlink" title="条件运算Conditional Operators"></a>条件运算Conditional Operators</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&amp;&amp;      条件与运算Conditional-AND</div><div class="line">||      条件或运算Conditional-OR</div><div class="line">?:      三木运算Ternary (shorthand for </div><div class="line">        if-then-else statement 简便的if-then-else形式)</div></pre></td></tr></table></figure>
+<h2 id="类比较运算Type-Comparison-Operator"><a href="#类比较运算Type-Comparison-Operator" class="headerlink" title="类比较运算Type Comparison Operator"></a>类比较运算Type Comparison Operator</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">instanceof      将一个对象与具体的类，接口比较Compares an object to </div><div class="line">                a specified type</div></pre></td></tr></table></figure>
+<h2 id="位运算与位移运算Bitwise-and-Bit-Shift-Operators"><a href="#位运算与位移运算Bitwise-and-Bit-Shift-Operators" class="headerlink" title="位运算与位移运算Bitwise and Bit Shift Operators"></a>位运算与位移运算Bitwise and Bit Shift Operators</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">~       一元补码运算Unary bitwise complement</div><div class="line">&lt;&lt;      有符号左位移Signed left shift</div><div class="line">&gt;&gt;      有符号右位移Signed right shift</div><div class="line">&gt;&gt;&gt;     无符号右位移Unsigned right shift</div><div class="line">&amp;       位与运算Bitwise AND</div><div class="line">^       位异或运算Bitwise exclusive OR</div><div class="line">|       位或运算Bitwise inclusive OR</div></pre></td></tr></table></figure>
+          
         
       
     </div>
@@ -1721,162 +1867,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/26/java-tutorial-learning_the_lang_basic_variables_qe/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hello Young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/26/java-tutorial-learning_the_lang_basic_variables_qe/" itemprop="url">Java 学习指南_学习Java：基础—Variables问题与练习</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T16:14:59+08:00">
-                2017-07-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="问题与练习"><a href="#问题与练习" class="headerlink" title="问题与练习"></a>问题与练习</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
-<li>术语“实例变量”是非 <strong>?</strong> 的另一种叫法。</li>
-<li>术语“类变量”是 <strong>?</strong> 的两一种叫法。</li>
-<li>局部变量存储了临时的状态；它是在 <strong>?</strong> 里声明的。</li>
-<li>在方法的左括号和右括号里面声明的变量叫做 <strong>?</strong>。</li>
-<li>Java编程预言的八种基本数据类型是 <strong>?</strong></li>
-<li>字符串类型的数据由 <strong>java.lang.String</strong> 类表示。</li>
-<li><strong>?</strong>是持有固定数量的单一逐句类型值的容器对象。</li>
-</ol>
-<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><ol>
-<li>创建一个小项目定义一些fields。试着创建一些不合法的字段名，观察编译器产生的错误类型。使用命名规则与约定作为指导。</li>
-<li>在练习1中创建的项目，试着不初始化fields的值而打印他们。对局部变量尝试同样的操作观察会产生什么类型的编译错误。熟悉常见的编译错误会使你更容易发现程序中的bug。</li>
-</ol>
-<h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/26/java-tutorial-learning_the_lang_basic_variables_qe/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1921,7 +1916,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">70</span>
+                <span class="site-state-item-count">71</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
