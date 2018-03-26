@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-23T03:39:12.582Z</updated>
+  <updated>2018-03-26T06:47:06.567Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,20 +16,108 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Java 学习指南_学习Java：注解-问题与练习</title>
+    <link href="http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&amp;e/"/>
+    <id>http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&amp;e/</id>
+    <published>2018-03-26T04:26:59.000Z</published>
+    <updated>2018-03-26T06:47:06.567Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题与练习-注解"><a href="#问题与练习-注解" class="headerlink" title="问题与练习: 注解"></a>问题与练习: 注解</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
+<li><p>问题: 线面的接口有哪些错误:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">House</span> </span>&#123;</div><div class="line">    <span class="meta">@Deprecated</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openFrontDoor</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openBackDoor</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p><strong>问题</strong>: 考虑下面的 <code>House</code> 类，实现了问题1中的借口.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHouse</span> <span class="keyword">implements</span> <span class="title">House</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openFrontDoor</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openBackDoor</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果你编译这个程序，编译器会产生警告，因为<code>open</code>方法是反对的（在接口中），你应该做什么来避免警告？</p>
+</li>
+<li><p>下面的代码在编译时是否会发生错误？为什么？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Meal &#123; ... &#125;</div><div class="line"></div><div class="line"><span class="meta">@Meal</span>(<span class="string">"breakfast"</span>, mainDish=<span class="string">"cereal"</span>)</div><div class="line"><span class="meta">@Meal</span>(<span class="string">"lunch"</span>, mainDish=<span class="string">"pizza"</span>)</div><div class="line"><span class="meta">@Meal</span>(<span class="string">"dinner"</span>, mainDish=<span class="string">"salad"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">evaluateDiet</span><span class="params">()</span> </span>&#123; ... &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><ol>
+<li>练习: 定义一个增强请求的注解类型，包含元素<code>id</code>,<code>synopsis</code>,<code>engineer</code>, 以及<code>date</code>. 设定engineer默认值为<code>unassigned</code>，date默认值为<code>unknown</code>.</li>
+</ol>
+<h1 id="问题与练习答案-注解"><a href="#问题与练习答案-注解" class="headerlink" title="问题与练习答案: 注解"></a>问题与练习答案: 注解</h1><a id="more"></a>
+<h2 id="问题答案"><a href="#问题答案" class="headerlink" title="问题答案"></a>问题答案</h2><ol>
+<li><p>问题: 线面的接口有哪些错误:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">House</span> </span>&#123;</div><div class="line">    <span class="meta">@Deprecated</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openFrontDoor</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openBackDoor</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>答案</strong> 文档应该反映出 <code>open</code> 为什么是反对的以及用什么来代替，例如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">House</span> </span>&#123; </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@deprecated</span> use of open </div><div class="line">     * is discouraged, use</div><div class="line">     * openFrontDoor or </div><div class="line">     * openBackDoor instead.</div><div class="line">     */</div><div class="line">    <span class="meta">@Deprecated</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span></span>; </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openFrontDoor</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openBackDoor</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>问题</strong>: 考虑下面的 <code>House</code> 类，实现了问题1中的借口.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHouse</span> <span class="keyword">implements</span> <span class="title">House</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openFrontDoor</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openBackDoor</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果你编译这个程序，编译器会产生警告，因为<code>open</code>方法是反对的（在接口中），你应该做什么来避免警告？</p>
+<p><strong>答案</strong>: 你可以为<code>open</code>方法的实现添加deprecate注解:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHouse</span> <span class="keyword">implements</span> <span class="title">House</span> </span>&#123; </div><div class="line">    <span class="comment">// The documentation is </span></div><div class="line">    <span class="comment">// inherited from the interface.</span></div><div class="line">    <span class="meta">@Deprecated</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span> </span>&#123;&#125; </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openFrontDoor</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openBackDoor</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>同样，你也可以通过<code>@SuppressWarings</code>注解镇压这个警告:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHouse</span> <span class="keyword">implements</span> <span class="title">House</span> </span>&#123; </div><div class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"deprecation"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span> </span>&#123;&#125; </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openFrontDoor</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openBackDoor</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>下面的代码在编译时是否会发生错误？为什么？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Meal &#123; ... &#125;</div><div class="line"></div><div class="line"><span class="meta">@Meal</span>(<span class="string">"breakfast"</span>, mainDish=<span class="string">"cereal"</span>)</div><div class="line"><span class="meta">@Meal</span>(<span class="string">"lunch"</span>, mainDish=<span class="string">"pizza"</span>)</div><div class="line"><span class="meta">@Meal</span>(<span class="string">"dinner"</span>, mainDish=<span class="string">"salad"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">evaluateDiet</span><span class="params">()</span> </span>&#123; ... &#125;</div></pre></td></tr></table></figure>
+<p><strong>答案</strong>:代码将会编译失败。JDK8之前，重复注解是不支持的。JDK8中，同样会编译失败，因为<code>Meal</code>注解类型并没有声明为可重复的。可以通过添加 <code>@Repeatable</code> 元注解，并定义一个注解容器类型来修复这个问题:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@java</span>.lang.annotation.Repeatable(MealContainer.class)</div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Meal &#123; ... &#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MealContainer &#123;</div><div class="line">    Meal[] value();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="练习答案"><a href="#练习答案" class="headerlink" title="练习答案"></a>练习答案</h2><ol>
+<li><p>练习: 定义一个增强请求的注解类型，包含元素<code>id</code>,<code>synopsis</code>,<code>engineer</code>, 以及<code>date</code>. 设定engineer默认值为<code>unassigned</code>，date默认值为<code>unknown</code>.</p>
+<p>答案:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Describes the Request-for-Enhancement (RFE) annotation type.</div><div class="line"> */</div><div class="line">public @interface RequestForEnhancement &#123;</div><div class="line">    int id();</div><div class="line">    String synopsis();</div><div class="line">    String engineer() default &quot;[unassigned]&quot;;</div><div class="line">    String date() default &quot;[unknown]&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;问题与练习-注解&quot;&gt;&lt;a href=&quot;#问题与练习-注解&quot; class=&quot;headerlink&quot; title=&quot;问题与练习: 注解&quot;&gt;&lt;/a&gt;问题与练习: 注解&lt;/h1&gt;&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;问题: 线面的接口有哪些错误:&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;House&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@Deprecated&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;openFrontDoor&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;openBackDoor&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;​&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;: 考虑下面的 &lt;code&gt;House&lt;/code&gt; 类，实现了问题1中的借口.&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;MyHouse&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;House&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;openFrontDoor&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;openBackDoor&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果你编译这个程序，编译器会产生警告，因为&lt;code&gt;open&lt;/code&gt;方法是反对的（在接口中），你应该做什么来避免警告？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;下面的代码在编译时是否会发生错误？为什么？&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;meta&quot;&gt;@interface&lt;/span&gt; Meal &amp;#123; ... &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@Meal&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;breakfast&quot;&lt;/span&gt;, mainDish=&lt;span class=&quot;string&quot;&gt;&quot;cereal&quot;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@Meal&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;lunch&quot;&lt;/span&gt;, mainDish=&lt;span class=&quot;string&quot;&gt;&quot;pizza&quot;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;@Meal&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;dinner&quot;&lt;/span&gt;, mainDish=&lt;span class=&quot;string&quot;&gt;&quot;salad&quot;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;evaluateDiet&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123; ... &amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;练习&quot;&gt;&lt;a href=&quot;#练习&quot; class=&quot;headerlink&quot; title=&quot;练习&quot;&gt;&lt;/a&gt;练习&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;练习: 定义一个增强请求的注解类型，包含元素&lt;code&gt;id&lt;/code&gt;,&lt;code&gt;synopsis&lt;/code&gt;,&lt;code&gt;engineer&lt;/code&gt;, 以及&lt;code&gt;date&lt;/code&gt;. 设定engineer默认值为&lt;code&gt;unassigned&lt;/code&gt;，date默认值为&lt;code&gt;unknown&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&quot;问题与练习答案-注解&quot;&gt;&lt;a href=&quot;#问题与练习答案-注解&quot; class=&quot;headerlink&quot; title=&quot;问题与练习答案: 注解&quot;&gt;&lt;/a&gt;问题与练习答案: 注解&lt;/h1&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="注解" scheme="http://yoursite.com/tags/%E6%B3%A8%E8%A7%A3/"/>
+    
+      <category term="annotation" scheme="http://yoursite.com/tags/annotation/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java 学习指南_学习Java：类型注解以及可插拔类型系统</title>
     <link href="http://yoursite.com/2018/03/23/java-tutorial-learning_annotation_type&amp;pluggable/"/>
     <id>http://yoursite.com/2018/03/23/java-tutorial-learning_annotation_type&amp;pluggable/</id>
     <published>2018-03-23T04:26:59.000Z</published>
-    <updated>2018-03-23T03:39:12.582Z</updated>
+    <updated>2018-03-26T04:24:20.245Z</updated>
     
     <content type="html"><![CDATA[<h1 id="类型注解以及可插拔的类型系统"><a href="#类型注解以及可插拔的类型系统" class="headerlink" title="类型注解以及可插拔的类型系统"></a>类型注解以及可插拔的类型系统</h1><p>Java SE 8版本之前，注解只能被应用于声明或定义。Java 8中，注解可以应用于任何<em>type use</em>使用类行的地方。例如，类型实例创建表达式 (<code>new</code>),类型转换 casts,实现引用 <code>implements</code>,以及抛出异常 <code>throws</code> 引用.这种格式的注解叫做类型注解 <em>type annotation</em>。注解基础 <a href="https://docs.oracle.com/javase/tutorial/java/annotations/basics.html" target="_blank" rel="external">Annotations Basics</a>里提供了几个相关的例子.</p>
 <p>类型注解的创建，支持提高确保java程序更强的类型检查的分析方法。Java 8 并没有提供类型检查框架。但是它允许你写或者下载一个类型检查框架，实现一个或者多个可插拔的模块，来与Java编译器结合使用。</p>
 <p>例如，你想要确保你程序中一个特定的变量不允许为null；你想要避免触发 <code>NullPointerException</code>. 你可以写一个自定义的插件检查这个规则.你现在需要修改你的代码并给对应的变量添加注解,表明其不允许被赋值为null。变量的定义可能如下所示：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@NonNull</span> String str;</div></pre></td></tr></table></figure>
-<p>当你编译代码时，包含 <code>NonNull</code> 模块。编译器侦测出潜在的问题就会大衣橱一个警告，告知你修改代码以避免错误。当你修改代码移除所有的警告之后，这个特定的错误在程序运行时将不会发生.</p>
+<p>当你编译代码时，包含 <code>NonNull</code> 模块。编译器侦测出潜在的问题就会打印出一个警告，告知你修改代码以避免错误。当你修改代码移除所有的警告之后，这个特定的错误在程序运行时将不会发生.</p>
 <p>你也可以使用多个类型检查模块，每个模块检查不同类型的错误。这样，你就可以在Java类型系统之上，添加任何你想要的特定的检查。</p>
 <p>由合理的类型注解使用以及插件式类型检查的存在，你可以写出更加健壮的代码，更加不易出错。</p>
-<p>很多种情况下，你不需要自己实现类型检查模块。已有第三方为你实现了这些工作。例如，你可能会因为华盛顿 University of Washington大学创建的检查框架而受益.这个框架包含了 <code>NonNull</code>模块，一个正则表达式 regular expression 模块, 以及一个互斥锁 mutex lock 模块.参考 <a href="http://types.cs.washington.edu/checker-framework/" target="_blank" rel="external">Checker Framework</a>获取更多信息.</p>
+<p>很多种情况下，你不需要自己实现类型检查模块。已有第三方为你实现了这些工作。例如，你可能会因为华盛顿大学 University of Washington创建的检查框架而受益.这个框架包含了 <code>NonNull</code>模块，一个正则表达式 regular expression 模块, 以及一个互斥锁 mutex lock 模块.参考 <a href="http://types.cs.washington.edu/checker-framework/" target="_blank" rel="external">Checker Framework</a>获取更多信息.</p>
 ]]></content>
     
     <summary type="html">
@@ -100,8 +188,8 @@
   
   <entry>
     <title>Java 学习指南_学习Java：预定义的注解类型</title>
-    <link href="http://yoursite.com/2018/03/23/java-tutorial-learning_annotation_predefined%20copy/"/>
-    <id>http://yoursite.com/2018/03/23/java-tutorial-learning_annotation_predefined copy/</id>
+    <link href="http://yoursite.com/2018/03/23/java-tutorial-learning_annotation_predefined/"/>
+    <id>http://yoursite.com/2018/03/23/java-tutorial-learning_annotation_predefined/</id>
     <published>2018-03-23T03:26:59.000Z</published>
     <updated>2018-03-23T03:02:47.607Z</updated>
     
@@ -269,44 +357,6 @@
   </entry>
   
   <entry>
-    <title>Java 学习指南_学习Java：注解</title>
-    <link href="http://yoursite.com/2018/03/21/java-tutorial-learning_annotation/"/>
-    <id>http://yoursite.com/2018/03/21/java-tutorial-learning_annotation/</id>
-    <published>2018-03-21T09:26:59.000Z</published>
-    <updated>2018-03-21T09:27:12.734Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="课程-注解"><a href="#课程-注解" class="headerlink" title="课程: 注解"></a>课程: 注解</h1><p><em>注解Annotations</em>, 一种元数据的格式,提供程序相关的数据而不是程序本身. 注解并不会直接影响所标注的代码的影响。</p>
-<p>注解有一系列的作用，分别如下:</p>
-<ul>
-<li><strong>编译所用的注解信息</strong> — 注解可以用来侦测错误或者忽略警告.</li>
-<li><strong>编译时以及部署时的处理Compile-time and deployment-time processing</strong> — 软件工具可以处理注解信息来生成代码,XML文件等。</li>
-<li><strong>运行时的处理Runtime processing</strong> — 某些注解可在运行时检测.</li>
-</ul>
-<p>本课程解释了哪里可以用到注解，如何应用注解，JavaSE api预定义了那些可用的注解类型，注解类型如何与插件式的系统想结果写出强壮的类型检查代码，以及如何实现可重复的注解。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;课程-注解&quot;&gt;&lt;a href=&quot;#课程-注解&quot; class=&quot;headerlink&quot; title=&quot;课程: 注解&quot;&gt;&lt;/a&gt;课程: 注解&lt;/h1&gt;&lt;p&gt;&lt;em&gt;注解Annotations&lt;/em&gt;, 一种元数据的格式,提供程序相关的数据而不是程序本身. 注解并不会
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="注解" scheme="http://yoursite.com/tags/%E6%B3%A8%E8%A7%A3/"/>
-    
-      <category term="annotation" scheme="http://yoursite.com/tags/annotation/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Java 学习指南_学习Java：注解基础</title>
     <link href="http://yoursite.com/2018/03/21/java-tutorial-learning_annotation_basic/"/>
     <id>http://yoursite.com/2018/03/21/java-tutorial-learning_annotation_basic/</id>
@@ -352,6 +402,44 @@
     <summary type="html">
     
       &lt;h1 id=&quot;注解基础&quot;&gt;&lt;a href=&quot;#注解基础&quot; class=&quot;headerlink&quot; title=&quot;注解基础&quot;&gt;&lt;/a&gt;注解基础&lt;/h1&gt;&lt;h2 id=&quot;注解的格式&quot;&gt;&lt;a href=&quot;#注解的格式&quot; class=&quot;headerlink&quot; title=&quot;注解的格式&quot;&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="注解" scheme="http://yoursite.com/tags/%E6%B3%A8%E8%A7%A3/"/>
+    
+      <category term="annotation" scheme="http://yoursite.com/tags/annotation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 学习指南_学习Java：注解</title>
+    <link href="http://yoursite.com/2018/03/21/java-tutorial-learning_annotation/"/>
+    <id>http://yoursite.com/2018/03/21/java-tutorial-learning_annotation/</id>
+    <published>2018-03-21T09:26:59.000Z</published>
+    <updated>2018-03-21T09:27:12.734Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="课程-注解"><a href="#课程-注解" class="headerlink" title="课程: 注解"></a>课程: 注解</h1><p><em>注解Annotations</em>, 一种元数据的格式,提供程序相关的数据而不是程序本身. 注解并不会直接影响所标注的代码的影响。</p>
+<p>注解有一系列的作用，分别如下:</p>
+<ul>
+<li><strong>编译所用的注解信息</strong> — 注解可以用来侦测错误或者忽略警告.</li>
+<li><strong>编译时以及部署时的处理Compile-time and deployment-time processing</strong> — 软件工具可以处理注解信息来生成代码,XML文件等。</li>
+<li><strong>运行时的处理Runtime processing</strong> — 某些注解可在运行时检测.</li>
+</ul>
+<p>本课程解释了哪里可以用到注解，如何应用注解，JavaSE api预定义了那些可用的注解类型，注解类型如何与插件式的系统想结果写出强壮的类型检查代码，以及如何实现可重复的注解。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;课程-注解&quot;&gt;&lt;a href=&quot;#课程-注解&quot; class=&quot;headerlink&quot; title=&quot;课程: 注解&quot;&gt;&lt;/a&gt;课程: 注解&lt;/h1&gt;&lt;p&gt;&lt;em&gt;注解Annotations&lt;/em&gt;, 一种元数据的格式,提供程序相关的数据而不是程序本身. 注解并不会
     
     </summary>
     
@@ -1409,9 +1497,9 @@
     
       <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
     
-      <category term="对象" scheme="http://yoursite.com/tags/%E5%AF%B9%E8%B1%A1/"/>
-    
       <category term="class" scheme="http://yoursite.com/tags/class/"/>
+    
+      <category term="对象" scheme="http://yoursite.com/tags/%E5%AF%B9%E8%B1%A1/"/>
     
       <category term="Object" scheme="http://yoursite.com/tags/Object/"/>
     
@@ -1468,80 +1556,6 @@
       <category term="Initializing Fields" scheme="http://yoursite.com/tags/Initializing-Fields/"/>
     
       <category term="初始化" scheme="http://yoursite.com/tags/%E5%88%9D%E5%A7%8B%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-类-类的成员</title>
-    <link href="http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_class_13/"/>
-    <id>http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_class_13/</id>
-    <published>2017-10-20T03:21:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="理解类的成员"><a href="#理解类的成员" class="headerlink" title="理解类的成员"></a>理解类的成员</h1><p>在本节中，我们讨论使用<code>static</code>关键字来创建属于类的字段和方法，而不是示例的成员。</p>
-<h2 id="类变量Class-Variables"><a href="#类变量Class-Variables" class="headerlink" title="类变量Class Variables"></a>类变量Class Variables</h2><p>当一定数量的对象按照同样的类模板创建时，它们每一个都拥有不同的<em>实例变量</em> 的副本。在自行车类<code>Bicycle</code> 中，实例变量为 <code>cadence</code>, <code>gear</code>, 和<code>speed</code>. 没一个自行车 <code>Bicycle</code> 对象的这些变量都有着不同的值，存储在不同的内存位置中。</p>
-<p>有时候，你想要有对所有对象都相同的变量。这就要使用<code>static</code>修饰符来完成。声明时带有<code>static</code>修饰符的字段/域叫做 <em>静态域</em> 或者 <em>类变量</em>  （<em>static fields</em> or <em>class variables</em>）.</p>
-<p>它们是域类相关联的而不是任一个对象。每一个类的实例共享类变量，存储在一个固定的内存位置。任一个对象都可以改变类变量的值，并且类变量也可以在不创建任何类的实例的情况下进行操作。</p>
-<p>例如，假设你想创建一定数量的自行 <code>Bicycle</code>对象并且为每一个分配一个序号，第一个对象的开始值为1. 这个ID数字对域每一个对象都都是唯一的因此是一个实例变量。同时，你需要你个字段来跟踪已经创建了多少<code>Bicycle</code>对象，这样你可以直到为下一个对象分配什么ID。这么一个字段并不是域任一个单独的对象关联的，而是对于整个类。这样你就需一个类变量， <code>numberOfBicycles</code>,就像相面的例子:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bicycle</span> </span>&#123;</div><div class="line">        </div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> cadence;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> gear;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> speed;</div><div class="line">        </div><div class="line">    <span class="comment">// add an instance variable for the object ID</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</div><div class="line">    </div><div class="line">    <span class="comment">// add a class variable for the</span></div><div class="line">    <span class="comment">// number of Bicycle objects instantiated</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> numberOfBicycles = <span class="number">0</span>;</div><div class="line">        ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>类变量是通过它自身的类名来引用的，例如</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Bicycle.numberOfBicycles</div></pre></td></tr></table></figure>
-<p>这样就可以清晰的直到它们是类变量.</p>
-<hr>
-<p>注意: 你同样可以使用一个对象来引用静态域如下 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">myBike.numberOfBicycles</div></pre></td></tr></table></figure>
-<p>但是并不鼓励这么做，因为这样做并不能清除的表明它们是类变量。</p>
-<hr>
-<p>你可以使用 <code>Bicycle</code> 构造器来为每一个实例变量<code>id</code>赋值，并增加类变量 <code>numberOfBicycles</code> 的值:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bicycle</span> </span>&#123;</div><div class="line">        </div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> cadence;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> gear;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> speed;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> numberOfBicycles = <span class="number">0</span>;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Bicycle</span><span class="params">(<span class="keyword">int</span> startCadence, <span class="keyword">int</span> startSpeed, <span class="keyword">int</span> startGear)</span></span>&#123;</div><div class="line">        gear = startGear;</div><div class="line">        cadence = startCadence;</div><div class="line">        speed = startSpeed;</div><div class="line"></div><div class="line">        <span class="comment">// increment number of Bicycles</span></div><div class="line">        <span class="comment">// and assign ID number</span></div><div class="line">        id = ++numberOfBicycles;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// new method to return the ID instance variable</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getID</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> id;</div><div class="line">    &#125;</div><div class="line">        ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="类的方法Class-Methods"><a href="#类的方法Class-Methods" class="headerlink" title="类的方法Class Methods"></a>类的方法Class Methods</h2><p>Java编程语言支持静态变量的同时也支持静态方法。静态方法，在定义时使用<code>static</code>修饰符，应该通过类名类直接调用，而无需创建一个类的实例，例如:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ClassName.methodName(args)</div></pre></td></tr></table></figure>
-<hr>
-<p>注意:  你同样可以使用一个对象来引用静态方法如下 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">instanceName.methodName(args)</div></pre></td></tr></table></figure>
-<p>但是并不鼓励这么做，因为这样做并不能清除的表明它们是类的方法。</p>
-<hr>
-<p>静态方法一个常用的地方使用来方位静态域。例如，我们可以为<code>Bicycle</code>类添加一个静态方法来访问 <code>numberOfBicycles</code> 静态域:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getNumberOfBicycles</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> numberOfBicycles;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>并不是所有的静态方法，静态域 与实例变量实例方法的 结合使用都使允许的:</p>
-<ul>
-<li>实例方法可以直接访问实例变量与实例方法。</li>
-<li>实例方法可以直接调用类变量以及类方法。Instance methods can access class variables and class methods directly.</li>
-<li>类方法可以直接方法类变量与类方法。Class methods can access class variables and class methods directly.</li>
-<li>类方法<strong>不能</strong>直接访问实例变量与实例方法——它们必须通过一个对象来引用。同样，类方法不能使用<code>this</code>关键字，因为这里的<code>this</code>不能指向任何实例。</li>
-</ul>
-<h2 id="常量Constants"><a href="#常量Constants" class="headerlink" title="常量Constants"></a>常量Constants</h2><p><code>static</code>修饰符，经常与<code>final</code>修饰符结合使用，用来定义常量。<code>final</code>修饰符表明这个字段的值不能改变。</p>
-<p>例如，下面的变量声明了一个常量<code>PI</code>，值为pi（圆周率：圆的周长与直径的比值）的近似值：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">double</span> PI = <span class="number">3.141592653589793</span>;</div></pre></td></tr></table></figure>
-<p>这种方式定义的常量不能重新赋值，如果你尝试这么做的话就会得到一个编译时错误。按照管理，常量的命名单词用大写字母拼写，如果名字包含了多个单词，使用下划线<code>_</code>分割.</p>
-<hr>
-<p>注意:如果一个基本数据类型或者字符串被定义为常量并且值在编译时已经确知，编译器将所有代码中出现的所有常量名替换为它的值。这叫做 编译时常量 <em>compile-time constant</em>. 如果你使用的常量外部世界值发生改变（例如，立法确认pi的值应该为3.975）,那么你就需要重新编译所以用到这个常量的类来获取当前固定值。</p>
-<hr>
-<h2 id="自行车Bicycle-类"><a href="#自行车Bicycle-类" class="headerlink" title="自行车Bicycle 类"></a>自行车<code>Bicycle</code> 类</h2><p>经过所有的改变之后 <code>Bicycle</code> 现在如下所示:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bicycle</span> </span>&#123;</div><div class="line">        </div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> cadence;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> gear;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> speed;</div><div class="line">        </div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</div><div class="line">    </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> numberOfBicycles = <span class="number">0</span>;</div><div class="line"></div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Bicycle</span><span class="params">(<span class="keyword">int</span> startCadence,</span></span></div><div class="line">                   <span class="keyword">int</span> startSpeed,</div><div class="line">                   <span class="keyword">int</span> startGear) &#123;</div><div class="line">        gear = startGear;</div><div class="line">        cadence = startCadence;</div><div class="line">        speed = startSpeed;</div><div class="line"></div><div class="line">        id = ++numberOfBicycles;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getID</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getNumberOfBicycles</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> numberOfBicycles;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCadence</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> cadence;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCadence</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;</div><div class="line">        cadence = newValue;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getGear</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> gear;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setGear</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;</div><div class="line">        gear = newValue;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSpeed</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> speed;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">applyBrake</span><span class="params">(<span class="keyword">int</span> decrement)</span> </span>&#123;</div><div class="line">        speed -= decrement;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">speedUp</span><span class="params">(<span class="keyword">int</span> increment)</span> </span>&#123;</div><div class="line">        speed += increment;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;理解类的成员&quot;&gt;&lt;a href=&quot;#理解类的成员&quot; class=&quot;headerlink&quot; title=&quot;理解类的成员&quot;&gt;&lt;/a&gt;理解类的成员&lt;/h1&gt;&lt;p&gt;在本节中，我们讨论使用&lt;code&gt;static&lt;/code&gt;关键字来创建属于类的字段和方法，而不是示例的成员
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
-    
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
-    
-      <category term="Class Members" scheme="http://yoursite.com/tags/Class-Members/"/>
-    
-      <category term="类的成员" scheme="http://yoursite.com/tags/%E7%B1%BB%E7%9A%84%E6%88%90%E5%91%98/"/>
     
   </entry>
   
