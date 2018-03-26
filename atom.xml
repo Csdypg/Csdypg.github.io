@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-26T06:47:06.567Z</updated>
+  <updated>2018-03-26T09:21:53.249Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,9 +16,201 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Java 学习指南_学习Java：使用接口作为一个类型</title>
+    <link href="http://yoursite.com/2018/03/26/java-tutorial-learning_interface_use_as_type/"/>
+    <id>http://yoursite.com/2018/03/26/java-tutorial-learning_interface_use_as_type/</id>
+    <published>2018-03-26T09:40:59.000Z</published>
+    <updated>2018-03-26T09:21:53.249Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用接口作为一个类型"><a href="#使用接口作为一个类型" class="headerlink" title="使用接口作为一个类型"></a>使用接口作为一个类型</h1><p>当你定义一个新的接口，你定义了一个新的引用数据类型。使用其他引用类型名的地方都可以使用接口名。如果你定义的一个接口的引用类型变量，赋值必须为实现了这个接口的类的实例。</p>
+<p>下面的例子，定义了一个找到size比较大的对象的方法，对象可以是任何实现了<code>Relatable</code>接口的类的实例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">findLargest</span><span class="params">(Object object1, Object object2)</span> </span>&#123;</div><div class="line">   Relatable obj1 = (Relatable)object1;</div><div class="line">   Relatable obj2 = (Relatable)object2;</div><div class="line">   <span class="keyword">if</span> ((obj1).isLargerThan(obj2) &gt; <span class="number">0</span>)</div><div class="line">      <span class="keyword">return</span> object1;</div><div class="line">   <span class="keyword">else</span> </div><div class="line">      <span class="keyword">return</span> object2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过转换 <code>object1</code> 类型为 <code>Relatable</code> 类型, 就可以调用其 <code>isLargerThan</code> 方法.</p>
+<p>如果你注意到很多的类都实现了 <code>Relatable</code>接口，任何这些类的实例都可以通过方法 <code>findLargest()</code>进行比较—只要他们是同一个类的对象.同样,他们都可以通过下面的方法进行比较:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public Object findSmallest(Object object1, Object object2) &#123;</div><div class="line">   Relatable obj1 = (Relatable)object1;</div><div class="line">   Relatable obj2 = (Relatable)object2;</div><div class="line">   if ((obj1).isLargerThan(obj2) &lt; 0)</div><div class="line">      return object1;</div><div class="line">   else </div><div class="line">      return object2;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public boolean isEqual(Object object1, Object object2) &#123;</div><div class="line">   Relatable obj1 = (Relatable)object1;</div><div class="line">   Relatable obj2 = (Relatable)object2;</div><div class="line">   if ( (obj1).isLargerThan(obj2) == 0)</div><div class="line">      return true;</div><div class="line">   else </div><div class="line">      return false;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个方法对所有的”relatable”对象都有效,不管他们的类集成了什么，当他们实现了 <code>Relatable</code>接口,他们同时可以是谈么本身（或者其父类）的类型， 也可以是一个 <code>Relatable</code> 类型.这就给了他们多重继承的优势，他们同时可以表现出其父类和接口的行为.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;使用接口作为一个类型&quot;&gt;&lt;a href=&quot;#使用接口作为一个类型&quot; class=&quot;headerlink&quot; title=&quot;使用接口作为一个类型&quot;&gt;&lt;/a&gt;使用接口作为一个类型&lt;/h1&gt;&lt;p&gt;当你定义一个新的接口，你定义了一个新的引用数据类型。使用其他引用类型名的地方
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="interface" scheme="http://yoursite.com/tags/interface/"/>
+    
+      <category term="接口" scheme="http://yoursite.com/tags/%E6%8E%A5%E5%8F%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 学习指南_学习Java：实现接口</title>
+    <link href="http://yoursite.com/2018/03/26/java-tutorial-learning_interface_implements/"/>
+    <id>http://yoursite.com/2018/03/26/java-tutorial-learning_interface_implements/</id>
+    <published>2018-03-26T08:21:59.000Z</published>
+    <updated>2018-03-26T08:44:43.881Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="实现一个接口Implementing-an-Interface"><a href="#实现一个接口Implementing-an-Interface" class="headerlink" title="实现一个接口Implementing an Interface"></a>实现一个接口Implementing an Interface</h1><p>定义一个实现接口的类，需要在类定义时包含 <code>implements</code> ，一个类可以事多个接口所以，<code>implements</code> 关键字后可以跟一个逗号分隔的实现接口的列表. 按照惯例, <code>implements</code> 引用跟随在 <code>extends</code> 扩展引用之后如果有的话.</p>
+<h2 id="一个简单的借口，相关联的Relatable"><a href="#一个简单的借口，相关联的Relatable" class="headerlink" title="一个简单的借口，相关联的Relatable"></a>一个简单的借口，相关联的Relatable</h2><p>考虑定义一个比较对象size的借口.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public interface Relatable &#123;</div><div class="line">        </div><div class="line">    // this (object calling isLargerThan)</div><div class="line">    // and other must be instances of </div><div class="line">    // the same class returns 1, 0, -1 </div><div class="line">    // if this is greater than, </div><div class="line">    // equal to, or less than other</div><div class="line">    public int isLargerThan(Relatable other);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果你想过要比较相似的对象的size，不管他们是什么类型的对象，可实例化类必须要实现这个接口 <code>Relatable</code>.</p>
+<p>任何类都可以实现这个<code>Relatable</code>接口，如果有方法可以比较实例化对象的相对size.例如字符串，可以通过字符数来比较，例如书本，可以通过页数来比较，例如学生，可以通过体重类比较等。例如平面几何图形，面积会是一个好的选择。(参考，下面的 <code>RectanglePlus</code>类),立体形状，则可以通过体积来比较.所有的这些类都可以实现 <code>isLargerThan()</code>方法.</p>
+<p>如果你知道一个类实现了 <code>Relatable</code>接口,那么你就可以比较这个类的实例化对象的size.</p>
+<h2 id="实现Relatable接口"><a href="#实现Relatable接口" class="headerlink" title="实现Relatable接口"></a>实现Relatable接口</h2><p>一下是矩形类 <code>Rectangle</code>，在 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/objectcreation.html" target="_blank" rel="external">Creating Objects</a> 出现过, 重写这个类来实现 <code>Relatable</code>接口.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RectanglePlus</span> </span></div><div class="line">    <span class="keyword">implements</span> <span class="title">Relatable</span> &#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> width = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> height = <span class="number">0</span>;</div><div class="line">    <span class="keyword">public</span> Point origin;</div><div class="line"></div><div class="line">    <span class="comment">// four constructors</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RectanglePlus</span><span class="params">()</span> </span>&#123;</div><div class="line">        origin = <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RectanglePlus</span><span class="params">(Point p)</span> </span>&#123;</div><div class="line">        origin = p;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RectanglePlus</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> h)</span> </span>&#123;</div><div class="line">        origin = <span class="keyword">new</span> Point(<span class="number">0</span>, <span class="number">0</span>);</div><div class="line">        width = w;</div><div class="line">        height = h;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RectanglePlus</span><span class="params">(Point p, <span class="keyword">int</span> w, <span class="keyword">int</span> h)</span> </span>&#123;</div><div class="line">        origin = p;</div><div class="line">        width = w;</div><div class="line">        height = h;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// a method for moving the rectangle</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">        origin.x = x;</div><div class="line">        origin.y = y;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// a method for computing</span></div><div class="line">    <span class="comment">// the area of the rectangle</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getArea</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> width * height;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// a method required to implement</span></div><div class="line">    <span class="comment">// the Relatable interface</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">isLargerThan</span><span class="params">(Relatable other)</span> </span>&#123;</div><div class="line">        RectanglePlus otherRect </div><div class="line">            = (RectanglePlus)other;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.getArea() &lt; otherRect.getArea())</div><div class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.getArea() &gt; otherRect.getArea())</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;               </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>因为矩形类 <code>RectanglePlus</code> 实现了 <code>Relatable</code>,任一两个 <code>RectanglePlus</code> 对象的size事可以比较的.</p>
+<hr>
+<p><strong>注意</strong>:<code>isLargerThan</code>方法，是在 <code>Relatable</code>接口中定义的，接口参数类型为<code>Relatable</code>.将<code>other</code>装换为 <code>RectanglePlus</code>实例，类型转换告诉编译器<code>other</code>对象本身是什么类型，直接在<code>other</code>对象上调用<code>other.getArea()</code>方法将会编译失败。</p>
+<hr>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;实现一个接口Implementing-an-Interface&quot;&gt;&lt;a href=&quot;#实现一个接口Implementing-an-Interface&quot; class=&quot;headerlink&quot; title=&quot;实现一个接口Implementing an Interfac
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="interface" scheme="http://yoursite.com/tags/interface/"/>
+    
+      <category term="接口" scheme="http://yoursite.com/tags/%E6%8E%A5%E5%8F%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 学习指南_学习Java：接口</title>
+    <link href="http://yoursite.com/2018/03/26/java-tutorial-learning_interface/"/>
+    <id>http://yoursite.com/2018/03/26/java-tutorial-learning_interface/</id>
+    <published>2018-03-26T07:40:59.000Z</published>
+    <updated>2018-03-26T08:04:47.319Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><p>软件工程中的很多情况写，让各个独立的开发小组遵循一个”合约”，来详细说明他们的软件是如何相互作用的。每个小组应该能再完全不知道其他小组写的代码的情况下编写自己的代码。广泛的说，接口<code>interfaces</code>就是这样的合约。</p>
+<p>例如，想象一下未来社会，电脑控制的机器人汽车运载乘客穿过城市的街道而不需要人为的操作。汽车制造商编写软件（当然，用java语言）来控制他们的汽车，停止，启动，加速，左转等等。另外一个工业小组，电子制导设备制造商，制造电脑系统来接受GPS（Global Positioning System）位置信息以及无线传输的交通状况信息，并根据这些信息驾驶汽车。</p>
+<p>汽车制造商必须发布一个工业标准详细说明调用什么方法可以让汽车移动（任何一家厂商的任何一辆车）。这时候制导系统厂商就可以编写软件调用接口所规定的方法命令汽车运行。这样工业组并不需要了解其方法具体是怎么实现的，汽车厂商也高度保留了其所有权并可以随时修改其实现，同时又遵循与已经公布的接口标准。</p>
+<h2 id="Java中的接口"><a href="#Java中的接口" class="headerlink" title="Java中的接口"></a>Java中的接口</h2><p>Java编程语言中，接口interface是一个引用类型，与类class相似，不过只可以包含常量方法签名，默认方法，静态方法，嵌套类型。只有默认方法和静态方法可以存在方法体。接口不能被实例化——只能被类实现或者被其他的借口扩展。后续的借口将会讲到扩展的内容。</p>
+<p>定义一个接口与定义一个类非常类似:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OperateCar</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="comment">// constant declarations, if any</span></div><div class="line"></div><div class="line">   <span class="comment">// method signatures</span></div><div class="line">   </div><div class="line">   <span class="comment">// An enum with values RIGHT, LEFT</span></div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">turn</span><span class="params">(Direction direction,</span></span></div><div class="line">            <span class="keyword">double</span> radius,</div><div class="line">            <span class="keyword">double</span> startSpeed,</div><div class="line">            <span class="keyword">double</span> endSpeed);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">changeLanes</span><span class="params">(Direction direction,</span></span></div><div class="line">                   <span class="keyword">double</span> startSpeed,</div><div class="line">                   <span class="keyword">double</span> endSpeed);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">signalTurn</span><span class="params">(Direction direction,</span></span></div><div class="line">                  <span class="keyword">boolean</span> signalOn);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">getRadarFront</span><span class="params">(<span class="keyword">double</span> distanceToCar,</span></span></div><div class="line">                     <span class="keyword">double</span> speedOfCar);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">getRadarRear</span><span class="params">(<span class="keyword">double</span> distanceToCar,</span></span></div><div class="line">                    <span class="keyword">double</span> speedOfCar);</div><div class="line">         ......</div><div class="line">   <span class="comment">// more method signatures</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意方法签名没有大括号包围的方法体有分号终结。</p>
+<p>要使用接口，你学写一个类来实现implements这个接口。当一个科实例化的类实现一个接口是，他提供接口中定义的方法的方法体，例如：,</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OperateBMW760i</span> <span class="keyword">implements</span> <span class="title">OperateCar</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// the OperateCar method signatures, with implementation --</span></div><div class="line">    <span class="comment">// for example:</span></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">signalTurn</span><span class="params">(Direction direction, <span class="keyword">boolean</span> signalOn)</span> </span>&#123;</div><div class="line">       <span class="comment">// code to turn BMW's LEFT turn indicator lights on</span></div><div class="line">       <span class="comment">// code to turn BMW's LEFT turn indicator lights off</span></div><div class="line">       <span class="comment">// code to turn BMW's RIGHT turn indicator lights on</span></div><div class="line">       <span class="comment">// code to turn BMW's RIGHT turn indicator lights off</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// other members, as needed -- for example, helper classes not </span></div><div class="line">    <span class="comment">// visible to clients of the interface</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面是机器人汽车例子中，需要实现接口的事汽车制造商。雪佛兰Chevrolet的实现可能与丰田Toyota的实现相当的不同，当然两家厂商都会遵循同样的接口。制导系统厂商，作为接口的消费者，创建系统用来根据汽车的GPS数据，数字地图，你及交通数据驾驶汽车。这么做的做，制导系统厂商只需调用接口中的方法: turn, change lanes, brake, accelerate等等。</p>
+<h2 id="接口做为API"><a href="#接口做为API" class="headerlink" title="接口做为API"></a>接口做为API</h2><p>机器人汽车的例子展示了接口作为工业标准<em>Application Programming Interface (API)</em>. APIs在商业软件中也同样常见。通常，一个公司出售的软件包包含了其他公司想要在他们的产品中使用的复杂方法。一个数字图像处理方法的软件包出售给制作终端用户平面设计软件的公司。图形处理公司写一些类来实现一个接口，这个类对他们的客户开放。平面设计软件公司通过使用接口中定义的方法签名和返回类型使用图形处理方法。这样在图形处理公司的API是公开的，但是API的实现作为私密信息得到保护——事实上他们可以在后续长期工作中根据其客户依赖的原有接口不断的改进其实现方法。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;接口&quot;&gt;&lt;a href=&quot;#接口&quot; class=&quot;headerlink&quot; title=&quot;接口&quot;&gt;&lt;/a&gt;接口&lt;/h1&gt;&lt;p&gt;软件工程中的很多情况写，让各个独立的开发小组遵循一个”合约”，来详细说明他们的软件是如何相互作用的。每个小组应该能再完全不知道其他小组写的代
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="interface" scheme="http://yoursite.com/tags/interface/"/>
+    
+      <category term="接口" scheme="http://yoursite.com/tags/%E6%8E%A5%E5%8F%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 学习指南_学习Java：定义接口</title>
+    <link href="http://yoursite.com/2018/03/26/java-tutorial-learning_interface_define/"/>
+    <id>http://yoursite.com/2018/03/26/java-tutorial-learning_interface_define/</id>
+    <published>2018-03-26T07:40:59.000Z</published>
+    <updated>2018-03-26T08:18:50.151Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="定义一个接口Defining-an-Interface"><a href="#定义一个接口Defining-an-Interface" class="headerlink" title="定义一个接口Defining an Interface"></a>定义一个接口Defining an Interface</h1><p>接口的定义包含了锌锭修饰符，关键字<code>interface</code>，接口名称，逗号分割的父接口（如果有的话）,以及接口体,例如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">GroupedInterface</span> <span class="keyword">extends</span> <span class="title">Interface1</span>, <span class="title">Interface2</span>, <span class="title">Interface3</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// constant declarations</span></div><div class="line">    </div><div class="line">    <span class="comment">// base of natural logarithms</span></div><div class="line">    <span class="keyword">double</span> E = <span class="number">2.718282</span>;</div><div class="line"> </div><div class="line">    <span class="comment">// method signatures</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">doSomething</span> <span class="params">(<span class="keyword">int</span> i, <span class="keyword">double</span> x)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">doSomethingElse</span><span class="params">(String s)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>public</code>修饰符表明了接口可以被任何包中的任何类使用。如果你不加这个修饰符，接口就只能被定义在用一个包中的类作为接口实现。</p>
+<p>接口可以扩展自其它接口，与类扩展其它的类一样。不过，区别是类值能扩展一个类，但是一个几口可以扩展任何数量的接口，接口定义中包含了他扩展的逗号分割的父接口。</p>
+<h2 id="接口体The-Interface-Body"><a href="#接口体The-Interface-Body" class="headerlink" title="接口体The Interface Body"></a>接口体The Interface Body</h2><p>接口体可以包含 <a href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html" target="_blank" rel="external">抽象方法abstract methods</a>, <a href="https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html" target="_blank" rel="external">默认default methods</a>, 以及 <a href="https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html#static" target="_blank" rel="external">静态static methods</a>. 接口中的抽象方法由分号结尾，但是不包括大括号包围的方法体（即没有方法的实现）。默认方法有<code>default</code>修饰符定义，静态方法由 <code>static</code>关键字。接口中所有的抽象方法，默认方法，静态方法 都是<code>public</code>,所以你可以省略 <code>public</code>修饰符.</p>
+<p>另外，几口可以包含常量声明。接口中定义的所有常量都是 <code>public</code>, <code>static</code>, 并且 <code>final</code>的.所有你可以省略这些限定修饰符.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;定义一个接口Defining-an-Interface&quot;&gt;&lt;a href=&quot;#定义一个接口Defining-an-Interface&quot; class=&quot;headerlink&quot; title=&quot;定义一个接口Defining an Interface&quot;&gt;&lt;/a&gt;定义一个接
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="interface" scheme="http://yoursite.com/tags/interface/"/>
+    
+      <category term="接口" scheme="http://yoursite.com/tags/%E6%8E%A5%E5%8F%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 学习指南_学习Java：接口与继承</title>
+    <link href="http://yoursite.com/2018/03/26/java-tutorial-learning_interface&amp;inheritance/"/>
+    <id>http://yoursite.com/2018/03/26/java-tutorial-learning_interface&amp;inheritance/</id>
+    <published>2018-03-26T07:26:59.000Z</published>
+    <updated>2018-03-26T07:08:41.149Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="课程-接口与继承"><a href="#课程-接口与继承" class="headerlink" title="课程: 接口与继承"></a>课程: 接口与继承</h1><h2 id="接口Interface"><a href="#接口Interface" class="headerlink" title="接口Interface"></a><a href="https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html" target="_blank" rel="external">接口Interface</a></h2><p>上一个课程中你已经见到过如果实现一个接口。本节将学到更多关于接口的内容-接口是什么，为什么需要写接口，以及如何写接口。</p>
+<h2 id="继承Inheritance"><a href="#继承Inheritance" class="headerlink" title="继承Inheritance"></a><a href="https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html" target="_blank" rel="external">继承Inheritance</a></h2><p>该部分讲述了你如何从一个类衍生出新的类。也就是，一个子类<em>subclass</em>如何继承父类/超类<em>superclass</em>的方法和字段。将学习如果自<code>Object</code>类衍生出新的类，以及如何修改子类从父类继承的方法。同样会覆盖到类似接口的抽象类<em>abstarct class</em></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;课程-接口与继承&quot;&gt;&lt;a href=&quot;#课程-接口与继承&quot; class=&quot;headerlink&quot; title=&quot;课程: 接口与继承&quot;&gt;&lt;/a&gt;课程: 接口与继承&lt;/h1&gt;&lt;h2 id=&quot;接口Interface&quot;&gt;&lt;a href=&quot;#接口Interface&quot; cla
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="interface" scheme="http://yoursite.com/tags/interface/"/>
+    
+      <category term="接口" scheme="http://yoursite.com/tags/%E6%8E%A5%E5%8F%A3/"/>
+    
+      <category term="inheritance" scheme="http://yoursite.com/tags/inheritance/"/>
+    
+      <category term="继承" scheme="http://yoursite.com/tags/%E7%BB%A7%E6%89%BF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java 学习指南_学习Java：注解-问题与练习</title>
-    <link href="http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&amp;e/"/>
-    <id>http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&amp;e/</id>
+    <link href="http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&amp;e%20copy/"/>
+    <id>http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&amp;e copy/</id>
     <published>2018-03-26T04:26:59.000Z</published>
     <updated>2018-03-26T06:47:06.567Z</updated>
     
@@ -104,44 +296,6 @@
   </entry>
   
   <entry>
-    <title>Java 学习指南_学习Java：类型注解以及可插拔类型系统</title>
-    <link href="http://yoursite.com/2018/03/23/java-tutorial-learning_annotation_type&amp;pluggable/"/>
-    <id>http://yoursite.com/2018/03/23/java-tutorial-learning_annotation_type&amp;pluggable/</id>
-    <published>2018-03-23T04:26:59.000Z</published>
-    <updated>2018-03-26T04:24:20.245Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="类型注解以及可插拔的类型系统"><a href="#类型注解以及可插拔的类型系统" class="headerlink" title="类型注解以及可插拔的类型系统"></a>类型注解以及可插拔的类型系统</h1><p>Java SE 8版本之前，注解只能被应用于声明或定义。Java 8中，注解可以应用于任何<em>type use</em>使用类行的地方。例如，类型实例创建表达式 (<code>new</code>),类型转换 casts,实现引用 <code>implements</code>,以及抛出异常 <code>throws</code> 引用.这种格式的注解叫做类型注解 <em>type annotation</em>。注解基础 <a href="https://docs.oracle.com/javase/tutorial/java/annotations/basics.html" target="_blank" rel="external">Annotations Basics</a>里提供了几个相关的例子.</p>
-<p>类型注解的创建，支持提高确保java程序更强的类型检查的分析方法。Java 8 并没有提供类型检查框架。但是它允许你写或者下载一个类型检查框架，实现一个或者多个可插拔的模块，来与Java编译器结合使用。</p>
-<p>例如，你想要确保你程序中一个特定的变量不允许为null；你想要避免触发 <code>NullPointerException</code>. 你可以写一个自定义的插件检查这个规则.你现在需要修改你的代码并给对应的变量添加注解,表明其不允许被赋值为null。变量的定义可能如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@NonNull</span> String str;</div></pre></td></tr></table></figure>
-<p>当你编译代码时，包含 <code>NonNull</code> 模块。编译器侦测出潜在的问题就会打印出一个警告，告知你修改代码以避免错误。当你修改代码移除所有的警告之后，这个特定的错误在程序运行时将不会发生.</p>
-<p>你也可以使用多个类型检查模块，每个模块检查不同类型的错误。这样，你就可以在Java类型系统之上，添加任何你想要的特定的检查。</p>
-<p>由合理的类型注解使用以及插件式类型检查的存在，你可以写出更加健壮的代码，更加不易出错。</p>
-<p>很多种情况下，你不需要自己实现类型检查模块。已有第三方为你实现了这些工作。例如，你可能会因为华盛顿大学 University of Washington创建的检查框架而受益.这个框架包含了 <code>NonNull</code>模块，一个正则表达式 regular expression 模块, 以及一个互斥锁 mutex lock 模块.参考 <a href="http://types.cs.washington.edu/checker-framework/" target="_blank" rel="external">Checker Framework</a>获取更多信息.</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;类型注解以及可插拔的类型系统&quot;&gt;&lt;a href=&quot;#类型注解以及可插拔的类型系统&quot; class=&quot;headerlink&quot; title=&quot;类型注解以及可插拔的类型系统&quot;&gt;&lt;/a&gt;类型注解以及可插拔的类型系统&lt;/h1&gt;&lt;p&gt;Java SE 8版本之前，注解只能被应用于
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="注解" scheme="http://yoursite.com/tags/%E6%B3%A8%E8%A7%A3/"/>
-    
-      <category term="annotation" scheme="http://yoursite.com/tags/annotation/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Java 学习指南_学习Java：可重复注解</title>
     <link href="http://yoursite.com/2018/03/23/java-tutorial-learning_annotation_repeating/"/>
     <id>http://yoursite.com/2018/03/23/java-tutorial-learning_annotation_repeating/</id>
@@ -168,6 +322,44 @@
     <summary type="html">
     
       &lt;h1 id=&quot;Repeating-Annotations&quot;&gt;&lt;a href=&quot;#Repeating-Annotations&quot; class=&quot;headerlink&quot; title=&quot;Repeating Annotations&quot;&gt;&lt;/a&gt;Repeating Annotations&lt;/
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="注解" scheme="http://yoursite.com/tags/%E6%B3%A8%E8%A7%A3/"/>
+    
+      <category term="annotation" scheme="http://yoursite.com/tags/annotation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 学习指南_学习Java：类型注解以及可插拔类型系统</title>
+    <link href="http://yoursite.com/2018/03/23/java-tutorial-learning_annotation_type&amp;pluggable/"/>
+    <id>http://yoursite.com/2018/03/23/java-tutorial-learning_annotation_type&amp;pluggable/</id>
+    <published>2018-03-23T04:26:59.000Z</published>
+    <updated>2018-03-26T04:24:20.245Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="类型注解以及可插拔的类型系统"><a href="#类型注解以及可插拔的类型系统" class="headerlink" title="类型注解以及可插拔的类型系统"></a>类型注解以及可插拔的类型系统</h1><p>Java SE 8版本之前，注解只能被应用于声明或定义。Java 8中，注解可以应用于任何<em>type use</em>使用类行的地方。例如，类型实例创建表达式 (<code>new</code>),类型转换 casts,实现引用 <code>implements</code>,以及抛出异常 <code>throws</code> 引用.这种格式的注解叫做类型注解 <em>type annotation</em>。注解基础 <a href="https://docs.oracle.com/javase/tutorial/java/annotations/basics.html" target="_blank" rel="external">Annotations Basics</a>里提供了几个相关的例子.</p>
+<p>类型注解的创建，支持提高确保java程序更强的类型检查的分析方法。Java 8 并没有提供类型检查框架。但是它允许你写或者下载一个类型检查框架，实现一个或者多个可插拔的模块，来与Java编译器结合使用。</p>
+<p>例如，你想要确保你程序中一个特定的变量不允许为null；你想要避免触发 <code>NullPointerException</code>. 你可以写一个自定义的插件检查这个规则.你现在需要修改你的代码并给对应的变量添加注解,表明其不允许被赋值为null。变量的定义可能如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@NonNull</span> String str;</div></pre></td></tr></table></figure>
+<p>当你编译代码时，包含 <code>NonNull</code> 模块。编译器侦测出潜在的问题就会打印出一个警告，告知你修改代码以避免错误。当你修改代码移除所有的警告之后，这个特定的错误在程序运行时将不会发生.</p>
+<p>你也可以使用多个类型检查模块，每个模块检查不同类型的错误。这样，你就可以在Java类型系统之上，添加任何你想要的特定的检查。</p>
+<p>由合理的类型注解使用以及插件式类型检查的存在，你可以写出更加健壮的代码，更加不易出错。</p>
+<p>很多种情况下，你不需要自己实现类型检查模块。已有第三方为你实现了这些工作。例如，你可能会因为华盛顿大学 University of Washington创建的检查框架而受益.这个框架包含了 <code>NonNull</code>模块，一个正则表达式 regular expression 模块, 以及一个互斥锁 mutex lock 模块.参考 <a href="http://types.cs.washington.edu/checker-framework/" target="_blank" rel="external">Checker Framework</a>获取更多信息.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;类型注解以及可插拔的类型系统&quot;&gt;&lt;a href=&quot;#类型注解以及可插拔的类型系统&quot; class=&quot;headerlink&quot; title=&quot;类型注解以及可插拔的类型系统&quot;&gt;&lt;/a&gt;类型注解以及可插拔的类型系统&lt;/h1&gt;&lt;p&gt;Java SE 8版本之前，注解只能被应用于
     
     </summary>
     
@@ -357,6 +549,44 @@
   </entry>
   
   <entry>
+    <title>Java 学习指南_学习Java：注解</title>
+    <link href="http://yoursite.com/2018/03/21/java-tutorial-learning_annotation/"/>
+    <id>http://yoursite.com/2018/03/21/java-tutorial-learning_annotation/</id>
+    <published>2018-03-21T09:26:59.000Z</published>
+    <updated>2018-03-21T09:27:12.734Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="课程-注解"><a href="#课程-注解" class="headerlink" title="课程: 注解"></a>课程: 注解</h1><p><em>注解Annotations</em>, 一种元数据的格式,提供程序相关的数据而不是程序本身. 注解并不会直接影响所标注的代码的影响。</p>
+<p>注解有一系列的作用，分别如下:</p>
+<ul>
+<li><strong>编译所用的注解信息</strong> — 注解可以用来侦测错误或者忽略警告.</li>
+<li><strong>编译时以及部署时的处理Compile-time and deployment-time processing</strong> — 软件工具可以处理注解信息来生成代码,XML文件等。</li>
+<li><strong>运行时的处理Runtime processing</strong> — 某些注解可在运行时检测.</li>
+</ul>
+<p>本课程解释了哪里可以用到注解，如何应用注解，JavaSE api预定义了那些可用的注解类型，注解类型如何与插件式的系统想结果写出强壮的类型检查代码，以及如何实现可重复的注解。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;课程-注解&quot;&gt;&lt;a href=&quot;#课程-注解&quot; class=&quot;headerlink&quot; title=&quot;课程: 注解&quot;&gt;&lt;/a&gt;课程: 注解&lt;/h1&gt;&lt;p&gt;&lt;em&gt;注解Annotations&lt;/em&gt;, 一种元数据的格式,提供程序相关的数据而不是程序本身. 注解并不会
+    
+    </summary>
+    
+      <category term="java" scheme="http://yoursite.com/categories/java/"/>
+    
+    
+      <category term="java" scheme="http://yoursite.com/tags/java/"/>
+    
+      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
+    
+      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="注解" scheme="http://yoursite.com/tags/%E6%B3%A8%E8%A7%A3/"/>
+    
+      <category term="annotation" scheme="http://yoursite.com/tags/annotation/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java 学习指南_学习Java：注解基础</title>
     <link href="http://yoursite.com/2018/03/21/java-tutorial-learning_annotation_basic/"/>
     <id>http://yoursite.com/2018/03/21/java-tutorial-learning_annotation_basic/</id>
@@ -402,44 +632,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;注解基础&quot;&gt;&lt;a href=&quot;#注解基础&quot; class=&quot;headerlink&quot; title=&quot;注解基础&quot;&gt;&lt;/a&gt;注解基础&lt;/h1&gt;&lt;h2 id=&quot;注解的格式&quot;&gt;&lt;a href=&quot;#注解的格式&quot; class=&quot;headerlink&quot; title=&quot;注解的格式&quot;&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="注解" scheme="http://yoursite.com/tags/%E6%B3%A8%E8%A7%A3/"/>
-    
-      <category term="annotation" scheme="http://yoursite.com/tags/annotation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：注解</title>
-    <link href="http://yoursite.com/2018/03/21/java-tutorial-learning_annotation/"/>
-    <id>http://yoursite.com/2018/03/21/java-tutorial-learning_annotation/</id>
-    <published>2018-03-21T09:26:59.000Z</published>
-    <updated>2018-03-21T09:27:12.734Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="课程-注解"><a href="#课程-注解" class="headerlink" title="课程: 注解"></a>课程: 注解</h1><p><em>注解Annotations</em>, 一种元数据的格式,提供程序相关的数据而不是程序本身. 注解并不会直接影响所标注的代码的影响。</p>
-<p>注解有一系列的作用，分别如下:</p>
-<ul>
-<li><strong>编译所用的注解信息</strong> — 注解可以用来侦测错误或者忽略警告.</li>
-<li><strong>编译时以及部署时的处理Compile-time and deployment-time processing</strong> — 软件工具可以处理注解信息来生成代码,XML文件等。</li>
-<li><strong>运行时的处理Runtime processing</strong> — 某些注解可在运行时检测.</li>
-</ul>
-<p>本课程解释了哪里可以用到注解，如何应用注解，JavaSE api预定义了那些可用的注解类型，注解类型如何与插件式的系统想结果写出强壮的类型检查代码，以及如何实现可重复的注解。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;课程-注解&quot;&gt;&lt;a href=&quot;#课程-注解&quot; class=&quot;headerlink&quot; title=&quot;课程: 注解&quot;&gt;&lt;/a&gt;课程: 注解&lt;/h1&gt;&lt;p&gt;&lt;em&gt;注解Annotations&lt;/em&gt;, 一种元数据的格式,提供程序相关的数据而不是程序本身. 注解并不会
     
     </summary>
     
@@ -1192,370 +1384,6 @@
       <category term="inner class" scheme="http://yoursite.com/tags/inner-class/"/>
     
       <category term="内部类" scheme="http://yoursite.com/tags/%E5%86%85%E9%83%A8%E7%B1%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-嵌套类</title>
-    <link href="http://yoursite.com/2017/10/23/java-tutorial-learning_the_lang_basic_nested_class/"/>
-    <id>http://yoursite.com/2017/10/23/java-tutorial-learning_the_lang_basic_nested_class/</id>
-    <published>2017-10-23T09:00:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="嵌套类"><a href="#嵌套类" class="headerlink" title="嵌套类"></a>嵌套类</h1><p>java编程语言允许你在一个类的内部定义类。这样的类叫做<em>嵌套类**nested class</em>,示例如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</div><div class="line">    ...</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">NestedClass</span> </span>&#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<hr>
-<p><strong>术语Terminology</strong>: 嵌套类分为两类，静态和非静态.声明为<code>static</code>的嵌套类叫做 <em>static nested classes</em>静态嵌套类。非静态嵌套类叫做<em>inner classes</em>内部类。</p>
-<hr>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</div><div class="line">    ...</div><div class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">StaticNestedClass</span> </span>&#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span> </span>&#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>嵌套类是其所在类的成员。非静态嵌套类（内部类）具有访问所在类的其他成员的访问权限，即使是私有的成员。静态内部类没有访问其所在类的其他成员的权限。作为<code>OuterClass</code>的成员，一个嵌套类可以被声明为<code>private</code>,<code>public</code>,<code>protected</code>或者包级私有（package private 默认）。（重申以下外部类只能 被定义为<code>public</code> 或者 包级私有）。</p>
-<h2 id="为什么使用嵌套类"><a href="#为什么使用嵌套类" class="headerlink" title="为什么使用嵌套类?"></a>为什么使用嵌套类?</h2><p>驱使使用嵌套类的原因包括以下几个：</p>
-<ul>
-<li><strong>它是为只在一个地方使用的类的逻辑分类的一种方法It is a way of logically grouping classes that are only used in one place</strong>: 如果一个类支只对另外一个类有用，那么把它嵌入那个类中是两者保持在一起是符合逻辑的。嵌套进这样的<em>辅助类</em> 是他们的包结构更加的合理化。</li>
-<li><strong>增加封装性It increases encapsulation</strong>:  考虑两个顶级的类，A和B，如果B需要访问A中原本声明为<code>private</code>的成员。通过将B吟唱在A类内，A的成员可以被定义为<code>private</code>私有，并且B可以访问它们，B本身也可以对于外部世界隐藏。</li>
-<li><strong>是代码更加易读和易于管理It can lead to more readable and maintainable code</strong>: 将小类嵌套与顶级类中是代码更接近它使用的地方。</li>
-</ul>
-<h2 id="静态嵌套类Static-Nested-Classes"><a href="#静态嵌套类Static-Nested-Classes" class="headerlink" title="静态嵌套类Static Nested Classes"></a>静态嵌套类Static Nested Classes</h2><p>与类方法和类变量一样，静态嵌套类是与其外部类相关联的。并且像静态类方法一样，一个静态嵌套类不能直接引用类中定义的实例变量和实例方法：只能通过一个对象的引用来使用。</p>
-<hr>
-<p><strong>注意</strong>:  静态嵌套类与其外部类或者其他类的实例成员交互 与它的顶级类一样。实际上，一个静态嵌套类与与顶积累表现一样，只不过可以方便的嵌入其他定义类，构建包更加便利。</p>
-<p>static nested class interacts with the instance members of its outer class (and other classes) just like any other top-level class. In effect, a static nested class is behaviorally a top-level class that has been nested in another top-level class for packaging convenience.</p>
-<hr>
-<p>静态嵌套类通过其所有类的类名来访问例如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">OuterClass.StaticNestedClass</div></pre></td></tr></table></figure>
-<p>如果需要创建一个静态嵌套类的对象，使用如下的语法:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">OuterClass.StaticNestedClass nestedObject =</div><div class="line">     <span class="keyword">new</span> OuterClass.StaticNestedClass();</div></pre></td></tr></table></figure>
-<h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><p>与实例方法和实例变量一样，一个内部类是与其所有类的实例相关联的，并且可以直接访问其实例方法和字段/域。 同样，因为内部类是域实例向关联的，所以它本身不能定义任何的静态成员。</p>
-<p>内部类的实例对象存在与外部类实例的内部，观察下面的类:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</div><div class="line">    ...</div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span> </span>&#123;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>一个内部类 <code>InnerClass</code> 的实例只能存在于一个<code>OuterClass</code>类的实例内部，并且可以直接访问该实例的方法和字段/域。</p>
-<p>实例化一个内部类，你必须现实里话外部类。然后，通过外部类的对象创建内部对象，语法如下:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">OuterClass.InnerClass innerObject = outerObject.new InnerClass();</div></pre></td></tr></table></figure>
-<p>内部类还有两种特殊情况：<a href="">局部类</a> 和 <a href="">匿名内部类</a>.: <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html" target="_blank" rel="external">local classes</a> and <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html" target="_blank" rel="external">anonymous classes</a>.</p>
-<h2 id="遮蔽Shadowing"><a href="#遮蔽Shadowing" class="headerlink" title="遮蔽Shadowing"></a>遮蔽<a href="">Shadowing</a></h2><p>如果在一个特定的范围内（例如在一个内部类或者是方法顶以内）定义一个类型（例如成员变量或者是参数名称）与闭合区域内（例如外部类的闭合区域内）的另外一个声明有相同的名字，那么这个声明就会遮蔽闭合区域内的声明。你不能指通过名字引用被遮蔽的声明。下面是一个例子， <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/examples/ShadowTest.java" target="_blank" rel="external"><code>ShadowTest</code></a>, 演示了这个现象:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShadowTest</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">FirstLevel</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">public</span> <span class="keyword">int</span> x = <span class="number">1</span>;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">void</span> <span class="title">methodInFirstLevel</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"x = "</span> + x);</div><div class="line">            System.out.println(<span class="string">"this.x = "</span> + <span class="keyword">this</span>.x);</div><div class="line">            System.out.println(<span class="string">"ShadowTest.this.x = "</span> + ShadowTest.<span class="keyword">this</span>.x);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String... args)</span> </span>&#123;</div><div class="line">        ShadowTest st = <span class="keyword">new</span> ShadowTest();</div><div class="line">        ShadowTest.FirstLevel fl = st.new FirstLevel();</div><div class="line">        fl.methodInFirstLevel(<span class="number">23</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>以下为这个例子的输出:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">x = <span class="number">23</span></div><div class="line"><span class="keyword">this</span>.x = <span class="number">1</span></div><div class="line">ShadowTest.<span class="keyword">this</span>.x = <span class="number">0</span></div></pre></td></tr></table></figure>
-<p>这个例子定义了三个变量名字都为<code>x</code>: 类<code>ShadowTest</code>的成员变量，内部类<code>FirstLevel</code>的成员变量，以及方法<code>methodInFirstLevel</code>的参数。方法<code>methodInFirstLevel</code>的参数<code>x</code>遮蔽了内部类<code>FirstLevel</code>的变量x。因此，当你在方法<code>methodInFirstLevel</code>中使用<code>x</code>时，引用的时方法的参数。为了引用内部类<code>FirstLevel</code>的成员变量，使用<code>this</code>挂件子来代表笔和空间:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">System.out.println(<span class="string">"this.x = "</span> + <span class="keyword">this</span>.x);</div></pre></td></tr></table></figure>
-<p>为了引用更大的闭合范围内的成员变量，需要使用它所属于的类名。例如，下面的语句，在<code>methodInFirstLevel</code>方法中引用了<code>ShadowTest</code>类的成员变量:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">System.out.println(<span class="string">"ShadowTest.this.x = "</span> + ShadowTest.<span class="keyword">this</span>.x);</div></pre></td></tr></table></figure>
-<h2 id="序列化Serialization"><a href="#序列化Serialization" class="headerlink" title="序列化Serialization"></a>序列化<a href="">Serialization</a></h2><p>内部类的序列化，包括局部类和匿名内部类，强力不建议。当Java编译器编译确定的结构，例如内部类，会创建合成构造 <em>synthetic constructs</em>; 包括类，方法，字段，以及其他的结构，这些结构在源码中并没有对应的相应的构造。合成构造能使使Java编译器在不更换JVM的情况下实现新的Java语言特性。然而合成构造可能因为不同固定Java编译器实现而有区别，意味着<code>.class</code>文件可能因为不同的实现也有所不同。因此，如果你用不同的JRE实现序列化和反序列化一个内部类的时候可能会出现各种各样的复杂问题。</p>
-<p>参考 <a href="https://docs.oracle.com/javase/tutorial/reflect/member/methodparameterreflection.html#implcit_and_synthetic" target="_blank" rel="external">Implicit and Synthetic Parameters</a>  隐式合成参数， <a href="https://docs.oracle.com/javase/tutorial/reflect/member/methodparameterreflection.html" target="_blank" rel="external">Obtaining Names of Method Parameters</a> 获取方法参数名 章节，来获取内部类编译时生成合成构造的更多信息。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;嵌套类&quot;&gt;&lt;a href=&quot;#嵌套类&quot; class=&quot;headerlink&quot; title=&quot;嵌套类&quot;&gt;&lt;/a&gt;嵌套类&lt;/h1&gt;&lt;p&gt;java编程语言允许你在一个类的内部定义类。这样的类叫做&lt;em&gt;嵌套类**nested class&lt;/em&gt;,示例如下：&lt;/p&gt;
-&lt;
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
-    
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
-    
-      <category term="嵌套类" scheme="http://yoursite.com/tags/%E5%B5%8C%E5%A5%97%E7%B1%BB/"/>
-    
-      <category term="nested class" scheme="http://yoursite.com/tags/nested-class/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-类-问题与练习</title>
-    <link href="http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_q&amp;e1/"/>
-    <id>http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_q&amp;e1/</id>
-    <published>2017-10-20T07:39:59.000Z</published>
-    <updated>2018-03-21T08:51:38.427Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="类：问题与练习"><a href="#类：问题与练习" class="headerlink" title="类：问题与练习"></a>类：问题与练习</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
-<li><p>观察下面的类:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IdentifyMyParts</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> x = <span class="number">7</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">3</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li><p><strong>问题</strong>: 哪一个是类变量?</p>
-</li>
-<li><p><strong>问题</strong>:哪一个是实例变量?</p>
-</li>
-<li><p><strong>问题</strong>: 以下代码的输出内容是什么:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">IdentifyMyParts a = new IdentifyMyParts(); </div><div class="line">IdentifyMyParts b = new IdentifyMyParts(); </div><div class="line">a.y = 5; </div><div class="line">b.y = 6; </div><div class="line">a.x = 1; </div><div class="line">b.x = 2; </div><div class="line">System.out.println(&quot;a.y = &quot; + a.y); </div><div class="line">System.out.println(&quot;b.y = &quot; + b.y); </div><div class="line">System.out.println(&quot;a.x = &quot; + a.x); </div><div class="line">System.out.println(&quot;b.x = &quot; + b.x); </div><div class="line">System.out.println(&quot;IdentifyMyParts.x = &quot; + IdentifyMyParts.x);</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><ol>
-<li><strong>练习</strong>: 写一个类，类的每一个实例代表了一副牌中的一张。没一张牌有两个属性：点数与花色。保留你的解决方案，在 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/QandE/enum-questions.html" target="_blank" rel="external">Enum Types</a> 枚举类一节中会要求你重写这个类.</li>
-<li><strong>练习</strong>: 写一个类，类的每一个实例代表<strong>一整副</strong>扑克。同样保留这个类。</li>
-<li><strong>练习</strong>：写一个小程序来测试你的单长牌与扑克类。可以简单的创建一副扑克并展示它其中的每一张牌。</li>
-</ol>
-<h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1><a id="more"></a>
-<h2 id="问题答案"><a href="#问题答案" class="headerlink" title="问题答案"></a>问题答案</h2><ol>
-<li><p>观察下面的类:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IdentifyMyParts</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> x = <span class="number">7</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> y = <span class="number">3</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li><p><strong>问题</strong>: 哪一个是类变量?</p>
-<p><strong>答案</strong>: x</p>
-</li>
-<li><p><strong>问题</strong>:哪一个是实例变量?</p>
-<p><strong>答案</strong>: y</p>
-</li>
-<li><p><strong>问题</strong>: 以下代码的输出内容是什么:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">IdentifyMyParts a = new IdentifyMyParts(); </div><div class="line">IdentifyMyParts b = new IdentifyMyParts(); </div><div class="line">a.y = 5; </div><div class="line">b.y = 6; </div><div class="line">a.x = 1; </div><div class="line">b.x = 2; </div><div class="line">System.out.println(&quot;a.y = &quot; + a.y); </div><div class="line">System.out.println(&quot;b.y = &quot; + b.y); </div><div class="line">System.out.println(&quot;a.x = &quot; + a.x); </div><div class="line">System.out.println(&quot;b.x = &quot; + b.x); </div><div class="line">System.out.println(&quot;IdentifyMyParts.x = &quot; + IdentifyMyParts.x);</div></pre></td></tr></table></figure>
-<p><strong>答案</strong>: 输出如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">a.y = 5 </div><div class="line">b.y = 6 </div><div class="line">a.x = 2 </div><div class="line">b.x = 2</div><div class="line">IdentifyMyParts.x = 2</div></pre></td></tr></table></figure>
-<p>因为 <code>x</code>的在类<code>IdentifyMyParts</code>中的定义为 <code>public static int</code> 。每一个指向<code>x</code>的引用都有最后赋给<code>x</code>的值，因为<code>x</code>是一个静态变量（或者说类变量），为所有类的实例所共享。也就是说只有一个<code>x</code>: 当<code>x</code>的值在任何实例中发生改变就会影响所有 <code>IdentifyMyParts</code>类的实例的<code>x</code>值.</p>
-<p>在理解类与实例的成员一节中包含了这些内容 <a href="">Understanding Instance and Class Members</a>.</p>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="练习答案"><a href="#练习答案" class="headerlink" title="练习答案"></a>练习答案</h2><ol>
-<li><p><strong>练习</strong>: 写一个类，类的每一个实例代表了一副牌中的一张。没一张牌有两个属性：点数与花色。保留你的解决方案，在 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/QandE/enum-questions.html" target="_blank" rel="external">Enum Types</a> 枚举类一节中会要求你重写这个类.</p>
-<p><strong>答案</strong>: <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/examples/Card.java" target="_blank" rel="external"><code>Card.java</code></a><img src="http://docs.oracle.com/javase/tutorial/images/sourceIcon.gif" alt="(in a .java source file)">.</p>
-</li>
-<li><p><strong>练习</strong>: 写一个类，类的每一个实例代表<strong>一整副</strong>扑克。同样保留这个类。</p>
-<p><strong>答案</strong>:  <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/examples/Deck.java" target="_blank" rel="external"><code>Deck.java</code></a><img src="http://docs.oracle.com/javase/tutorial/images/sourceIcon.gif" alt="(in a .java source file)">.</p>
-</li>
-<li><p><strong>练习</strong>：写一个小程序来测试你的单长牌与扑克类。可以简单的创建一副扑克并展示它其中的每一张牌。</p>
-<p><strong>答案</strong>:  <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/examples/DisplayDeck.java" target="_blank" rel="external"><code>DisplayDeck.java</code></a><img src="http://docs.oracle.com/javase/tutorial/images/sourceIcon.gif" alt="(in a .java source file)">.</p>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;类：问题与练习&quot;&gt;&lt;a href=&quot;#类：问题与练习&quot; class=&quot;headerlink&quot; title=&quot;类：问题与练习&quot;&gt;&lt;/a&gt;类：问题与练习&lt;/h1&gt;&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;观察下面的类:&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;IdentifyMyParts&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; x = &lt;span class=&quot;number&quot;&gt;7&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; y = &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;: 哪一个是类变量?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;:哪一个是实例变量?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;: 以下代码的输出内容是什么:&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;IdentifyMyParts a = new IdentifyMyParts(); &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;IdentifyMyParts b = new IdentifyMyParts(); &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;a.y = 5; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;b.y = 6; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;a.x = 1; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;b.x = 2; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;System.out.println(&amp;quot;a.y = &amp;quot; + a.y); &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;System.out.println(&amp;quot;b.y = &amp;quot; + b.y); &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;System.out.println(&amp;quot;a.x = &amp;quot; + a.x); &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;System.out.println(&amp;quot;b.x = &amp;quot; + b.x); &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;System.out.println(&amp;quot;IdentifyMyParts.x = &amp;quot; + IdentifyMyParts.x);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;​&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;练习&quot;&gt;&lt;a href=&quot;#练习&quot; class=&quot;headerlink&quot; title=&quot;练习&quot;&gt;&lt;/a&gt;练习&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;练习&lt;/strong&gt;: 写一个类，类的每一个实例代表了一副牌中的一张。没一张牌有两个属性：点数与花色。保留你的解决方案，在 &lt;a href=&quot;http://docs.oracle.com/javase/tutorial/java/javaOO/QandE/enum-questions.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Enum Types&lt;/a&gt; 枚举类一节中会要求你重写这个类.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;练习&lt;/strong&gt;: 写一个类，类的每一个实例代表&lt;strong&gt;一整副&lt;/strong&gt;扑克。同样保留这个类。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;练习&lt;/strong&gt;：写一个小程序来测试你的单长牌与扑克类。可以简单的创建一副扑克并展示它其中的每一张牌。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&quot;答案&quot;&gt;&lt;a href=&quot;#答案&quot; class=&quot;headerlink&quot; title=&quot;答案&quot;&gt;&lt;/a&gt;答案&lt;/h1&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
-    
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-对象-问题与练习</title>
-    <link href="http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_q&amp;e2/"/>
-    <id>http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_q&amp;e2/</id>
-    <published>2017-10-20T06:53:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="对象-问题与练习"><a href="#对象-问题与练习" class="headerlink" title="对象-问题与练习"></a>对象-问题与练习</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
-<li><p><strong>问题</strong>: 下面的程序有什么问题?</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomethingIsWrong</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Rectangle myRect;</div><div class="line">        myRect.width = <span class="number">40</span>;</div><div class="line">        myRect.height = <span class="number">50</span>;</div><div class="line">        System.out.println(<span class="string">"myRect's area is "</span> + myRect.area());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>问题</strong>:  以下代码创建了一个数组对象和字符串对象。当代码实行完毕后，有多少个指向那些对象的引用?是否两个对象都将会垃圾回收器回收?</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">String[] students = <span class="keyword">new</span> String[<span class="number">10</span>];</div><div class="line">String studentName = <span class="string">"Peter Smith"</span>;</div><div class="line">students[<span class="number">0</span>] = studentName;</div><div class="line">studentName = <span class="keyword">null</span>;</div><div class="line">...</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>问题</strong>: 程序是如何销毁一个它创建的对象的?</p>
-</li>
-</ol>
-<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><ol>
-<li><p><strong>练习</strong>: 修复 <code>SomethingIsWrong</code> 代码在问题1中的错误.</p>
-</li>
-<li><p><strong>练习</strong>: 已知以下类 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/QandE/NumberHolder.java" target="_blank" rel="external"><code>NumberHolder</code></a>, 些以下代码创建一个该类的实例，初始化它的两个成员变量，然后显示每个成员变量的值。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NumberHolder</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> anInt;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">float</span> aFloat;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1><a id="more"></a>
-<h2 id="问题答案"><a href="#问题答案" class="headerlink" title="问题答案"></a>问题答案</h2><ol>
-<li><p><strong>问题</strong>: 下面的程序有什么问题?</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomethingIsWrong</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Rectangle myRect;</div><div class="line">        myRect.width = <span class="number">40</span>;</div><div class="line">        myRect.height = <span class="number">50</span>;</div><div class="line">        System.out.println(<span class="string">"myRect's area is "</span> + myRect.area());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>答案</strong>: 代码从来没有创建一个 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/QandE/Rectangle.java" target="_blank" rel="external"><code>Rectangle</code></a> 对象. 这个简单的程序，编译器将会产生一个错误。不过更加实际的情况是， <code>myRect</code> 可能在一个地方被实例化为 <code>null</code> ,如果说在构造器中,然后再使用.这种情况下程序可以正常编译，但是会产生一个 <code>NullPointerException</code> 运行时异常.</p>
-</li>
-<li><p><strong>问题</strong>:  以下代码创建了一个数组对象和字符串对象。当代码实行完毕后，有多少个指向那些对象的引用?是否两个对象都将会垃圾回收器回收?</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">String[] students = <span class="keyword">new</span> String[<span class="number">10</span>];</div><div class="line">String studentName = <span class="string">"Peter Smith"</span>;</div><div class="line">students[<span class="number">0</span>] = studentName;</div><div class="line">studentName = <span class="keyword">null</span>;</div><div class="line">...</div></pre></td></tr></table></figure>
-<p><strong>答案</strong>: 有一个指向<code>students</code>数组的引用，并且数组里有一个指向字符串 <code>Peter Smith</code>的引用.两个对象都不会被垃圾回收器回收 .数组 <code>students</code>有一个指向<code>studentName</code>的引用所以不会被回收，尽管<code>studentName</code>已经被赋值为<code>null</code>. <code>studentName</code>对象也不会被回收因为<code>students[0]</code>仍然在引用它。.</p>
-</li>
-<li><p><strong>问题</strong>: 程序是如何销毁一个它创建的对象的?</p>
-<p><strong>答案</strong>: 程序并没有显示的销毁一个对象。程序可以设置所有执行一个对象的引用为<code>null</code>,这样这个对象就符合被垃圾会少的条件。但是程序并没有销毁对象。</p>
-</li>
-</ol>
-<h2 id="练习答案"><a href="#练习答案" class="headerlink" title="练习答案"></a>练习答案</h2><ol>
-<li><p><strong>练习</strong>: 修复 <code>SomethingIsWrong</code> 代码在问题1中的错误.</p>
-<p><strong>Answer</strong>: 参考<a href="http://docs.oracle.com/javase/tutorial/java/javaOO/QandE/SomethingIsRight.java" target="_blank" rel="external"><code>SomethingIsRight</code></a>:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SomethingIsRight</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Rectangle myRect = <span class="keyword">new</span> Rectangle();</div><div class="line">        myRect.width = <span class="number">40</span>;</div><div class="line">        myRect.height = <span class="number">50</span>;</div><div class="line">        System.out.println(<span class="string">"myRect's area is "</span> + myRect.area());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>练习</strong>: 已知以下类 <a href="http://docs.oracle.com/javase/tutorial/java/javaOO/QandE/NumberHolder.java" target="_blank" rel="external"><code>NumberHolder</code></a>, 些以下代码创建一个该类的实例，初始化它的两个成员变量，然后显示每个成员变量的值。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NumberHolder</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> anInt;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">float</span> aFloat;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>答案</strong>: 参考<a href="http://docs.oracle.com/javase/tutorial/java/javaOO/QandE/NumberHolderDisplay.java" target="_blank" rel="external"><code>NumberHolderDisplay</code></a>:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NumberHolderDisplay</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	NumberHolder aNumberHolder = <span class="keyword">new</span> NumberHolder();</div><div class="line">	aNumberHolder.anInt = <span class="number">1</span>;</div><div class="line">	aNumberHolder.aFloat = <span class="number">2.3f</span>;</div><div class="line">	System.out.println(aNumberHolder.anInt);</div><div class="line">	System.out.println(aNumberHolder.aFloat);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;对象-问题与练习&quot;&gt;&lt;a href=&quot;#对象-问题与练习&quot; class=&quot;headerlink&quot; title=&quot;对象-问题与练习&quot;&gt;&lt;/a&gt;对象-问题与练习&lt;/h1&gt;&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;: 下面的程序有什么问题?&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;SomethingIsWrong&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(String[] args)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        Rectangle myRect;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        myRect.width = &lt;span class=&quot;number&quot;&gt;40&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        myRect.height = &lt;span class=&quot;number&quot;&gt;50&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        System.out.println(&lt;span class=&quot;string&quot;&gt;&quot;myRect&#39;s area is &quot;&lt;/span&gt; + myRect.area());&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;:  以下代码创建了一个数组对象和字符串对象。当代码实行完毕后，有多少个指向那些对象的引用?是否两个对象都将会垃圾回收器回收?&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;String[] students = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; String[&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;String studentName = &lt;span class=&quot;string&quot;&gt;&quot;Peter Smith&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;students[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;] = studentName;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;studentName = &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;...&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;问题&lt;/strong&gt;: 程序是如何销毁一个它创建的对象的?&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&quot;练习&quot;&gt;&lt;a href=&quot;#练习&quot; class=&quot;headerlink&quot; title=&quot;练习&quot;&gt;&lt;/a&gt;练习&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;练习&lt;/strong&gt;: 修复 &lt;code&gt;SomethingIsWrong&lt;/code&gt; 代码在问题1中的错误.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;练习&lt;/strong&gt;: 已知以下类 &lt;a href=&quot;http://docs.oracle.com/javase/tutorial/java/javaOO/QandE/NumberHolder.java&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;NumberHolder&lt;/code&gt;&lt;/a&gt;, 些以下代码创建一个该类的实例，初始化它的两个成员变量，然后显示每个成员变量的值。&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;NumberHolder&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; anInt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; aFloat;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&quot;答案&quot;&gt;&lt;a href=&quot;#答案&quot; class=&quot;headerlink&quot; title=&quot;答案&quot;&gt;&lt;/a&gt;答案&lt;/h1&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="对象" scheme="http://yoursite.com/tags/%E5%AF%B9%E8%B1%A1/"/>
-    
-      <category term="Object" scheme="http://yoursite.com/tags/Object/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-类和对象总结</title>
-    <link href="http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_class_15/"/>
-    <id>http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_class_15/</id>
-    <published>2017-10-20T06:00:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="创建于使用类和对象的总结"><a href="#创建于使用类和对象的总结" class="headerlink" title="创建于使用类和对象的总结"></a>创建于使用类和对象的总结</h1><p>类的定义 为类命名并将类体包含与<code>{ }</code>之内。类的命名可以加上修饰符。类体内包含了域/字段，方法，以及类的构造器。</p>
-<p>类使用字段来包含状态信息，使用方法来表现行为。 构造器使用域类型一样但是没有返回值的方法类初始化一个类的实例。</p>
-<p>控制类以及其访问权限的方法一样：通过声明时使用访问修饰符来确定，例如<code>public</code> </p>
-<p>通过使用<code>static</code>关键字在成员声明时区分类变量域类方法。在声明时没有使用<code>static</code>关键字的成员默认为实例成员。类变量为所有类的实例所共享的，既可以通过类名引用也可以通过实例来引用。 来的实例获取每一个实例变量的副本，实例变量必须通过实例来引用。</p>
-<p>你可以使用<code>new</code>操作符来从一个类创建对象。<code>new</code>操作符返回一个 指向创建的对象的引用。你可以将其赋值给一个变量，也可以直接使用。</p>
-<p>实例变量或方法同样可以被类以外的代码访问，不过必须通过合格的名称来引用。一个正确的引用实例变量的代码类似如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">objectReference.variableName</div></pre></td></tr></table></figure>
-<p>引用实例方法的代码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">objectReference.methodName(argumentList)</div></pre></td></tr></table></figure>
-<p>或者:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">objectReference.methodName()</div></pre></td></tr></table></figure>
-<p>垃圾回收器自动清理不再被使用的对象。不在被使用的判定条件为程序不在持有该对象的引用。你可以显示的抛弃一个对象的引用，通过将变量的引用设置为指向<code>null</code>;</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;创建于使用类和对象的总结&quot;&gt;&lt;a href=&quot;#创建于使用类和对象的总结&quot; class=&quot;headerlink&quot; title=&quot;创建于使用类和对象的总结&quot;&gt;&lt;/a&gt;创建于使用类和对象的总结&lt;/h1&gt;&lt;p&gt;类的定义 为类命名并将类体包含与&lt;code&gt;{ }&lt;/cod
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
-    
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
-    
-      <category term="对象" scheme="http://yoursite.com/tags/%E5%AF%B9%E8%B1%A1/"/>
-    
-      <category term="Object" scheme="http://yoursite.com/tags/Object/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 学习指南_学习Java：基础-类-初始化字段</title>
-    <link href="http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_class_14/"/>
-    <id>http://yoursite.com/2017/10/20/java-tutorial-learning_class&amp;object_class_14/</id>
-    <published>2017-10-20T04:23:59.000Z</published>
-    <updated>2017-10-26T01:02:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="初始化域"><a href="#初始化域" class="headerlink" title="初始化域"></a>初始化域</h1><p>就像你看到的一样，你通常可以在一个字段/域定义的时候提供一个初始值:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BedAndBreakfast</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// initialize to 10</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> capacity = <span class="number">10</span>;</div><div class="line"></div><div class="line">    <span class="comment">// initialize to false</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> full = <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>当初始化的值可用并且初始化可以在一行内完成时这么做都没有问题。不过，这样的初始化形式有一些使用限制因为它过于简单。如果初始化需要一些逻辑（例如，错误处理或者一个<code>for</code>循环来填充一个复合的数组）,简单的赋值就不适合了。实例变量可以在在构造器中实例化，这里也可以使用错误处理和逻辑。为了给类变量的初始化也提供这样的能力，Java编程语言包含了<em>静态代码块</em> <em>static initialization blocks</em>.</p>
-<hr>
-<p><strong>注意</strong>:  并不是一定要在类定义的开始就声明字段/域，尽管这是最通常的做法。只是要求它们在使用前必须声明和初始化。</p>
-<hr>
-<h2 id="静态代码块"><a href="#静态代码块" class="headerlink" title="静态代码块"></a>静态代码块</h2><p><code>静态代码块</code>时在一个普通的<code>{ }</code>包括的代码块前面加上<code>static</code>关键字。下面是一个例子:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> &#123;</div><div class="line">    <span class="comment">// whatever code is needed for initialization goes here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>一个类可以有多个静态代码块，并且它们可以出现在类体body的任何地方。运行环境确保所有的静态代码块按照它们在源代码中出现的顺序被调用。</p>
-<p>静态代码块有个可替换的方法–你可以使用私有静态方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Whatever</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> varType myVar = initializeClassVariable();</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> varType <span class="title">initializeClassVariable</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">// initialization code goes here</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>使用私有静态方法的好处是如果你需要重新初始化变量就可以重用它。</p>
-<h2 id="初始化实例成员Initializing-Instance-Members"><a href="#初始化实例成员Initializing-Instance-Members" class="headerlink" title="初始化实例成员Initializing Instance Members"></a>初始化实例成员Initializing Instance Members</h2><p> 通常，你可以经初始化实例成员的代码放进一个构造器，同样还有两个方法可以达到这种目的，初始化代码块，以及final方法;</p>
-<p>实例变量初始化代码块域静态代码块类似，不过少了<code>static</code>关键字:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="comment">// whatever code is needed for initialization goes here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Java编译器将初始化代码块复制到每一个构造器，因此使用这种方法的好处是可以在多个构造其中分享同一代码块。</p>
-<p> <em>final method</em> final方法 不可以被子类重写。在接口域与继承一颗中我们还会详细讨论。下面是一个使用final方法初始化实例变量的例子:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Whatever</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> varType myVar = initializeInstanceVariable();</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">final</span> varType <span class="title">initializeInstanceVariable</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">// initialization code goes here</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>特别是当子类想要重用这个初始化方法的时候使用这种方法。使用final方法是因为在实例实例化的过程中调用非final的方法可能引起很多的问题。（思考）</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;初始化域&quot;&gt;&lt;a href=&quot;#初始化域&quot; class=&quot;headerlink&quot; title=&quot;初始化域&quot;&gt;&lt;/a&gt;初始化域&lt;/h1&gt;&lt;p&gt;就像你看到的一样，你通常可以在一个字段/域定义的时候提供一个初始值:&lt;/p&gt;
-&lt;figure class=&quot;highligh
-    
-    </summary>
-    
-      <category term="java" scheme="http://yoursite.com/categories/java/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="tutorial" scheme="http://yoursite.com/tags/tutorial/"/>
-    
-      <category term="教程" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
-    
-      <category term="class" scheme="http://yoursite.com/tags/class/"/>
-    
-      <category term="Initializing Fields" scheme="http://yoursite.com/tags/Initializing-Fields/"/>
-    
-      <category term="初始化" scheme="http://yoursite.com/tags/%E5%88%9D%E5%A7%8B%E5%8C%96/"/>
     
   </entry>
   

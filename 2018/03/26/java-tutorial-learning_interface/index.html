@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java,教程,tutorial,注解,annotation" />
+  <meta name="keywords" content="java,教程,tutorial,interface,接口" />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="问题与练习: 注解问题 问题: 线面的接口有哪些错误: 123456public interface House &amp;#123;    @Deprecated    public void open();    public void openFrontDoor();    public void openBackDoor();&amp;#125; ​  问题: 考虑下面的 House 类，实现了问题1中的">
-<meta name="keywords" content="java,教程,tutorial,注解,annotation">
+<meta name="description" content="接口软件工程中的很多情况写，让各个独立的开发小组遵循一个”合约”，来详细说明他们的软件是如何相互作用的。每个小组应该能再完全不知道其他小组写的代码的情况下编写自己的代码。广泛的说，接口interfaces就是这样的合约。 例如，想象一下未来社会，电脑控制的机器人汽车运载乘客穿过城市的街道而不需要人为的操作。汽车制造商编写软件（当然，用java语言）来控制他们的汽车，停止，启动，加速，左转等等。另外">
+<meta name="keywords" content="java,教程,tutorial,interface,接口">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 学习指南_学习Java：注解-问题与练习">
-<meta property="og:url" content="http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&e/index.html">
+<meta property="og:title" content="Java 学习指南_学习Java：接口">
+<meta property="og:url" content="http://yoursite.com/2018/03/26/java-tutorial-learning_interface/index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="问题与练习: 注解问题 问题: 线面的接口有哪些错误: 123456public interface House &amp;#123;    @Deprecated    public void open();    public void openFrontDoor();    public void openBackDoor();&amp;#125; ​  问题: 考虑下面的 House 类，实现了问题1中的">
-<meta property="og:updated_time" content="2018-03-26T06:47:06.567Z">
+<meta property="og:description" content="接口软件工程中的很多情况写，让各个独立的开发小组遵循一个”合约”，来详细说明他们的软件是如何相互作用的。每个小组应该能再完全不知道其他小组写的代码的情况下编写自己的代码。广泛的说，接口interfaces就是这样的合约。 例如，想象一下未来社会，电脑控制的机器人汽车运载乘客穿过城市的街道而不需要人为的操作。汽车制造商编写软件（当然，用java语言）来控制他们的汽车，停止，启动，加速，左转等等。另外">
+<meta property="og:updated_time" content="2018-03-26T08:04:47.319Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java 学习指南_学习Java：注解-问题与练习">
-<meta name="twitter:description" content="问题与练习: 注解问题 问题: 线面的接口有哪些错误: 123456public interface House &amp;#123;    @Deprecated    public void open();    public void openFrontDoor();    public void openBackDoor();&amp;#125; ​  问题: 考虑下面的 House 类，实现了问题1中的">
+<meta name="twitter:title" content="Java 学习指南_学习Java：接口">
+<meta name="twitter:description" content="接口软件工程中的很多情况写，让各个独立的开发小组遵循一个”合约”，来详细说明他们的软件是如何相互作用的。每个小组应该能再完全不知道其他小组写的代码的情况下编写自己的代码。广泛的说，接口interfaces就是这样的合约。 例如，想象一下未来社会，电脑控制的机器人汽车运载乘客穿过城市的街道而不需要人为的操作。汽车制造商编写软件（当然，用java语言）来控制他们的汽车，停止，启动，加速，左转等等。另外">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&e/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/26/java-tutorial-learning_interface/"/>
 
 
 
 
 
-  <title>Java 学习指南_学习Java：注解-问题与练习 | Hello World</title>
+  <title>Java 学习指南_学习Java：接口 | Hello World</title>
   
 
 
@@ -310,7 +310,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&e/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/java-tutorial-learning_interface/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hello Young">
@@ -327,7 +327,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java 学习指南_学习Java：注解-问题与练习</h1>
+          <h1 class="post-title" itemprop="name headline">Java 学习指南_学习Java：接口</h1>
         
 
         <div class="post-meta">
@@ -339,7 +339,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-26T12:26:59+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-26T15:40:59+08:00">
                 2018-03-26
               </time>
             
@@ -396,48 +396,17 @@
       
 
       
-        <h1 id="问题与练习-注解"><a href="#问题与练习-注解" class="headerlink" title="问题与练习: 注解"></a>问题与练习: 注解</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
-<li><p>问题: 线面的接口有哪些错误:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">House</span> </span>&#123;</div><div class="line">    <span class="meta">@Deprecated</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openFrontDoor</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openBackDoor</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>​</p>
-</li>
-<li><p><strong>问题</strong>: 考虑下面的 <code>House</code> 类，实现了问题1中的借口.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHouse</span> <span class="keyword">implements</span> <span class="title">House</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openFrontDoor</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openBackDoor</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果你编译这个程序，编译器会产生警告，因为<code>open</code>方法是反对的（在接口中），你应该做什么来避免警告？</p>
-</li>
-<li><p>下面的代码在编译时是否会发生错误？为什么？</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Meal &#123; ... &#125;</div><div class="line"></div><div class="line"><span class="meta">@Meal</span>(<span class="string">"breakfast"</span>, mainDish=<span class="string">"cereal"</span>)</div><div class="line"><span class="meta">@Meal</span>(<span class="string">"lunch"</span>, mainDish=<span class="string">"pizza"</span>)</div><div class="line"><span class="meta">@Meal</span>(<span class="string">"dinner"</span>, mainDish=<span class="string">"salad"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">evaluateDiet</span><span class="params">()</span> </span>&#123; ... &#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><ol>
-<li>练习: 定义一个增强请求的注解类型，包含元素<code>id</code>,<code>synopsis</code>,<code>engineer</code>, 以及<code>date</code>. 设定engineer默认值为<code>unassigned</code>，date默认值为<code>unknown</code>.</li>
-</ol>
-<h1 id="问题与练习答案-注解"><a href="#问题与练习答案-注解" class="headerlink" title="问题与练习答案: 注解"></a>问题与练习答案: 注解</h1><a id="more"></a>
-<h2 id="问题答案"><a href="#问题答案" class="headerlink" title="问题答案"></a>问题答案</h2><ol>
-<li><p>问题: 线面的接口有哪些错误:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">House</span> </span>&#123;</div><div class="line">    <span class="meta">@Deprecated</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openFrontDoor</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openBackDoor</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>答案</strong> 文档应该反映出 <code>open</code> 为什么是反对的以及用什么来代替，例如:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">House</span> </span>&#123; </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@deprecated</span> use of open </div><div class="line">     * is discouraged, use</div><div class="line">     * openFrontDoor or </div><div class="line">     * openBackDoor instead.</div><div class="line">     */</div><div class="line">    <span class="meta">@Deprecated</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span></span>; </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openFrontDoor</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openBackDoor</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>问题</strong>: 考虑下面的 <code>House</code> 类，实现了问题1中的借口.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHouse</span> <span class="keyword">implements</span> <span class="title">House</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openFrontDoor</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openBackDoor</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果你编译这个程序，编译器会产生警告，因为<code>open</code>方法是反对的（在接口中），你应该做什么来避免警告？</p>
-<p><strong>答案</strong>: 你可以为<code>open</code>方法的实现添加deprecate注解:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHouse</span> <span class="keyword">implements</span> <span class="title">House</span> </span>&#123; </div><div class="line">    <span class="comment">// The documentation is </span></div><div class="line">    <span class="comment">// inherited from the interface.</span></div><div class="line">    <span class="meta">@Deprecated</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span> </span>&#123;&#125; </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openFrontDoor</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openBackDoor</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>同样，你也可以通过<code>@SuppressWarings</code>注解镇压这个警告:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHouse</span> <span class="keyword">implements</span> <span class="title">House</span> </span>&#123; </div><div class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"deprecation"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">()</span> </span>&#123;&#125; </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openFrontDoor</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openBackDoor</span><span class="params">()</span> </span>&#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>下面的代码在编译时是否会发生错误？为什么？</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Meal &#123; ... &#125;</div><div class="line"></div><div class="line"><span class="meta">@Meal</span>(<span class="string">"breakfast"</span>, mainDish=<span class="string">"cereal"</span>)</div><div class="line"><span class="meta">@Meal</span>(<span class="string">"lunch"</span>, mainDish=<span class="string">"pizza"</span>)</div><div class="line"><span class="meta">@Meal</span>(<span class="string">"dinner"</span>, mainDish=<span class="string">"salad"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">evaluateDiet</span><span class="params">()</span> </span>&#123; ... &#125;</div></pre></td></tr></table></figure>
-<p><strong>答案</strong>:代码将会编译失败。JDK8之前，重复注解是不支持的。JDK8中，同样会编译失败，因为<code>Meal</code>注解类型并没有声明为可重复的。可以通过添加 <code>@Repeatable</code> 元注解，并定义一个注解容器类型来修复这个问题:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@java</span>.lang.annotation.Repeatable(MealContainer.class)</div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Meal &#123; ... &#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MealContainer &#123;</div><div class="line">    Meal[] value();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="练习答案"><a href="#练习答案" class="headerlink" title="练习答案"></a>练习答案</h2><ol>
-<li><p>练习: 定义一个增强请求的注解类型，包含元素<code>id</code>,<code>synopsis</code>,<code>engineer</code>, 以及<code>date</code>. 设定engineer默认值为<code>unassigned</code>，date默认值为<code>unknown</code>.</p>
-<p>答案:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Describes the Request-for-Enhancement (RFE) annotation type.</div><div class="line"> */</div><div class="line">public @interface RequestForEnhancement &#123;</div><div class="line">    int id();</div><div class="line">    String synopsis();</div><div class="line">    String engineer() default &quot;[unassigned]&quot;;</div><div class="line">    String date() default &quot;[unknown]&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
-</ol>
+        <h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><p>软件工程中的很多情况写，让各个独立的开发小组遵循一个”合约”，来详细说明他们的软件是如何相互作用的。每个小组应该能再完全不知道其他小组写的代码的情况下编写自己的代码。广泛的说，接口<code>interfaces</code>就是这样的合约。</p>
+<p>例如，想象一下未来社会，电脑控制的机器人汽车运载乘客穿过城市的街道而不需要人为的操作。汽车制造商编写软件（当然，用java语言）来控制他们的汽车，停止，启动，加速，左转等等。另外一个工业小组，电子制导设备制造商，制造电脑系统来接受GPS（Global Positioning System）位置信息以及无线传输的交通状况信息，并根据这些信息驾驶汽车。</p>
+<p>汽车制造商必须发布一个工业标准详细说明调用什么方法可以让汽车移动（任何一家厂商的任何一辆车）。这时候制导系统厂商就可以编写软件调用接口所规定的方法命令汽车运行。这样工业组并不需要了解其方法具体是怎么实现的，汽车厂商也高度保留了其所有权并可以随时修改其实现，同时又遵循与已经公布的接口标准。</p>
+<h2 id="Java中的接口"><a href="#Java中的接口" class="headerlink" title="Java中的接口"></a>Java中的接口</h2><p>Java编程语言中，接口interface是一个引用类型，与类class相似，不过只可以包含常量方法签名，默认方法，静态方法，嵌套类型。只有默认方法和静态方法可以存在方法体。接口不能被实例化——只能被类实现或者被其他的借口扩展。后续的借口将会讲到扩展的内容。</p>
+<p>定义一个接口与定义一个类非常类似:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OperateCar</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="comment">// constant declarations, if any</span></div><div class="line"></div><div class="line">   <span class="comment">// method signatures</span></div><div class="line">   </div><div class="line">   <span class="comment">// An enum with values RIGHT, LEFT</span></div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">turn</span><span class="params">(Direction direction,</span></span></div><div class="line">            <span class="keyword">double</span> radius,</div><div class="line">            <span class="keyword">double</span> startSpeed,</div><div class="line">            <span class="keyword">double</span> endSpeed);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">changeLanes</span><span class="params">(Direction direction,</span></span></div><div class="line">                   <span class="keyword">double</span> startSpeed,</div><div class="line">                   <span class="keyword">double</span> endSpeed);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">signalTurn</span><span class="params">(Direction direction,</span></span></div><div class="line">                  <span class="keyword">boolean</span> signalOn);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">getRadarFront</span><span class="params">(<span class="keyword">double</span> distanceToCar,</span></span></div><div class="line">                     <span class="keyword">double</span> speedOfCar);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">getRadarRear</span><span class="params">(<span class="keyword">double</span> distanceToCar,</span></span></div><div class="line">                    <span class="keyword">double</span> speedOfCar);</div><div class="line">         ......</div><div class="line">   <span class="comment">// more method signatures</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意方法签名没有大括号包围的方法体有分号终结。</p>
+<p>要使用接口，你学写一个类来实现implements这个接口。当一个科实例化的类实现一个接口是，他提供接口中定义的方法的方法体，例如：,</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OperateBMW760i</span> <span class="keyword">implements</span> <span class="title">OperateCar</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// the OperateCar method signatures, with implementation --</span></div><div class="line">    <span class="comment">// for example:</span></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">signalTurn</span><span class="params">(Direction direction, <span class="keyword">boolean</span> signalOn)</span> </span>&#123;</div><div class="line">       <span class="comment">// code to turn BMW's LEFT turn indicator lights on</span></div><div class="line">       <span class="comment">// code to turn BMW's LEFT turn indicator lights off</span></div><div class="line">       <span class="comment">// code to turn BMW's RIGHT turn indicator lights on</span></div><div class="line">       <span class="comment">// code to turn BMW's RIGHT turn indicator lights off</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// other members, as needed -- for example, helper classes not </span></div><div class="line">    <span class="comment">// visible to clients of the interface</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面是机器人汽车例子中，需要实现接口的事汽车制造商。雪佛兰Chevrolet的实现可能与丰田Toyota的实现相当的不同，当然两家厂商都会遵循同样的接口。制导系统厂商，作为接口的消费者，创建系统用来根据汽车的GPS数据，数字地图，你及交通数据驾驶汽车。这么做的做，制导系统厂商只需调用接口中的方法: turn, change lanes, brake, accelerate等等。</p>
+<h2 id="接口做为API"><a href="#接口做为API" class="headerlink" title="接口做为API"></a>接口做为API</h2><p>机器人汽车的例子展示了接口作为工业标准<em>Application Programming Interface (API)</em>. APIs在商业软件中也同样常见。通常，一个公司出售的软件包包含了其他公司想要在他们的产品中使用的复杂方法。一个数字图像处理方法的软件包出售给制作终端用户平面设计软件的公司。图形处理公司写一些类来实现一个接口，这个类对他们的客户开放。平面设计软件公司通过使用接口中定义的方法签名和返回类型使用图形处理方法。这样在图形处理公司的API是公开的，但是API的实现作为私密信息得到保护——事实上他们可以在后续长期工作中根据其客户依赖的原有接口不断的改进其实现方法。</p>
 
       
     </div>
@@ -494,9 +463,9 @@
           
             <a href="/tags/教程/" rel="tag"># 教程</a>
           
-            <a href="/tags/注解/" rel="tag"># 注解</a>
+            <a href="/tags/interface/" rel="tag"># interface</a>
           
-            <a href="/tags/annotation/" rel="tag"># annotation</a>
+            <a href="/tags/接口/" rel="tag"># 接口</a>
           
         </div>
       
@@ -509,8 +478,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/23/java-tutorial-learning_annotation_type&pluggable/" rel="next" title="Java 学习指南_学习Java：类型注解以及可插拔类型系统">
-                <i class="fa fa-chevron-left"></i> Java 学习指南_学习Java：类型注解以及可插拔类型系统
+              <a href="/2018/03/26/java-tutorial-learning_interface_define/" rel="next" title="Java 学习指南_学习Java：定义接口">
+                <i class="fa fa-chevron-left"></i> Java 学习指南_学习Java：定义接口
               </a>
             
           </div>
@@ -518,6 +487,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/26/java-tutorial-learning_interface_implements/" rel="prev" title="Java 学习指南_学习Java：实现接口">
+                Java 学习指南_学习Java：实现接口 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -589,7 +562,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-count">77</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -611,7 +584,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">69</span>
+                <span class="site-state-item-count">73</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -671,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题与练习-注解"><span class="nav-number">1.</span> <span class="nav-text">问题与练习: 注解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#练习"><span class="nav-number">1.2.</span> <span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题与练习答案-注解"><span class="nav-number">2.</span> <span class="nav-text">问题与练习答案: 注解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题答案"><span class="nav-number">2.1.</span> <span class="nav-text">问题答案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#练习答案"><span class="nav-number">2.2.</span> <span class="nav-text">练习答案</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#接口"><span class="nav-number">1.</span> <span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中的接口"><span class="nav-number">1.1.</span> <span class="nav-text">Java中的接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口做为API"><span class="nav-number">1.2.</span> <span class="nav-text">接口做为API</span></a></li></ol></li></ol></div>
             
 
           </div>
