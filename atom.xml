@@ -57,10 +57,10 @@
     <link href="http://yoursite.com/2018/03/26/java-tutorial-learning_interface_implements/"/>
     <id>http://yoursite.com/2018/03/26/java-tutorial-learning_interface_implements/</id>
     <published>2018-03-26T08:21:59.000Z</published>
-    <updated>2018-03-26T08:44:43.881Z</updated>
+    <updated>2018-03-26T10:22:29.576Z</updated>
     
     <content type="html"><![CDATA[<h1 id="实现一个接口Implementing-an-Interface"><a href="#实现一个接口Implementing-an-Interface" class="headerlink" title="实现一个接口Implementing an Interface"></a>实现一个接口Implementing an Interface</h1><p>定义一个实现接口的类，需要在类定义时包含 <code>implements</code> ，一个类可以事多个接口所以，<code>implements</code> 关键字后可以跟一个逗号分隔的实现接口的列表. 按照惯例, <code>implements</code> 引用跟随在 <code>extends</code> 扩展引用之后如果有的话.</p>
-<h2 id="一个简单的借口，相关联的Relatable"><a href="#一个简单的借口，相关联的Relatable" class="headerlink" title="一个简单的借口，相关联的Relatable"></a>一个简单的借口，相关联的Relatable</h2><p>考虑定义一个比较对象size的借口.</p>
+<h2 id="一个简单的接口，相关联的Relatable"><a href="#一个简单的接口，相关联的Relatable" class="headerlink" title="一个简单的接口，相关联的Relatable"></a>一个简单的接口，相关联的Relatable</h2><p>考虑定义一个比较对象size的接口.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public interface Relatable &#123;</div><div class="line">        </div><div class="line">    // this (object calling isLargerThan)</div><div class="line">    // and other must be instances of </div><div class="line">    // the same class returns 1, 0, -1 </div><div class="line">    // if this is greater than, </div><div class="line">    // equal to, or less than other</div><div class="line">    public int isLargerThan(Relatable other);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>如果你想过要比较相似的对象的size，不管他们是什么类型的对象，可实例化类必须要实现这个接口 <code>Relatable</code>.</p>
 <p>任何类都可以实现这个<code>Relatable</code>接口，如果有方法可以比较实例化对象的相对size.例如字符串，可以通过字符数来比较，例如书本，可以通过页数来比较，例如学生，可以通过体重类比较等。例如平面几何图形，面积会是一个好的选择。(参考，下面的 <code>RectanglePlus</code>类),立体形状，则可以通过体积来比较.所有的这些类都可以实现 <code>isLargerThan()</code>方法.</p>
@@ -209,10 +209,10 @@
   
   <entry>
     <title>Java 学习指南_学习Java：注解-问题与练习</title>
-    <link href="http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&amp;e%20copy/"/>
-    <id>http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&amp;e copy/</id>
+    <link href="http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&amp;e/"/>
+    <id>http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&amp;e/</id>
     <published>2018-03-26T04:26:59.000Z</published>
-    <updated>2018-03-26T06:47:06.567Z</updated>
+    <updated>2018-03-26T10:20:29.287Z</updated>
     
     <content type="html"><![CDATA[<h1 id="问题与练习-注解"><a href="#问题与练习-注解" class="headerlink" title="问题与练习: 注解"></a>问题与练习: 注解</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
 <li><p>问题: 线面的接口有哪些错误:</p>
@@ -254,7 +254,7 @@
 <h2 id="练习答案"><a href="#练习答案" class="headerlink" title="练习答案"></a>练习答案</h2><ol>
 <li><p>练习: 定义一个增强请求的注解类型，包含元素<code>id</code>,<code>synopsis</code>,<code>engineer</code>, 以及<code>date</code>. 设定engineer默认值为<code>unassigned</code>，date默认值为<code>unknown</code>.</p>
 <p>答案:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Describes the Request-for-Enhancement (RFE) annotation type.</div><div class="line"> */</div><div class="line">public @interface RequestForEnhancement &#123;</div><div class="line">    int id();</div><div class="line">    String synopsis();</div><div class="line">    String engineer() default &quot;[unassigned]&quot;;</div><div class="line">    String date() default &quot;[unknown]&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Describes the Request-for-Enhancement (RFE) annotation type.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> RequestForEnhancement &#123;</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">id</span><span class="params">()</span></span>;</div><div class="line">    <span class="function">String <span class="title">synopsis</span><span class="params">()</span></span>;</div><div class="line">    <span class="function">String <span class="title">engineer</span><span class="params">()</span> <span class="keyword">default</span> "[unassigned]"</span>;</div><div class="line">    <span class="function">String <span class="title">date</span><span class="params">()</span> <span class="keyword">default</span> "[unknown]"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
 </ol>
 ]]></content>
     

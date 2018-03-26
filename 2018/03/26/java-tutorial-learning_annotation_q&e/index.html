@@ -97,10 +97,10 @@
 <meta name="keywords" content="java,教程,tutorial,注解,annotation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 学习指南_学习Java：注解-问题与练习">
-<meta property="og:url" content="http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&e copy/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&e/index.html">
 <meta property="og:site_name" content="Hello World">
 <meta property="og:description" content="问题与练习: 注解问题 问题: 线面的接口有哪些错误: 123456public interface House &amp;#123;    @Deprecated    public void open();    public void openFrontDoor();    public void openBackDoor();&amp;#125; ​  问题: 考虑下面的 House 类，实现了问题1中的">
-<meta property="og:updated_time" content="2018-03-26T06:47:06.567Z">
+<meta property="og:updated_time" content="2018-03-26T10:20:29.287Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 学习指南_学习Java：注解-问题与练习">
 <meta name="twitter:description" content="问题与练习: 注解问题 问题: 线面的接口有哪些错误: 123456public interface House &amp;#123;    @Deprecated    public void open();    public void openFrontDoor();    public void openBackDoor();&amp;#125; ​  问题: 考虑下面的 House 类，实现了问题1中的">
@@ -131,7 +131,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&e copy/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&e/"/>
 
 
 
@@ -310,7 +310,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&e copy/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/java-tutorial-learning_annotation_q&e/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hello Young">
@@ -436,7 +436,7 @@
 <h2 id="练习答案"><a href="#练习答案" class="headerlink" title="练习答案"></a>练习答案</h2><ol>
 <li><p>练习: 定义一个增强请求的注解类型，包含元素<code>id</code>,<code>synopsis</code>,<code>engineer</code>, 以及<code>date</code>. 设定engineer默认值为<code>unassigned</code>，date默认值为<code>unknown</code>.</p>
 <p>答案:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Describes the Request-for-Enhancement (RFE) annotation type.</div><div class="line"> */</div><div class="line">public @interface RequestForEnhancement &#123;</div><div class="line">    int id();</div><div class="line">    String synopsis();</div><div class="line">    String engineer() default &quot;[unassigned]&quot;;</div><div class="line">    String date() default &quot;[unknown]&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Describes the Request-for-Enhancement (RFE) annotation type.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> RequestForEnhancement &#123;</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">id</span><span class="params">()</span></span>;</div><div class="line">    <span class="function">String <span class="title">synopsis</span><span class="params">()</span></span>;</div><div class="line">    <span class="function">String <span class="title">engineer</span><span class="params">()</span> <span class="keyword">default</span> "[unassigned]"</span>;</div><div class="line">    <span class="function">String <span class="title">date</span><span class="params">()</span> <span class="keyword">default</span> "[unknown]"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
 </ol>
 
       
