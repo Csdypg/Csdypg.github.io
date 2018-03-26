@@ -161,7 +161,7 @@ keywords:
 
    答案:
 
-   ```
+   ```java
    /**
     * Describes the Request-for-Enhancement (RFE) annotation type.
     */

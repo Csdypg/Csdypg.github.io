@@ -21,9 +21,9 @@ keywords:
 
 定义一个实现接口的类，需要在类定义时包含 `implements` ，一个类可以事多个接口所以，`implements` 关键字后可以跟一个逗号分隔的实现接口的列表. 按照惯例, `implements` 引用跟随在 `extends` 扩展引用之后如果有的话.
 
-## 一个简单的借口，相关联的Relatable
+## 一个简单的接口，相关联的Relatable
 
-考虑定义一个比较对象size的借口.
+考虑定义一个比较对象size的接口.
 
 ```
 public interface Relatable {
