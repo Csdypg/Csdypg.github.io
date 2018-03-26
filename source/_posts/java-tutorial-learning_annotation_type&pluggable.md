@@ -29,10 +29,10 @@ Java SE 8版本之前，注解只能被应用于声明或定义。Java 8中，�
 @NonNull String str;
 ```
 
-当你编译代码时，包含 `NonNull` 模块。编译器侦测出潜在的问题就会大衣橱一个警告，告知你修改代码以避免错误。当你修改代码移除所有的警告之后，这个特定的错误在程序运行时将不会发生.
+当你编译代码时，包含 `NonNull` 模块。编译器侦测出潜在的问题就会打印出一个警告，告知你修改代码以避免错误。当你修改代码移除所有的警告之后，这个特定的错误在程序运行时将不会发生.
 
 你也可以使用多个类型检查模块，每个模块检查不同类型的错误。这样，你就可以在Java类型系统之上，添加任何你想要的特定的检查。
 
 由合理的类型注解使用以及插件式类型检查的存在，你可以写出更加健壮的代码，更加不易出错。
 
-很多种情况下，你不需要自己实现类型检查模块。已有第三方为你实现了这些工作。例如，你可能会因为华盛顿 University of Washington大学创建的检查框架而受益.这个框架包含了 `NonNull`模块，一个正则表达式 regular expression 模块, 以及一个互斥锁 mutex lock 模块.参考 [Checker Framework](http://types.cs.washington.edu/checker-framework/)获取更多信息.
+很多种情况下，你不需要自己实现类型检查模块。已有第三方为你实现了这些工作。例如，你可能会因为华盛顿大学 University of Washington创建的检查框架而受益.这个框架包含了 `NonNull`模块，一个正则表达式 regular expression 模块, 以及一个互斥锁 mutex lock 模块.参考 [Checker Framework](http://types.cs.washington.edu/checker-framework/)获取更多信息.
