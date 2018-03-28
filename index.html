@@ -533,9 +533,9 @@
       
         
           
-            <h1 id="默认方法Default-Methods"><a href="#默认方法Default-Methods" class="headerlink" title="默认方法Default Methods"></a>默认方法Default Methods</h1><p>接口章节 <a href="https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html" target="_blank" rel="external">Interfaces</a> 描述了一个例子，关于电脑控制汽车生产厂商发布工业标准接口，调用其中的方法可以对他们的汽车进行操控。如果电脑控制汽车厂商为汽车增加了新的功能，例如飞行的功能，会怎么样呢？这些厂商需要明确新的方法是其他的公司（例如电子制导系统公司）调整他们的软件来控制汽车飞行。这些厂商要在哪里声明这些飞行相关的方法呢？如果他们吧方法添加在原有的借口中，那么已经实现了这些接口的开发者就必须重写他们的实现。如果作为静态方法添加，开发者会将其作为工具方法，而不是必要的和兴方法来对待。</p>
+            <h1 id="默认方法Default-Methods"><a href="#默认方法Default-Methods" class="headerlink" title="默认方法Default Methods"></a>默认方法Default Methods</h1><p>接口章节 <a href="https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html" target="_blank" rel="external">Interfaces</a> 描述了一个例子，关于电脑控制汽车生产厂商发布工业标准接口，调用其中的方法可以对他们的汽车进行操控。如果电脑控制汽车厂商为汽车增加了新的功能，例如飞行的功能，会怎么样呢？这些厂商需要明确新的方法是其他的公司（例如电子制导系统公司）调整他们的软件来控制汽车飞行。这些厂商要在哪里声明这些飞行相关的方法呢？如果他们吧方法添加在原有的接口中，那么已经实现了这些接口的开发者就必须重写他们的实现。如果作为静态方法添加，开发者会将其作为工具方法，而不是必要的和兴方法来对待。</p>
 <p>默认方法可以让你为库里的接口添加新的功能，并且在重写旧版本接口的代码时确保两部分功能兼容。</p>
-<p>考虑下面的借口, <a href="https://docs.oracle.com/javase/tutorial/java/IandI/examples/TimeClient.java" target="_blank" rel="external"><code>TimeClient</code></a>, 在之前的联系中出现的 <a href="https://docs.oracle.com/javase/tutorial/java/IandI/QandE/interfaces-answers.html" target="_blank" rel="external">Answers to Questions and Exercises: Interfaces</a>:</p>
+<p>考虑下面的接口, <a href="https://docs.oracle.com/javase/tutorial/java/IandI/examples/TimeClient.java" target="_blank" rel="external"><code>TimeClient</code></a>, 在之前的联系中出现的 <a href="https://docs.oracle.com/javase/tutorial/java/IandI/QandE/interfaces-answers.html" target="_blank" rel="external">Answers to Questions and Exercises: Interfaces</a>:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.time.*; </div><div class="line"> </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TimeClient</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setTime</span><span class="params">(<span class="keyword">int</span> hour, <span class="keyword">int</span> minute, <span class="keyword">int</span> second)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setDate</span><span class="params">(<span class="keyword">int</span> day, <span class="keyword">int</span> month, <span class="keyword">int</span> year)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setDateAndTime</span><span class="params">(<span class="keyword">int</span> day, <span class="keyword">int</span> month, <span class="keyword">int</span> year,</span></span></div><div class="line">                               <span class="keyword">int</span> hour, <span class="keyword">int</span> minute, <span class="keyword">int</span> second);</div><div class="line">    <span class="function">LocalDateTime <span class="title">getLocalDateTime</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>下面的类, <a href="https://docs.oracle.com/javase/tutorial/java/IandI/examples/defaultmethods/SimpleTimeClient.java" target="_blank" rel="external"><code>SimpleTimeClient</code></a>, 实现了上面的接口 <code>TimeClient</code>:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">package defaultmethods;</div><div class="line"></div><div class="line">import java.time.*;</div><div class="line">import java.lang.*;</div><div class="line">import java.util.*;</div><div class="line"></div><div class="line">public class SimpleTimeClient implements TimeClient &#123;</div><div class="line">    </div><div class="line">    private LocalDateTime dateAndTime;</div><div class="line">    </div><div class="line">    public SimpleTimeClient() &#123;</div><div class="line">        dateAndTime = LocalDateTime.now();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public void setTime(int hour, int minute, int second) &#123;</div><div class="line">        LocalDate currentDate = LocalDate.from(dateAndTime);</div><div class="line">        LocalTime timeToSet = LocalTime.of(hour, minute, second);</div><div class="line">        dateAndTime = LocalDateTime.of(currentDate, timeToSet);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public void setDate(int day, int month, int year) &#123;</div><div class="line">        LocalDate dateToSet = LocalDate.of(day, month, year);</div><div class="line">        LocalTime currentTime = LocalTime.from(dateAndTime);</div><div class="line">        dateAndTime = LocalDateTime.of(dateToSet, currentTime);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public void setDateAndTime(int day, int month, int year,</div><div class="line">                               int hour, int minute, int second) &#123;</div><div class="line">        LocalDate dateToSet = LocalDate.of(day, month, year);</div><div class="line">        LocalTime timeToSet = LocalTime.of(hour, minute, second); </div><div class="line">        dateAndTime = LocalDateTime.of(dateToSet, timeToSet);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public LocalDateTime getLocalDateTime() &#123;</div><div class="line">        return dateAndTime;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public String toString() &#123;</div><div class="line">        return dateAndTime.toString();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public static void main(String... args) &#123;</div><div class="line">        TimeClient myTimeClient = new SimpleTimeClient();</div><div class="line">        System.out.println(myTimeClient.toString());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -546,7 +546,7 @@
 <p>在方法签名前使用 <code>default</code> 关键字来明确接口中的方法是默认方法。接口中定义的所有方法包括默认方法，都是<code>public</code>的，因此你可以省略<code>public</code>修饰符。</p>
 <p>这样定义接口的话，你就不需要修改类 <code>SimpleTimeClient</code>, 这个类 (以及所有实现了接口 <code>TimeClient</code>的类),都会已定义的 <code>getZonedDateTime</code> 方法.下面的例子, <a href="https://docs.oracle.com/javase/tutorial/java/IandI/examples/defaultmethods/TestSimpleTimeClient.java" target="_blank" rel="external"><code>TestSimpleTimeClient</code></a>,调用了<code>SimpleTimeClient</code>一个实例的 <code>getZonedDateTime</code> 的方法:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> defaultmethods;</div><div class="line"> </div><div class="line"><span class="keyword">import</span> java.time.*;</div><div class="line"><span class="keyword">import</span> java.lang.*;</div><div class="line"><span class="keyword">import</span> java.util.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestSimpleTimeClient</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String... args)</span> </span>&#123;</div><div class="line">        TimeClient myTimeClient = <span class="keyword">new</span> SimpleTimeClient();</div><div class="line">        System.out.println(<span class="string">"Current time: "</span> + myTimeClient.toString());</div><div class="line">        System.out.println(<span class="string">"Time in California: "</span> +</div><div class="line">            myTimeClient.getZonedDateTime(<span class="string">"Blah blah"</span>).toString());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="扩展包含有默认方法的借口Extending-Interfaces-That-Contain-Default-Methods"><a href="#扩展包含有默认方法的借口Extending-Interfaces-That-Contain-Default-Methods" class="headerlink" title="扩展包含有默认方法的借口Extending Interfaces That Contain Default Methods"></a><a href="">扩展包含有默认方法的借口Extending Interfaces That Contain Default Methods</a></h2><p>当你从一个包含有默认方法的接口进行扩展时，你可以有一下做法：</p>
+<h2 id="扩展包含有默认方法的接口Extending-Interfaces-That-Contain-Default-Methods"><a href="#扩展包含有默认方法的接口Extending-Interfaces-That-Contain-Default-Methods" class="headerlink" title="扩展包含有默认方法的接口Extending Interfaces That Contain Default Methods"></a><a href="">扩展包含有默认方法的接口Extending Interfaces That Contain Default Methods</a></h2><p>当你从一个包含有默认方法的接口进行扩展时，你可以有一下做法：</p>
 <ul>
 <li>不提及默认方法，让扩展的几口继承原有的默认方法</li>
 <li>重新定义默认方法，声明为<code>abstract</code></li>
@@ -564,7 +564,7 @@
 <h2 id="静态方法Static-Methods"><a href="#静态方法Static-Methods" class="headerlink" title="静态方法Static Methods"></a><a href="">静态方法Static Methods</a></h2><p>默认方法之外，你也可以在接口中定义静态方法 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html" target="_blank" rel="external">static methods </a>.（静态方法属于类而不是其他的对象。类的每个实例都可以分享类它的静态方法）这样能让你更加容易的组织你库里的辅助方法；你可以将静态方法定义在统一接口中而不是其他的类里面。下面的例子定义了一个静态方法，获取一个 <a href="https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html" target="_blank" rel="external"><code>ZoneId</code></a> 对象先关的时区标识符；如果该对象没有给出相关的时区标识符则使用系统默认的时区标识符。（这样你就可以简化方法 <code>getZonedDateTime</code>）:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TimeClient</span> </span>&#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">public</span> ZoneId <span class="title">getZoneId</span> <span class="params">(String zoneString)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">return</span> ZoneId.of(zoneString);</div><div class="line">        &#125; <span class="keyword">catch</span> (DateTimeException e) &#123;</div><div class="line">            System.err.println(<span class="string">"Invalid time zone: "</span> + zoneString +</div><div class="line">                <span class="string">"; using default time zone instead."</span>);</div><div class="line">            <span class="keyword">return</span> ZoneId.systemDefault();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">public</span> ZonedDateTime <span class="title">getZonedDateTime</span><span class="params">(String zoneString)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> ZonedDateTime.of(getLocalDateTime(), getZoneId(zoneString));</div><div class="line">    &#125;    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>就像类中定义的静态方法一样，在接口中定义静态方法同样是在方法签名前面加上<code>static</code>关键字。因为接口中定义的所有方法都是<code>public</code>的，所以你可以省略<code>public</code>修饰符。</p>
-<h2 id="在已有的代码库中融入默认方法Integrating-Default-Methods-into-Existing-Libraries"><a href="#在已有的代码库中融入默认方法Integrating-Default-Methods-into-Existing-Libraries" class="headerlink" title="在已有的代码库中融入默认方法Integrating Default Methods into Existing Libraries"></a><a href="">在已有的代码库中融入默认方法Integrating Default Methods into Existing Libraries</a></h2><p>默认方法可以你是你在已有的借口中添加新的功能，并同时确保兼容老版本接口写的代码。特别的是，默认方法允许你添加接受lambda表达式作为参数。本节演示了如何使用默认方法和静态方法增强 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html" target="_blank" rel="external"><code>Comparator</code></a>接口.</p>
+<h2 id="在已有的代码库中融入默认方法Integrating-Default-Methods-into-Existing-Libraries"><a href="#在已有的代码库中融入默认方法Integrating-Default-Methods-into-Existing-Libraries" class="headerlink" title="在已有的代码库中融入默认方法Integrating Default Methods into Existing Libraries"></a><a href="">在已有的代码库中融入默认方法Integrating Default Methods into Existing Libraries</a></h2><p>默认方法可以你是你在已有的接口中添加新的功能，并同时确保兼容老版本接口写的代码。特别的是，默认方法允许你添加接受lambda表达式作为参数。本节演示了如何使用默认方法和静态方法增强 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html" target="_blank" rel="external"><code>Comparator</code></a>接口.</p>
 <p>考虑 <code>Card</code> 以及 <code>Deck</code> 类，在之前的联系中出现过 <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/QandE/creating-questions.html" target="_blank" rel="external">Questions and Exercises: Classes</a>.本例重写了两个类 <a href="https://docs.oracle.com/javase/tutorial/java/IandI/examples/defaultmethods/Card.java" target="_blank" rel="external"><code>Card</code></a> 以及 <a href="https://docs.oracle.com/javase/tutorial/java/IandI/examples/defaultmethods/Deck.java" target="_blank" rel="external"><code>Deck</code></a> 作为接口. <code>Card</code> 接口包含了两个枚举类型 <code>enum</code> (<code>Suit</code> 和 <code>Rank</code>) 以及两个抽象方法(<code>getSuit</code> 和 <code>getRank</code>):</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> defaultmethods;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Card</span> <span class="keyword">extends</span> <span class="title">Comparable</span>&lt;<span class="title">Card</span>&gt; </span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">public</span> <span class="keyword">enum</span> Suit &#123; </div><div class="line">        DIAMONDS (<span class="number">1</span>, <span class="string">"Diamonds"</span>), </div><div class="line">        CLUBS    (<span class="number">2</span>, <span class="string">"Clubs"</span>   ), </div><div class="line">        HEARTS   (<span class="number">3</span>, <span class="string">"Hearts"</span>  ), </div><div class="line">        SPADES   (<span class="number">4</span>, <span class="string">"Spades"</span>  );</div><div class="line">        </div><div class="line">        <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> value;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">final</span> String text;</div><div class="line">        Suit(<span class="keyword">int</span> value, String text) &#123;</div><div class="line">            <span class="keyword">this</span>.value = value;</div><div class="line">            <span class="keyword">this</span>.text = text;</div><div class="line">        &#125;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">value</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> value;&#125;</div><div class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">text</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> text;&#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">public</span> <span class="keyword">enum</span> Rank &#123; </div><div class="line">        DEUCE  (<span class="number">2</span> , <span class="string">"Two"</span>  ),</div><div class="line">        THREE  (<span class="number">3</span> , <span class="string">"Three"</span>), </div><div class="line">        FOUR   (<span class="number">4</span> , <span class="string">"Four"</span> ), </div><div class="line">        FIVE   (<span class="number">5</span> , <span class="string">"Five"</span> ), </div><div class="line">        SIX    (<span class="number">6</span> , <span class="string">"Six"</span>  ), </div><div class="line">        SEVEN  (<span class="number">7</span> , <span class="string">"Seven"</span>),</div><div class="line">        EIGHT  (<span class="number">8</span> , <span class="string">"Eight"</span>), </div><div class="line">        NINE   (<span class="number">9</span> , <span class="string">"Nine"</span> ), </div><div class="line">        TEN    (<span class="number">10</span>, <span class="string">"Ten"</span>  ), </div><div class="line">        JACK   (<span class="number">11</span>, <span class="string">"Jack"</span> ),</div><div class="line">        QUEEN  (<span class="number">12</span>, <span class="string">"Queen"</span>), </div><div class="line">        KING   (<span class="number">13</span>, <span class="string">"King"</span> ),</div><div class="line">        ACE    (<span class="number">14</span>, <span class="string">"Ace"</span>  );</div><div class="line">        <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> value;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">final</span> String text;</div><div class="line">        Rank(<span class="keyword">int</span> value, String text) &#123;</div><div class="line">            <span class="keyword">this</span>.value = value;</div><div class="line">            <span class="keyword">this</span>.text = text;</div><div class="line">        &#125;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">value</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> value;&#125;</div><div class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">text</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> text;&#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">public</span> Card.<span class="function">Suit <span class="title">getSuit</span><span class="params">()</span></span>;</div><div class="line">    <span class="keyword">public</span> Card.<span class="function">Rank <span class="title">getRank</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p> <code>Deck</code> 接口包含了许多操作cards的方法:</p>
@@ -880,8 +880,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">findLargest</span><span class="params">(Object object1, Object object2)</span> </span>&#123;</div><div class="line">   Relatable obj1 = (Relatable)object1;</div><div class="line">   Relatable obj2 = (Relatable)object2;</div><div class="line">   <span class="keyword">if</span> ((obj1).isLargerThan(obj2) &gt; <span class="number">0</span>)</div><div class="line">      <span class="keyword">return</span> object1;</div><div class="line">   <span class="keyword">else</span> </div><div class="line">      <span class="keyword">return</span> object2;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>通过转换 <code>object1</code> 类型为 <code>Relatable</code> 类型, 就可以调用其 <code>isLargerThan</code> 方法.</p>
 <p>如果你注意到很多的类都实现了 <code>Relatable</code>接口，任何这些类的实例都可以通过方法 <code>findLargest()</code>进行比较—只要他们是同一个类的对象.同样,他们都可以通过下面的方法进行比较:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public Object findSmallest(Object object1, Object object2) &#123;</div><div class="line">   Relatable obj1 = (Relatable)object1;</div><div class="line">   Relatable obj2 = (Relatable)object2;</div><div class="line">   if ((obj1).isLargerThan(obj2) &lt; 0)</div><div class="line">      return object1;</div><div class="line">   else </div><div class="line">      return object2;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public boolean isEqual(Object object1, Object object2) &#123;</div><div class="line">   Relatable obj1 = (Relatable)object1;</div><div class="line">   Relatable obj2 = (Relatable)object2;</div><div class="line">   if ( (obj1).isLargerThan(obj2) == 0)</div><div class="line">      return true;</div><div class="line">   else </div><div class="line">      return false;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这个方法对所有的”relatable”对象都有效,不管他们的类集成了什么，当他们实现了 <code>Relatable</code>接口,他们同时可以是谈么本身（或者其父类）的类型， 也可以是一个 <code>Relatable</code> 类型.这就给了他们多重继承的优势，他们同时可以表现出其父类和接口的行为.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">findSmallest</span><span class="params">(Object object1, Object object2)</span> </span>&#123;</div><div class="line">   Relatable obj1 = (Relatable)object1;</div><div class="line">   Relatable obj2 = (Relatable)object2;</div><div class="line">   <span class="keyword">if</span> ((obj1).isLargerThan(obj2) &lt; <span class="number">0</span>)</div><div class="line">      <span class="keyword">return</span> object1;</div><div class="line">   <span class="keyword">else</span> </div><div class="line">      <span class="keyword">return</span> object2;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEqual</span><span class="params">(Object object1, Object object2)</span> </span>&#123;</div><div class="line">   Relatable obj1 = (Relatable)object1;</div><div class="line">   Relatable obj2 = (Relatable)object2;</div><div class="line">   <span class="keyword">if</span> ( (obj1).isLargerThan(obj2) == <span class="number">0</span>)</div><div class="line">      <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">   <span class="keyword">else</span> </div><div class="line">      <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个方法对所有的”relatable”对象都有效,不管他们的继承成了什么，当他们实现了 <code>Relatable</code>接口,他们同时可以是谈么本身（或者其父类）的类型， 也可以是一个 <code>Relatable</code> 类型.这就给了他们多重继承的优势，他们同时可以表现出其父类和接口的行为.</p>
 
           
         
@@ -1070,150 +1070,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/java-tutorial-learning_interface/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hello Young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/26/java-tutorial-learning_interface/" itemprop="url">Java 学习指南_学习Java：接口</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-26T15:40:59+08:00">
-                2018-03-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><p>软件工程中的很多情况写，让各个独立的开发小组遵循一个”合约”，来详细说明他们的软件是如何相互作用的。每个小组应该能再完全不知道其他小组写的代码的情况下编写自己的代码。广泛的说，接口<code>interfaces</code>就是这样的合约。</p>
-<p>例如，想象一下未来社会，电脑控制的机器人汽车运载乘客穿过城市的街道而不需要人为的操作。汽车制造商编写软件（当然，用java语言）来控制他们的汽车，停止，启动，加速，左转等等。另外一个工业小组，电子制导设备制造商，制造电脑系统来接受GPS（Global Positioning System）位置信息以及无线传输的交通状况信息，并根据这些信息驾驶汽车。</p>
-<p>汽车制造商必须发布一个工业标准详细说明调用什么方法可以让汽车移动（任何一家厂商的任何一辆车）。这时候制导系统厂商就可以编写软件调用接口所规定的方法命令汽车运行。这样工业组并不需要了解其方法具体是怎么实现的，汽车厂商也高度保留了其所有权并可以随时修改其实现，同时又遵循与已经公布的接口标准。</p>
-<h2 id="Java中的接口"><a href="#Java中的接口" class="headerlink" title="Java中的接口"></a>Java中的接口</h2><p>Java编程语言中，接口interface是一个引用类型，与类class相似，不过只可以包含常量方法签名，默认方法，静态方法，嵌套类型。只有默认方法和静态方法可以存在方法体。接口不能被实例化——只能被类实现或者被其他的借口扩展。后续的借口将会讲到扩展的内容。</p>
-<p>定义一个接口与定义一个类非常类似:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OperateCar</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="comment">// constant declarations, if any</span></div><div class="line"></div><div class="line">   <span class="comment">// method signatures</span></div><div class="line">   </div><div class="line">   <span class="comment">// An enum with values RIGHT, LEFT</span></div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">turn</span><span class="params">(Direction direction,</span></span></div><div class="line">            <span class="keyword">double</span> radius,</div><div class="line">            <span class="keyword">double</span> startSpeed,</div><div class="line">            <span class="keyword">double</span> endSpeed);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">changeLanes</span><span class="params">(Direction direction,</span></span></div><div class="line">                   <span class="keyword">double</span> startSpeed,</div><div class="line">                   <span class="keyword">double</span> endSpeed);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">signalTurn</span><span class="params">(Direction direction,</span></span></div><div class="line">                  <span class="keyword">boolean</span> signalOn);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">getRadarFront</span><span class="params">(<span class="keyword">double</span> distanceToCar,</span></span></div><div class="line">                     <span class="keyword">double</span> speedOfCar);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">getRadarRear</span><span class="params">(<span class="keyword">double</span> distanceToCar,</span></span></div><div class="line">                    <span class="keyword">double</span> speedOfCar);</div><div class="line">         ......</div><div class="line">   <span class="comment">// more method signatures</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>注意方法签名没有大括号包围的方法体有分号终结。</p>
-<p>要使用接口，你学写一个类来实现implements这个接口。当一个科实例化的类实现一个接口是，他提供接口中定义的方法的方法体，例如：,</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OperateBMW760i</span> <span class="keyword">implements</span> <span class="title">OperateCar</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// the OperateCar method signatures, with implementation --</span></div><div class="line">    <span class="comment">// for example:</span></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">signalTurn</span><span class="params">(Direction direction, <span class="keyword">boolean</span> signalOn)</span> </span>&#123;</div><div class="line">       <span class="comment">// code to turn BMW's LEFT turn indicator lights on</span></div><div class="line">       <span class="comment">// code to turn BMW's LEFT turn indicator lights off</span></div><div class="line">       <span class="comment">// code to turn BMW's RIGHT turn indicator lights on</span></div><div class="line">       <span class="comment">// code to turn BMW's RIGHT turn indicator lights off</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// other members, as needed -- for example, helper classes not </span></div><div class="line">    <span class="comment">// visible to clients of the interface</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>上面是机器人汽车例子中，需要实现接口的事汽车制造商。雪佛兰Chevrolet的实现可能与丰田Toyota的实现相当的不同，当然两家厂商都会遵循同样的接口。制导系统厂商，作为接口的消费者，创建系统用来根据汽车的GPS数据，数字地图，你及交通数据驾驶汽车。这么做的做，制导系统厂商只需调用接口中的方法: turn, change lanes, brake, accelerate等等。</p>
-<h2 id="接口做为API"><a href="#接口做为API" class="headerlink" title="接口做为API"></a>接口做为API</h2><p>机器人汽车的例子展示了接口作为工业标准<em>Application Programming Interface (API)</em>. APIs在商业软件中也同样常见。通常，一个公司出售的软件包包含了其他公司想要在他们的产品中使用的复杂方法。一个数字图像处理方法的软件包出售给制作终端用户平面设计软件的公司。图形处理公司写一些类来实现一个接口，这个类对他们的客户开放。平面设计软件公司通过使用接口中定义的方法签名和返回类型使用图形处理方法。这样在图形处理公司的API是公开的，但是API的实现作为私密信息得到保护——事实上他们可以在后续长期工作中根据其客户依赖的原有接口不断的改进其实现方法。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/java-tutorial-learning_interface_define/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1310,6 +1166,150 @@
 <p>接口可以扩展自其它接口，与类扩展其它的类一样。不过，区别是类值能扩展一个类，但是一个几口可以扩展任何数量的接口，接口定义中包含了他扩展的逗号分割的父接口。</p>
 <h2 id="接口体The-Interface-Body"><a href="#接口体The-Interface-Body" class="headerlink" title="接口体The Interface Body"></a>接口体The Interface Body</h2><p>接口体可以包含 <a href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html" target="_blank" rel="external">抽象方法abstract methods</a>, <a href="https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html" target="_blank" rel="external">默认default methods</a>, 以及 <a href="https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html#static" target="_blank" rel="external">静态static methods</a>. 接口中的抽象方法由分号结尾，但是不包括大括号包围的方法体（即没有方法的实现）。默认方法有<code>default</code>修饰符定义，静态方法由 <code>static</code>关键字。接口中所有的抽象方法，默认方法，静态方法 都是<code>public</code>,所以你可以省略 <code>public</code>修饰符.</p>
 <p>另外，几口可以包含常量声明。接口中定义的所有常量都是 <code>public</code>, <code>static</code>, 并且 <code>final</code>的.所有你可以省略这些限定修饰符.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/26/java-tutorial-learning_interface/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/26/java-tutorial-learning_interface/" itemprop="url">Java 学习指南_学习Java：接口</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-26T15:40:59+08:00">
+                2018-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><p>软件工程中的很多情况写，让各个独立的开发小组遵循一个”合约”，来详细说明他们的软件是如何相互作用的。每个小组应该能再完全不知道其他小组写的代码的情况下编写自己的代码。广泛的说，接口<code>interfaces</code>就是这样的合约。</p>
+<p>例如，想象一下未来社会，电脑控制的机器人汽车运载乘客穿过城市的街道而不需要人为的操作。汽车制造商编写软件（当然，用java语言）来控制他们的汽车，停止，启动，加速，左转等等。另外一个工业小组，电子制导设备制造商，制造电脑系统来接受GPS（Global Positioning System）位置信息以及无线传输的交通状况信息，并根据这些信息驾驶汽车。</p>
+<p>汽车制造商必须发布一个工业标准详细说明调用什么方法可以让汽车移动（任何一家厂商的任何一辆车）。这时候制导系统厂商就可以编写软件调用接口所规定的方法命令汽车运行。这样工业组并不需要了解其方法具体是怎么实现的，汽车厂商也高度保留了其所有权并可以随时修改其实现，同时又遵循与已经公布的接口标准。</p>
+<h2 id="Java中的接口"><a href="#Java中的接口" class="headerlink" title="Java中的接口"></a>Java中的接口</h2><p>Java编程语言中，接口interface是一个引用类型，与类class相似，不过只可以包含常量，方法签名，默认方法，静态方法，嵌套类型。只有默认方法和静态方法可以存在方法体。接口不能被实例化——只能被类实现或者被其他的借口扩展。后续的借口将会讲到扩展的内容。</p>
+<p>定义一个接口与定义一个类非常类似:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OperateCar</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="comment">// constant declarations, if any</span></div><div class="line"></div><div class="line">   <span class="comment">// method signatures</span></div><div class="line">   </div><div class="line">   <span class="comment">// An enum with values RIGHT, LEFT</span></div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">turn</span><span class="params">(Direction direction,</span></span></div><div class="line">            <span class="keyword">double</span> radius,</div><div class="line">            <span class="keyword">double</span> startSpeed,</div><div class="line">            <span class="keyword">double</span> endSpeed);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">changeLanes</span><span class="params">(Direction direction,</span></span></div><div class="line">                   <span class="keyword">double</span> startSpeed,</div><div class="line">                   <span class="keyword">double</span> endSpeed);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">signalTurn</span><span class="params">(Direction direction,</span></span></div><div class="line">                  <span class="keyword">boolean</span> signalOn);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">getRadarFront</span><span class="params">(<span class="keyword">double</span> distanceToCar,</span></span></div><div class="line">                     <span class="keyword">double</span> speedOfCar);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">getRadarRear</span><span class="params">(<span class="keyword">double</span> distanceToCar,</span></span></div><div class="line">                    <span class="keyword">double</span> speedOfCar);</div><div class="line">         ......</div><div class="line">   <span class="comment">// more method signatures</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意方法签名没有大括号包围的方法体有分号终结。</p>
+<p>要使用接口，你学写一个类来实现implements这个接口。当一个科实例化的类实现一个接口是，他提供接口中定义的方法的方法体，例如：,</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OperateBMW760i</span> <span class="keyword">implements</span> <span class="title">OperateCar</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// the OperateCar method signatures, with implementation --</span></div><div class="line">    <span class="comment">// for example:</span></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">signalTurn</span><span class="params">(Direction direction, <span class="keyword">boolean</span> signalOn)</span> </span>&#123;</div><div class="line">       <span class="comment">// code to turn BMW's LEFT turn indicator lights on</span></div><div class="line">       <span class="comment">// code to turn BMW's LEFT turn indicator lights off</span></div><div class="line">       <span class="comment">// code to turn BMW's RIGHT turn indicator lights on</span></div><div class="line">       <span class="comment">// code to turn BMW's RIGHT turn indicator lights off</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// other members, as needed -- for example, helper classes not </span></div><div class="line">    <span class="comment">// visible to clients of the interface</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面是机器人汽车例子中，需要实现接口的事汽车制造商。雪佛兰Chevrolet的实现可能与丰田Toyota的实现相当的不同，当然两家厂商都会遵循同样的接口。制导系统厂商，作为接口的消费者，创建系统用来根据汽车的GPS数据，数字地图，你及交通数据驾驶汽车。这么做的做，制导系统厂商只需调用接口中的方法: turn, change lanes, brake, accelerate等等。</p>
+<h2 id="接口做为API"><a href="#接口做为API" class="headerlink" title="接口做为API"></a>接口做为API</h2><p>机器人汽车的例子展示了接口作为工业标准<em>Application Programming Interface (API)</em>. APIs在商业软件中也同样常见。通常，一个公司出售的软件包包含了其他公司想要在他们的产品中使用的复杂方法。一个数字图像处理方法的软件包出售给制作终端用户平面设计软件的公司。图形处理公司写一些类来实现一个接口，这个类对他们的客户开放。平面设计软件公司通过使用接口中定义的方法签名和返回类型使用图形处理方法。这样在图形处理公司的API是公开的，但是API的实现作为私密信息得到保护——事实上他们可以在后续长期工作中根据其客户依赖的原有接口不断的改进其实现方法。</p>
 
           
         

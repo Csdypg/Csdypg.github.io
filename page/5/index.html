@@ -455,144 +455,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/27/java-tutorial-learning_class&object_class/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hello Young">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello World">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/27/java-tutorial-learning_class&object_class/" itemprop="url">Java 学习指南_学习Java：基础-类</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T12:00:59+08:00">
-                2017-09-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>在标题为 <a href="http://docs.oracle.com/javase/tutorial/java/concepts/index.html" target="_blank" rel="external">面向对象编程概念 </a>的课程中介绍面向对象编程概念时使用了一个bicycle自行车类作为例子，包含赛车，山地车作为子类。这里有一个简单的代码示例作为<code>Bicycle</code>类的一种可能实现，让你对类的定义有一个大致的了解。接下来的课程中将会一步一步的复习和解释类的定义，现在先不要关注太多的细节。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bicycle</span> </span>&#123;</div><div class="line">        </div><div class="line">    <span class="comment">// the Bicycle class has</span></div><div class="line">    <span class="comment">// three fields</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> cadence;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> gear;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> speed;</div><div class="line">        </div><div class="line">    <span class="comment">// the Bicycle class has</span></div><div class="line">    <span class="comment">// one constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Bicycle</span><span class="params">(<span class="keyword">int</span> startCadence, <span class="keyword">int</span> startSpeed, <span class="keyword">int</span> startGear)</span> </span>&#123;</div><div class="line">        gear = startGear;</div><div class="line">        cadence = startCadence;</div><div class="line">        speed = startSpeed;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="comment">// the Bicycle class has</span></div><div class="line">    <span class="comment">// four methods</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCadence</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;</div><div class="line">        cadence = newValue;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setGear</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;</div><div class="line">        gear = newValue;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">applyBrake</span><span class="params">(<span class="keyword">int</span> decrement)</span> </span>&#123;</div><div class="line">        speed -= decrement;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">speedUp</span><span class="params">(<span class="keyword">int</span> increment)</span> </span>&#123;</div><div class="line">        speed += increment;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>定义一i个<code>Bicycle</code>类的子类<code>MountainBike</code>l类可能如下所示：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MountainBike</span> <span class="keyword">extends</span> <span class="title">Bicycle</span> </span>&#123;</div><div class="line">        </div><div class="line">    <span class="comment">// the MountainBike subclass has</span></div><div class="line">    <span class="comment">// one field</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> seatHeight;</div><div class="line"></div><div class="line">    <span class="comment">// the MountainBike subclass has</span></div><div class="line">    <span class="comment">// one constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MountainBike</span><span class="params">(<span class="keyword">int</span> startHeight, <span class="keyword">int</span> startCadence,</span></span></div><div class="line">                        <span class="keyword">int</span> startSpeed, <span class="keyword">int</span> startGear) &#123;</div><div class="line">        <span class="keyword">super</span>(startCadence, startSpeed, startGear);</div><div class="line">        seatHeight = startHeight;</div><div class="line">    &#125;   </div><div class="line">        </div><div class="line">    <span class="comment">// the MountainBike subclass has</span></div><div class="line">    <span class="comment">// one method</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHeight</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;</div><div class="line">        seatHeight = newValue;</div><div class="line">    &#125;   </div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><code>MountainBike</code> 类继承了自行车类的所有fields字段/域 以及方法，并且添加了field <code>seatHeight</code>，以及一个设置它的方法（山地车拥有可以根据地形调整高度的座位）。 </p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/27/java-tutorial-learning_class&object/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -691,6 +553,144 @@
 <h2 id="类详细介绍"><a href="#类详细介绍" class="headerlink" title="类详细介绍"></a><a href="">类详细介绍</a></h2><p>这一部分依据上一节的类使用参考以及点操作符号的知识介绍类的更多方面：从方法中返回值，<code>this</code>关键字，类与实例成员，以及访问控制。</p>
 <h2 id="嵌套类（内部类）"><a href="#嵌套类（内部类）" class="headerlink" title="嵌套类（内部类）"></a><a href="">嵌套类（内部类）</a></h2><p>静态嵌套类，内部类，匿名内部类，局部类，以及lambda表达式都包含在内，同时也包含了何时使用某种方法的讨论。</p>
 <h2 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a><a href="">枚举类型</a></h2><p>本节包括了枚举类型，一种语序你定义和使用常量集合的特殊类。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/27/java-tutorial-learning_class&object_class/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hello Young">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello World">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/27/java-tutorial-learning_class&object_class/" itemprop="url">Java 学习指南_学习Java：基础-类</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T12:00:59+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>在标题为 <a href="http://docs.oracle.com/javase/tutorial/java/concepts/index.html" target="_blank" rel="external">面向对象编程概念 </a>的课程中介绍面向对象编程概念时使用了一个bicycle自行车类作为例子，包含赛车，山地车作为子类。这里有一个简单的代码示例作为<code>Bicycle</code>类的一种可能实现，让你对类的定义有一个大致的了解。接下来的课程中将会一步一步的复习和解释类的定义，现在先不要关注太多的细节。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bicycle</span> </span>&#123;</div><div class="line">        </div><div class="line">    <span class="comment">// the Bicycle class has</span></div><div class="line">    <span class="comment">// three fields</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> cadence;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> gear;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> speed;</div><div class="line">        </div><div class="line">    <span class="comment">// the Bicycle class has</span></div><div class="line">    <span class="comment">// one constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Bicycle</span><span class="params">(<span class="keyword">int</span> startCadence, <span class="keyword">int</span> startSpeed, <span class="keyword">int</span> startGear)</span> </span>&#123;</div><div class="line">        gear = startGear;</div><div class="line">        cadence = startCadence;</div><div class="line">        speed = startSpeed;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="comment">// the Bicycle class has</span></div><div class="line">    <span class="comment">// four methods</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCadence</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;</div><div class="line">        cadence = newValue;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setGear</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;</div><div class="line">        gear = newValue;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">applyBrake</span><span class="params">(<span class="keyword">int</span> decrement)</span> </span>&#123;</div><div class="line">        speed -= decrement;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">speedUp</span><span class="params">(<span class="keyword">int</span> increment)</span> </span>&#123;</div><div class="line">        speed += increment;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>定义一i个<code>Bicycle</code>类的子类<code>MountainBike</code>l类可能如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MountainBike</span> <span class="keyword">extends</span> <span class="title">Bicycle</span> </span>&#123;</div><div class="line">        </div><div class="line">    <span class="comment">// the MountainBike subclass has</span></div><div class="line">    <span class="comment">// one field</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> seatHeight;</div><div class="line"></div><div class="line">    <span class="comment">// the MountainBike subclass has</span></div><div class="line">    <span class="comment">// one constructor</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MountainBike</span><span class="params">(<span class="keyword">int</span> startHeight, <span class="keyword">int</span> startCadence,</span></span></div><div class="line">                        <span class="keyword">int</span> startSpeed, <span class="keyword">int</span> startGear) &#123;</div><div class="line">        <span class="keyword">super</span>(startCadence, startSpeed, startGear);</div><div class="line">        seatHeight = startHeight;</div><div class="line">    &#125;   </div><div class="line">        </div><div class="line">    <span class="comment">// the MountainBike subclass has</span></div><div class="line">    <span class="comment">// one method</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHeight</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;</div><div class="line">        seatHeight = newValue;</div><div class="line">    &#125;   </div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>MountainBike</code> 类继承了自行车类的所有fields字段/域 以及方法，并且添加了field <code>seatHeight</code>，以及一个设置它的方法（山地车拥有可以根据地形调整高度的座位）。 </p>
 
           
         

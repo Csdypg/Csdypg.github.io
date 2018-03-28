@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/26/java-tutorial-learning_interface/index.html">
 <meta property="og:site_name" content="Hello World">
 <meta property="og:description" content="接口软件工程中的很多情况写，让各个独立的开发小组遵循一个”合约”，来详细说明他们的软件是如何相互作用的。每个小组应该能再完全不知道其他小组写的代码的情况下编写自己的代码。广泛的说，接口interfaces就是这样的合约。 例如，想象一下未来社会，电脑控制的机器人汽车运载乘客穿过城市的街道而不需要人为的操作。汽车制造商编写软件（当然，用java语言）来控制他们的汽车，停止，启动，加速，左转等等。另外">
-<meta property="og:updated_time" content="2018-03-26T08:04:47.319Z">
+<meta property="og:updated_time" content="2018-03-28T07:43:09.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 学习指南_学习Java：接口">
 <meta name="twitter:description" content="接口软件工程中的很多情况写，让各个独立的开发小组遵循一个”合约”，来详细说明他们的软件是如何相互作用的。每个小组应该能再完全不知道其他小组写的代码的情况下编写自己的代码。广泛的说，接口interfaces就是这样的合约。 例如，想象一下未来社会，电脑控制的机器人汽车运载乘客穿过城市的街道而不需要人为的操作。汽车制造商编写软件（当然，用java语言）来控制他们的汽车，停止，启动，加速，左转等等。另外">
@@ -399,7 +399,7 @@
         <h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><p>软件工程中的很多情况写，让各个独立的开发小组遵循一个”合约”，来详细说明他们的软件是如何相互作用的。每个小组应该能再完全不知道其他小组写的代码的情况下编写自己的代码。广泛的说，接口<code>interfaces</code>就是这样的合约。</p>
 <p>例如，想象一下未来社会，电脑控制的机器人汽车运载乘客穿过城市的街道而不需要人为的操作。汽车制造商编写软件（当然，用java语言）来控制他们的汽车，停止，启动，加速，左转等等。另外一个工业小组，电子制导设备制造商，制造电脑系统来接受GPS（Global Positioning System）位置信息以及无线传输的交通状况信息，并根据这些信息驾驶汽车。</p>
 <p>汽车制造商必须发布一个工业标准详细说明调用什么方法可以让汽车移动（任何一家厂商的任何一辆车）。这时候制导系统厂商就可以编写软件调用接口所规定的方法命令汽车运行。这样工业组并不需要了解其方法具体是怎么实现的，汽车厂商也高度保留了其所有权并可以随时修改其实现，同时又遵循与已经公布的接口标准。</p>
-<h2 id="Java中的接口"><a href="#Java中的接口" class="headerlink" title="Java中的接口"></a>Java中的接口</h2><p>Java编程语言中，接口interface是一个引用类型，与类class相似，不过只可以包含常量方法签名，默认方法，静态方法，嵌套类型。只有默认方法和静态方法可以存在方法体。接口不能被实例化——只能被类实现或者被其他的借口扩展。后续的借口将会讲到扩展的内容。</p>
+<h2 id="Java中的接口"><a href="#Java中的接口" class="headerlink" title="Java中的接口"></a>Java中的接口</h2><p>Java编程语言中，接口interface是一个引用类型，与类class相似，不过只可以包含常量，方法签名，默认方法，静态方法，嵌套类型。只有默认方法和静态方法可以存在方法体。接口不能被实例化——只能被类实现或者被其他的借口扩展。后续的借口将会讲到扩展的内容。</p>
 <p>定义一个接口与定义一个类非常类似:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OperateCar</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="comment">// constant declarations, if any</span></div><div class="line"></div><div class="line">   <span class="comment">// method signatures</span></div><div class="line">   </div><div class="line">   <span class="comment">// An enum with values RIGHT, LEFT</span></div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">turn</span><span class="params">(Direction direction,</span></span></div><div class="line">            <span class="keyword">double</span> radius,</div><div class="line">            <span class="keyword">double</span> startSpeed,</div><div class="line">            <span class="keyword">double</span> endSpeed);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">changeLanes</span><span class="params">(Direction direction,</span></span></div><div class="line">                   <span class="keyword">double</span> startSpeed,</div><div class="line">                   <span class="keyword">double</span> endSpeed);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">signalTurn</span><span class="params">(Direction direction,</span></span></div><div class="line">                  <span class="keyword">boolean</span> signalOn);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">getRadarFront</span><span class="params">(<span class="keyword">double</span> distanceToCar,</span></span></div><div class="line">                     <span class="keyword">double</span> speedOfCar);</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">getRadarRear</span><span class="params">(<span class="keyword">double</span> distanceToCar,</span></span></div><div class="line">                    <span class="keyword">double</span> speedOfCar);</div><div class="line">         ......</div><div class="line">   <span class="comment">// more method signatures</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>注意方法签名没有大括号包围的方法体有分号终结。</p>
@@ -478,8 +478,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/26/java-tutorial-learning_interface_define/" rel="next" title="Java 学习指南_学习Java：定义接口">
-                <i class="fa fa-chevron-left"></i> Java 学习指南_学习Java：定义接口
+              <a href="/2018/03/26/java-tutorial-learning_interface&inheritance/" rel="next" title="Java 学习指南_学习Java：接口与继承">
+                <i class="fa fa-chevron-left"></i> Java 学习指南_学习Java：接口与继承
               </a>
             
           </div>
@@ -488,8 +488,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/26/java-tutorial-learning_interface_implements/" rel="prev" title="Java 学习指南_学习Java：实现接口">
-                Java 学习指南_学习Java：实现接口 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/26/java-tutorial-learning_interface_define/" rel="prev" title="Java 学习指南_学习Java：定义接口">
+                Java 学习指南_学习Java：定义接口 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
