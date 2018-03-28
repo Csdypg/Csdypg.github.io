@@ -23,11 +23,11 @@ keywords:
 
 # 默认方法Default Methods
 
-接口章节 [Interfaces](https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html) 描述了一个例子，关于电脑控制汽车生产厂商发布工业标准接口，调用其中的方法可以对他们的汽车进行操控。如果电脑控制汽车厂商为汽车增加了新的功能，例如飞行的功能，会怎么样呢？这些厂商需要明确新的方法是其他的公司（例如电子制导系统公司）调整他们的软件来控制汽车飞行。这些厂商要在哪里声明这些飞行相关的方法呢？如果他们吧方法添加在原有的借口中，那么已经实现了这些接口的开发者就必须重写他们的实现。如果作为静态方法添加，开发者会将其作为工具方法，而不是必要的和兴方法来对待。
+接口章节 [Interfaces](https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html) 描述了一个例子，关于电脑控制汽车生产厂商发布工业标准接口，调用其中的方法可以对他们的汽车进行操控。如果电脑控制汽车厂商为汽车增加了新的功能，例如飞行的功能，会怎么样呢？这些厂商需要明确新的方法是其他的公司（例如电子制导系统公司）调整他们的软件来控制汽车飞行。这些厂商要在哪里声明这些飞行相关的方法呢？如果他们吧方法添加在原有的接口中，那么已经实现了这些接口的开发者就必须重写他们的实现。如果作为静态方法添加，开发者会将其作为工具方法，而不是必要的和兴方法来对待。
 
 默认方法可以让你为库里的接口添加新的功能，并且在重写旧版本接口的代码时确保两部分功能兼容。
 
-考虑下面的借口, [`TimeClient`](https://docs.oracle.com/javase/tutorial/java/IandI/examples/TimeClient.java), 在之前的联系中出现的 [Answers to Questions and Exercises: Interfaces](https://docs.oracle.com/javase/tutorial/java/IandI/QandE/interfaces-answers.html):
+考虑下面的接口, [`TimeClient`](https://docs.oracle.com/javase/tutorial/java/IandI/examples/TimeClient.java), 在之前的联系中出现的 [Answers to Questions and Exercises: Interfaces](https://docs.oracle.com/javase/tutorial/java/IandI/QandE/interfaces-answers.html):
 
 ```java
 import java.time.*; 
@@ -156,7 +156,7 @@ public class TestSimpleTimeClient {
 }
 ```
 
-## [扩展包含有默认方法的借口Extending Interfaces That Contain Default Methods]()
+## [扩展包含有默认方法的接口Extending Interfaces That Contain Default Methods]()
 
 当你从一个包含有默认方法的接口进行扩展时，你可以有一下做法：
 
@@ -227,7 +227,7 @@ public interface TimeClient {
 
 ## [在已有的代码库中融入默认方法Integrating Default Methods into Existing Libraries]()
 
-默认方法可以你是你在已有的借口中添加新的功能，并同时确保兼容老版本接口写的代码。特别的是，默认方法允许你添加接受lambda表达式作为参数。本节演示了如何使用默认方法和静态方法增强 [`Comparator`](https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html)接口.
+默认方法可以你是你在已有的接口中添加新的功能，并同时确保兼容老版本接口写的代码。特别的是，默认方法允许你添加接受lambda表达式作为参数。本节演示了如何使用默认方法和静态方法增强 [`Comparator`](https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html)接口.
 
 考虑 `Card` 以及 `Deck` 类，在之前的联系中出现过 [Questions and Exercises: Classes](https://docs.oracle.com/javase/tutorial/java/javaOO/QandE/creating-questions.html).本例重写了两个类 [`Card`](https://docs.oracle.com/javase/tutorial/java/IandI/examples/defaultmethods/Card.java) 以及 [`Deck`](https://docs.oracle.com/javase/tutorial/java/IandI/examples/defaultmethods/Deck.java) 作为接口. `Card` 接口包含了两个枚举类型 `enum` (`Suit` 和 `Rank`) 以及两个抽象方法(`getSuit` 和 `getRank`):
 

@@ -38,7 +38,7 @@ public Object findLargest(Object object1, Object object2) {
 
 如果你注意到很多的类都实现了 `Relatable`接口，任何这些类的实例都可以通过方法 `findLargest()`进行比较—只要他们是同一个类的对象.同样,他们都可以通过下面的方法进行比较:
 
-```
+```java
 public Object findSmallest(Object object1, Object object2) {
    Relatable obj1 = (Relatable)object1;
    Relatable obj2 = (Relatable)object2;
@@ -58,4 +58,4 @@ public boolean isEqual(Object object1, Object object2) {
 }
 ```
 
-这个方法对所有的"relatable"对象都有效,不管他们的类集成了什么，当他们实现了 `Relatable`接口,他们同时可以是谈么本身（或者其父类）的类型， 也可以是一个 `Relatable` 类型.这就给了他们多重继承的优势，他们同时可以表现出其父类和接口的行为.
+这个方法对所有的"relatable"对象都有效,不管他们的继承成了什么，当他们实现了 `Relatable`接口,他们同时可以是谈么本身（或者其父类）的类型， 也可以是一个 `Relatable` 类型.这就给了他们多重继承的优势，他们同时可以表现出其父类和接口的行为.
